@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-N01W5P5YVR"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-N01W5P5YVR');
+    </script>
+    
+    <title>Contact Us | Nest Capital Finance | Melbourne Mortgage Broker</title>
+    <meta name="description" content="Get in touch with Nest Capital Finance. Book a consultation with our expert mortgage brokers in Melbourne. Call 1300 385 222 or send us a message.">
+    <meta name="keywords" content="Contact Nest Capital Finance, Melbourne Mortgage Broker Contact, Book Consultation, Get a Quote">
+    <meta name="author" content="Nest Capital Finance">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://ncfinance.com.au/contact.html">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f5f7fa',
+                            100: '#ebeef3',
+                            200: '#d2dae5',
+                            300: '#abbccf',
+                            400: '#7e99b5',
+                            500: '#5e7c9d',
+                            600: '#4a6383',
+                            700: '#3d516b',
+                            800: '#36465a',
+                            900: '#2f3c4d',
+                        },
+                        accent: {
+                            400: '#f59e0b',
+                            500: '#d97706',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Jost', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        * {
+            font-family: 'Jost', sans-serif;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: white;
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .mobile-menu {
+            transform: translateX(100%);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    
+    <!-- Header -->
+    <header class="fixed top-0 left-0 w-full bg-brand-900 shadow-lg z-50">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="index.html">
+                <img src="https://shaggyyyz.github.io/nest-capital-finance/logo.png" alt="Nest Capital Finance" class="h-12 w-auto brightness-0 invert">
+            </a>
+            
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex space-x-10 items-center">
+                <a href="index.html" class="nav-link text-white font-medium text-sm uppercase tracking-widest relative">Home</a>
+                <a href="services.html" class="nav-link text-white font-medium text-sm uppercase tracking-widest relative">Services</a>
+                <a href="resources.html" class="nav-link text-white font-medium text-sm uppercase tracking-widest relative">Resources</a>
+                <a href="about.html" class="nav-link text-white font-medium text-sm uppercase tracking-widest relative">About</a>
+                <a href="contact.html" class="nav-link text-white font-medium text-sm uppercase tracking-widest relative">Contact</a>
+                <a href="contact.html" class="bg-white text-brand-900 px-8 py-3 rounded-sm font-medium text-xs uppercase tracking-widest hover:bg-gray-100 transition-colors duration-300 shadow-lg">Book Consultation</a>
+            </nav>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="md:hidden text-white focus:outline-none">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="mobile-menu fixed top-0 right-0 h-full w-64 bg-brand-900 shadow-2xl z-50">
+        <div class="p-6">
+            <button id="mobile-menu-close" class="text-white mb-8">
+                <i data-lucide="x" class="w-6 h-6"></i>
+            </button>
+            <nav class="flex flex-col space-y-6">
+                <a href="index.html" class="text-white font-medium text-sm uppercase tracking-widest hover:text-accent-400 transition">Home</a>
+                <a href="services.html" class="text-white font-medium text-sm uppercase tracking-widest hover:text-accent-400 transition">Services</a>
+                <a href="resources.html" class="text-white font-medium text-sm uppercase tracking-widest hover:text-accent-400 transition">Resources</a>
+                <a href="about.html" class="text-white font-medium text-sm uppercase tracking-widest hover:text-accent-400 transition">About</a>
+                <a href="contact.html" class="text-white font-medium text-sm uppercase tracking-widest hover:text-accent-400 transition">Contact</a>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="pt-24">
+        
+        <!-- Hero Section -->
+        <section class="bg-gradient-to-br from-brand-900 via-brand-800 to-brand-900 text-white py-20">
+            <div class="max-w-7xl mx-auto px-4 text-center">
+                <h1 class="text-5xl md:text-6xl font-bold mb-6 fade-in">Get In Touch</h1>
+                <p class="text-xl md:text-2xl text-gray-200 max-w-3xl mx-auto mb-8 fade-in">We are here to help you navigate your property journey. Reach out today.</p>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4">
+                <div class="grid md:grid-cols-2 gap-12">
+                    
+                    <!-- Contact Form -->
+                    <div class="fade-in">
+                        <h2 class="text-3xl font-bold text-brand-900 mb-6">Send us a Message</h2>
+                        <form class="space-y-6">
+                            <div>
+                                <label class="block text-sm font-bold text-gray-700 mb-2 uppercase tracking-wider">Full Name *</label>
+                                <input type="text" required class="w-full border border-gray-300 py-3 px-4 rounded-sm focus:outline-none focus:border-brand-900 transition">
+                            </div>
+                            <div class="grid md:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-sm font-bold text-gray-700 mb-2 uppercase tracking-wider">Email *</label>
+                                    <input type="email" required class="w-full border border-gray-300 py-3 px-4 rounded-sm focus:outline-none focus:border-brand-900 transition">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-bold text-gray-700 mb-2 uppercase tracking-wider">Phone *</label>
+                                    <input type="tel" required class="w-full border border-gray-300 py-3 px-4 rounded-sm focus:outline-none focus:border-brand-900 transition">
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-bold text-gray-700 mb-2 uppercase tracking-wider">Service Interested In</label>
+                                <select class="w-full border border-gray-300 py-3 px-4 rounded-sm focus:outline-none focus:border-brand-900 transition bg-white">
+                                    <option value="">Please Select</option>
+                                    <option value="residential">Residential Lending</option>
+                                    <option value="investment">Investment Property</option>
+                                    <option value="refinance">Refinancing</option>
+                                    <option value="commercial">Commercial Finance</option>
+                                    <option value="smsf">SMSF Lending</option>
+                                    <option value="asset">Asset Finance</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-bold text-gray-700 mb-2 uppercase tracking-wider">Message *</label>
+                                <textarea rows="5" required class="w-full border border-gray-300 py-3 px-4 rounded-sm focus:outline-none focus:border-brand-900 transition"></textarea>
+                            </div>
+                            <button type="submit" class="w-full bg-brand-900 text-white py-4 rounded-sm font-bold text-sm uppercase tracking-widest hover:bg-accent-500 transition-colors duration-300 shadow-lg">Send Message</button>
+                        </form>
+                    </div>
+
+                    <!-- Contact Details -->
+                    <div class="fade-in">
+                        <h2 class="text-3xl font-bold text-brand-900 mb-6">Contact Details</h2>
+                        <div class="space-y-6 mb-10">
+                            <div class="flex items-start gap-4">
+                                <div class="bg-brand-900 text-white p-3 rounded-sm">
+                                    <i data-lucide="phone" class="w-6 h-6"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-gray-900 mb-1">Phone</h3>
+                                    <a href="tel:1300385222" class="text-brand-600 hover:text-accent-500 transition text-lg">1300 385 222</a>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <div class="bg-brand-900 text-white p-3 rounded-sm">
+                                    <i data-lucide="mail" class="w-6 h-6"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-gray-900 mb-1">Email</h3>
+                                    <a href="mailto:info@nestcapitalfinance.com.au" class="text-brand-600 hover:text-accent-500 transition">info@nestcapitalfinance.com.au</a>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <div class="bg-brand-900 text-white p-3 rounded-sm">
+                                    <i data-lucide="map-pin" class="w-6 h-6"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-gray-900 mb-1">Office</h3>
+                                    <p class="text-gray-600">Melbourne, VIC<br>Servicing CBD, Inner North & Eastern Suburbs</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h3 class="text-2xl font-bold text-brand-900 mb-4">Office Hours</h3>
+                        <div class="bg-brand-50 p-6 rounded-sm border border-brand-100">
+                            <p class="text-gray-700 mb-2"><strong>Monday - Friday:</strong> 9:00 AM - 5:30 PM</p>
+                            <p class="text-gray-700"><strong>Weekends:</strong> By Appointment</p>
+                        </div>
+
+                        <div class="mt-10">
+                            <h3 class="text-2xl font-bold text-brand-900 mb-4">Follow Us</h3>
+                            <div class="flex gap-4">
+                                <a href="#" class="bg-brand-900 text-white p-3 rounded-full hover:bg-accent-500 transition">
+                                    <i data-lucide="facebook" class="w-6 h-6"></i>
+                                </a>
+                                <a href="https://www.linkedin.com/company/nest-capital-finance" class="bg-brand-900 text-white p-3 rounded-full hover:bg-accent-500 transition">
+                                    <i data-lucide="linkedin" class="w-6 h-6"></i>
+                                </a>
+                                <a href="https://www.instagram.com/nestcapitalfinance" class="bg-brand-900 text-white p-3 rounded-full hover:bg-accent-500 transition">
+                                    <i data-lucide="instagram" class="w-6 h-6"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-brand-900 text-white pt-16 pb-8 border-t border-white/10 text-sm">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-12 mb-12">
+                <div class="col-span-1">
+                    <img src="https://shaggyyyz.github.io/nest-capital-finance/logo.png" alt="Nest Capital Finance" class="h-14 w-auto mb-6 brightness-0 invert opacity-90">
+                    <p class="text-gray-300 mb-6 leading-relaxed">Providing clarity and confidence for your property journey. Your trusted partner in finance.</p>
+                    <div class="flex gap-4">
+                        <a href="#" class="bg-white/10 p-2 rounded-full hover:bg-accent-500 transition"><i data-lucide="facebook" class="w-5 h-5"></i></a>
+                        <a href="https://www.linkedin.com/company/nest-capital-finance" class="bg-white/10 p-2 rounded-full hover:bg-accent-500 transition"><i data-lucide="linkedin" class="w-5 h-5"></i></a>
+                        <a href="https://www.instagram.com/nestcapitalfinance" class="bg-white/10 p-2 rounded-full hover:bg-accent-500 transition"><i data-lucide="instagram" class="w-5 h-5"></i></a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-lg mb-6 text-white border-b border-white/20 pb-2 inline-block">Services</h4>
+                    <ul class="space-y-3">
+                        <li><a href="residential-lending.html" class="text-base font-medium text-white/70 hover:text-accent-400 transition-colors duration-300">Home Loans</a></li>
+                        <li><a href="investment-property.html" class="text-base font-medium text-white/70 hover:text-accent-400 transition-colors duration-300">Investment Loans</a></li>
+                        <li><a href="commercial-finance.html" class="text-base font-medium text-white/70 hover:text-accent-400 transition-colors duration-300">Commercial Finance</a></li>
+                        <li><a href="smsf-lending.html" class="text-base font-medium text-white/70 hover:text-accent-400 transition-colors duration-300">SMSF Lending</a></li>
+                        <li><a href="refinancing.html" class="text-base font-medium text-white/70 hover:text-accent-400 transition-colors duration-300">Refinancing</a></li>
+                        <li><a href="asset-finance.html" class="text-base font-medium text-white/70 hover:text-accent-400 transition-colors duration-300">Asset Finance</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-lg mb-6 text-white border-b border-white/20 pb-2 inline-block">Company</h4>
+                    <ul class="space-y-3">
+                        <li><a href="about.html" class="text-base font-medium text-white/70 hover:text-accent-400 transition-colors duration-300">About Us</a></li>
+                        <li><a href="resources.html" class="text-base font-medium text-white/70 hover:text-accent-400 transition-colors duration-300">Resources</a></li>
+                        <li><a href="faq.html" class="text-base font-medium text-white/70 hover:text-accent-400 transition-colors duration-300">FAQs</a></li>
+                        <li><a href="contact.html" class="text-base font-medium text-white/70 hover:text-accent-400 transition-colors duration-300">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-lg mb-6 text-white border-b border-white/20 pb-2 inline-block">Contact</h4>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i data-lucide="phone" class="w-5 h-5 text-accent-400 mr-3 mt-0.5"></i>
+                            <a href="tel:1300385222" class="text-base font-medium text-white/70 hover:text-accent-400 transition-colors duration-300">1300 385 222</a>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-lucide="mail" class="w-5 h-5 text-accent-400 mr-3 mt-0.5"></i>
+                            <a href="mailto:info@nestcapitalfinance.com.au" class="text-base font-medium text-white/70 hover:text-accent-400 transition-colors duration-300">info@nestcapitalfinance.com.au</a>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-lucide="map-pin" class="w-5 h-5 text-accent-400 mr-3 mt-0.5"></i>
+                            <span class="text-base font-medium text-white/70">Melbourne, VIC<br>Servicing CBD, Inner North & Eastern Suburbs</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm mb-4 md:mb-0">&copy; 2026 Nest Capital Finance Pty Ltd. All rights reserved.</p>
+                <div class="flex gap-6 text-sm">
+                    <a href="privacy-policy.html" class="text-gray-400 hover:text-accent-400 transition">Privacy Policy</a>
+                    <a href="terms-conditions.html" class="text-gray-400 hover:text-accent-400 transition">Terms & Conditions</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuClose = document.getElementById('mobile-menu-close');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.add('active');
+        });
+
+        mobileMenuClose.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+        });
+
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    </script>
+
+</body>
+</html>
