@@ -16,7 +16,7 @@
     <title>Articles & Guides | Nest Capital Finance</title>
     <meta name="description" content="Finance articles and step‑by‑step guides for home buyers, investors and business owners. Clear education on deposits, refinancing, investment strategy, SMSF lending, commercial loans and more.">
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://ncfinance.com.au/articles-guides.html">
+    <link rel="canonical" href="https://ncfinance.com.au/articles.html">
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -94,6 +94,7 @@
 
         .card-hover {
             transition: all 0.3s ease;
+            cursor: pointer;
         }
         .card-hover:hover {
             box-shadow: 0 20px 40px rgba(0,0,0,0.12);
@@ -107,6 +108,18 @@
         .article-badge {
             font-size: 11px;
             letter-spacing: 0.14em;
+        }
+
+        .modal-overlay {
+            background: rgba(15,23,42,0.7);
+        }
+
+        .modal-content {
+            max-height: 90vh;
+        }
+
+        .article-body p + p {
+            margin-top: 0.75rem;
         }
     </style>
 </head>
@@ -271,7 +284,7 @@
                             Latest articles & deep dives.
                         </h2>
                         <p class="text-sm text-gray-600">
-                            You can treat this page like a library – come back whenever you want a clear explanation before making a move.
+                            Treat this page like a library – come back whenever you want a clear explanation before making a move.
                         </p>
                     </div>
                     <div class="text-xs text-gray-500">
@@ -282,9 +295,11 @@
                 <div class="grid md:grid-cols-3 gap-8">
 
                     <!-- Article card 1 -->
-                    <article class="bg-brand-50 border border-brand-100 rounded-sm p-6 card-hover fade-in"
-                             data-article-category="home"
-                             data-article-keywords="first home buyer deposit lmi pre-approval">
+                    <article
+                        class="bg-brand-50 border border-brand-100 rounded-sm p-6 card-hover fade-in"
+                        data-article-id="first-home-roadmap"
+                        data-article-category="home"
+                        data-article-keywords="first home buyer deposit lmi pre-approval roadmap step-by-step">
                         <div class="flex items-center justify-between mb-3">
                             <span class="article-badge text-accent-400 uppercase">Home buyers</span>
                             <span class="text-[11px] text-brand-500 flex items-center gap-1">
@@ -302,17 +317,20 @@
                             <li>• When to engage a broker, conveyancer and buyer’s agent.</li>
                             <li>• What banks look for when they issue pre‑approval.</li>
                         </ul>
-                        <a href="contact.html"
-                           class="inline-flex items-center text-xs uppercase tracking-widest text-brand-900 hover:text-accent-500">
-                            Ask us to walk through your scenario
+                        <button
+                            class="inline-flex items-center text-xs uppercase tracking-widest text-brand-900 hover:text-accent-500"
+                            data-open-article="first-home-roadmap">
+                            Read article
                             <i data-lucide="arrow-right" class="w-4 h-4 ml-1"></i>
-                        </a>
+                        </button>
                     </article>
 
                     <!-- Article card 2 -->
-                    <article class="bg-brand-50 border border-brand-100 rounded-sm p-6 card-hover fade-in"
-                             data-article-category="home"
-                             data-article-keywords="refinance cashback fixed variable offset">
+                    <article
+                        class="bg-brand-50 border border-brand-100 rounded-sm p-6 card-hover fade-in"
+                        data-article-id="refinance-framework"
+                        data-article-category="home"
+                        data-article-keywords="refinance cashback fixed variable offset comparison loyalty tax">
                         <div class="flex items-center justify-between mb-3">
                             <span class="article-badge text-accent-400 uppercase">Refinancing</span>
                             <span class="text-[11px] text-brand-500 flex items-center gap-1">
@@ -327,20 +345,23 @@
                         </p>
                         <ul class="text-[11px] text-gray-500 space-y-1 mb-5">
                             <li>• How to compare true savings after fees and cashbacks.</li>
-                            <li>• Signals that you are paying the “loyalty tax”.</li>
-                            <li>• Questions to ask any lender or broker before switching.</li>
+                            <li>• Signals that you might be paying a “loyalty tax”.</li>
+                            <li>• Key questions to ask before signing anything.</li>
                         </ul>
-                        <a href="refinancing.html"
-                           class="inline-flex items-center text-xs uppercase tracking-widest text-brand-900 hover:text-accent-500">
-                            Learn more about our refinance process
+                        <button
+                            class="inline-flex items-center text-xs uppercase tracking-widest text-brand-900 hover:text-accent-500"
+                            data-open-article="refinance-framework">
+                            Read article
                             <i data-lucide="arrow-right" class="w-4 h-4 ml-1"></i>
-                        </a>
+                        </button>
                     </article>
 
                     <!-- Article card 3 -->
-                    <article class="bg-brand-50 border border-brand-100 rounded-sm p-6 card-hover fade-in"
-                             data-article-category="invest"
-                             data-article-keywords="rentvesting equity investment property strategy">
+                    <article
+                        class="bg-brand-50 border border-brand-100 rounded-sm p-6 card-hover fade-in"
+                        data-article-id="rentvesting-vs-upgrade"
+                        data-article-category="invest"
+                        data-article-keywords="rentvesting upgrading staying put equity investment property strategy">
                         <div class="flex items-center justify-between mb-3">
                             <span class="article-badge text-accent-400 uppercase">Investing</span>
                             <span class="text-[11px] text-brand-500 flex items-center gap-1">
@@ -358,95 +379,19 @@
                             <li>• How banks treat rent and existing loans when you change strategy.</li>
                             <li>• Example timelines for building a portfolio over 5–10 years.</li>
                         </ul>
-                        <a href="investment-property.html"
-                           class="inline-flex items-center text-xs uppercase tracking-widest text-brand-900 hover:text-accent-500">
-                            Explore investment lending options
+                        <button
+                            class="inline-flex items-center text-xs uppercase tracking-widest text-brand-900 hover:text-accent-500"
+                            data-open-article="rentvesting-vs-upgrade">
+                            Read article
                             <i data-lucide="arrow-right" class="w-4 h-4 ml-1"></i>
-                        </a>
+                        </button>
                     </article>
 
                 </div>
             </div>
         </section>
 
-        <!-- Category sections -->
-        <section class="py-20 bg-brand-50 border-b border-gray-100">
-            <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-3 gap-10">
-                <!-- Home & refinancing -->
-                <div class="space-y-4 fade-in" data-article-category="home">
-                    <div class="flex items-center gap-3 mb-2">
-                        <i data-lucide="home" class="w-5 h-5 text-accent-400"></i>
-                        <h2 class="font-serif text-2xl text-brand-900">Home & Refinancing Guides</h2>
-                    </div>
-                    <p class="text-sm text-gray-600 mb-3">
-                        For first‑time buyers and existing owners who want to make smarter decisions about structure, features and when to move lenders.
-                    </p>
-                    <ul class="text-sm text-brand-900 space-y-2">
-                        <li>• Understanding offset vs redraw (with real‑world examples).</li>
-                        <li>• Fixed, variable or split? How to think about rate strategy.</li>
-                        <li>• The “settlement day” checklist most people never see.</li>
-                    </ul>
-                    <a href="residential-lending.html"
-                       class="inline-flex items-center text-xs uppercase tracking-widest text-brand-900 hover:text-accent-500 mt-3">
-                        Learn more about home lending
-                        <i data-lucide="arrow-right" class="w-4 h-4 ml-1"></i>
-                    </a>
-                </div>
-
-                <!-- Investing -->
-                <div class="space-y-4 fade-in" data-article-category="invest">
-                    <div class="flex items-center gap-3 mb-2">
-                        <i data-lucide="trending-up" class="w-5 h-5 text-accent-400"></i>
-                        <h2 class="font-serif text-2xl text-brand-900">Investment & Portfolio Guides</h2>
-                    </div>
-                    <p class="text-sm text-gray-600 mb-3">
-                        For investors who care about borrowing strategy, not just the next purchase.
-                    </p>
-                    <ul class="text-sm text-brand-900 space-y-2">
-                        <li>• Using equity safely without over‑leveraging.</li>
-                        <li>• Why cross‑collateralisation matters and how to avoid it.</li>
-                        <li>• Planning your lender order for the next 2–3 properties.</li>
-                    </ul>
-                    <a href="investment-property.html"
-                       class="inline-flex items-center text-xs uppercase tracking-widest text-brand-900 hover:text-accent-500 mt-3">
-                        View investment lending page
-                        <i data-lucide="arrow-right" class="w-4 h-4 ml-1"></i>
-                    </a>
-                </div>
-
-                <!-- Business & SMSF -->
-                <div class="space-y-4 fade-in" data-article-category="business">
-                    <div class="flex items-center gap-3 mb-2">
-                        <i data-lucide="briefcase" class="w-5 h-5 text-accent-400"></i>
-                        <h2 class="font-serif text-2xl text-brand-900">Business, Commercial & SMSF Guides</h2>
-                    </div>
-                    <p class="text-sm text-gray-600 mb-3">
-                        For business owners and SMSF trustees wanting clarity on more complex lending structures.
-                    </p>
-                    <ul class="text-sm text-brand-900 space-y-2">
-                        <li>• How commercial loans differ from home loans.</li>
-                        <li>• Key moving parts in SMSF property lending.</li>
-                        <li>• Deciding between business lending vs asset finance.</li>
-                    </ul>
-                    <div class="flex flex-wrap gap-3 mt-3 text-xs uppercase tracking-widest">
-                        <a href="commercial-finance.html" class="inline-flex items-center text-brand-900 hover:text-accent-500">
-                            Commercial Finance
-                            <i data-lucide="arrow-right" class="w-4 h-4 ml-1"></i>
-                        </a>
-                        <a href="smsf-lending.html" class="inline-flex items-center text-brand-900 hover:text-accent-500">
-                            SMSF Lending
-                            <i data-lucide="arrow-right" class="w-4 h-4 ml-1"></i>
-                        </a>
-                        <a href="asset-finance.html" class="inline-flex items-center text-brand-900 hover:text-accent-500">
-                            Asset Finance
-                            <i data-lucide="arrow-right" class="w-4 h-4 ml-1"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Call to action -->
+        <!-- CTA -->
         <section class="bg-gradient-to-br from-brand-900 to-brand-800 text-white py-16">
             <div class="max-w-4xl mx-auto px-4 text-center">
                 <h2 class="text-3xl md:text-4xl font-bold mb-6">Want an article on a specific topic?</h2>
@@ -460,6 +405,35 @@
             </div>
         </section>
     </main>
+
+    <!-- Modal (single, reused for all articles) -->
+    <div id="article-modal" class="fixed inset-0 hidden items-center justify-center modal-overlay z-50 px-4">
+        <div class="bg-white rounded-sm shadow-2xl max-w-3xl w-full modal-content overflow-y-auto relative">
+            <button id="article-modal-close"
+                    class="absolute top-4 right-4 text-gray-400 hover:text-brand-900">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+            <div class="p-6 md:p-8">
+                <div class="flex items-center gap-3 mb-3">
+                    <span id="modal-article-badge"
+                          class="article-badge uppercase text-accent-400"></span>
+                    <span id="modal-article-meta"
+                          class="text-[11px] text-brand-500 flex items-center gap-1">
+                        <i data-lucide="clock" class="w-3 h-3"></i>
+                        <span id="modal-article-length"></span>
+                    </span>
+                </div>
+                <h2 id="modal-article-title"
+                    class="font-serif text-2xl md:text-3xl text-brand-900 mb-4"></h2>
+                <p id="modal-article-intro"
+                   class="text-sm md:text-base text-gray-700 mb-6"></p>
+                <div id="modal-article-body" class="article-body text-sm md:text-base text-gray-700 space-y-4"></div>
+                <p class="mt-8 text-[11px] text-gray-500">
+                    General information only. This content does not constitute personal advice and does not take into account your objectives, financial situation or needs.
+                </p>
+            </div>
+        </div>
+    </div>
 
     <!-- Footer -->
     <footer class="bg-brand-900 text-white pt-16 pb-8 border-t border-white/10 text-sm">
@@ -547,6 +521,7 @@
     <script>
         lucide.createIcons();
 
+        // Mobile nav
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
         const mobileMenuClose = document.getElementById('mobile-menu-close');
@@ -559,6 +534,7 @@
             mobileMenu.classList.remove('active');
         });
 
+        // Fade-in animations
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) entry.target.classList.add('visible');
@@ -567,7 +543,147 @@
 
         document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-        // Simple search/filter for article cards
+        // Article content map (all inline so no extra pages are needed)
+        const articleContent = {
+            'first-home-roadmap': {
+                badge: 'Home buyers',
+                length: '7 min read',
+                title: 'The real first‑home buyer roadmap (from “thinking about it” to settlement)',
+                intro: 'Buying your first home can feel overwhelming because there are so many moving parts. This roadmap breaks the journey into clear stages so you always know what comes next.',
+                body: [
+                    {
+                        heading: 'Stage 1 – Get clarity on your numbers',
+                        paragraphs: [
+                            'Before you scroll real estate listings, you need guardrails. That means understanding roughly what you can borrow, what a sensible purchase price range looks like, and how much cash you will need to complete a purchase.',
+                            'This usually involves a quick review of your income, existing debts, living expenses and savings. From there you can reverse‑engineer target suburbs and property types that actually fit.'
+                        ]
+                    },
+                    {
+                        heading: 'Stage 2 – Build a realistic deposit plan',
+                        paragraphs: [
+                            'Work out your current savings, expected savings over the next 6–12 months and any help from family. Factor in stamp duty, legal costs and a small buffer for surprises.',
+                            'In some cases, lender’s mortgage insurance or a government scheme can reduce the upfront deposit required, but it is important to understand the trade‑offs before relying on them.'
+                        ]
+                    },
+                    {
+                        heading: 'Stage 3 – Move from “enquiry” to genuine pre‑approval',
+                        paragraphs: [
+                            'A proper pre‑approval means a lender has actually assessed your documents against their credit policy. Online calculators or generic “you could borrow up to X” numbers are not the same thing.',
+                            'Pre‑approval gives you a price ceiling, but it is still conditional. Employment changes, extra debts or very unusual properties can all impact the final outcome.'
+                        ]
+                    },
+                    {
+                        heading: 'Stage 4 – Shortlist properties and complete due diligence',
+                        paragraphs: [
+                            'Once you know your numbers, you can focus on properties that fit, instead of wasting time on homes that were never realistic. At this point, the quality of the building, the location and the contract terms matter just as much as the price.',
+                            'Engaging a conveyancer or property lawyer early helps you understand contract risks, cooling‑off periods and how to structure any special conditions around finance approval.'
+                        ]
+                    },
+                    {
+                        heading: 'Stage 5 – Offer, contract and valuation',
+                        paragraphs: [
+                            'When an offer is accepted and you sign a contract, your lender will usually order a valuation. If it comes back low relative to the purchase price, that can affect both your approval and your required contribution.',
+                            'Good communication between your broker, conveyancer and the selling agent keeps everyone aligned on timeframes and conditions while this happens.'
+                        ]
+                    },
+                    {
+                        heading: 'Stage 6 – Final approval, loan documents and settlement',
+                        paragraphs: [
+                            'Once your loan is formally approved, you will receive loan documents to sign. It is important to check details like product type, rate, repayment amount, offset settings and any package fees.',
+                            'Settlement is when ownership and funds move. Your conveyancer or solicitor coordinates with the lender so this happens smoothly, and you get the keys without last‑minute surprises.'
+                        ]
+                    }
+                ]
+            },
+            'refinance-framework': {
+                badge: 'Refinancing',
+                length: '6 min read',
+                title: 'When does refinancing actually make sense? A simple decision framework.',
+                intro: 'Refinancing can save money or improve flexibility – but it can also create unnecessary churn. This framework helps you decide whether to move lenders, negotiate, or hold for now.',
+                body: [
+                    {
+                        heading: 'Step 1 – Diagnose the problem you are trying to solve',
+                        paragraphs: [
+                            'Are you mainly chasing a lower rate, wanting better features (like a true offset), or needing to access equity for another goal? Being clear on the primary objective makes it easier to compare options.',
+                            'If your main issue is short‑term cash‑flow, restructuring existing loans or adjusting repayments might help without changing lender.'
+                        ]
+                    },
+                    {
+                        heading: 'Step 2 – Compare true savings, not just headline rates',
+                        paragraphs: [
+                            'Look at the full picture over a reasonable horizon, including application fees, discharge fees, potential break costs, annual package fees and any cashback offers.',
+                            'Sometimes a slightly higher rate with lower ongoing fees can be better value than the sharpest headline rate once everything is added up.'
+                        ]
+                    },
+                    {
+                        heading: 'Step 3 – Check your borrowing profile today',
+                        paragraphs: [
+                            'Lender policies, your income and your expenses change over time. Even if you were easily approved a few years ago, today’s assessment may be tighter – especially if you now have more dependants, more debt, or lower income.',
+                            'A quick health check on your current borrowing profile can save you from investing time in an application that is unlikely to succeed.'
+                        ]
+                    },
+                    {
+                        heading: 'Step 4 – Consider the non‑rate benefits',
+                        paragraphs: [
+                            'A better internet banking experience, easier offset account setup, clearer redraw rules or the ability to split loans more flexibly can all be valid reasons to consider a move.',
+                            'On the flip side, if your current lender is responsive and policy‑flexible, that relationship can be worth something too – especially for investors planning multiple future transactions.'
+                        ]
+                    },
+                    {
+                        heading: 'Step 5 – Decide: switch, negotiate, or pause',
+                        paragraphs: [
+                            'If the numbers stack up and the new structure aligns with your goals, switching can be sensible. If the savings are marginal, it may be better to negotiate with your current lender and review again later.',
+                            'If your circumstances are temporarily complex (like a recent job change), it might be worth stabilising first and revisiting refinancing when you are in a stronger position.'
+                        ]
+                    }
+                ]
+            },
+            'rentvesting-vs-upgrade': {
+                badge: 'Investing',
+                length: '8 min read',
+                title: 'Rentvesting, upgrading or staying put? How to choose your next move.',
+                intro: 'There is no single “right” path for everyone. This guide contrasts staying in your current home, upgrading, and rentvesting so you can see which approach better fits your goals and risk appetite.',
+                body: [
+                    {
+                        heading: 'Option 1 – Stay put and optimise',
+                        paragraphs: [
+                            'Staying where you are and focusing on debt reduction can quietly improve your position. Lower debt means more flexibility later, especially in a higher‑rate environment.',
+                            'If you like where you live and your property suits your needs for the next few years, it can be worth maximising extra repayments and building buffers before considering the next move.'
+                        ]
+                    },
+                    {
+                        heading: 'Option 2 – Upgrade your home',
+                        paragraphs: [
+                            'Upgrading often increases your non‑deductible (home) debt, which can impact how quickly you can invest elsewhere. On the other hand, it may better match your lifestyle priorities, schools or commute.',
+                            'Banks will look at the higher loan amount, your income and your ongoing living costs. It is important to model how higher repayments would feel under different interest rate scenarios.'
+                        ]
+                    },
+                    {
+                        heading: 'Option 3 – Rentvest (rent where you want, buy where numbers work)',
+                        paragraphs: [
+                            'Rentvesting separates where you live from where you invest. You might rent in a lifestyle location while buying an investment in a more affordable, yield‑friendly area.',
+                            'This can improve your ability to build a portfolio but comes with trade‑offs around stability, landlord decisions and how comfortable you are not owning the home you live in.'
+                        ]
+                    },
+                    {
+                        heading: 'How lenders view each path',
+                        paragraphs: [
+                            'For upgrades, lenders focus on your new repayment size and whether your income comfortably covers it. For rentvesting, they also factor in expected rent on any investment property and how reliable that income is.',
+                            'Some strategies might look similar on a spreadsheet but feel very different in day‑to‑day life, so it helps to consider both the numbers and how each option would actually feel.'
+                        ]
+                    },
+                    {
+                        heading: 'Pulling it together',
+                        paragraphs: [
+                            'Rather than trying to time the market perfectly, focus on choosing a path that you can sustain for the next few years without undue stress.',
+                            'Once you are clear on your priorities, you can structure lending around that plan – rather than letting lending constraints dictate your entire strategy.'
+                        ]
+                    }
+                ]
+            }
+        };
+
+        // Search + filter
         const searchInput = document.getElementById('article-search');
         const articleCards = document.querySelectorAll('article[data-article-category]');
         const filterButtons = document.querySelectorAll('[data-article-filter]');
@@ -581,10 +697,11 @@
                 const keywords = (card.getAttribute('data-article-keywords') || '').toLowerCase();
                 const text = (card.textContent || '').toLowerCase();
 
-                const matchesCategory = activeFilter === 'all'
-                    || (activeFilter === 'home' && category === 'home')
-                    || (activeFilter === 'invest' && category === 'invest')
-                    || (activeFilter === 'business' && category === 'business');
+                const matchesCategory =
+                    activeFilter === 'all' ||
+                    (activeFilter === 'home' && category === 'home') ||
+                    (activeFilter === 'invest' && category === 'invest') ||
+                    (activeFilter === 'business' && category === 'business');
 
                 const matchesSearch = !term || text.includes(term) || keywords.includes(term);
 
@@ -607,11 +724,90 @@
             });
         });
 
-        // Set default active filter
         const defaultFilter = document.querySelector('[data-article-filter="all"]');
         if (defaultFilter) {
             defaultFilter.classList.add('active');
         }
+
+        // Modal logic
+        const modal = document.getElementById('article-modal');
+        const modalClose = document.getElementById('article-modal-close');
+        const modalBadge = document.getElementById('modal-article-badge');
+        const modalLength = document.getElementById('modal-article-length');
+        const modalTitle = document.getElementById('modal-article-title');
+        const modalIntro = document.getElementById('modal-article-intro');
+        const modalBody = document.getElementById('modal-article-body');
+
+        function openArticle(id) {
+            const article = articleContent[id];
+            if (!article) return;
+
+            modalBadge.textContent = article.badge;
+            modalLength.textContent = article.length;
+            modalTitle.textContent = article.title;
+            modalIntro.textContent = article.intro;
+
+            modalBody.innerHTML = '';
+            article.body.forEach(section => {
+                const sectionEl = document.createElement('section');
+                sectionEl.className = 'mb-4';
+
+                if (section.heading) {
+                    const h = document.createElement('h3');
+                    h.className = 'font-semibold text-brand-900 mb-2';
+                    h.textContent = section.heading;
+                    sectionEl.appendChild(h);
+                }
+
+                section.paragraphs.forEach(pText => {
+                    const p = document.createElement('p');
+                    p.textContent = pText;
+                    sectionEl.appendChild(p);
+                });
+
+                modalBody.appendChild(sectionEl);
+            });
+
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closeModal() {
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        document.querySelectorAll('[data-open-article]').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const id = btn.getAttribute('data-open-article');
+                openArticle(id);
+            });
+        });
+
+        // Also allow clicking anywhere on the card to open
+        articleCards.forEach(card => {
+            card.addEventListener('click', (e) => {
+                const button = card.querySelector('[data-open-article]');
+                if (!button) return;
+                if ((e.target.closest('button') && e.target.closest('button').hasAttribute('data-open-article')) ||
+                    e.target.closest('a')) {
+                    return;
+                }
+                const id = button.getAttribute('data-open-article');
+                openArticle(id);
+            });
+        });
+
+        modalClose.addEventListener('click', closeModal);
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) closeModal();
+        });
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+                closeModal();
+            }
+        });
     </script>
 </body>
 </html>
