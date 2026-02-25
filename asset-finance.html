@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-N01W5P5YVR"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-N01W5P5YVR');
+    </script>
+
+    <title>Asset & Equipment Finance | Nest Capital Finance</title>
+    <meta name="description" content="Asset and equipment finance for cars, utes, trucks, machinery and business equipment. Fast approvals, tax-effective structures and lender choice for PAYG and self-employed clients.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://ncfinance.com.au/asset-finance.html">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f5f7fa',
+                            100: '#ebeef3',
+                            200: '#d2dae5',
+                            300: '#abbccf',
+                            400: '#7e99b5',
+                            500: '#5e7c9d',
+                            600: '#4a6383',
+                            700: '#3d516b',
+                            800: '#36465a',
+                            900: '#2f3c4d',
+                        },
+                        accent: {
+                            400: '#f59e0b',
+                            500: '#d97706',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Jost', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        * { font-family: 'Jost', sans-serif; }
+        html { scroll-behavior: smooth; }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: white;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after { width: 100%; }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .mobile-menu {
+            transform: translateX(100%);
+            transition: transform 0.3s ease-in-out;
+        }
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+            transform: translateY(-6px);
+        }
+
+        .tag-pill, .badge {
+            border-radius: 999px;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+    <!-- Header -->
+    <header class="fixed top-0 left-0 w-full bg-brand-900 shadow-lg z-50">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="index.html">
+                <img src="https://shaggyyyz.github.io/nest-capital-finance/logo.png"
+                     alt="Nest Capital Finance"
+                     class="h-12 w-auto brightness-0 invert">
+            </a>
+
+            <!-- Desktop nav -->
+            <nav class="hidden md:flex space-x-10 items-center">
+                <a href="index.html" class="nav-link text-white font-medium text-sm uppercase tracking-widest relative">Home</a>
+                <a href="services.html" class="nav-link text-white font-medium text-sm uppercase tracking-widest relative">Services</a>
+                <a href="resources.html" class="nav-link text-white font-medium text-sm uppercase tracking-widest relative">Resources</a>
+                <a href="about.html" class="nav-link text-white font-medium text-sm uppercase tracking-widest relative">About</a>
+                <a href="contact.html" class="nav-link text-white font-medium text-sm uppercase tracking-widest relative">Contact</a>
+                <a href="contact.html" class="bg-white text-brand-900 px-8 py-3 rounded-sm font-medium text-xs uppercase tracking-widest hover:bg-gray-100 transition-colors duration-300 shadow-lg">Book Consultation</a>
+            </nav>
+
+            <!-- Mobile button -->
+            <button id="mobile-menu-btn" class="md:hidden text-white focus:outline-none">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="mobile-menu fixed top-0 right-0 h-full w-64 bg-brand-900 shadow-2xl z-50">
+        <div class="p-6">
+            <button id="mobile-menu-close" class="text-white mb-8">
+                <i data-lucide="x" class="w-6 h-6"></i>
+            </button>
+            <nav class="flex flex-col space-y-6">
+                <a href="index.html" class="text-white font-medium text-sm uppercase tracking-widest hover:text-accent-400 transition">Home</a>
+                <a href="services.html" class="text-white font-medium text-sm uppercase tracking-widest hover:text-accent-400 transition">Services</a>
+                <a href="resources.html" class="text-white font-medium text-sm uppercase tracking-widest hover:text-accent-400 transition">Resources</a>
+                <a href="about.html" class="text-white font-medium text-sm uppercase tracking-widest hover:text-accent-400 transition">About</a>
+                <a href="contact.html" class="text-white font-medium text-sm uppercase tracking-widest hover:text-accent-400 transition">Contact</a>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Main -->
+    <main class="pt-24">
+
+        <!-- Hero -->
+        <section class="bg-white pt-24 pb-16 border-b border-gray-100">
+            <div class="max-w-7xl mx-auto px-4 grid lg:grid-cols-2 gap-12 items-center">
+                <div class="fade-in">
+                    <a href="services.html"
+                       class="inline-flex items-center text-xs uppercase tracking-widest text-brand-600 mb-4 hover:text-accent-500 transition">
+                        <i data-lucide="arrow-left" class="w-4 h-4 mr-2"></i>
+                        Back to Services
+                    </a>
+                    <span class="text-accent-400 font-bold uppercase tracking-widest text-xs mb-4 block">
+                        Asset & Equipment Finance
+                    </span>
+                    <h1 class="font-serif text-4xl md:text-5xl text-brand-900 mb-6">
+                        The right assets, financed in a way that fits your cash‑flow.
+                    </h1>
+                    <p class="text-lg text-gray-600 mb-6">
+                        We arrange finance for vehicles, equipment and machinery so you can keep cash in the business, access potential tax benefits and upgrade without the stress of dealing with multiple lenders and dealerships.
+                    </p>
+                    <div class="flex flex-wrap gap-3 mb-8">
+                        <span class="tag-pill px-3 py-1 bg-brand-50 text-brand-700 text-xs uppercase tracking-widest">Cars & Utes</span>
+                        <span class="tag-pill px-3 py-1 bg-brand-50 text-brand-700 text-xs uppercase tracking-widest">Trucks & Yellow Goods</span>
+                        <span class="tag-pill px-3 py-1 bg-brand-50 text-brand-700 text-xs uppercase tracking-widest">Medical & Office Fit‑outs</span>
+                    </div>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="contact.html"
+                           class="inline-flex items-center justify-center bg-brand-900 text-white px-8 py-3 rounded-sm font-bold text-xs uppercase tracking-widest hover:bg-accent-500 transition shadow-lg">
+                            Request asset finance quote
+                        </a>
+                        <a href="resources.html"
+                           class="inline-flex items-center justify-center border border-brand-300 text-brand-900 px-8 py-3 rounded-sm font-bold text-xs uppercase tracking-widest hover:bg-brand-50 transition">
+                            View asset finance guides
+                        </a>
+                    </div>
+                </div>
+
+                <div class="fade-in">
+                    <div class="bg-brand-900 text-white rounded-sm p-8 md:p-10 shadow-xl relative overflow-hidden">
+                        <div class="absolute -right-20 -top-16 w-56 h-56 rounded-full bg-accent-500/10"></div>
+                        <div class="absolute -left-10 -bottom-10 w-40 h-40 rounded-full bg-white/5"></div>
+                        <div class="relative">
+                            <h2 class="font-serif text-2xl mb-4">What we can help finance</h2>
+                            <ul class="space-y-3 text-sm text-brand-50">
+                                <li class="flex items-start gap-3">
+                                    <i data-lucide="car" class="w-4 h-4 text-accent-400 mt-0.5"></i>
+                                    <span>Cars, utes and 4x4s for personal or business use, including novated and chattel mortgage options.</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <i data-lucide="truck" class="w-4 h-4 text-accent-400 mt-0.5"></i>
+                                    <span>Light and heavy commercial vehicles, trailers and trucks for transport and trades.</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <i data-lucide="hammer" class="w-4 h-4 text-accent-400 mt-0.5"></i>
+                                    <span>Construction and earthmoving equipment such as excavators, skid steers and loaders.</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <i data-lucide="activity" class="w-4 h-4 text-accent-400 mt-0.5"></i>
+                                    <span>Medical, dental and allied health equipment, plus office and clinic fit‑outs.</span>
+                                </li>
+                            </ul>
+                            <p class="mt-6 text-xs text-brand-200">
+                                Facilities available for PAYG employees, sole traders, companies and trusts, subject to lender criteria.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick badges -->
+        <section class="py-6 bg-brand-50 border-b border-gray-100">
+            <div class="max-w-7xl mx-auto px-4 flex flex-wrap gap-3 items-center">
+                <span class="badge bg-white text-brand-900 text-xs uppercase tracking-widest px-4 py-2 border border-brand-100 flex items-center gap-2">
+                    <i data-lucide="clock" class="w-4 h-4 text-accent-400"></i> Fast approvals
+                </span>
+                <span class="badge bg-white text-brand-900 text-xs uppercase tracking-widest px-4 py-2 border border-brand-100 flex items-center gap-2">
+                    <i data-lucide="file-text" class="w-4 h-4 text-accent-400"></i> Full‑doc & low‑doc
+                </span>
+                <span class="badge bg-white text-brand-900 text-xs uppercase tracking-widest px-4 py-2 border border-brand-100 flex items-center gap-2">
+                    <i data-lucide="hand-coins" class="w-4 h-4 text-accent-400"></i> Cash‑flow friendly terms
+                </span>
+            </div>
+        </section>
+
+        <!-- Who we help -->
+        <section class="py-20 bg-white border-b border-gray-100">
+            <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-3 gap-10">
+                <div class="md:col-span-1 fade-in">
+                    <h2 class="font-serif text-3xl text-brand-900 mb-4">Who asset finance is ideal for</h2>
+                    <p class="text-gray-600 text-sm">
+                        Sometimes it makes more sense to finance an asset than to pay cash, especially when it generates income or is used to run your business.
+                    </p>
+                </div>
+                <div class="md:col-span-2 grid sm:grid-cols-2 gap-6">
+                    <div class="bg-brand-50 border border-brand-100 rounded-sm p-6 card-hover fade-in">
+                        <div class="flex items-center gap-3 mb-3">
+                            <i data-lucide="wrench" class="w-5 h-5 text-accent-400"></i>
+                            <h3 class="font-serif text-lg text-brand-900">Tradies & contractors</h3>
+                        </div>
+                        <p class="text-sm text-gray-600 mb-3">
+                            Financing utes, vans and tools so you can take on more work without draining your savings.
+                        </p>
+                        <p class="text-xs text-gray-500">
+                            We structure repayments to line up with your business cash‑flow and expected workloads.
+                        </p>
+                    </div>
+                    <div class="bg-brand-50 border border-brand-100 rounded-sm p-6 card-hover fade-in">
+                        <div class="flex items-center gap-3 mb-3">
+                            <i data-lucide="stethoscope" class="w-5 h-5 text-accent-400"></i>
+                            <h3 class="font-serif text-lg text-brand-900">Medical & professional</h3>
+                        </div>
+                        <p class="text-sm text-gray-600 mb-3">
+                            Funding for medical equipment, fit‑outs and upgraded vehicles for growing practices.
+                        </p>
+                        <p class="text-xs text-gray-500">
+                            Some lenders offer tailored policy and pricing for established professionals.
+                        </p>
+                    </div>
+                    <div class="bg-brand-50 border border-brand-100 rounded-sm p-6 card-hover fade-in">
+                        <div class="flex items-center gap-3 mb-3">
+                            <i data-lucide="truck" class="w-5 h-5 text-accent-400"></i>
+                            <h3 class="font-serif text-lg text-brand-900">Transport & logistics</h3>
+                        </div>
+                        <p class="text-sm text-gray-600 mb-3">
+                            Trucks, trailers and logistics equipment where uptime and reliability are critical.
+                        </p>
+                        <p class="text-xs text-gray-500">
+                            We explore lenders comfortable with your type of work, routes and customers.
+                        </p>
+                    </div>
+                    <div class="bg-brand-50 border border-brand-100 rounded-sm p-6 card-hover fade-in">
+                        <div class="flex items-center gap-3 mb-3">
+                            <i data-lucide="briefcase" class="w-5 h-5 text-accent-400"></i>
+                            <h3 class="font-serif text-lg text-brand-900">Small business owners</h3>
+                        </div>
+                        <p class="text-sm text-gray-600 mb-3">
+                            Upgrading vehicles or equipment while preserving working capital and existing overdraft limits.
+                        </p>
+                        <p class="text-xs text-gray-500">
+                            We help you decide whether asset finance or a broader business facility is the better fit.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Facility types -->
+        <section class="py-20 bg-brand-50 border-b border-gray-100">
+            <div class="max-w-7xl mx-auto px-4">
+                <div class="text-center max-w-3xl mx-auto mb-12 fade-in">
+                    <span class="text-accent-400 font-bold uppercase tracking-widest text-xs mb-3 block">
+                        Asset finance options
+                    </span>
+                    <h2 class="font-serif text-3xl md:text-4xl text-brand-900 mb-4">
+                        Choose a structure that suits how you use the asset.
+                    </h2>
+                    <p class="text-gray-600 text-sm md:text-base">
+                        There is more than one way to finance a car or piece of equipment. We explain the differences in plain language so you can choose confidently with your accountant.
+                    </p>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="bg-white border border-gray-200 rounded-sm p-7 card-hover fade-in">
+                        <div class="flex items-center gap-3 mb-3">
+                            <i data-lucide="credit-card" class="w-5 h-5 text-accent-400"></i>
+                            <h3 class="font-serif text-lg text-brand-900">Chattel mortgage</h3>
+                        </div>
+                        <p class="text-sm text-gray-600 mb-2">
+                            Popular for business vehicles and equipment where your ABN entity owns the asset from day one.
+                        </p>
+                        <p class="text-xs text-gray-500">
+                            Potential tax and GST benefits, with flexible balloon options to keep repayments lower.
+                        </p>
+                    </div>
+                    <div class="bg-white border border-gray-200 rounded-sm p-7 card-hover fade-in">
+                        <div class="flex items-center gap-3 mb-3">
+                            <i data-lucide="file-badge" class="w-5 h-5 text-accent-400"></i>
+                            <h3 class="font-serif text-lg text-brand-900">Lease & hire purchase</h3>
+                        </div>
+                        <p class="text-sm text-gray-600 mb-2">
+                            Structures where the lender retains ownership or title conditions during the term.
+                        </p>
+                        <p class="text-xs text-gray-500">
+                            Can suit certain tax positions or where you want a cleaner balance sheet presentation.
+                        </p>
+                    </div>
+                    <div class="bg-white border border-gray-200 rounded-sm p-7 card-hover fade-in">
+                        <div class="flex items-center gap-3 mb-3">
+                            <i data-lucide="shield-check" class="w-5 h-5 text-accent-400"></i>
+                            <h3 class="font-serif text-lg text-brand-900">Low‑doc options</h3>
+                        </div>
+                        <p class="text-sm text-gray-600 mb-2">
+                            For established business owners where full financials are not readily available.
+                        </p>
+                        <p class="text-xs text-gray-500">
+                            Lenders may rely on ABN age, asset type, property ownership or bank statements instead of full tax returns.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Process & example -->
+        <section class="py-20 bg-white border-b border-gray-100">
+            <div class="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-10 items-start">
+                <div class="fade-in">
+                    <h2 class="font-serif text-2xl md:text-3xl text-brand-900 mb-4">
+                        A simple, fast asset finance process.
+                    </h2>
+                    <ol class="space-y-4 text-sm text-gray-700 list-decimal list-inside">
+                        <li>
+                            Quick discovery – we confirm the asset, purchase price, how it will be used and who will own it (personal, business, trust).
+                        </li>
+                        <li>
+                            Lender and structure selection – we compare options across our panel to find a structure that balances repayments, flexibility and tax treatment (with your accountant’s input).
+                        </li>
+                        <li>
+                            Approval & settlement – we coordinate with the dealer or supplier, manage documentation and keep you updated through approval, invoice payment and delivery.
+                        </li>
+                    </ol>
+                    <p class="mt-5 text-[11px] text-gray-500">
+                        We recommend you obtain tax advice on which structure is most appropriate for your circumstances.
+                    </p>
+                </div>
+                <div class="fade-in">
+                    <div class="bg-brand-50 border border-brand-100 rounded-sm p-7 shadow-sm">
+                        <p class="text-xs uppercase tracking-widest text-brand-600 mb-3">Illustrative scenario</p>
+                        <p class="text-sm text-gray-700 mb-4">
+                            A self‑employed electrician needed a new ute and tools package worth $78k. We arranged a chattel mortgage with a manageable balloon, using low‑doc assessment based on ABN age, bank statements and property ownership. The structure kept monthly repayments comfortable while allowing his accountant to optimise the tax treatment.
+                        </p>
+                        <p class="text-[11px] text-gray-500">
+                            This is a general example only and not advice. Asset finance suitability and pricing depend on your individual profile and lender criteria.
+                        </p>
+                        <a href="contact.html"
+                           class="inline-flex items-center mt-5 text-xs uppercase tracking-widest text-brand-900 hover:text-accent-500">
+                            Get an asset finance quote
+                            <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ teaser -->
+        <section class="py-16 bg-brand-50">
+            <div class="max-w-5xl mx-auto px-4 grid md:grid-cols-2 gap-10 items-center">
+                <div class="fade-in">
+                    <h2 class="font-serif text-2xl md:text-3xl text-brand-900 mb-4">
+                        Unsure whether to pay cash or finance your next asset?
+                    </h2>
+                    <p class="text-gray-600 text-sm mb-4">
+                        Our FAQ section explains common questions around interest rates, balloons, low‑doc options and how lenders view different asset types.
+                    </p>
+                    <a href="faq.html"
+                       class="inline-flex items-center text-sm uppercase tracking-widest text-brand-900 hover:text-accent-500">
+                        Explore FAQs
+                        <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
+                    </a>
+                </div>
+                <div class="fade-in">
+                    <div class="bg-white border border-gray-200 rounded-sm p-7 shadow-lg">
+                        <p class="text-xs uppercase tracking-widest text-brand-600 mb-3">No “one size fits all”</p>
+                        <p class="text-sm text-gray-700 mb-4">
+                            Dealer finance can seem convenient, but it is not always the most competitive or flexible option. We compare multiple lenders and structures so you can see the true cost before signing anything.
+                        </p>
+                        <p class="text-[11px] text-gray-500">
+                            You stay in control of where you buy the asset; we focus on getting the finance right.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="bg-gradient-to-br from-brand-900 to-brand-800 text-white py-16">
+            <div class="max-w-4xl mx-auto px-4 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6">Ready to upgrade your vehicle or equipment?</h2>
+                <p class="text-lg text-gray-200 mb-8">
+                    Share a few details about the asset and your situation, and we’ll outline your finance options in clear, simple terms.
+                </p>
+                <a href="contact.html"
+                   class="inline-block bg-white text-brand-900 px-10 py-4 rounded-sm font-bold text-sm uppercase tracking-widest hover:bg-gray-100 transition-colors duration-300 shadow-lg">
+                    Book Consultation
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-brand-900 text-white pt-16 pb-8 border-t border-white/10 text-sm">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-12 mb-12">
+                <div class="col-span-1">
+                    <img src="https://shaggyyyz.github.io/nest-capital-finance/logo.png"
+                         alt="Nest Capital Finance"
+                         class="h-14 w-auto mb-6 brightness-0 invert opacity-90">
+                    <p class="text-gray-300 mb-6 leading-relaxed">
+                        Providing clarity and confidence for your property journey. Your trusted partner in finance.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="#" class="bg-white/10 p-2 rounded-full hover:bg-accent-500 transition">
+                            <i data-lucide="facebook" class="w-5 h-5"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/company/nest-capital-finance"
+                           class="bg-white/10 p-2 rounded-full hover:bg-accent-500 transition">
+                            <i data-lucide="linkedin" class="w-5 h-5"></i>
+                        </a>
+                        <a href="https://www.instagram.com/nestcapitalfinance"
+                           class="bg-white/10 p-2 rounded-full hover:bg-accent-500 transition">
+                            <i data-lucide="instagram" class="w-5 h-5"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-lg mb-6 text-white border-b border-white/20 pb-2 inline-block">Services</h4>
+                    <ul class="space-y-3">
+                        <li><a href="residential-lending.html" class="text-base font-medium text-white/70 hover:text-accent-400 transition-colors duration-300">Home Loans</a></li>
+                        <li><a href="investment-property.html" class="text-base font-medium text-white/70 hover:text-accent-400 transition-colors duration-300">Investment Loans</a></li>
+                        <li><a href="commercial-finance.html" class="text-base font-medium text-white/70 hover:text-accent-400 transition-colors duration-300">Commercial Finance</a></li>
+                        <li><a href="smsf-lending.html" class="text-base font-medium text-white/70 hover:text-accent-400 transition-colors duration-300">SMSF Lending</a></li>
+                        <li><a href="refinancing.html" class="text-base font-medium text-white/70 hover:text-accent-400 transition-colors duration-300">Refinancing</a></li>
+                        <li><a href="asset-finance.html" class="text-base font-medium text-white/70 hover:text-accent-400 transition-colors duration-300">Asset Finance</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-lg mb-6 text-white border-b border-white/20 pb-2 inline-block">Company</h4>
+                    <ul class="space-y-3">
+                        <li><a href="about.html" class="text-base font-medium text-white/70 hover:text-accent-400 transition-colors duration-300">About Us</a></li>
+                        <li><a href="resources.html" class="text-base font-medium text-white/70 hover:text-accent-400 transition-colors duration-300">Resources</a></li>
+                        <li><a href="faq.html" class="text-base font-medium text-white/70 hover:text-accent-400 transition-colors duration-300">FAQs</a></li>
+                        <li><a href="contact.html" class="text-base font-medium text-white/70 hover:text-accent-400 transition-colors duration-300">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-lg mb-6 text-white border-b border-white/20 pb-2 inline-block">Contact</h4>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i data-lucide="phone" class="w-5 h-5 text-accent-400 mr-3 mt-0.5"></i>
+                            <a href="tel:1300385222" class="text-base font-medium text-white/70 hover:text-accent-400 transition-colors duration-300">
+                                1300 385 222
+                            </a>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-lucide="mail" class="w-5 h-5 text-accent-400 mr-3 mt-0.5"></i>
+                            <a href="mailto:info@nestcapitalfinance.com.au" class="text-base font-medium text-white/70 hover:text-accent-400 transition-colors duration-300">
+                                info@nestcapitalfinance.com.au
+                            </a>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-lucide="map-pin" class="w-5 h-5 text-accent-400 mr-3 mt-0.5"></i>
+                            <span class="text-base font-medium text-white/70">
+                                Melbourne, VIC<br>Servicing CBD, Inner North &amp; Eastern Suburbs
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm mb-4 md:mb-0">&copy; 2026 Nest Capital Finance Pty Ltd. All rights reserved.</p>
+                <div class="flex gap-6 text-sm">
+                    <a href="privacy-policy.html" class="text-gray-400 hover:text-accent-400 transition">Privacy Policy</a>
+                    <a href="terms-conditions.html" class="text-gray-400 hover:text-accent-400 transition">Terms &amp; Conditions</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuClose = document.getElementById('mobile-menu-close');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.add('active');
+        });
+
+        mobileMenuClose.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+        });
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>

@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-N01W5P5YVR"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-N01W5P5YVR');
+    </script>
+
+    <title>Nest Capital Finance | Mortgage Broker Melbourne | Home Loans & Commercial</title>
+    <meta name="description" content="Nest Capital Finance: Trusted Melbourne mortgage brokers. We specialize in First Home Buyers, Investment Loans, SMSF Lending & Commercial Finance across Australia.">
+    <meta name="keywords" content="Mortgage Broker Melbourne, Home Loans Victoria, Commercial Finance, Refinancing, First Home Buyer Grant, Investment Property Loans, Asset Finance, SMSF Lending, Essendon, Richmond, South Yarra">
+    <meta name="author" content="Nest Capital Finance">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://ncfinance.com.au/">
+
+    <!-- Preload slideshow images -->
+    <link rel="preload" as="image" href="https://shaggyyyz.github.io/nest-capital-finance/normalhouse.png">
+    <link rel="preload" as="image" href="https://shaggyyyz.github.io/nest-capital-finance/Rowhouse.jpg">
+    <link rel="preload" as="image" href="https://shaggyyyz.github.io/nest-capital-finance/warehouse.png">
+    <link rel="preload" as="image" href="https://shaggyyyz.github.io/nest-capital-finance/commercial.png">
+    <link rel="preload" as="image" href="https://shaggyyyz.github.io/nest-capital-finance/Underconstructinhouse.png">
+    <link rel="preload" as="image" href="https://shaggyyyz.github.io/nest-capital-finance/commercail%20property.png">
+    <link rel="preload" as="image" href="https://shaggyyyz.github.io/nest-capital-finance/logo.png" fetchpriority="high">
+
+    <meta name="geo.region" content="AU-VIC" />
+    <meta name="geo.placename" content="Melbourne" />
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Nest Capital Finance | Expert Mortgage Advice">
+    <meta property="og:description" content="Secure your future with tailored financial solutions. Expert mortgage broking for home buyers, investors, and business owners in Melbourne.">
+    <meta property="og:image" content="https://shaggyyyz.github.io/nest-capital-finance/Logolink.jpg">
+    <meta property="og:url" content="https://ncfinance.com.au/">
+    <meta property="og:site_name" content="Nest Capital Finance">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "FinancialService",
+          "@id": "https://ncfinance.com.au/#organization",
+          "name": "Nest Capital Finance",
+          "image": "https://shaggyyyz.github.io/nest-capital-finance/logo.png",
+          "telephone": "1300 385 222",
+          "email": "info@nestcapitalfinance.com.au",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Melbourne",
+            "addressRegion": "VIC",
+            "addressCountry": "AU"
+          },
+          "priceRange": "$$",
+          "openingHoursSpecification": {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+            "opens": "09:00",
+            "closes": "17:30"
+          }
+        }
+      ]
+    }
+    </script>
+
+    <!-- Tailwind / Chart.js / Fonts / Icons -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['FuturaPT', 'Futura', 'Jost', 'sans-serif'],
+                        serif: ['FuturaPT', 'Futura', 'Jost', 'sans-serif'], 
+                    },
+                    colors: {
+                        brand: {
+                            900: '#686965', 
+                            800: '#686965',
+                            700: '#686965',
+                            600: '#337566', 
+                            300: '#d1d5db',
+                            200: '#e5e7eb',
+                            100: '#eff5f4',
+                            50: '#f7f9f9',
+                        },
+                        accent: {
+                            400: '#c5a028', 
+                            500: '#b08d1e',
+                        }
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'fadeIn': 'fadeIn 0.5s ease-out forwards',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        },
+                        fadeIn: {
+                            '0%': { opacity: '0', transform: 'translateY(10px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        @font-face {
+            font-family: 'FuturaPT';
+            src: local('FuturaPT Light'), local('FuturaPT-Light'), local('Futura PT Light'), local('Futura');
+            font-weight: 300;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'FuturaPT';
+            src: local('FuturaPT Book'), local('FuturaPT-Book'), local('Futura PT Book'), local('Futura');
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        body {
+            font-family: 'FuturaPT', 'Futura', 'Jost', sans-serif;
+            font-weight: 300;
+        }
+        h1, h2, h3, h4, h5, h6, blockquote, .font-serif, .font-sans {
+            font-family: 'FuturaPT', 'Futura', 'Jost', sans-serif !important;
+        }
+        h1, h2, h3, h4, h5, h6 { font-weight: 700 !important; }
+        strong, b, .font-bold { font-weight: 300 !important; }
+
+        .sr-only {
+            position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+            overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border-width: 0;
+        }
+
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #686965; border-radius: 4px; }
+
+        .hero-bg-slide {
+            position: absolute; inset: 0; opacity: 0;
+            transition: opacity 2s ease-in-out;
+        }
+        .hero-bg-slide.active { opacity: 1; }
+        .hero-bg-slide img {
+            width: 100%; height: 100%; object-fit: cover;
+            transform: scale(1.1);
+            animation: slowZoom 20s ease-in-out infinite alternate;
+        }
+        @keyframes slowZoom {
+            0% { transform: scale(1.1); }
+            100% { transform: scale(1.15); }
+        }
+
+        .hero-word-wrapper { display:inline-block; overflow:hidden; vertical-align:bottom; margin-bottom:-0.2em; }
+        .hero-word {
+            display:inline-block; opacity:0; transform:translateY(110%);
+            transition: transform 1s cubic-bezier(0.16,1,0.3,1), opacity 1s ease;
+        }
+        .loaded .hero-word { opacity:1; transform:translateY(0); }
+
+        .reveal { transition: all 1s cubic-bezier(0.2,0.8,0.2,1); }
+        .reveal-hidden { opacity:0; transform:translateY(40px); }
+        .reveal.active { opacity:1; transform:translateY(0); }
+        .stagger-delay-1 { transition-delay: 100ms; }
+        .stagger-delay-2 { transition-delay: 200ms; }
+        .stagger-delay-3 { transition-delay: 300ms; }
+
+        .nav-link { position:relative; cursor:pointer; }
+        .nav-link::after {
+            content:''; position:absolute; width:0; height:1px; bottom:-4px; left:0;
+            background-color:white; transition: width 0.3s ease;
+        }
+        .nav-link:hover::after { width:100%; }
+
+        #navbar {
+            background: linear-gradient(to bottom, rgba(104,105,101,0.95) 0%, rgba(104,105,101,0) 100%);
+            transition: background 0.3s ease, box-shadow 0.3s ease;
+        }
+        #navbar.scrolled {
+            background:#686965 !important;
+            box-shadow:0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        .img-zoom-container { overflow:hidden; }
+        .img-zoom-container img { transition:transform 0.7s ease; }
+        .img-zoom-container:hover img { transform:scale(1.05); }
+
+        .floating-cta {
+            position:fixed; bottom:20px; right:20px; z-index:40;
+            box-shadow:0 4px 20px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease;
+        }
+        .floating-cta:hover { transform:translateY(-2px); }
+
+        @media (max-width:768px) {
+            .floating-cta span.hidden.md\:inline { display:none; }
+        }
+    </style>
+</head>
+<body class="bg-brand-50 text-gray-800 antialiased overflow-x-hidden">
+
+    <!-- Floating CTA -->
+    <a href="contact.html"
+       class="floating-cta bg-accent-500 text-white px-6 py-4 rounded-full font-bold uppercase tracking-widest text-xs flex items-center gap-2 hover:bg-accent-400">
+        <i data-lucide="calendar" class="w-4 h-4"></i>
+        <span class="hidden md:inline">Book CONSULTATION</span>
+        <span class="md:hidden">Book Now</span>
+    </a>
+
+    <!-- Header (file-based nav) -->
+    <header id="navbar" class="fixed w-full top-0 z-50 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-24">
+                <a href="index.html" class="flex items-center gap-3 group" aria-label="Nest Capital Finance Home">
+                    <img src="https://shaggyyyz.github.io/nest-capital-finance/logo.png"
+                         alt="Nest Capital Finance Logo"
+                         class="h-16 w-auto transition-transform duration-500 group-hover:scale-105">
+                </a>
+
+                <nav class="hidden md:flex space-x-10 items-center">
+                    <a href="index.html" class="nav-link text-white font-medium text-sm uppercase tracking-widest relative">Home</a>
+                    <a href="services.html" class="nav-link text-white font-medium text-sm uppercase tracking-widest relative">Services</a>
+                    <a href="resources.html" class="nav-link text-white font-medium text-sm uppercase tracking-widest relative">Resources</a>
+                    <a href="about.html" class="nav-link text-white font-medium text-sm uppercase tracking-widest relative">About</a>
+                    <a href="contact.html" class="nav-link text-white font-medium text-sm uppercase tracking-widest relative">Contact</a>
+                    <a href="contact.html" class="bg-white text-brand-900 px-8 py-3 rounded-sm font-medium text-xs uppercase tracking-widest hover:bg-gray-100 transition-colors duration-300 shadow-lg">
+                        Book Consultation
+                    </a>
+                </nav>
+
+                <button id="mobile-menu-btn" class="md:hidden text-white focus:outline-none" aria-label="Open Menu">
+                    <i data-lucide="menu" class="w-8 h-8"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile menu -->
+        <div id="mobile-menu"
+             class="fixed inset-0 bg-brand-900 z-50 transform translate-x-full transition-transform duration-300 flex flex-col justify-center items-center space-y-8">
+            <button id="close-menu-btn" class="absolute top-8 right-8 text-white" aria-label="Close Menu">
+                <i data-lucide="x" class="w-8 h-8"></i>
+            </button>
+            <a href="index.html" class="text-3xl font-serif text-white hover:text-accent-400 transition">Home</a>
+            <a href="services.html" class="text-3xl font-serif text-white hover:text-accent-400 transition">Services</a>
+            <a href="resources.html" class="text-3xl font-serif text-white hover:text-accent-400 transition">Resources</a>
+            <a href="lenders.html" class="text-3xl font-serif text-white hover:text-accent-400 transition">Lenders</a>
+            <a href="about.html" class="text-3xl font-serif text-white hover:text-accent-400 transition">About</a>
+            <a href="contact.html" class="text-3xl font-serif text-white hover:text-accent-400 transition">Contact</a>
+        </div>
+    </header>
+
+    <main class="pt-24">
+
+        <!-- HERO -->
+        <section class="relative h-screen min-h-[700px] flex items-center justify-center overflow-hidden">
+            <div class="absolute inset-0 z-0">
+                <div class="hero-bg-slide active">
+                    <img src="https://shaggyyyz.github.io/nest-capital-finance/normalhouse.png" alt="first home buyer Melbourne">
+                </div>
+                <div class="hero-bg-slide">
+                    <img src="https://shaggyyyz.github.io/nest-capital-finance/Rowhouse.jpg" alt="townhouse">
+                </div>
+                <div class="hero-bg-slide">
+                    <img src="https://shaggyyyz.github.io/nest-capital-finance/warehouse.png" alt="commercial Property Investment">
+                </div>
+                <div class="hero-bg-slide">
+                    <img src="https://shaggyyyz.github.io/nest-capital-finance/commercial.png" alt="shopfront Property">
+                </div>
+                <div class="hero-bg-slide">
+                    <img src="https://shaggyyyz.github.io/nest-capital-finance/Underconstructinhouse.png" alt="construction Property">
+                </div>
+                <div class="absolute inset-0 z-10 pointer-events-none"
+                     style="background: linear-gradient(to bottom,#686965f5 0%,#686965cc 20%,#68696577 50%,#686965cc 80%,#686965f5 100%);"></div>
+            </div>
+
+            <div class="relative z-10 max-w-6xl mx-auto px-4 text-center">
+                <h1 class="sr-only">Nest Capital Finance - Expert Mortgage Brokers Melbourne</h1>
+                <div class="font-serif text-4xl md:text-6xl lg:text-7xl text-white leading-tight mb-8 pb-4" aria-hidden="true">
+                    <div class="hero-word-wrapper"><span class="hero-word" style="transition-delay:0.1s">Dream.</span></div>
+                    <div class="hero-word-wrapper"><span class="hero-word italic" style="transition-delay:0.3s">Plan.</span></div>
+                    <div class="hero-word-wrapper"><span class="hero-word" style="transition-delay:0.5s">Buy!</span></div>
+                </div>
+                <p class="text-lg md:text-xl text-white mb-10 max-w-2xl mx-auto font-normal tracking-wide reveal stagger-delay-2 drop-shadow-md">
+                    Navigate the complex financial landscape with Melbourne's trusted mortgage experts. We provide clarity, confidence, and control for your property journey.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-6 justify-center items-center reveal stagger-delay-3">
+                    <a href="contact.html"
+                       class="bg-white text-brand-900 px-10 py-4 rounded-sm font-bold uppercase tracking-widest text-xs hover:bg-gray-100 transition shadow-xl transform hover:-translate-y-1">
+                        Start Conversation
+                    </a>
+                    <a href="services.html"
+                       class="text-white border border-white/30 px-10 py-4 rounded-sm font-bold uppercase tracking-widest text-xs hover:bg-white/10 transition backdrop-blur-sm">
+                        Our Services
+                    </a>
+                </div>
+            </div>
+
+            <div class="absolute bottom-10 left-0 right-0 flex flex-col items-center animate-float text-white/80">
+                <p class="text-[10px] uppercase tracking-[0.3em] mb-2">Scroll</p>
+                <div class="w-[1px] h-12 bg-white/50 mx-auto"></div>
+            </div>
+        </section>
+
+        <!-- PROBLEM STATEMENT -->
+        <section class="py-32 bg-white">
+            <div class="max-w-6xl mx-auto px-4 text-center">
+                <div class="w-px h-12 bg-brand-200 mb-6 mx-auto reveal"></div>
+                <h2 class="text-3xl md:text-5xl text-brand-900 leading-tight mb-8 max-w-4xl mx-auto reveal stagger-delay-1">
+                    We understand that navigating a complex and dynamic financial landscape can be
+                    <span class="text-brand-600 italic">overwhelming.</span>
+                </h2>
+                <div class="relative py-10 px-8 mb-10 reveal stagger-delay-2">
+                    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-px bg-accent-400"></div>
+                    <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-24 h-px bg-accent-400"></div>
+                    <p class="text-xl text-gray-600">
+                        At <strong class="text-brand-900">Nest Capital Finance</strong>, we are here to make the process as
+                        <span class="italic text-accent-500">streamlined</span> as possible.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- JOURNEY STEPS -->
+        <section class="py-24 bg-brand-50">
+            <div class="max-w-7xl mx-auto px-4">
+                <div class="text-center mb-16 reveal">
+                    <h2 class="font-serif text-4xl md:text-5xl text-brand-900 mb-6">Your Journey Made Clear</h2>
+                    <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                        We guide you through every step of the finance process, ensuring you feel confident and informed.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                    <div class="relative bg-white p-8 rounded-sm shadow-sm border-t-4 border-brand-600 reveal">
+                        <div class="absolute -top-6 left-8 w-12 h-12 bg-brand-900 text-white flex items-center justify-center text-xl font-serif rounded-full shadow-lg">1</div>
+                        <h3 class="font-serif text-xl text-brand-900 mt-4 mb-3">Discovery</h3>
+                        <p class="text-gray-600 text-sm">
+                            We meet to understand your goals, lifestyle, and financial position to tailor a strategy just for you.
+                        </p>
+                    </div>
+                    <div class="relative bg-white p-8 rounded-sm shadow-sm border-t-4 border-accent-500 reveal stagger-delay-1">
+                        <div class="absolute -top-6 left-8 w-12 h-12 bg-brand-900 text-white flex items-center justify-center text-xl font-serif rounded-full shadow-lg">2</div>
+                        <h3 class="font-serif text-xl text-brand-900 mt-4 mb-3">Strategy & Choice</h3>
+                        <p class="text-gray-600 text-sm">
+                            We compare 60+ lenders, negotiate rates, and present the suitable options that align with your long-term wealth plan.
+                        </p>
+                    </div>
+                    <div class="relative bg-white p-8 rounded-sm shadow-sm border-t-4 border-brand-600 reveal stagger-delay-2">
+                        <div class="absolute -top-6 left-8 w-12 h-12 bg-brand-900 text-white flex items-center justify-center text-xl font-serif rounded-full shadow-lg">3</div>
+                        <h3 class="font-serif text-xl text-brand-900 mt-4 mb-3">Approval</h3>
+                        <p class="text-gray-600 text-sm">
+                            We handle all the paperwork and compliance, securing your formal approval so you can bid with confidence.
+                        </p>
+                    </div>
+                    <div class="relative bg-white p-8 rounded-sm shadow-sm border-t-4 border-accent-500 reveal stagger-delay-3">
+                        <div class="absolute -top-6 left-8 w-12 h-12 bg-brand-900 text-white flex items-center justify-center text-xl font-serif rounded-full shadow-lg">4</div>
+                        <h3 class="font-serif text-xl text-brand-900 mt-4 mb-3">Settlement & Beyond</h3>
+                        <p class="text-gray-600 text-sm">
+                            We ensure funds settle on time and conduct annual reviews to ensure your rate remains competitive.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TESTIMONIALS -->
+        <section class="py-24 bg-white border-b border-gray-100">
+            <div class="max-w-6xl mx-auto px-4">
+                <div class="text-center mb-16 reveal">
+                    <span class="text-accent-400 font-bold uppercase tracking-widest text-xs mb-4 block">Client Stories</span>
+                    <h2 class="font-serif text-4xl md:text-5xl text-brand-900">Trusted by Melbourne Families</h2>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="bg-brand-50 p-8 rounded-sm reveal">
+                        <div class="flex gap-1 text-accent-500 mb-4">
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        </div>
+                        <p class="text-gray-700 italic mb-6">
+                            "Nest Capital Finance made our first home buying experience smooth. They explained everything clearly and got us a rate we didn't think was possible."
+                        </p>
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 bg-brand-200 rounded-full flex items-center justify-center font-bold text-brand-900">SJ</div>
+                            <div>
+                                <h4 class="font-bold text-sm text-brand-900">Sarah J.</h4>
+                                <p class="text-xs text-gray-500">Richmond, VIC</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-brand-50 p-8 rounded-sm reveal stagger-delay-1">
+                        <div class="flex gap-1 text-accent-500 mb-4">
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        </div>
+                        <p class="text-gray-700 italic mb-6">
+                            "As a business owner, getting finance can be tough. The team at Nest understood my complex structure and secured the commercial loan I needed."
+                        </p>
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 bg-brand-200 rounded-full flex items-center justify-center font-bold text-brand-900">MK</div>
+                            <div>
+                                <h4 class="font-bold text-sm text-brand-900">Michael K.</h4>
+                                <p class="text-xs text-gray-500">Business Owner</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-brand-50 p-8 rounded-sm reveal stagger-delay-2">
+                        <div class="flex gap-1 text-accent-500 mb-4">
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        </div>
+                        <p class="text-gray-700 italic mb-6">
+                            "We refinanced with Nest and saved over $600 a month. The process was entirely digital and straightforward. Would recommend."
+                        </p>
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 bg-brand-200 rounded-full flex items-center justify-center font-bold text-brand-900">DL</div>
+                            <div>
+                                <h4 class="font-bold text-sm text-brand-900">David L.</h4>
+                                <p class="text-xs text-gray-500">Property Investor</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ CTA -->
+        <section class="py-20 bg-brand-900 text-white">
+            <div class="max-w-4xl mx-auto px-4 text-center">
+                <h2 class="font-serif text-3xl md:text-4xl mb-6">Have Questions?</h2>
+                <p class="text-gray-300 mb-8 max-w-2xl mx-auto">
+                    Buying a property is a big decision. We have answered the most common questions about deposits, grants, and borrowing power.
+                </p>
+                <a href="faq.html"
+                   class="inline-block bg-white text-brand-900 px-8 py-3 rounded-sm font-bold uppercase tracking-widest text-xs hover:bg-accent-400 transition hover:text-white">
+                    View Frequently Asked Questions
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer (same pattern as services/contact) -->
+    <footer class="bg-brand-900 text-white pt-16 pb-8 border-t border-white/10 text-sm">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-12 mb-12">
+                <div class="col-span-1">
+                    <img src="https://shaggyyyz.github.io/nest-capital-finance/logo.png"
+                         alt="Nest Capital Finance"
+                         class="h-14 w-auto mb-6 brightness-0 invert opacity-90">
+                    <p class="text-gray-300 mb-6 leading-relaxed">
+                        Providing clarity and confidence for your property journey. Your trusted partner in finance.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="#" class="bg-white/10 p-2 rounded-full hover:bg-accent-500 transition"><i data-lucide="facebook" class="w-5 h-5"></i></a>
+                        <a href="https://www.linkedin.com/company/nest-capital-finance" class="bg-white/10 p-2 rounded-full hover:bg-accent-500 transition"><i data-lucide="linkedin" class="w-5 h-5"></i></a>
+                        <a href="https://www.instagram.com/nestcapitalfinance" class="bg-white/10 p-2 rounded-full hover:bg-accent-500 transition"><i data-lucide="instagram" class="w-5 h-5"></i></a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-lg mb-6 text-white border-b border-white/20 pb-2 inline-block">Services</h4>
+                    <ul class="space-y-3">
+                        <li><a href="residential-lending.html" class="text-base font-medium text-white/70 hover:text-accent-400 transition-colors duration-300">Home Loans</a></li>
+                        <li><a href="investment-property.html" class="text-base font-medium text-white/70 hover:text-accent-400 transition-colors duration-300">Investment Loans</a></li>
+                        <li><a href="commercial-finance.html" class="text-base font-medium text-white/70 hover:text-accent-400 transition-colors duration-300">Commercial Finance</a></li>
+                        <li><a href="smsf-lending.html" class="text-base font-medium text-white/70 hover:text-accent-400 transition-colors duration-300">SMSF Lending</a></li>
+                        <li><a href="refinancing.html" class="text-base font-medium text-white/70 hover:text-accent-400 transition-colors duration-300">Refinancing</a></li>
+                        <li><a href="asset-finance.html" class="text-base font-medium text-white/70 hover:text-accent-400 transition-colors duration-300">Asset Finance</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-lg mb-6 text-white border-b border-white/20 pb-2 inline-block">Company</h4>
+                    <ul class="space-y-3">
+                        <li><a href="about.html" class="text-base font-medium text-white/70 hover:text-accent-400 transition-colors duration-300">About Us</a></li>
+                        <li><a href="resources.html" class="text-base font-medium text-white/70 hover:text-accent-400 transition-colors duration-300">Resources</a></li>
+                        <li><a href="faq.html" class="text-base font-medium text-white/70 hover:text-accent-400 transition-colors duration-300">FAQs</a></li>
+                        <li><a href="contact.html" class="text-base font-medium text-white/70 hover:text-accent-400 transition-colors duration-300">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-lg mb-6 text-white border-b border-white/20 pb-2 inline-block">Contact</h4>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i data-lucide="phone" class="w-5 h-5 text-accent-400 mr-3 mt-0.5"></i>
+                            <a href="tel:1300385222" class="text-base font-medium text-white/70 hover:text-accent-400 transition-colors duration-300">
+                                1300 385 222
+                            </a>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-lucide="mail" class="w-5 h-5 text-accent-400 mr-3 mt-0.5"></i>
+                            <a href="mailto:info@nestcapitalfinance.com.au" class="text-base font-medium text-white/70 hover:text-accent-400 transition-colors duration-300">
+                                info@nestcapitalfinance.com.au
+                            </a>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-lucide="map-pin" class="w-5 h-5 text-accent-400 mr-3 mt-0.5"></i>
+                            <span class="text-base font-medium text-white/70">
+                                Melbourne, VIC<br>Servicing CBD, Inner North &amp; Eastern Suburbs
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm mb-4 md:mb-0">&copy; 2026 Nest Capital Finance Pty Ltd. All rights reserved.</p>
+                <div class="flex gap-6 text-sm">
+                    <a href="privacy-policy.html" class="text-gray-400 hover:text-accent-400 transition">Privacy Policy</a>
+                    <a href="terms-conditions.html" class="text-gray-400 hover:text-accent-400 transition">Terms &amp; Conditions</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Icons
+        lucide.createIcons();
+
+        // Hero slideshow
+        const slides = document.querySelectorAll('.hero-bg-slide');
+        let slideIndex = 0;
+        setInterval(() => {
+            slides[slideIndex].classList.remove('active');
+            slideIndex = (slideIndex + 1) % slides.length;
+            slides[slideIndex].classList.add('active');
+        }, 8000);
+
+        // Loaded word animation
+        window.addEventListener('load', () => {
+            document.body.classList.add('loaded');
+        });
+
+        // Navbar background on scroll
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 40) navbar.classList.add('scrolled');
+            else navbar.classList.remove('scrolled');
+        });
+
+        // Mobile menu
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const closeBtn = document.getElementById('close-menu-btn');
+        function toggleMenu() {
+            if (mobileMenu.classList.contains('translate-x-full')) {
+                mobileMenu.classList.remove('translate-x-full');
+                mobileMenu.classList.add('translate-x-0');
+            } else {
+                mobileMenu.classList.add('translate-x-full');
+                mobileMenu.classList.remove('translate-x-0');
+            }
+        }
+        mobileBtn.addEventListener('click', toggleMenu);
+        closeBtn.addEventListener('click', toggleMenu);
+
+        // Reveal on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('active');
+            });
+        }, { threshold: 0.15 });
+        document.querySelectorAll('.reveal').forEach(el => {
+            el.classList.add('reveal-hidden');
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
