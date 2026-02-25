@@ -39,41 +39,8 @@
     <meta property="og:url" content="https://ncfinance.com.au/">
     <meta property="og:site_name" content="Nest Capital Finance">
 
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@graph": [
-        {
-          "@type": "FinancialService",
-          "@id": "https://ncfinance.com.au/#organization",
-          "name": "Nest Capital Finance",
-          "image": "https://shaggyyyz.github.io/nest-capital-finance/logo.png",
-          "telephone": "1300 385 222",
-          "email": "info@nestcapitalfinance.com.au",
-          "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "Melbourne",
-            "addressRegion": "VIC",
-            "addressCountry": "AU"
-          },
-          "priceRange": "$$",
-          "openingHoursSpecification": {
-            "@type": "OpeningHoursSpecification",
-            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-            "opens": "09:00",
-            "closes": "17:30"
-          }
-        }
-      ]
-    }
-    </script>
-
-    <!-- Tailwind / Chart.js / Fonts / Icons -->
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/lucide@latest"></script>
-
     <script>
         tailwind.config = {
             theme: {
@@ -84,18 +51,11 @@
                     },
                     colors: {
                         brand: {
-                            900: '#686965', 
-                            800: '#686965',
-                            700: '#686965',
-                            600: '#337566', 
-                            300: '#d1d5db',
-                            200: '#e5e7eb',
-                            100: '#eff5f4',
-                            50: '#f7f9f9',
+                            900: '#686965', 800: '#686965', 700: '#686965', 600: '#337566', 
+                            300: '#d1d5db', 200: '#e5e7eb', 100: '#eff5f4', 50: '#f7f9f9',
                         },
                         accent: {
-                            400: '#c5a028', 
-                            500: '#b08d1e',
+                            400: '#c5a028', 500: '#b08d1e',
                         }
                     },
                     animation: {
@@ -117,6 +77,13 @@
         }
     </script>
 
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
     <style>
         @font-face {
             font-family: 'FuturaPT';
@@ -131,133 +98,79 @@
             font-style: normal;
         }
 
-        body {
-            font-family: 'FuturaPT', 'Futura', 'Jost', sans-serif;
-            font-weight: 300;
-        }
-        h1, h2, h3, h4, h5, h6, blockquote, .font-serif, .font-sans {
-            font-family: 'FuturaPT', 'Futura', 'Jost', sans-serif !important;
-        }
-        h1, h2, h3, h4, h5, h6 { font-weight: 700 !important; }
+        body { font-family: 'FuturaPT', 'Futura', 'Jost', sans-serif; font-weight: 300; scroll-behavior: smooth; }
+        h1, h2, h3, h4, h5, h6, blockquote, .font-serif, .font-sans { font-family: 'FuturaPT', 'Futura', 'Jost', sans-serif !important; font-weight: 300 !important; }
         strong, b, .font-bold { font-weight: 300 !important; }
-
-        .sr-only {
-            position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
-            overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border-width: 0;
-        }
-
+        h1, h2, h3, h4, h5, h6 { font-weight: 700 !important; }
+        
+        .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border-width: 0; }
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: #f1f1f1; }
         ::-webkit-scrollbar-thumb { background: #686965; border-radius: 4px; }
 
-        .hero-bg-slide {
-            position: absolute; inset: 0; opacity: 0;
-            transition: opacity 2s ease-in-out;
-        }
+        .hero-bg-slide { position: absolute; inset: 0; opacity: 0; transition: opacity 2s ease-in-out; }
         .hero-bg-slide.active { opacity: 1; }
-        .hero-bg-slide img {
-            width: 100%; height: 100%; object-fit: cover;
-            transform: scale(1.1);
-            animation: slowZoom 20s ease-in-out infinite alternate;
-        }
-        @keyframes slowZoom {
-            0% { transform: scale(1.1); }
-            100% { transform: scale(1.15); }
-        }
+        .hero-bg-slide img { width: 100%; height: 100%; object-fit: cover; transform: scale(1.1); animation: slowZoom 20s ease-in-out infinite alternate; }
+        @keyframes slowZoom { 0% { transform: scale(1.1); } 100% { transform: scale(1.15); } }
+        
+        .hero-word-wrapper { display: inline-block; overflow: hidden; vertical-align: bottom; margin-bottom: -0.2em; }
+        .hero-word { display: inline-block; opacity: 0; transform: translateY(110%); transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1), opacity 1s ease; }
+        .loaded .hero-word { opacity: 1; transform: translateY(0); }
 
-        .hero-word-wrapper { display:inline-block; overflow:hidden; vertical-align:bottom; margin-bottom:-0.2em; }
-        .hero-word {
-            display:inline-block; opacity:0; transform:translateY(110%);
-            transition: transform 1s cubic-bezier(0.16,1,0.3,1), opacity 1s ease;
-        }
-        .loaded .hero-word { opacity:1; transform:translateY(0); }
-
-        .reveal { transition: all 1s cubic-bezier(0.2,0.8,0.2,1); }
-        .reveal-hidden { opacity:0; transform:translateY(40px); }
-        .reveal.active { opacity:1; transform:translateY(0); }
+        .reveal { transition: all 1s cubic-bezier(0.2, 0.8, 0.2, 1); }
+        .reveal-hidden { opacity: 0; transform: translateY(40px); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
         .stagger-delay-1 { transition-delay: 100ms; }
         .stagger-delay-2 { transition-delay: 200ms; }
         .stagger-delay-3 { transition-delay: 300ms; }
 
-        .nav-link { position:relative; cursor:pointer; }
-        .nav-link::after {
-            content:''; position:absolute; width:0; height:1px; bottom:-4px; left:0;
-            background-color:white; transition: width 0.3s ease;
-        }
-        .nav-link:hover::after { width:100%; }
+        .nav-link { cursor: pointer; position: relative; }
+        .nav-link::after { content: ''; position: absolute; width: 0; height: 1px; bottom: -4px; left: 0; background-color: white; transition: width 0.3s ease; }
+        .nav-link:hover::after { width: 100%; }
 
-        #navbar {
-            background: linear-gradient(to bottom, rgba(104,105,101,0.95) 0%, rgba(104,105,101,0) 100%);
-            transition: background 0.3s ease, box-shadow 0.3s ease;
-        }
-        #navbar.scrolled {
-            background:#686965 !important;
-            box-shadow:0 4px 20px rgba(0,0,0,0.1);
-        }
+        #navbar { background: linear-gradient(to bottom, rgba(104, 105, 101, 0.95) 0%, rgba(104, 105, 101, 0) 100%); transition: background 0.3s ease; }
+        #navbar.scrolled { background: #686965 !important; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
 
-        .img-zoom-container { overflow:hidden; }
-        .img-zoom-container img { transition:transform 0.7s ease; }
-        .img-zoom-container:hover img { transform:scale(1.05); }
-
-        .floating-cta {
-            position:fixed; bottom:20px; right:20px; z-index:40;
-            box-shadow:0 4px 20px rgba(0,0,0,0.3);
-            transition: transform 0.3s ease;
-        }
-        .floating-cta:hover { transform:translateY(-2px); }
-
-        @media (max-width:768px) {
-            .floating-cta span.hidden.md\:inline { display:none; }
-        }
+        .floating-cta { position: fixed; bottom: 20px; right: 20px; z-index: 49; box-shadow: 0 4px 20px rgba(0,0,0,0.3); transition: transform 0.3s ease; }
+        .floating-cta:hover { transform: translateY(-2px); }
     </style>
 </head>
-<body class="bg-brand-50 text-gray-800 antialiased overflow-x-hidden">
+<body class="bg-brand-50 text-gray-800 font-sans antialiased overflow-x-hidden">
 
     <!-- Floating CTA -->
-    <a href="contact.html"
-       class="floating-cta bg-accent-500 text-white px-6 py-4 rounded-full font-bold uppercase tracking-widest text-xs flex items-center gap-2 hover:bg-accent-400">
+    <a href="contact.html" class="floating-cta bg-accent-500 text-white px-6 py-4 rounded-full font-bold uppercase tracking-widest text-xs flex items-center gap-2 hover:bg-accent-400">
         <i data-lucide="calendar" class="w-4 h-4"></i>
         <span class="hidden md:inline">Book CONSULTATION</span>
         <span class="md:hidden">Book Now</span>
     </a>
 
-    <!-- Header (file-based nav) -->
+    <!-- Header -->
     <header id="navbar" class="fixed w-full top-0 z-50 transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-24">
                 <a href="index.html" class="flex items-center gap-3 group" aria-label="Nest Capital Finance Home">
-                    <img src="https://shaggyyyz.github.io/nest-capital-finance/logo.png"
-                         alt="Nest Capital Finance Logo"
-                         class="h-16 w-auto transition-transform duration-500 group-hover:scale-105">
+                    <img src="https://shaggyyyz.github.io/nest-capital-finance/logo.png" alt="Nest Capital Finance Logo" class="h-16 w-auto transition-transform duration-500 group-hover:scale-105">
                 </a>
-
                 <nav class="hidden md:flex space-x-10 items-center">
                     <a href="index.html" class="nav-link text-white font-medium text-sm uppercase tracking-widest relative">Home</a>
                     <a href="services.html" class="nav-link text-white font-medium text-sm uppercase tracking-widest relative">Services</a>
                     <a href="resources.html" class="nav-link text-white font-medium text-sm uppercase tracking-widest relative">Resources</a>
                     <a href="about.html" class="nav-link text-white font-medium text-sm uppercase tracking-widest relative">About</a>
                     <a href="contact.html" class="nav-link text-white font-medium text-sm uppercase tracking-widest relative">Contact</a>
-                    <a href="contact.html" class="bg-white text-brand-900 px-8 py-3 rounded-sm font-medium text-xs uppercase tracking-widest hover:bg-gray-100 transition-colors duration-300 shadow-lg">
-                        Book Consultation
-                    </a>
+                    <a href="contact.html" class="bg-white text-brand-900 px-8 py-3 rounded-sm font-medium text-xs uppercase tracking-widest hover:bg-gray-100 transition-colors duration-300 shadow-lg">Book Consultation</a>
                 </nav>
-
                 <button id="mobile-menu-btn" class="md:hidden text-white focus:outline-none" aria-label="Open Menu">
                     <i data-lucide="menu" class="w-8 h-8"></i>
                 </button>
             </div>
         </div>
-
-        <!-- Mobile menu -->
-        <div id="mobile-menu"
-             class="fixed inset-0 bg-brand-900 z-50 transform translate-x-full transition-transform duration-300 flex flex-col justify-center items-center space-y-8">
+        <div id="mobile-menu" class="fixed inset-0 bg-brand-900 z-50 transform translate-x-full transition-transform duration-300 flex flex-col justify-center items-center space-y-8">
             <button id="close-menu-btn" class="absolute top-8 right-8 text-white" aria-label="Close Menu">
                 <i data-lucide="x" class="w-8 h-8"></i>
             </button>
             <a href="index.html" class="text-3xl font-serif text-white hover:text-accent-400 transition">Home</a>
             <a href="services.html" class="text-3xl font-serif text-white hover:text-accent-400 transition">Services</a>
             <a href="resources.html" class="text-3xl font-serif text-white hover:text-accent-400 transition">Resources</a>
-            <a href="lenders.html" class="text-3xl font-serif text-white hover:text-accent-400 transition">Lenders</a>
             <a href="about.html" class="text-3xl font-serif text-white hover:text-accent-400 transition">About</a>
             <a href="contact.html" class="text-3xl font-serif text-white hover:text-accent-400 transition">Contact</a>
         </div>
@@ -289,7 +202,7 @@
 
             <div class="relative z-10 max-w-6xl mx-auto px-4 text-center">
                 <h1 class="sr-only">Nest Capital Finance - Expert Mortgage Brokers Melbourne</h1>
-                <div class="font-serif text-4xl md:text-6xl lg:text-7xl text-white leading-tight mb-8 pb-4" aria-hidden="true">
+                <div class="font-serif text-4xl md:text-6xl lg:text-7xl text-white font-medium leading-tight mb-8 pb-4" aria-hidden="true">
                     <div class="hero-word-wrapper"><span class="hero-word" style="transition-delay:0.1s">Dream.</span></div>
                     <div class="hero-word-wrapper"><span class="hero-word italic" style="transition-delay:0.3s">Plan.</span></div>
                     <div class="hero-word-wrapper"><span class="hero-word" style="transition-delay:0.5s">Buy!</span></div>
@@ -327,7 +240,7 @@
                     <div class="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-px bg-accent-400"></div>
                     <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-24 h-px bg-accent-400"></div>
                     <p class="text-xl text-gray-600">
-                        At <strong class="text-brand-900">Nest Capital Finance</strong>, we are here to make the process as
+                        At <strong class="text-brand-900 font-medium">Nest Capital Finance</strong>, we are here to make the process as
                         <span class="italic text-accent-500">streamlined</span> as possible.
                     </p>
                 </div>
@@ -450,7 +363,7 @@
         </section>
 
         <!-- FAQ CTA -->
-        <section class="py-20 bg-brand-900 text-white">
+        <section class="py-20 bg-brand-900 text-white reveal">
             <div class="max-w-4xl mx-auto px-4 text-center">
                 <h2 class="font-serif text-3xl md:text-4xl mb-6">Have Questions?</h2>
                 <p class="text-gray-300 mb-8 max-w-2xl mx-auto">
@@ -465,17 +378,12 @@
 
     </main>
 
-    <!-- Footer (same pattern as services/contact) -->
     <footer class="bg-brand-900 text-white pt-16 pb-8 border-t border-white/10 text-sm">
         <div class="max-w-7xl mx-auto px-4">
             <div class="grid md:grid-cols-4 gap-12 mb-12">
                 <div class="col-span-1">
-                    <img src="https://shaggyyyz.github.io/nest-capital-finance/logo.png"
-                         alt="Nest Capital Finance"
-                         class="h-14 w-auto mb-6 brightness-0 invert opacity-90">
-                    <p class="text-gray-300 mb-6 leading-relaxed">
-                        Providing clarity and confidence for your property journey. Your trusted partner in finance.
-                    </p>
+                    <img loading="eager" fetchpriority="high" src="https://shaggyyyz.github.io/nest-capital-finance/logo.png" alt="Nest Capital Finance" class="h-14 w-auto mb-6 brightness-0 invert opacity-90">
+                    <p class="text-gray-300 mb-6 leading-relaxed">Providing clarity and confidence for your property journey. Your trusted partner in finance.</p>
                     <div class="flex gap-4">
                         <a href="#" class="bg-white/10 p-2 rounded-full hover:bg-accent-500 transition"><i data-lucide="facebook" class="w-5 h-5"></i></a>
                         <a href="https://www.linkedin.com/company/nest-capital-finance" class="bg-white/10 p-2 rounded-full hover:bg-accent-500 transition"><i data-lucide="linkedin" class="w-5 h-5"></i></a>
@@ -507,89 +415,79 @@
 
                 <div>
                     <h4 class="font-bold text-lg mb-6 text-white border-b border-white/20 pb-2 inline-block">Contact</h4>
-                    <ul class="space-y-3">
-                        <li class="flex items-start">
-                            <i data-lucide="phone" class="w-5 h-5 text-accent-400 mr-3 mt-0.5"></i>
-                            <a href="tel:1300385222" class="text-base font-medium text-white/70 hover:text-accent-400 transition-colors duration-300">
-                                1300 385 222
-                            </a>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="map-pin" class="w-5 h-5 text-accent-400 mt-1"></i>
+                            <span class="text-white/70">Melbourne, VIC<br>Servicing All Suburbs</span>
                         </li>
-                        <li class="flex items-start">
-                            <i data-lucide="mail" class="w-5 h-5 text-accent-400 mr-3 mt-0.5"></i>
-                            <a href="mailto:info@nestcapitalfinance.com.au" class="text-base font-medium text-white/70 hover:text-accent-400 transition-colors duration-300">
-                                info@nestcapitalfinance.com.au
-                            </a>
+                        <li class="flex items-center gap-3">
+                            <i data-lucide="phone" class="w-5 h-5 text-accent-400"></i>
+                            <a href="tel:1300385222" class="text-white/70 hover:text-white">1300 385 222</a>
                         </li>
-                        <li class="flex items-start">
-                            <i data-lucide="map-pin" class="w-5 h-5 text-accent-400 mr-3 mt-0.5"></i>
-                            <span class="text-base font-medium text-white/70">
-                                Melbourne, VIC<br>Servicing CBD, Inner North &amp; Eastern Suburbs
-                            </span>
+                        <li class="flex items-center gap-3">
+                            <i data-lucide="mail" class="w-5 h-5 text-accent-400"></i>
+                            <a href="mailto:info@nestcapitalfinance.com.au" class="text-white/70 hover:text-white">info@nestcapitalfinance.com.au</a>
                         </li>
                     </ul>
                 </div>
             </div>
 
-            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center">
-                <p class="text-gray-400 text-sm mb-4 md:mb-0">&copy; 2026 Nest Capital Finance Pty Ltd. All rights reserved.</p>
-                <div class="flex gap-6 text-sm">
-                    <a href="privacy-policy.html" class="text-gray-400 hover:text-accent-400 transition">Privacy Policy</a>
-                    <a href="terms-conditions.html" class="text-gray-400 hover:text-accent-400 transition">Terms &amp; Conditions</a>
-                </div>
+            <div class="border-t border-white/20 pt-8 flex flex-col items-start gap-2">
+                <p class="text-white/50 text-xs">&copy; 2026 Nest Capital Finance Pty Ltd. All rights reserved. | Credit Representative 574020 is authorised under Australian Credit Licence 389328. | AFCA Member 118936</p>
+                <p class="text-white/50 text-xs mt-1"><a href="privacy-policy.html" class="hover:text-white transition">Privacy Policy</a> | <a href="contact.html" class="hover:text-white transition">Feedback & Complaints</a> | <a href="terms-conditions.html" class="hover:text-white transition">Terms and Conditions</a></p>
+                <p class="text-white/40 text-xs mt-3 max-w-4xl">Disclaimer: This page provides general information only and has been prepared without taking into account your objectives, financial situation or needs. We recommend that you consider whether it is appropriate for your circumstances. Your full financial situation will need to be reviewed prior to acceptance of any offer or product. Subject to lender's terms and conditions, fees and charges and eligibility criteria apply.</p>
             </div>
         </div>
     </footer>
 
     <script>
-        // Icons
         lucide.createIcons();
 
         // Hero slideshow
         const slides = document.querySelectorAll('.hero-bg-slide');
         let slideIndex = 0;
         setInterval(() => {
-            slides[slideIndex].classList.remove('active');
-            slideIndex = (slideIndex + 1) % slides.length;
-            slides[slideIndex].classList.add('active');
+            if (slides.length) {
+                slides[slideIndex].classList.remove('active');
+                slideIndex = (slideIndex + 1) % slides.length;
+                slides[slideIndex].classList.add('active');
+            }
         }, 8000);
 
-        // Loaded word animation
-        window.addEventListener('load', () => {
-            document.body.classList.add('loaded');
-        });
-
-        // Navbar background on scroll
         const navbar = document.getElementById('navbar');
         window.addEventListener('scroll', () => {
             if (window.scrollY > 40) navbar.classList.add('scrolled');
             else navbar.classList.remove('scrolled');
         });
 
-        // Mobile menu
-        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
-        const closeBtn = document.getElementById('close-menu-btn');
-        function toggleMenu() {
-            if (mobileMenu.classList.contains('translate-x-full')) {
-                mobileMenu.classList.remove('translate-x-full');
-                mobileMenu.classList.add('translate-x-0');
-            } else {
-                mobileMenu.classList.add('translate-x-full');
-                mobileMenu.classList.remove('translate-x-0');
-            }
-        }
-        mobileBtn.addEventListener('click', toggleMenu);
-        closeBtn.addEventListener('click', toggleMenu);
+        const closeMenuBtn = document.getElementById('close-menu-btn');
 
-        // Reveal on scroll
+        function toggleMenu() {
+            mobileMenu.classList.toggle('translate-x-full');
+            document.body.classList.toggle('overflow-hidden');
+        }
+
+        if(mobileMenuBtn) mobileMenuBtn.addEventListener('click', toggleMenu);
+        if(closeMenuBtn) closeMenuBtn.addEventListener('click', toggleMenu);
+
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                if (entry.isIntersecting) entry.target.classList.add('active');
+                if (entry.isIntersecting) {
+                    entry.target.classList.remove('reveal-hidden');
+                    entry.target.classList.add('active');
+                }
             });
         }, { threshold: 0.15 });
+
         document.querySelectorAll('.reveal').forEach(el => {
             el.classList.add('reveal-hidden');
             observer.observe(el);
+        });
+
+        window.addEventListener('load', () => {
+            document.body.classList.add('loaded');
         });
     </script>
 </body>
