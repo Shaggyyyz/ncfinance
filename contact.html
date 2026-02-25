@@ -358,6 +358,68 @@
         }, observerOptions);
 
         document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        // --- GOOGLE SHEETS FORM HANDLING ---
+        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzM5V1rksCGnt3xLXyfSwEIRo-mFieppORTHWYZNQ_9SLlLa259aPvB_ZnOAHyjnLpeMA/exec';
+
+        async function handleFormSubmit(e, messageId) {
+            e.preventDefault();
+            
+            const form = e.target;
+            const submitBtn = form.querySelector('button[type="submit"]');
+            const messageDiv = document.getElementById(messageId);
+            
+            const formData = {
+                name: form.name.value,
+                phone: form.phone.value,
+                email: form.email.value,
+                interest: form.interest.value,
+                message: form.message.value
+            };
+            
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'SENDING...';
+            submitBtn.classList.add('opacity-50', 'cursor-not-allowed');
+            
+            try {
+                await fetch(SCRIPT_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(formData)
+                });
+                
+                messageDiv.innerHTML = `
+                    <div class="bg-green-500/20 border border-green-500/40 rounded-sm p-4 mt-4">
+                        <p class="font-medium">✓ Thank you! Your message has been sent successfully.</p>
+                        <p class="text-sm mt-1 opacity-80">We'll get back to you within 24 hours.</p>
+                    </div>
+                `;
+                messageDiv.classList.remove('hidden');
+                form.reset();
+        if(typeof gtag === 'function') { gtag('event', 'generate_lead', { 'event_category': 'contact form', 'event_label': formdata.interest }); }
+                
+            } catch (error) {
+                messageDiv.innerHTML = `
+                    <div class="bg-red-500/20 border border-red-500/40 rounded-sm p-4 mt-4">
+                        <p class="font-medium">✗ Oops! Something went wrong.</p>
+                        <p class="text-sm mt-1 opacity-80">Please try again or call us directly.</p>
+                    </div>
+                `;
+                messageDiv.classList.remove('hidden');
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'SEND ENQUIRY';
+                submitBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+            }
+        }
+
+        const homeForm = document.getElementById('home-contact-form');
+        if(homeForm) homeForm.addEventListener('submit', (e) => handleFormSubmit(e, 'home-form-message'));
+
+        const pageForm = document.getElementById('page-contact-form');
+        if(pageForm) pageForm.addEventListener('submit', (e) => handleFormSubmit(e, 'page-form-message'));
+
     </script>
 
 </body>
