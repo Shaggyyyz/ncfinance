@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-N01W5P5YVR"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-N01W5P5YVR');
+    </script>
+
+    <title>Refinancing & Loan Reviews | Nest Capital Finance</title>
+    <meta name="description" content="Refinance your home or investment loan with a structured strategy. Rate reviews, debt consolidation, cash-out for renovations and smarter loan features tailored to you.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://ncfinance.com.au/refinancing.html">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f5f7fa',
+                            100: '#ebeef3',
+                            200: '#d2dae5',
+                            300: '#abbccf',
+                            400: '#7e99b5',
+                            500: '#5e7c9d',
+                            600: '#4a6383',
+                            700: '#3d516b',
+                            800: '#36465a',
+                            900: '#2f3c4d',
+                        },
+                        accent: {
+                            400: '#f59e0b',
+                            500: '#d97706',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Jost', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        * { font-family: 'Jost', sans-serif; }
+        html { scroll-behavior: smooth; }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: white;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after { width: 100%; }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .mobile-menu {
+            transform: translateX(100%);
+            transition: transform 0.3s ease-in-out;
+        }
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+            transform: translateY(-6px);
+        }
+
+        .tag-pill {
+            border-radius: 999px;
+        }
+
+        .badge {
+            border-radius: 999px;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+    <!-- Header -->
+    <header class="fixed top-0 left-0 w-full bg-brand-900 shadow-lg z-50">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="index.html">
+                <img src="https://shaggyyyz.github.io/nest-capital-finance/logo.png"
+                     alt="Nest Capital Finance"
+                     class="h-12 w-auto brightness-0 invert">
+            </a>
+
+        <!-- Desktop nav -->
+            <nav class="hidden md:flex space-x-10 items-center">
+                <a href="index.html" class="nav-link text-white font-medium text-sm uppercase tracking-widest relative">Home</a>
+                <a href="services.html" class="nav-link text-white font-medium text-sm uppercase tracking-widest relative">Services</a>
+                <a href="resources.html" class="nav-link text-white font-medium text-sm uppercase tracking-widest relative">Resources</a>
+                <a href="about.html" class="nav-link text-white font-medium text-sm uppercase tracking-widest relative">About</a>
+                <a href="contact.html" class="nav-link text-white font-medium text-sm uppercase tracking-widest relative">Contact</a>
+                <a href="contact.html" class="bg-white text-brand-900 px-8 py-3 rounded-sm font-medium text-xs uppercase tracking-widest hover:bg-gray-100 transition-colors duration-300 shadow-lg">Book Consultation</a>
+            </nav>
+
+            <!-- Mobile button -->
+            <button id="mobile-menu-btn" class="md:hidden text-white focus:outline-none">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="mobile-menu fixed top-0 right-0 h-full w-64 bg-brand-900 shadow-2xl z-50">
+        <div class="p-6">
+            <button id="mobile-menu-close" class="text-white mb-8">
+                <i data-lucide="x" class="w-6 h-6"></i>
+            </button>
+            <nav class="flex flex-col space-y-6">
+                <a href="index.html" class="text-white font-medium text-sm uppercase tracking-widest hover:text-accent-400 transition">Home</a>
+                <a href="services.html" class="text-white font-medium text-sm uppercase tracking-widest hover:text-accent-400 transition">Services</a>
+                <a href="resources.html" class="text-white font-medium text-sm uppercase tracking-widest hover:text-accent-400 transition">Resources</a>
+                <a href="about.html" class="text-white font-medium text-sm uppercase tracking-widest hover:text-accent-400 transition">About</a>
+                <a href="contact.html" class="text-white font-medium text-sm uppercase tracking-widest hover:text-accent-400 transition">Contact</a>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Main -->
+    <main class="pt-24">
+
+        <!-- Hero -->
+        <section class="bg-white pt-24 pb-16 border-b border-gray-100">
+            <div class="max-w-7xl mx-auto px-4 grid lg:grid-cols-2 gap-12 items-center">
+                <div class="fade-in">
+                    <a href="services.html"
+                       class="inline-flex items-center text-xs uppercase tracking-widest text-brand-600 mb-4 hover:text-accent-500 transition">
+                        <i data-lucide="arrow-left" class="w-4 h-4 mr-2"></i>
+                        Back to Services
+                    </a>
+                    <span class="text-accent-400 font-bold uppercase tracking-widest text-xs mb-4 block">
+                        Refinancing & Loan Reviews
+                    </span>
+                    <h1 class="font-serif text-4xl md:text-5xl text-brand-900 mb-6">
+                        Make your money work harder than your mortgage.
+                    </h1>
+                    <p class="text-lg text-gray-600 mb-6">
+                        We review your existing loans, benchmark them against the market and design a refinancing strategy that can reduce interest, free up cash‑flow and better support your future plans.
+                    </p>
+                    <div class="flex flex-wrap gap-3 mb-8">
+                        <span class="tag-pill px-3 py-1 bg-brand-50 text-brand-700 text-xs uppercase tracking-widest">Rate Reviews</span>
+                        <span class="tag-pill px-3 py-1 bg-brand-50 text-brand-700 text-xs uppercase tracking-widest">Debt Consolidation</span>
+                        <span class="tag-pill px-3 py-1 bg-brand-50 text-brand-700 text-xs uppercase tracking-widest">Equity Release</span>
+                    </div>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="contact.html"
+                           class="inline-flex items-center justify-center bg-brand-900 text-white px-8 py-3 rounded-sm font-bold text-xs uppercase tracking-widest hover:bg-accent-500 transition shadow-lg">
+                            Book a refinance check
+                        </a>
+                        <a href="calculators.html"
+                           class="inline-flex items-center justify-center border border-brand-300 text-brand-900 px-8 py-3 rounded-sm font-bold text-xs uppercase tracking-widest hover:bg-brand-50 transition">
+                            Estimate savings
+                        </a>
+                    </div>
+                </div>
+
+                <div class="fade-in">
+                    <div class="bg-brand-900 text-white rounded-sm p-8 md:p-10 shadow-xl relative overflow-hidden">
+                        <div class="absolute -right-20 -top-16 w-56 h-56 rounded-full bg-accent-500/10"></div>
+                        <div class="absolute -left-10 -bottom-10 w-40 h-40 rounded-full bg-white/5"></div>
+                        <div class="relative">
+                            <h2 class="font-serif text-2xl mb-4">When refinancing can make sense</h2>
+                            <ul class="space-y-3 text-sm text-brand-50">
+                                <li class="flex items-start gap-3">
+                                    <i data-lucide="check-circle" class="w-4 h-4 text-accent-400 mt-0.5"></i>
+                                    <span>Your fixed rate is expiring and you want to avoid “loyalty tax” on the revert rate.</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <i data-lucide="check-circle" class="w-4 h-4 text-accent-400 mt-0.5"></i>
+                                    <span>You have equity but your current lender isn’t competitive or flexible.</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <i data-lucide="check-circle" class="w-4 h-4 text-accent-400 mt-0.5"></i>
+                                    <span>You are juggling multiple high‑interest debts and want one structured solution.</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <i data-lucide="check-circle" class="w-4 h-4 text-accent-400 mt-0.5"></i>
+                                    <span>You want to fund renovations, investments or business needs using your home equity.</span>
+                                </li>
+                            </ul>
+                            <p class="mt-6 text-xs text-brand-200">
+                                We calculate the true cost vs benefit of any refinance, including fees, cashbacks and long‑term impact.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick facts / badges -->
+        <section class="py-6 bg-brand-50 border-b border-gray-100">
+            <div class="max-w-7xl mx-auto px-4 flex flex-wrap gap-3 items-center">
+                <span class="badge bg-white text-brand-900 text-xs uppercase tracking-widest px-4 py-2 border border-brand-100 flex items-center gap-2">
+                    <i data-lucide="percent" class="w-4 h-4 text-accent-400"></i> Rate & fee benchmarking
+                </span>
+                <span class="badge bg-white text-brand-900 text-xs uppercase tracking-widest px-4 py-2 border border-brand-100 flex items-center gap-2">
+                    <i data-lucide="piggy-bank" class="w-4 h-4 text-accent-400"></i> Cash‑flow focused
+                </span>
+                <span class="badge bg-white text-brand-900 text-xs uppercase tracking-widest px-4 py-2 border border-brand-100 flex items-center gap-2">
+                    <i data-lucide="file-text" class="w-4 h-4 text-accent-400"></i> Full paperwork handled
+                </span>
+            </div>
+        </section>
+
+        <!-- Reasons to refinance -->
+        <section class="py-20 bg-white border-b border-gray-100">
+            <div class="max-w-7xl mx-auto px-4">
+                <div class="text-center max-w-3xl mx-auto mb-12 fade-in">
+                    <span class="text-accent-400 font-bold uppercase tracking-widest text-xs mb-3 block">
+                        Why clients refinance
+                    </span>
+                    <h2 class="font-serif text-3xl md:text-4xl text-brand-900 mb-4">
+                        It’s not just about rate, it’s about fit.
+                    </h2>
+                    <p class="text-gray-600 text-sm md:text-base">
+                        We start with your goals, then decide whether a refinance, a product switch with your current lender, or simply staying put is the best move.
+                    </p>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="bg-brand-50 border border-brand-100 rounded-sm p-7 card-hover fade-in">
+                        <div class="flex items-center gap-3 mb-3">
+                            <i data-lucide="trending-down" class="w-5 h-5 text-accent-400"></i>
+                            <h3 class="font-serif text-lg text-brand-900">Reduce interest costs</h3>
+                        </div>
+                        <p class="text-sm text-gray-600 mb-2">
+                            Compare your current rate, fees and features against what’s now available in the market.
+                        </p>
+                        <p class="text-xs text-gray-500">
+                            Even a small rate improvement can translate into tens of thousands saved over the life of the loan.
+                        </p>
+                    </div>
+                    <div class="bg-brand-50 border border-brand-100 rounded-sm p-7 card-hover fade-in">
+                        <div class="flex items-center gap-3 mb-3">
+                            <i data-lucide="zap" class="w-5 h-5 text-accent-400"></i>
+                            <h3 class="font-serif text-lg text-brand-900">Improve cash‑flow</h3>
+                        </div>
+                        <p class="text-sm text-gray-600 mb-2">
+                            Consolidate personal loans, credit cards and car finance into a lower‑rate home loan structure.
+                        </p>
+                        <p class="text-xs text-gray-500">
+                            We model the impact so you understand both the benefit and the trade‑offs of extending terms.
+                        </p>
+                    </div>
+                    <div class="bg-brand-50 border border-brand-100 rounded-sm p-7 card-hover fade-in">
+                        <div class="flex items-center gap-3 mb-3">
+                            <i data-lucide="home" class="w-5 h-5 text-accent-400"></i>
+                            <h3 class="font-serif text-lg text-brand-900">Unlock equity</h3>
+                        </div>
+                        <p class="text-sm text-gray-600 mb-2">
+                            Fund renovations, investments or business opportunities by tapping into the equity in your home.
+                        </p>
+                        <p class="text-xs text-gray-500">
+                            We help you avoid over‑leveraging and keep buffers in place for peace of mind.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Process section -->
+        <section class="py-20 bg-brand-50 border-b border-gray-100">
+            <div class="max-w-6xl mx-auto px-4">
+                <div class="text-center mb-12 fade-in">
+                    <span class="text-accent-400 font-bold uppercase tracking-widest text-xs mb-4 block">
+                        How we approach refinancing
+                    </span>
+                    <h2 class="font-serif text-3xl md:text-4xl text-brand-900 mb-4">
+                        A structured, three‑step review.
+                    </h2>
+                </div>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="bg-white border border-gray-200 rounded-sm p-7 fade-in card-hover">
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="w-8 h-8 rounded-full bg-brand-900 text-white flex items-center justify-center text-sm">1</div>
+                            <h3 class="font-serif text-lg text-brand-900">Current position</h3>
+                        </div>
+                        <p class="text-sm text-gray-600">
+                            We collect details of your existing loans, repayments, remaining fixed terms and any other debts, plus your goals for the next 3–5 years.
+                        </p>
+                    </div>
+                    <div class="bg-white border border-gray-200 rounded-sm p-7 fade-in card-hover">
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="w-8 h-8 rounded-full bg-brand-900 text-white flex items-center justify-center text-sm">2</div>
+                            <h3 class="font-serif text-lg text-brand-900">Compare options</h3>
+                        </div>
+                        <p class="text-sm text-gray-600">
+                            We benchmark your current lender against alternatives, including rate, fees, features, policy, cashbacks and long‑term flexibility.
+                        </p>
+                    </div>
+                    <div class="bg-white border border-gray-200 rounded-sm p-7 fade-in card-hover">
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="w-8 h-8 rounded-full bg-brand-900 text-white flex items-center justify-center text-sm">3</div>
+                            <h3 class="font-serif text-lg text-brand-900">Implement & review</h3>
+                        </div>
+                        <p class="text-sm text-gray-600">
+                            If a refinance is worthwhile, we manage the paperwork and lender changeover, then conduct periodic reviews to keep you on track.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Debt consolidation & example -->
+        <section class="py-20 bg-white border-b border-gray-100">
+            <div class="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-10 items-start">
+                <div class="fade-in">
+                    <h2 class="font-serif text-2xl md:text-3xl text-brand-900 mb-4">
+                        Smarter debt consolidation, not just “rolling it all in”.
+                    </h2>
+                    <p class="text-gray-600 text-sm mb-4">
+                        Consolidating high‑interest debts into your home loan can dramatically reduce monthly repayments, but it needs to be done thoughtfully to avoid stretching bad debt over too many years.
+                    </p>
+                    <ul class="space-y-3 text-sm text-gray-700">
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="circle-dot" class="w-4 h-4 text-accent-400 mt-0.5"></i>
+                            <span>Review all existing debts, interest rates and remaining terms.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="circle-dot" class="w-4 h-4 text-accent-400 mt-0.5"></i>
+                            <span>Compare “do nothing”, refinance only the home loan, and full consolidation scenarios.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="circle-dot" class="w-4 h-4 text-accent-400 mt-0.5"></i>
+                            <span>Set a clear plan to pay the consolidated portion down faster than the standard term.</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="fade-in">
+                    <div class="bg-brand-50 border border-brand-100 rounded-sm p-7 shadow-sm">
+                        <p class="text-xs uppercase tracking-widest text-brand-600 mb-3">Illustrative scenario</p>
+                        <p class="text-sm text-gray-700 mb-4">
+                            A client with a $630k home loan at 6.65%, $18k credit card and $25k car loan was paying over $4,000 per month. By refinancing to a sharper rate and consolidating the additional debts, their total repayments dropped by ~$900 per month, while a separate “debt clearing” strategy was set up to ensure the consolidated portion was paid down within 5–7 years.
+                        </p>
+                        <p class="text-[11px] text-gray-500">
+                            This is a general example only and not personal advice. We will assess whether this approach is suitable for your circumstances.
+                        </p>
+                        <a href="contact.html"
+                           class="inline-flex items-center mt-5 text-xs uppercase tracking-widest text-brand-900 hover:text-accent-500">
+                            Review my debts
+                            <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ teaser -->
+        <section class="py-16 bg-brand-50">
+            <div class="max-w-5xl mx-auto px-4 grid md:grid-cols-2 gap-10 items-center">
+                <div class="fade-in">
+                    <h2 class="font-serif text-2xl md:text-3xl text-brand-900 mb-4">
+                        Not sure if now is the right time to refinance?
+                    </h2>
+                    <p class="text-gray-600 text-sm mb-4">
+                        Our FAQ library covers common questions on when to refinance, how cashbacks work, fixed vs variable rates, and what to consider before switching lenders.
+                    </p>
+                    <a href="faq.html"
+                       class="inline-flex items-center text-sm uppercase tracking-widest text-brand-900 hover:text-accent-500">
+                        Explore refinancing FAQs
+                        <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
+                    </a>
+                </div>
+                <div class="fade-in">
+                    <div class="bg-white border border-gray-200 rounded-sm p-7 shadow-lg">
+                        <p class="text-xs uppercase tracking-widest text-brand-600 mb-3">Rate negotiation first</p>
+                        <p class="text-sm text-gray-700 mb-4">
+                            In some cases, the best result comes from negotiating with your existing lender rather than moving. We can approach your current bank on your behalf and only explore refinance options if they do not come to the table.
+                        </p>
+                        <p class="text-[11px] text-gray-500">
+                            This saves unnecessary credit checks and admin where a simple repricing achieves the result.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="bg-gradient-to-br from-brand-900 to-brand-800 text-white py-16">
+            <div class="max-w-4xl mx-auto px-4 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6">See if your current loans still stack up.</h2>
+                <p class="text-lg text-gray-200 mb-8">
+                    Book a free 20‑minute call and we’ll run a high‑level refinance check across your existing loans, with no obligation to proceed.
+                </p>
+                <a href="contact.html"
+                   class="inline-block bg-white text-brand-900 px-10 py-4 rounded-sm font-bold text-sm uppercase tracking-widest hover:bg-gray-100 transition-colors duration-300 shadow-lg">
+                    Book Consultation
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-brand-900 text-white pt-16 pb-8 border-t border-white/10 text-sm">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-12 mb-12">
+                <div class="col-span-1">
+                    <img src="https://shaggyyyz.github.io/nest-capital-finance/logo.png"
+                         alt="Nest Capital Finance"
+                         class="h-14 w-auto mb-6 brightness-0 invert opacity-90">
+                    <p class="text-gray-300 mb-6 leading-relaxed">
+                        Providing clarity and confidence for your property journey. Your trusted partner in finance.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="#" class="bg-white/10 p-2 rounded-full hover:bg-accent-500 transition">
+                            <i data-lucide="facebook" class="w-5 h-5"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/company/nest-capital-finance"
+                           class="bg-white/10 p-2 rounded-full hover:bg-accent-500 transition">
+                            <i data-lucide="linkedin" class="w-5 h-5"></i>
+                        </a>
+                        <a href="https://www.instagram.com/nestcapitalfinance"
+                           class="bg-white/10 p-2 rounded-full hover:bg-accent-500 transition">
+                            <i data-lucide="instagram" class="w-5 h-5"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-lg mb-6 text-white border-b border-white/20 pb-2 inline-block">Services</h4>
+                    <ul class="space-y-3">
+                        <li><a href="residential-lending.html" class="text-base font-medium text-white/70 hover:text-accent-400 transition-colors duration-300">Home Loans</a></li>
+                        <li><a href="investment-property.html" class="text-base font-medium text-white/70 hover:text-accent-400 transition-colors duration-300">Investment Loans</a></li>
+                        <li><a href="commercial-finance.html" class="text-base font-medium text-white/70 hover:text-accent-400 transition-colors duration-300">Commercial Finance</a></li>
+                        <li><a href="smsf-lending.html" class="text-base font-medium text-white/70 hover:text-accent-400 transition-colors duration-300">SMSF Lending</a></li>
+                        <li><a href="refinancing.html" class="text-base font-medium text-white/70 hover:text-accent-400 transition-colors duration-300">Refinancing</a></li>
+                        <li><a href="asset-finance.html" class="text-base font-medium text-white/70 hover:text-accent-400 transition-colors duration-300">Asset Finance</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-lg mb-6 text-white border-b border-white/20 pb-2 inline-block">Company</h4>
+                    <ul class="space-y-3">
+                        <li><a href="about.html" class="text-base font-medium text-white/70 hover:text-accent-400 transition-colors duration-300">About Us</a></li>
+                        <li><a href="resources.html" class="text-base font-medium text-white/70 hover:text-accent-400 transition-colors duration-300">Resources</a></li>
+                        <li><a href="faq.html" class="text-base font-medium text-white/70 hover:text-accent-400 transition-colors duration-300">FAQs</a></li>
+                        <li><a href="contact.html" class="text-base font-medium text-white/70 hover:text-accent-400 transition-colors duration-300">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-lg mb-6 text-white border-b border-white/20 pb-2 inline-block">Contact</h4>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i data-lucide="phone" class="w-5 h-5 text-accent-400 mr-3 mt-0.5"></i>
+                            <a href="tel:1300385222" class="text-base font-medium text-white/70 hover:text-accent-400 transition-colors duration-300">
+                                1300 385 222
+                            </a>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-lucide="mail" class="w-5 h-5 text-accent-400 mr-3 mt-0.5"></i>
+                            <a href="mailto:info@nestcapitalfinance.com.au" class="text-base font-medium text-white/70 hover:text-accent-400 transition-colors duration-300">
+                                info@nestcapitalfinance.com.au
+                            </a>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-lucide="map-pin" class="w-5 h-5 text-accent-400 mr-3 mt-0.5"></i>
+                            <span class="text-base font-medium text-white/70">
+                                Melbourne, VIC<br>Servicing CBD, Inner North &amp; Eastern Suburbs
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm mb-4 md:mb-0">&copy; 2026 Nest Capital Finance Pty Ltd. All rights reserved.</p>
+                <div class="flex gap-6 text-sm">
+                    <a href="privacy-policy.html" class="text-gray-400 hover:text-accent-400 transition">Privacy Policy</a>
+                    <a href="terms-conditions.html" class="text-gray-400 hover:text-accent-400 transition">Terms &amp; Conditions</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuClose = document.getElementById('mobile-menu-close');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.add('active');
+        });
+
+        mobileMenuClose.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+        });
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
