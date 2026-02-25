@@ -7,13 +7,11 @@
 
   <!-- Tailwind (or your compiled CSS) -->
   <link rel="stylesheet" href="styles.css" />
-
   <!-- Optional: basic Tailwind CDN if you are testing standalone
   <script src="https://cdn.tailwindcss.com"></script>
   -->
 </head>
 <body class="bg-gray-50 text-gray-900">
-
   <!-- Page Shell / Header -->
   <header class="border-b bg-white">
     <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
@@ -101,7 +99,7 @@
   <!-- Footer -->
   <footer class="border-t bg-white mt-12">
     <div class="max-w-6xl mx-auto px-4 py-6 text-sm text-gray-500 flex flex-col md:flex-row md:items-center md:justify-between gap-3">
-      <p>&copy; <span id="year"></span> Nest Capital Finance Pty Ltd. All rights reserved.</p>
+      <p>© <span id="year"></span> Nest Capital Finance Pty Ltd. All rights reserved.</p>
       <div class="flex flex-wrap gap-4">
         <button
           type="button"
@@ -137,7 +135,7 @@
       </button>
 
       <h2 class="text-2xl font-bold mb-4 text-gray-800">Terms and Conditions</h2>
-      
+
       <div class="prose prose-sm max-h-[60vh] overflow-y-auto pr-2 text-gray-600">
         <p>
           Welcome to the Nest Capital Finance Pty Ltd website. By accessing or using our website, you agree to be bound by these Terms and Conditions.
@@ -181,9 +179,8 @@
     </div>
   </div>
 
-  <!-- Small JS for year + flex centering -->
+  <!-- Small JS for year -->
   <script>
-    // Set current year in footer
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>
