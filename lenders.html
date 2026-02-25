@@ -104,39 +104,74 @@
         .mobile-menu.active {
             transform: translateX(0);
         }
-
-        .lender-card,
-        .lender-more-card {
-            @apply bg-white border border-gray-200 rounded-sm px-4 py-6 flex items-center justify-center text-center cursor-default;
-        }
+        /* Lender Logo Grid Styles */
         .lender-card {
-            transition: all 0.25s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 120px;
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+            padding: 20px;
+            position: relative;
         }
         .lender-card:hover {
-            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-            transform: translateY(-4px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+            transform: translateY(-5px);
+            border-color: #b08d1e;
         }
+        .lender-card img {
+            max-height: 50px;
+            max-width: 100%;
+            filter: grayscale(0%);
+            opacity: 1;
+            transition: transform 0.3s ease;
+        }
+        .lender-card:hover img {
+            transform: scale(1.1);
+        }
+        
         .lender-more-card {
+            display: flex;
             flex-direction: column;
-            gap: 0.25rem;
+            align-items: center;
+            justify-content: center;
+            height: 120px;
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 2px;
+            transition: all 0.3s ease;
             cursor: pointer;
-            transition: all 0.25s ease;
         }
         .lender-more-card:hover {
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-            transform: translateY(-4px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+            transform: translateY(-5px);
+            border-color: #b08d1e;
         }
-        .lender-more-card .count {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #f59e0b;
+        .lender-more-card span.count {
+            color: #b08d1e;
+            font-size: 1.875rem;
+            line-height: 2.25rem;
+            font-weight: 400;
         }
-        .lender-more-card .text {
+        .lender-more-card span.text {
+            color: #686965;
             font-size: 0.75rem;
-            letter-spacing: 0.15em;
             text-transform: uppercase;
-            color: #e5e7eb;
+            letter-spacing: 0.1em;
+            margin-top: 0.25rem;
         }
+        
+        .service-card-interactive {
+            cursor: pointer;
+        }
+        .service-card-interactive:hover {
+            border-color: #b08d1e !important;
+        }
+
+        
     </style>
 </head>
 <body class="bg-brand-50">
