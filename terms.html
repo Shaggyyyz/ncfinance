@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Terms and Conditions | Nest Capital Finance</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Tailwind (or your compiled CSS) -->
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Optional: basic Tailwind CDN if you are testing standalone
+  <script src="https://cdn.tailwindcss.com"></script>
+  -->
+</head>
+<body class="bg-gray-50 text-gray-900">
+
+  <!-- Page Shell / Header -->
+  <header class="border-b bg-white">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-2">
+        <span class="text-xl font-bold tracking-tight">Nest Capital Finance</span>
+      </a>
+      <nav class="flex items-center gap-6 text-sm">
+        <a href="about.html" class="hover:text-gray-700">About</a>
+        <a href="services.html" class="hover:text-gray-700">Services</a>
+        <a href="resources.html" class="hover:text-gray-700">Resources</a>
+        <a href="contact.html" class="hover:text-gray-700">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="max-w-4xl mx-auto px-4 py-10">
+    <section class="mb-10">
+      <h1 class="text-3xl font-bold mb-4 text-gray-900">
+        Terms and Conditions
+      </h1>
+      <p class="text-gray-600 mb-6">
+        Review the Nest Capital Finance Pty Ltd terms and conditions below. You can also open them in a modal view.
+      </p>
+
+      <!-- Primary call‑to‑action to open modal -->
+      <button
+        type="button"
+        onclick="document.getElementById('tscs').classList.remove('hidden')"
+        class="inline-flex items-center px-5 py-2.5 rounded-md bg-gray-900 text-white text-sm font-medium hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900"
+      >
+        View Terms &amp; Conditions
+      </button>
+    </section>
+
+    <!-- Inline copy of the terms (for SEO + accessibility) -->
+    <section class="bg-white border rounded-lg p-6 shadow-sm">
+      <h2 class="text-2xl font-semibold mb-4 text-gray-900">
+        Website Terms and Conditions
+      </h2>
+
+      <div class="prose prose-sm text-gray-700 max-w-none">
+        <p>
+          Welcome to the Nest Capital Finance Pty Ltd website. By accessing or using our website, you agree to be bound by these Terms and Conditions.
+        </p>
+
+        <h3>1. General Advice Warning</h3>
+        <p>
+          The information provided on this website is general in nature and does not constitute personal financial advice. It has been prepared without taking into account your personal objectives, financial situation, or needs. Before acting on any information, you should consider whether it is appropriate for your circumstances and seek professional advice.
+        </p>
+
+        <h3>2. Services</h3>
+        <p>
+          Nest Capital Finance Pty Ltd (ACN 691 621 191) provides credit assistance and mortgage broking services. Our role is to act as an intermediary between you and potential lenders.
+        </p>
+
+        <h3>3. Accuracy of Information</h3>
+        <p>
+          While we make every effort to ensure the accuracy of the information on this website, we do not guarantee that it is free from errors or omissions. Interest rates, lender policies, and government grants are subject to change without notice.
+        </p>
+
+        <h3>4. Limitation of Liability</h3>
+        <p>
+          To the maximum extent permitted by law, Nest Capital Finance excludes all liability for any loss or damage of any kind (including special, indirect, or consequential loss or loss of profit) arising from or in connection with the use of this website or the content on this website.
+        </p>
+
+        <h3>5. Third-Party Links</h3>
+        <p>
+          This website may contain links to third-party websites. These links are provided for convenience only and do not indicate an endorsement. We are not responsible for the content or privacy practices of third-party sites.
+        </p>
+
+        <h3>6. Intellectual Property</h3>
+        <p>
+          All content on this website, including text, graphics, logos, and images, is the property of Nest Capital Finance Pty Ltd or its content suppliers and is protected by Australian copyright laws.
+        </p>
+
+        <h3>7. Governing Law</h3>
+        <p>
+          These Terms and Conditions are governed by and construed in accordance with the laws of Victoria, Australia. You irrevocably submit to the exclusive jurisdiction of the courts in that State.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t bg-white mt-12">
+    <div class="max-w-6xl mx-auto px-4 py-6 text-sm text-gray-500 flex flex-col md:flex-row md:items-center md:justify-between gap-3">
+      <p>&copy; <span id="year"></span> Nest Capital Finance Pty Ltd. All rights reserved.</p>
+      <div class="flex flex-wrap gap-4">
+        <button
+          type="button"
+          onclick="document.getElementById('tscs').classList.remove('hidden')"
+          class="hover:text-gray-700"
+        >
+          Terms &amp; Conditions
+        </button>
+        <a href="privacy.html" class="hover:text-gray-700">Privacy Policy</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========================================== -->
+  <!-- TERMS AND CONDITIONS MODAL                 -->
+  <!-- ========================================== -->
+  <div
+    id="tscs"
+    class="fixed inset-0 bg-black/80 z-50 hidden items-center justify-center p-4 overflow-y-auto"
+    onclick="if(event.target === this) this.classList.add('hidden')"
+  >
+    <div class="bg-white rounded-lg max-w-3xl w-full p-8 relative my-8">
+      <!-- Close Button -->
+      <button
+        type="button"
+        onclick="document.getElementById('tscs').classList.add('hidden')"
+        class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 focus:outline-none"
+        aria-label="Close terms and conditions"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+
+      <h2 class="text-2xl font-bold mb-4 text-gray-800">Terms and Conditions</h2>
+      
+      <div class="prose prose-sm max-h-[60vh] overflow-y-auto pr-2 text-gray-600">
+        <p>
+          Welcome to the Nest Capital Finance Pty Ltd website. By accessing or using our website, you agree to be bound by these Terms and Conditions.
+        </p>
+
+        <h3 class="text-lg font-semibold text-gray-800 mt-4">1. General Advice Warning</h3>
+        <p>
+          The information provided on this website is general in nature and does not constitute personal financial advice. It has been prepared without taking into account your personal objectives, financial situation, or needs. Before acting on any information, you should consider whether it is appropriate for your circumstances and seek professional advice.
+        </p>
+
+        <h3 class="text-lg font-semibold text-gray-800 mt-4">2. Services</h3>
+        <p>
+          Nest Capital Finance Pty Ltd (ACN 691 621 191) provides credit assistance and mortgage broking services. Our role is to act as an intermediary between you and potential lenders.
+        </p>
+
+        <h3 class="text-lg font-semibold text-gray-800 mt-4">3. Accuracy of Information</h3>
+        <p>
+          While we make every effort to ensure the accuracy of the information on this website, we do not guarantee that it is free from errors or omissions. Interest rates, lender policies, and government grants are subject to change without notice.
+        </p>
+
+        <h3 class="text-lg font-semibold text-gray-800 mt-4">4. Limitation of Liability</h3>
+        <p>
+          To the maximum extent permitted by law, Nest Capital Finance excludes all liability for any loss or damage of any kind (including special, indirect, or consequential loss or loss of profit) arising from or in connection with the use of this website or the content on this website.
+        </p>
+
+        <h3 class="text-lg font-semibold text-gray-800 mt-4">5. Third-Party Links</h3>
+        <p>
+          This website may contain links to third-party websites. These links are provided for convenience only and do not indicate an endorsement. We are not responsible for the content or privacy practices of third-party sites.
+        </p>
+
+        <h3 class="text-lg font-semibold text-gray-800 mt-4">6. Intellectual Property</h3>
+        <p>
+          All content on this website, including text, graphics, logos, and images, is the property of Nest Capital Finance Pty Ltd or its content suppliers and is protected by Australian copyright laws.
+        </p>
+
+        <h3 class="text-lg font-semibold text-gray-800 mt-4">7. Governing Law</h3>
+        <p>
+          These Terms and Conditions are governed by and construed in accordance with the laws of Victoria, Australia. You irrevocably submit to the exclusive jurisdiction of the courts in that State.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Small JS for year + flex centering -->
+  <script>
+    // Set current year in footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
