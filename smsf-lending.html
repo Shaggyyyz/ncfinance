@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Google Analytics 4 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-N01W5P5YVR"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -18,159 +17,73 @@
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://ncfinance.com.au/smsf-lending.html">
 
-    <!-- Tailwind CSS -->
+    <meta property="og:title" content="SMSF Property Lending | Nest Capital Finance">
+    <meta property="og:description" content="Use your super to invest in property with a clear lending roadmap.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ncfinance.com.au/smsf-lending.html">
+    <meta property="og:image" content="https://shaggyyyz.github.io/nest-capital-finance/Logolink.jpg">
+
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['FuturaPT', 'Futura', 'Jost', 'sans-serif'],
-                        serif: ['FuturaPT', 'Futura', 'Jost', 'sans-serif'], 
-                    },
-                    colors: {
-                        brand: {
-                            900: '#686965',  // dark olive/grey (header/footer)
-                            800: '#686965',
-                            700: '#686965',
-                            600: '#337566',  // teal (accents)
-                            300: '#d1d5db',
-                            200: '#e5e7eb',
-                            100: '#eff5f4',
-                            50:  '#f7f9f9',  // very light background
-                                },
-                        accent: {
-                            400: '#c5a028',  // gold
-                            500: '#b08d1e',  // darker gold
-                        }
-                    },
-                    animation: {
-                        'float': 'float 6s ease-in-out infinite',
-                        'fadeIn': 'fadeIn 0.5s ease-out forwards',
-                    },
-                    keyframes: {
-                        float: {
-                            '0%, 100%': { transform: 'translateY(0)' },
-                            '50%': { transform: 'translateY(-10px)' },
-                        },
-                        fadeIn: {
-                            '0%': { opacity: '0', transform: 'translateY(10px)' },
-                            '100%': { opacity: '1', transform: 'translateY(0)' },
-                        }
-                    }
-                }
-            }
-        }
-    </script>
+    
+    <script src="js/tailwind-config.js"></script>
 
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-    <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
 
-    <style>
-        * { font-family: 'Jost', sans-serif; }
-        html { scroll-behavior: smooth; }
-
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: white;
-            transition: width 0.3s ease;
-        }
-        .nav-link:hover::after { width: 100%; }
-
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .mobile-menu {
-            transform: translateX(100%);
-            transition: transform 0.3s ease-in-out;
-        }
-        .mobile-menu.active {
-            transform: translateX(0);
-        }
-
-        .card-hover {
-            transition: all 0.3s ease;
-        }
-        .card-hover:hover {
-            box-shadow: 0 20px 40px rgba(0,0,0,0.12);
-            transform: translateY(-6px);
-        }
-
-        .tag-pill, .badge {
-            border-radius: 999px;
-        }
-    </style>
+    <link rel="stylesheet" href="css/style.css">
 </head>
-<body class="bg-gray-50">
+<body class="bg-brand-50 text-gray-800 antialiased overflow-x-hidden">
 
-    <!-- Header -->
-    <header class="fixed top-0 left-0 w-full bg-brand-900 shadow-lg z-50">
-        <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-            <a href="index.html">
-                <img src="https://shaggyyyz.github.io/nest-capital-finance/logo.png"
-                     alt="Nest Capital Finance"
-                     class="h-12 w-auto brightness-0 invert">
-            </a>
+    <a href="contact.html" class="floating-cta bg-accent-500 text-white px-6 py-4 rounded-full font-bold uppercase tracking-widest text-xs flex items-center gap-2 hover:bg-accent-400">
+        <i data-lucide="calendar" class="w-4 h-4"></i>
+        <span class="hidden md:inline">Book CONSULTATION</span>
+        <span class="md:hidden">Book Now</span>
+    </a>
 
-            <!-- Desktop nav -->
-            <nav class="hidden md:flex space-x-10 items-center">
-                <a href="index.html" class="nav-link text-white font-medium text-sm uppercase tracking-widest relative">Home</a>
-                <a href="services.html" class="nav-link text-white font-medium text-sm uppercase tracking-widest relative">Services</a>
-                <a href="resources.html" class="nav-link text-white font-medium text-sm uppercase tracking-widest relative">Resources</a>
-                <a href="about.html" class="nav-link text-white font-medium text-sm uppercase tracking-widest relative">About</a>
-                <a href="contact.html" class="nav-link text-white font-medium text-sm uppercase tracking-widest relative">Contact</a>
-                <a href="contact.html" class="bg-white text-brand-900 px-8 py-3 rounded-sm font-medium text-xs uppercase tracking-widest hover:bg-gray-100 transition-colors duration-300 shadow-lg">Book Consultation</a>
-            </nav>
+    <header id="navbar" class="fixed w-full top-0 z-50 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-24">
+                <a href="index.html" class="flex items-center gap-3 group" aria-label="Nest Capital Finance Home">
+                    <img src="https://shaggyyyz.github.io/nest-capital-finance/logo.png" alt="Nest Capital Finance Logo" class="h-16 w-auto transition-transform duration-500 group-hover:scale-105 brightness-0 invert">
+                </a>
 
-            <!-- Mobile button -->
-            <button id="mobile-menu-btn" class="md:hidden text-white focus:outline-none">
-                <i data-lucide="menu" class="w-6 h-6"></i>
+                <nav class="hidden md:flex space-x-10 items-center">
+                    <a href="index.html" class="nav-link text-white font-medium text-sm uppercase tracking-widest relative">Home</a>
+                    <a href="services.html" class="nav-link text-white font-medium text-sm uppercase tracking-widest relative">Services</a>
+                    <a href="resources.html" class="nav-link text-white font-medium text-sm uppercase tracking-widest relative">Resources</a>
+                    <a href="about.html" class="nav-link text-white font-medium text-sm uppercase tracking-widest relative">About</a>
+                    <a href="contact.html" class="nav-link text-white font-medium text-sm uppercase tracking-widest relative">Contact</a>
+                    <a href="contact.html" class="bg-white text-brand-900 px-8 py-3 rounded-sm font-medium text-xs uppercase tracking-widest hover:bg-gray-100 transition-colors duration-300 shadow-lg">
+                        Book Consultation
+                    </a>
+                </nav>
+
+                <button id="mobile-menu-btn" class="md:hidden text-white focus:outline-none" aria-label="Open Menu">
+                    <i data-lucide="menu" class="w-8 h-8"></i>
+                </button>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="fixed inset-0 bg-brand-900 z-50 transform translate-x-full transition-transform duration-300 flex flex-col justify-center items-center space-y-8">
+            <button id="close-menu-btn" class="absolute top-8 right-8 text-white" aria-label="Close Menu">
+                <i data-lucide="x" class="w-8 h-8"></i>
             </button>
+            <a href="index.html" class="text-3xl font-serif text-white hover:text-accent-400 transition">Home</a>
+            <a href="services.html" class="text-3xl font-serif text-white hover:text-accent-400 transition">Services</a>
+            <a href="resources.html" class="text-3xl font-serif text-white hover:text-accent-400 transition">Resources</a>
+            <a href="lenders.html" class="text-3xl font-serif text-white hover:text-accent-400 transition">Lenders</a>
+            <a href="about.html" class="text-3xl font-serif text-white hover:text-accent-400 transition">About</a>
+            <a href="contact.html" class="text-3xl font-serif text-white hover:text-accent-400 transition">Contact</a>
         </div>
     </header>
 
-    <!-- Mobile menu -->
-    <div id="mobile-menu" class="mobile-menu fixed top-0 right-0 h-full w-64 bg-brand-900 shadow-2xl z-50">
-        <div class="p-6">
-            <button id="mobile-menu-close" class="text-white mb-8">
-                <i data-lucide="x" class="w-6 h-6"></i>
-            </button>
-            <nav class="flex flex-col space-y-6">
-                <a href="index.html" class="text-white font-medium text-sm uppercase tracking-widest hover:text-accent-400 transition">Home</a>
-                <a href="services.html" class="text-white font-medium text-sm uppercase tracking-widest hover:text-accent-400 transition">Services</a>
-                <a href="resources.html" class="text-white font-medium text-sm uppercase tracking-widest hover:text-accent-400 transition">Resources</a>
-                <a href="about.html" class="text-white font-medium text-sm uppercase tracking-widest hover:text-accent-400 transition">About</a>
-                <a href="contact.html" class="text-white font-medium text-sm uppercase tracking-widest hover:text-accent-400 transition">Contact</a>
-            </nav>
-        </div>
-    </div>
+    <main id="content-wrapper">
 
-    <!-- Main -->
-    <main class="pt-24">
-
-        <!-- Hero -->
-        <section class="bg-white pt-24 pb-16 border-b border-gray-100">
+        <section class="bg-brand-50 pt-40 pb-20 border-b border-gray-100">
             <div class="max-w-7xl mx-auto px-4 grid lg:grid-cols-2 gap-12 items-center">
-                <div class="fade-in">
-                    <a href="services.html"
-                       class="inline-flex items-center text-xs uppercase tracking-widest text-brand-600 mb-4 hover:text-accent-500 transition">
+                <div class="reveal">
+                    <a href="services.html" class="inline-flex items-center text-xs uppercase tracking-widest text-brand-600 mb-4 hover:text-accent-500 transition">
                         <i data-lucide="arrow-left" class="w-4 h-4 mr-2"></i>
                         Back to Services
                     </a>
@@ -184,24 +97,22 @@
                         We help trustees navigate SMSF lending for residential and commercial property, working alongside your accountant and adviser to ensure the structure, lender and loan strategy fit your long‑term retirement goals.
                     </p>
                     <div class="flex flex-wrap gap-3 mb-8">
-                        <span class="tag-pill px-3 py-1 bg-brand-50 text-brand-700 text-xs uppercase tracking-widest">SMSF Property Loans</span>
-                        <span class="tag-pill px-3 py-1 bg-brand-50 text-brand-700 text-xs uppercase tracking-widest">Bare Trust Structures</span>
-                        <span class="tag-pill px-3 py-1 bg-brand-50 text-brand-700 text-xs uppercase tracking-widest">Business Premises in SMSF</span>
+                        <span class="rounded-full px-3 py-1 bg-white border border-gray-200 text-brand-700 text-xs uppercase tracking-widest shadow-sm">SMSF Property Loans</span>
+                        <span class="rounded-full px-3 py-1 bg-white border border-gray-200 text-brand-700 text-xs uppercase tracking-widest shadow-sm">Bare Trust Structures</span>
+                        <span class="rounded-full px-3 py-1 bg-white border border-gray-200 text-brand-700 text-xs uppercase tracking-widest shadow-sm">Business Premises in SMSF</span>
                     </div>
                     <div class="flex flex-col sm:flex-row gap-4">
-                        <a href="contact.html"
-                           class="inline-flex items-center justify-center bg-brand-900 text-white px-8 py-3 rounded-sm font-bold text-xs uppercase tracking-widest hover:bg-accent-500 transition shadow-lg">
+                        <a href="contact.html" class="inline-flex items-center justify-center bg-brand-900 text-white px-8 py-3 rounded-sm font-bold text-xs uppercase tracking-widest hover:bg-accent-500 transition shadow-lg hover:-translate-y-1">
                             Book an SMSF lending chat
                         </a>
-                        <a href="resources.html"
-                           class="inline-flex items-center justify-center border border-brand-300 text-brand-900 px-8 py-3 rounded-sm font-bold text-xs uppercase tracking-widest hover:bg-brand-50 transition">
+                        <a href="resources.html" class="inline-flex items-center justify-center border border-brand-300 text-brand-900 px-8 py-3 rounded-sm font-bold text-xs uppercase tracking-widest hover:bg-white transition hover:-translate-y-1">
                             View SMSF resources
                         </a>
                     </div>
                 </div>
 
-                <div class="fade-in">
-                    <div class="bg-brand-900 text-white rounded-sm p-8 md:p-10 shadow-xl relative overflow-hidden">
+                <div class="reveal stagger-delay-1">
+                    <div class="bg-brand-900 text-white rounded-sm p-8 md:p-10 shadow-xl relative overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl">
                         <div class="absolute -right-20 -top-16 w-56 h-56 rounded-full bg-accent-500/10"></div>
                         <div class="absolute -left-10 -bottom-10 w-40 h-40 rounded-full bg-white/5"></div>
                         <div class="relative">
@@ -233,32 +144,30 @@
             </div>
         </section>
 
-        <!-- Quick badges -->
         <section class="py-6 bg-brand-50 border-b border-gray-100">
-            <div class="max-w-7xl mx-auto px-4 flex flex-wrap gap-3 items-center">
-                <span class="badge bg-white text-brand-900 text-xs uppercase tracking-widest px-4 py-2 border border-brand-100 flex items-center gap-2">
+            <div class="max-w-7xl mx-auto px-4 flex flex-wrap gap-3 items-center reveal">
+                <span class="rounded-full bg-white text-brand-900 text-xs uppercase tracking-widest px-4 py-2 border border-brand-100 flex items-center gap-2 shadow-sm">
                     <i data-lucide="shield-check" class="w-4 h-4 text-accent-400"></i> Limited recourse structures
                 </span>
-                <span class="badge bg-white text-brand-900 text-xs uppercase tracking-widest px-4 py-2 border border-brand-100 flex items-center gap-2">
+                <span class="rounded-full bg-white text-brand-900 text-xs uppercase tracking-widest px-4 py-2 border border-brand-100 flex items-center gap-2 shadow-sm">
                     <i data-lucide="scale" class="w-4 h-4 text-accent-400"></i> Work alongside your adviser
                 </span>
-                <span class="badge bg-white text-brand-900 text-xs uppercase tracking-widest px-4 py-2 border border-brand-100 flex items-center gap-2">
+                <span class="rounded-full bg-white text-brand-900 text-xs uppercase tracking-widest px-4 py-2 border border-brand-100 flex items-center gap-2 shadow-sm">
                     <i data-lucide="file-text" class="w-4 h-4 text-accent-400"></i> Lender and policy expertise
                 </span>
             </div>
         </section>
 
-        <!-- Who this is for -->
-        <section class="py-20 bg-white border-b border-gray-100">
+        <section class="py-24 bg-white border-b border-gray-100">
             <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-3 gap-10">
-                <div class="md:col-span-1 fade-in">
+                <div class="md:col-span-1 reveal">
                     <h2 class="font-serif text-3xl text-brand-900 mb-4">Who SMSF lending is typically suited to</h2>
-                    <p class="text-gray-600 text-sm">
+                    <p class="text-gray-600 text-sm leading-relaxed">
                         SMSF lending is a specialist area and not right for everyone. We help you understand where it can fit, and when a different approach might make more sense.
                     </p>
                 </div>
                 <div class="md:col-span-2 grid sm:grid-cols-2 gap-6">
-                    <div class="bg-brand-50 border border-brand-100 rounded-sm p-6 card-hover fade-in">
+                    <div class="bg-brand-50 border border-gray-200 rounded-sm p-6 reveal transition-all duration-500 hover:-translate-y-2 hover:shadow-xl hover:border-accent-400">
                         <div class="flex items-center gap-3 mb-3">
                             <i data-lucide="stethoscope" class="w-5 h-5 text-accent-400"></i>
                             <h3 class="font-serif text-lg text-brand-900">Professionals & business owners</h3>
@@ -270,7 +179,7 @@
                             This can align business needs with long‑term retirement planning when structured correctly.
                         </p>
                     </div>
-                    <div class="bg-brand-50 border border-brand-100 rounded-sm p-6 card-hover fade-in">
+                    <div class="bg-brand-50 border border-gray-200 rounded-sm p-6 reveal stagger-delay-1 transition-all duration-500 hover:-translate-y-2 hover:shadow-xl hover:border-accent-400">
                         <div class="flex items-center gap-3 mb-3">
                             <i data-lucide="users" class="w-5 h-5 text-accent-400"></i>
                             <h3 class="font-serif text-lg text-brand-900">Established SMSF trustees</h3>
@@ -282,7 +191,7 @@
                             We ensure the borrowing level is appropriate given age, contributions and fund objectives.
                         </p>
                     </div>
-                    <div class="bg-brand-50 border border-brand-100 rounded-sm p-6 card-hover fade-in">
+                    <div class="bg-brand-50 border border-gray-200 rounded-sm p-6 reveal transition-all duration-500 hover:-translate-y-2 hover:shadow-xl hover:border-accent-400">
                         <div class="flex items-center gap-3 mb-3">
                             <i data-lucide="factory" class="w-5 h-5 text-accent-400"></i>
                             <h3 class="font-serif text-lg text-brand-900">Trading businesses</h3>
@@ -294,7 +203,7 @@
                             Rent must be commercial and arm’s‑length; we help lenders understand the full picture.
                         </p>
                     </div>
-                    <div class="bg-brand-50 border border-brand-100 rounded-sm p-6 card-hover fade-in">
+                    <div class="bg-brand-50 border border-gray-200 rounded-sm p-6 reveal stagger-delay-1 transition-all duration-500 hover:-translate-y-2 hover:shadow-xl hover:border-accent-400">
                         <div class="flex items-center gap-3 mb-3">
                             <i data-lucide="trending-up" class="w-5 h-5 text-accent-400"></i>
                             <h3 class="font-serif text-lg text-brand-900">Long‑term investors</h3>
@@ -310,10 +219,9 @@
             </div>
         </section>
 
-        <!-- Key concepts -->
-        <section class="py-20 bg-brand-50 border-b border-gray-100">
+        <section class="py-24 bg-brand-50 border-b border-gray-100">
             <div class="max-w-7xl mx-auto px-4">
-                <div class="text-center max-w-3xl mx-auto mb-12 fade-in">
+                <div class="text-center max-w-3xl mx-auto mb-16 reveal">
                     <span class="text-accent-400 font-bold uppercase tracking-widest text-xs mb-3 block">
                         Core SMSF lending concepts
                     </span>
@@ -326,36 +234,36 @@
                 </div>
 
                 <div class="grid md:grid-cols-3 gap-8">
-                    <div class="bg-white border border-gray-200 rounded-sm p-7 card-hover fade-in">
-                        <div class="flex items-center gap-3 mb-3">
-                            <i data-lucide="shield" class="w-5 h-5 text-accent-400"></i>
-                            <h3 class="font-serif text-lg text-brand-900">Limited recourse</h3>
+                    <div class="bg-white border border-gray-200 rounded-sm p-8 reveal transition-all duration-500 hover:-translate-y-2 hover:shadow-xl">
+                        <div class="flex items-center gap-3 mb-4">
+                            <i data-lucide="shield" class="w-6 h-6 text-brand-600"></i>
+                            <h3 class="font-serif text-xl text-brand-900">Limited recourse</h3>
                         </div>
-                        <p class="text-sm text-gray-600 mb-2">
+                        <p class="text-sm text-gray-600 mb-3 leading-relaxed">
                             SMSF loans are typically limited recourse, meaning the lender’s rights are largely restricted to the property held in the bare trust.
                         </p>
                         <p class="text-xs text-gray-500">
                             This influences LVRs, interest rates and which lenders are available.
                         </p>
                     </div>
-                    <div class="bg-white border border-gray-200 rounded-sm p-7 card-hover fade-in">
-                        <div class="flex items-center gap-3 mb-3">
-                            <i data-lucide="file-lock" class="w-5 h-5 text-accent-400"></i>
-                            <h3 class="font-serif text-lg text-brand-900">Bare trust & documentation</h3>
+                    <div class="bg-white border border-gray-200 rounded-sm p-8 reveal stagger-delay-1 transition-all duration-500 hover:-translate-y-2 hover:shadow-xl">
+                        <div class="flex items-center gap-3 mb-4">
+                            <i data-lucide="file-lock" class="w-6 h-6 text-brand-600"></i>
+                            <h3 class="font-serif text-xl text-brand-900">Bare trust & documentation</h3>
                         </div>
-                        <p class="text-sm text-gray-600 mb-2">
+                        <p class="text-sm text-gray-600 mb-3 leading-relaxed">
                             A separate custodian/bare trust holds the property on behalf of the SMSF for the life of the loan.
                         </p>
                         <p class="text-xs text-gray-500">
                             Correct documentation is critical, so we liaise with your SMSF specialist throughout.
                         </p>
                     </div>
-                    <div class="bg-white border border-gray-200 rounded-sm p-7 card-hover fade-in">
-                        <div class="flex items-center gap-3 mb-3">
-                            <i data-lucide="wallet-cards" class="w-5 h-5 text-accent-400"></i>
-                            <h3 class="font-serif text-lg text-brand-900">Contributions & rental income</h3>
+                    <div class="bg-white border border-gray-200 rounded-sm p-8 reveal stagger-delay-2 transition-all duration-500 hover:-translate-y-2 hover:shadow-xl">
+                        <div class="flex items-center gap-3 mb-4">
+                            <i data-lucide="wallet-cards" class="w-6 h-6 text-brand-600"></i>
+                            <h3 class="font-serif text-xl text-brand-900">Contributions & rental income</h3>
                         </div>
-                        <p class="text-sm text-gray-600 mb-2">
+                        <p class="text-sm text-gray-600 mb-3 leading-relaxed">
                             Lenders consider employer/member contributions and rent flowing into the fund when testing serviceability.
                         </p>
                         <p class="text-xs text-gray-500">
@@ -366,39 +274,37 @@
             </div>
         </section>
 
-        <!-- Process + example -->
-        <section class="py-20 bg-white border-b border-gray-100">
+        <section class="py-24 bg-white border-b border-gray-100">
             <div class="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-10 items-start">
-                <div class="fade-in">
+                <div class="reveal">
                     <h2 class="font-serif text-2xl md:text-3xl text-brand-900 mb-4">
                         How we guide you through SMSF lending.
                     </h2>
-                    <ol class="space-y-4 text-sm text-gray-700 list-decimal list-inside">
+                    <ol class="space-y-5 text-sm text-gray-700 list-decimal list-inside leading-relaxed">
                         <li>
-                            Initial feasibility – we discuss your SMSF balance, contributions, timeframe and goals to see whether an SMSF loan could be appropriate to investigate further.
+                            <strong class="font-medium text-brand-900">Initial feasibility</strong> – we discuss your SMSF balance, contributions, timeframe and goals to see whether an SMSF loan could be appropriate to investigate further.
                         </li>
                         <li>
-                            Strategy & structure – together with your accountant/adviser, we confirm the preferred structure (fund, trustee, bare trust, potential corporate entities).
+                            <strong class="font-medium text-brand-900">Strategy & structure</strong> – together with your accountant/adviser, we confirm the preferred structure (fund, trustee, bare trust, potential corporate entities).
                         </li>
                         <li>
-                            Lender selection & approval – we compare available SMSF lenders, outlining LVRs, rates, fees and documentation, then manage the application through to approval and settlement.
+                            <strong class="font-medium text-brand-900">Lender selection & approval</strong> – we compare available SMSF lenders, outlining LVRs, rates, fees and documentation, then manage the application through to approval and settlement.
                         </li>
                     </ol>
-                    <p class="mt-5 text-[11px] text-gray-500">
+                    <p class="mt-6 text-[11px] text-gray-500">
                         You should always obtain independent financial and tax advice before your SMSF invests in property.
                     </p>
                 </div>
-                <div class="fade-in">
-                    <div class="bg-brand-50 border border-brand-100 rounded-sm p-7 shadow-sm">
-                        <p class="text-xs uppercase tracking-widest text-brand-600 mb-3">Illustrative scenario</p>
-                        <p class="text-sm text-gray-700 mb-4">
+                <div class="reveal stagger-delay-1">
+                    <div class="bg-brand-50 border border-gray-200 rounded-sm p-8 shadow-sm transition-all duration-500 hover:-translate-y-2 hover:shadow-xl">
+                        <p class="text-xs uppercase tracking-widest text-brand-600 font-bold mb-4">Illustrative scenario</p>
+                        <p class="text-sm text-gray-700 mb-6 leading-relaxed">
                             A couple in their mid‑40s with a combined SMSF balance of $650k wanted their fund to purchase a $750k commercial suite for their practice. We worked alongside their accountant to put in place a corporate trustee and bare trust, arranged an SMSF loan within typical LVR limits, and structured repayments so they aligned with rent and ongoing contributions.
                         </p>
-                        <p class="text-[11px] text-gray-500">
+                        <p class="text-[11px] text-gray-500 mb-6">
                             This is a general example only and not personal advice. Every SMSF lending scenario must be assessed individually for suitability and compliance.
                         </p>
-                        <a href="contact.html"
-                           class="inline-flex items-center mt-5 text-xs uppercase tracking-widest text-brand-900 hover:text-accent-500">
+                        <a href="contact.html" class="inline-flex items-center text-xs font-bold uppercase tracking-widest text-brand-900 hover:text-accent-500 transition">
                             Discuss my SMSF lending options
                             <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
                         </a>
@@ -407,29 +313,28 @@
             </div>
         </section>
 
-        <!-- FAQ teaser -->
-        <section class="py-16 bg-brand-50">
-            <div class="max-w-5xl mx-auto px-4 grid md:grid-cols-2 gap-10 items-center">
-                <div class="fade-in">
-                    <h2 class="font-serif text-2xl md:text-3xl text-brand-900 mb-4">
+        <section class="py-24 bg-brand-50">
+            <div class="max-w-5xl mx-auto px-4 grid md:grid-cols-2 gap-12 items-center">
+                <div class="reveal">
+                    <h2 class="font-serif text-3xl md:text-4xl text-brand-900 mb-6">
                         Questions about what your SMSF can and can’t buy?
                     </h2>
-                    <p class="text-gray-600 text-sm mb-4">
+                    <p class="text-gray-600 text-lg mb-8 leading-relaxed">
                         Our FAQ section covers common questions around SMSF property rules, related‑party leases, renovations, and how SMSF lending differs from personal borrowing.
                     </p>
-                    <a href="faq.html"
-                       class="inline-flex items-center text-sm uppercase tracking-widest text-brand-900 hover:text-accent-500">
+                    <a href="faq.html" class="inline-flex items-center text-xs font-bold uppercase tracking-widest text-brand-900 hover:text-accent-500 transition border border-brand-900 hover:border-accent-500 px-6 py-3 rounded-sm">
                         Explore FAQs
                         <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
                     </a>
                 </div>
-                <div class="fade-in">
-                    <div class="bg-white border border-gray-200 rounded-sm p-7 shadow-lg">
-                        <p class="text-xs uppercase tracking-widest text-brand-600 mb-3">Important note</p>
-                        <p class="text-sm text-gray-700 mb-4">
+                <div class="reveal stagger-delay-1">
+                    <div class="bg-white border border-gray-200 rounded-sm p-8 shadow-2xl relative overflow-hidden transition-all duration-500 hover:-translate-y-2">
+                        <div class="absolute -right-10 -bottom-10 w-40 h-40 rounded-full bg-brand-50 pointer-events-none"></div>
+                        <p class="text-xs uppercase tracking-widest text-brand-600 font-bold mb-4">Important note</p>
+                        <p class="text-base mb-6 leading-relaxed text-gray-700">
                             Nest Capital Finance does not provide financial product advice or establish SMSFs. We focus on the lending piece and work collaboratively with your licensed financial adviser, accountant and SMSF administrator.
                         </p>
-                        <p class="text-[11px] text-gray-500">
+                        <p class="text-[11px] text-gray-500 border-t border-gray-100 pt-4">
                             You should confirm that SMSF property investment is appropriate for your circumstances before proceeding with any loan.
                         </p>
                     </div>
@@ -437,44 +342,34 @@
             </div>
         </section>
 
-        <!-- CTA -->
-        <section class="bg-gradient-to-br from-brand-900 to-brand-800 text-white py-16">
+        <section class="bg-brand-900 text-white py-24 reveal">
             <div class="max-w-4xl mx-auto px-4 text-center">
-                <h2 class="text-3xl md:text-4xl font-bold mb-6">Ready to explore SMSF lending in more detail?</h2>
-                <p class="text-lg text-gray-200 mb-8">
+                <h2 class="font-serif text-4xl md:text-5xl mb-6">Ready to explore SMSF lending in more detail?</h2>
+                <p class="text-lg text-gray-200 mb-10 max-w-2xl mx-auto">
                     Book a no‑obligation conversation to walk through how SMSF property loans work, what lenders are looking for, and what the next steps could be.
                 </p>
-                <a href="contact.html"
-                   class="inline-block bg-white text-brand-900 px-10 py-4 rounded-sm font-bold text-sm uppercase tracking-widest hover:bg-gray-100 transition-colors duration-300 shadow-lg">
-                    Book Consultation
-                </a>
+                <div class="flex flex-col sm:flex-row gap-6 justify-center">
+                    <a href="contact.html" class="bg-white text-brand-900 px-10 py-4 rounded-sm font-bold uppercase tracking-widest text-xs hover:bg-accent-500 hover:text-white transition shadow-xl">Book CONSULTATION</a>
+                    <a href="tel:1300385222" class="border border-white/30 text-white px-10 py-4 rounded-sm font-bold uppercase tracking-widest text-xs hover:bg-white/10 transition backdrop-blur-sm flex items-center justify-center gap-2">
+                        <i data-lucide="phone" class="w-4 h-4"></i> 1300 385 222
+                    </a>
+                </div>
             </div>
         </section>
     </main>
 
-    <!-- Footer -->
     <footer class="bg-brand-900 text-white pt-16 pb-8 border-t border-white/10 text-sm">
         <div class="max-w-7xl mx-auto px-4">
             <div class="grid md:grid-cols-4 gap-12 mb-12">
                 <div class="col-span-1">
-                    <img src="https://shaggyyyz.github.io/nest-capital-finance/logo.png"
-                         alt="Nest Capital Finance"
-                         class="h-14 w-auto mb-6 brightness-0 invert opacity-90">
+                    <img src="https://shaggyyyz.github.io/nest-capital-finance/logo.png" alt="Nest Capital Finance" class="h-14 w-auto mb-6 brightness-0 invert opacity-90">
                     <p class="text-gray-300 mb-6 leading-relaxed">
                         Providing clarity and confidence for your property journey. Your trusted partner in finance.
                     </p>
                     <div class="flex gap-4">
-                        <a href="#" class="bg-white/10 p-2 rounded-full hover:bg-accent-500 transition">
-                            <i data-lucide="facebook" class="w-5 h-5"></i>
-                        </a>
-                        <a href="https://www.linkedin.com/company/nest-capital-finance"
-                           class="bg-white/10 p-2 rounded-full hover:bg-accent-500 transition">
-                            <i data-lucide="linkedin" class="w-5 h-5"></i>
-                        </a>
-                        <a href="https://www.instagram.com/nestcapitalfinance"
-                           class="bg-white/10 p-2 rounded-full hover:bg-accent-500 transition">
-                            <i data-lucide="instagram" class="w-5 h-5"></i>
-                        </a>
+                        <a href="#" class="bg-white/10 p-2 rounded-full hover:bg-accent-500 transition"><i data-lucide="facebook" class="w-5 h-5"></i></a>
+                        <a href="https://www.linkedin.com/company/nest-capital-finance" class="bg-white/10 p-2 rounded-full hover:bg-accent-500 transition"><i data-lucide="linkedin" class="w-5 h-5"></i></a>
+                        <a href="https://www.instagram.com/nestcapitalfinance" class="bg-white/10 p-2 rounded-full hover:bg-accent-500 transition"><i data-lucide="instagram" class="w-5 h-5"></i></a>
                     </div>
                 </div>
 
@@ -525,39 +420,21 @@
                 </div>
             </div>
 
-            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center">
-                <p class="text-gray-400 text-sm mb-4 md:mb-0">&copy; 2026 Nest Capital Finance Pty Ltd. All rights reserved.</p>
-                <div class="flex gap-6 text-sm">
-                    <a href="privacy-policy.html" class="text-gray-400 hover:text-accent-400 transition">Privacy Policy</a>
-                    <a href="feedback-complaints.html" class="text-gray-400 hover:text-accent-400 transition">Feedback & Complaints</a>
-                    <a href="terms-conditions.html" class="text-gray-400 hover:text-accent-400 transition">Terms &amp; Conditions</a>
+            <div class="border-t border-white/20 pt-8 flex flex-col items-start gap-2">
+                <p class="text-white/50 text-xs">&copy; 2026 Nest Capital Finance Pty Ltd. ACN 691 621 191 | ABN 20 691 621 191 | Credit Representative 574020 is authorised under Australian Credit Licence 389328. | AFCA Member 118936</p>
+                <div class="flex gap-4 text-xs mt-1">
+                    <a href="privacy-policy.html" class="text-white/50 hover:text-accent-400 transition">Privacy Policy</a>
+                    <span class="text-white/50">|</span>
+                    <a href="feedback-complaints.html" class="text-white/50 hover:text-accent-400 transition">Feedback & Complaints</a>
+                    <span class="text-white/50">|</span>
+                    <a href="terms-conditions.html" class="text-white/50 hover:text-accent-400 transition">Terms &amp; Conditions</a>
                 </div>
+                <p class="text-white/40 text-xs mt-3 max-w-4xl">Disclaimer: This page provides general information only and has been prepared without taking into account your objectives, financial situation or needs. We recommend that you consider whether it is appropriate for your circumstances. Your full financial situation will need to be reviewed prior to acceptance of any offer or product. Subject to lender's terms and conditions, fees and charges and eligibility criteria apply.</p>
             </div>
         </div>
     </footer>
 
-    <script>
-        lucide.createIcons();
+    <script src="js/main.js"></script>
 
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const mobileMenuClose = document.getElementById('mobile-menu-close');
-
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.add('active');
-        });
-
-        mobileMenuClose.addEventListener('click', () => {
-            mobileMenu.classList.remove('active');
-        });
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) entry.target.classList.add('visible');
-            });
-        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-
-        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-    </script>
 </body>
 </html>
