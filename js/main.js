@@ -60,3 +60,44 @@ window.onload = function() {
         });
     }
 };
+document.addEventListener('DOMContentLoaded', () => {
+    const transitionLayer = document.getElementById('page-transition');
+
+    // 1. On page load: Start with curtain visible, then slide it UP and away
+    if (transitionLayer) {
+        // Set it to full screen immediately
+        transitionLayer.style.transform = 'translateY(0)';
+        
+        // Small timeout to ensure the browser has rendered the page
+        setTimeout(() => {
+            transitionLayer.classList.add('exit');
+        }, 100);
+    }
+
+    // 2. Intercept clicks to slide curtain back IN before leaving
+    document.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', e => {
+            const href = link.getAttribute('href');
+
+            // Only transition for internal links that aren't anchors or phone numbers
+            if (href && !href.startsWith('#') && !href.startsWith('tel:') && !href.startsWith('mailto:') && link.target !== '_blank') {
+                e.preventDefault(); // Stop immediate navigation
+                
+                // Reset the exit class and slide the curtain to the middle
+                transitionLayer.classList.remove('exit');
+                transitionLayer.style.transform = 'translateY(100%)';
+                
+                // Force a tiny reflow so the browser sees the reset
+                void transitionLayer.offsetWidth;
+                
+                // Slide back to center
+                transitionLayer.style.transform = 'translateY(0)';
+
+                // Navigate to the new page after the animation finishes (700ms)
+                setTimeout(() => {
+                    window.location.href = href;
+                }, 700);
+            }
+        });
+    });
+});
