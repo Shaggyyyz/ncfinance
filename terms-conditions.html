@@ -25,198 +25,101 @@
     <meta property="og:url" content="https://ncfinance.com.au/terms-conditions.html">
 
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['FuturaPT', 'Futura', 'Jost', 'sans-serif'],
-                        serif: ['FuturaPT', 'Futura', 'Jost', 'sans-serif'], 
-                    },
-                    colors: {
-                        brand: {
-                            900: '#686965',  // dark olive/grey (header/footer)
-                            800: '#686965',
-                            700: '#686965',
-                            600: '#337566',  // teal (accents)
-                            300: '#d1d5db',
-                            200: '#e5e7eb',
-                            100: '#eff5f4',
-                            50:  '#f7f9f9',  // very light background
-                                },
-                        accent: {
-                            400: '#c5a028',  // gold
-                            500: '#b08d1e',  // darker gold
-                        }
-                    },
-                    animation: {
-                        'float': 'float 6s ease-in-out infinite',
-                        'fadeIn': 'fadeIn 0.5s ease-out forwards',
-                    },
-                    keyframes: {
-                        float: {
-                            '0%, 100%': { transform: 'translateY(0)' },
-                            '50%': { transform: 'translateY(-10px)' },
-                        },
-                        fadeIn: {
-                            '0%': { opacity: '0', transform: 'translateY(10px)' },
-                            '100%': { opacity: '1', transform: 'translateY(0)' },
-                        }
-                    }
-                }
-            }
-        }
-    </script>
+    
+    <script src="js/tailwind-config.js"></script>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
     <script src="https://unpkg.com/lucide@latest"></script>
 
-    <style>
-        * {
-            font-family: 'Jost', sans-serif;
-        }
-        
-        html {
-            scroll-behavior: smooth;
-        }
-
-        /* Navigation styles */
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: white;
-            transition: width 0.3s ease;
-        }
-
-        .nav-link:hover::after {
-            width: 100%;
-        }
-
-        /* Fade in animations */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Mobile menu animation */
-        .mobile-menu {
-            transform: translateX(100%);
-            transition: transform 0.3s ease-in-out;
-        }
-
-        .mobile-menu.active {
-            transform: translateX(0);
-        }
-    </style>
+    <link rel="stylesheet" href="css/style.css">
 </head>
-<body class="bg-gray-50">
-    
-    <header class="fixed top-0 left-0 w-full bg-brand-900 shadow-lg z-50">
-        <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-            <a href="index.html">
-                <img src="https://shaggyyyz.github.io/nest-capital-finance/logo.png" alt="Nest Capital Finance" class="h-12 w-auto brightness-0 invert">
-            </a>
-            
-            <nav class="hidden md:flex space-x-10 items-center">
-                <a href="index.html" class="nav-link text-white font-medium text-sm uppercase tracking-widest relative">Home</a>
-                <a href="services.html" class="nav-link text-white font-medium text-sm uppercase tracking-widest relative">Services</a>
-                <a href="resources.html" class="nav-link text-white font-medium text-sm uppercase tracking-widest relative">Resources</a>
-                <a href="about.html" class="nav-link text-white font-medium text-sm uppercase tracking-widest relative">About</a>
-                <a href="contact.html" class="nav-link text-white font-medium text-sm uppercase tracking-widest relative">Contact</a>
-                <a href="contact.html" class="bg-white text-brand-900 px-8 py-3 rounded-sm font-medium text-xs uppercase tracking-widest hover:bg-gray-100 transition-colors duration-300 shadow-lg">Book Consultation</a>
-            </nav>
+<body class="bg-brand-50 text-gray-800 antialiased overflow-x-hidden">
 
-            <button id="mobile-menu-btn" class="md:hidden text-white focus:outline-none">
-                <i data-lucide="menu" class="w-6 h-6"></i>
+    <a href="contact.html" class="floating-cta bg-accent-500 text-white px-6 py-4 rounded-full font-bold uppercase tracking-widest text-xs flex items-center gap-2 hover:bg-accent-400">
+        <i data-lucide="calendar" class="w-4 h-4"></i>
+        <span class="hidden md:inline">Book CONSULTATION</span>
+        <span class="md:hidden">Book Now</span>
+    </a>
+
+    <header id="navbar" class="fixed w-full top-0 z-50 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-24">
+                <a href="index.html" class="flex items-center gap-3 group" aria-label="Nest Capital Finance Home">
+                    <img src="https://shaggyyyz.github.io/nest-capital-finance/logo.png" alt="Nest Capital Finance Logo" class="h-16 w-auto transition-transform duration-500 group-hover:scale-105 brightness-0 invert">
+                </a>
+
+                <nav class="hidden md:flex space-x-10 items-center">
+                    <a href="index.html" class="nav-link text-white font-medium text-sm uppercase tracking-widest relative">Home</a>
+                    <a href="services.html" class="nav-link text-white font-medium text-sm uppercase tracking-widest relative">Services</a>
+                    <a href="resources.html" class="nav-link text-white font-medium text-sm uppercase tracking-widest relative">Resources</a>
+                    <a href="about.html" class="nav-link text-white font-medium text-sm uppercase tracking-widest relative">About</a>
+                    <a href="contact.html" class="nav-link text-white font-medium text-sm uppercase tracking-widest relative">Contact</a>
+                    <a href="contact.html" class="bg-white text-brand-900 px-8 py-3 rounded-sm font-medium text-xs uppercase tracking-widest hover:bg-gray-100 transition-colors duration-300 shadow-lg">
+                        Book Consultation
+                    </a>
+                </nav>
+
+                <button id="mobile-menu-btn" class="md:hidden text-white focus:outline-none" aria-label="Open Menu">
+                    <i data-lucide="menu" class="w-8 h-8"></i>
+                </button>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="fixed inset-0 bg-brand-900 z-50 transform translate-x-full transition-transform duration-300 flex flex-col justify-center items-center space-y-8">
+            <button id="close-menu-btn" class="absolute top-8 right-8 text-white" aria-label="Close Menu">
+                <i data-lucide="x" class="w-8 h-8"></i>
             </button>
+            <a href="index.html" class="text-3xl font-serif text-white hover:text-accent-400 transition">Home</a>
+            <a href="services.html" class="text-3xl font-serif text-white hover:text-accent-400 transition">Services</a>
+            <a href="resources.html" class="text-3xl font-serif text-white hover:text-accent-400 transition">Resources</a>
+            <a href="lenders.html" class="text-3xl font-serif text-white hover:text-accent-400 transition">Lenders</a>
+            <a href="about.html" class="text-3xl font-serif text-white hover:text-accent-400 transition">About</a>
+            <a href="contact.html" class="text-3xl font-serif text-white hover:text-accent-400 transition">Contact</a>
         </div>
     </header>
 
-    <div id="mobile-menu" class="mobile-menu fixed top-0 right-0 h-full w-64 bg-brand-900 shadow-2xl z-50">
-        <div class="p-6">
-            <button id="mobile-menu-close" class="text-white mb-8">
-                <i data-lucide="x" class="w-6 h-6"></i>
-            </button>
-            <nav class="flex flex-col space-y-6">
-                <a href="index.html" class="text-white font-medium text-sm uppercase tracking-widest hover:text-accent-400 transition">Home</a>
-                <a href="services.html" class="text-white font-medium text-sm uppercase tracking-widest hover:text-accent-400 transition">Services</a>
-                <a href="resources.html" class="text-white font-medium text-sm uppercase tracking-widest hover:text-accent-400 transition">Resources</a>
-                <a href="about.html" class="text-white font-medium text-sm uppercase tracking-widest hover:text-accent-400 transition">About</a>
-                <a href="contact.html" class="text-white font-medium text-sm uppercase tracking-widest hover:text-accent-400 transition">Contact</a>
-                <a href="contact.html" class="bg-white text-brand-900 px-6 py-2 rounded-sm font-medium text-xs uppercase tracking-widest hover:bg-gray-100 transition inline-block text-center">Book Consultation</a>
-            </nav>
-        </div>
-    </div>
+    <main id="content-wrapper">
 
-    <main class="pt-24">
-        
-        <section class="bg-gradient-to-br from-brand-900 via-brand-800 to-brand-900 text-white py-20">
-            <div class="max-w-7xl mx-auto px-4 text-center">
-                <h1 class="text-4xl md:text-5xl font-bold mb-6 fade-in">Terms and Conditions</h1>
-                <p class="text-lg md:text-xl text-gray-200 max-w-3xl mx-auto mb-8 fade-in">Please read these terms and conditions carefully before using our website.</p>
+        <section class="bg-brand-50 pt-40 pb-12">
+            <div class="max-w-4xl mx-auto px-4 text-center reveal">
+                <h1 class="font-serif text-4xl md:text-5xl text-brand-900 mb-4">Terms and Conditions</h1>
+                <p class="text-gray-600">Last updated: February 2026</p>
             </div>
         </section>
 
-        <section class="py-20 bg-white">
-            <div class="max-w-4xl mx-auto px-4">
-                <div class="prose prose-lg text-gray-700 fade-in">
-                    
-                    <p class="mb-8 text-lg font-medium text-gray-800">Welcome to the Nest Capital Finance Pty Ltd website. By accessing or using our website, you agree to be bound by these Terms and Conditions.</p>
+        <section class="py-16 bg-white border-b border-gray-100">
+            <div class="max-w-4xl mx-auto px-4 reveal stagger-delay-1">
+                <div class="bg-white rounded-sm p-8 md:p-12 shadow-sm border border-gray-200">
+                    <div class="prose max-w-none text-gray-700 leading-relaxed text-sm md:text-base">
+                        <p class="mb-6">Welcome to Nest Capital Finance. By accessing and using our website (www.ncfinance.com.au), you agree to comply with and be bound by the following terms and conditions of use. If you disagree with any part of these terms, please do not use our website.</p>
+                        
+                        <p class="mb-6">The term 'Nest Capital Finance', 'us', or 'we' refers to the owner of the website, Nest Capital Finance Pty Ltd (ACN 691 621 191 | ABN 20 691 621 191). The term 'you' refers to the user or viewer of our website.</p>
 
-                    <div class="space-y-8">
-                        <div>
-                            <h2 class="text-2xl font-bold text-brand-900 mb-3">1. General Advice Warning</h2>
-                            <p class="leading-relaxed">The information provided on this website is general in nature and does not constitute personal financial advice. It has been prepared without taking into account your personal objectives, financial situation, or needs. Before acting on any information, you should consider whether it is appropriate for your circumstances and seek professional advice.</p>
-                        </div>
+                        <h3 class="font-serif text-xl text-brand-900 mt-10 mb-4">1. General Advice Warning</h3>
+                        <p class="mb-4">The information provided on this website is of a general nature only and does not constitute personal financial, tax, or legal advice. It has been prepared without taking into account your individual objectives, financial situation, or specific needs. Before acting on any information on this website, you should consider its appropriateness having regard to your own circumstances.</p>
 
-                        <div>
-                            <h2 class="text-2xl font-bold text-brand-900 mb-3">2. Services</h2>
-                            <p class="leading-relaxed">Nest Capital Finance Pty Ltd (ACN 691 621 191) provides credit assistance and mortgage broking services. Our role is to act as an intermediary between you and potential lenders.</p>
-                        </div>
+                        <h3 class="font-serif text-xl text-brand-900 mt-10 mb-4">2. Use of Calculators and Tools</h3>
+                        <p class="mb-4">The calculators and tools provided on this website are for illustrative and educational purposes only. The results are estimates based on the information you input and standard assumptions (such as standard assessment rates). They do not constitute a quote, pre-approval, or an offer of finance. Actual borrowing power, repayments, and fees will vary between lenders and depend on a full credit assessment.</p>
 
-                        <div>
-                            <h2 class="text-2xl font-bold text-brand-900 mb-3">3. Accuracy of Information</h2>
-                            <p class="leading-relaxed">While we make every effort to ensure the accuracy of the information on this website, we do not guarantee that it is free from errors or omissions. Interest rates, lender policies, and government grants are subject to change without notice.</p>
-                        </div>
+                        <h3 class="font-serif text-xl text-brand-900 mt-10 mb-4">3. Accuracy of Information</h3>
+                        <p class="mb-4">While we endeavor to keep the information on this website up to date and correct, we make no representations or warranties of any kind, express or implied, about the completeness, accuracy, reliability, suitability, or availability of the website or the information, products, or services contained on the website. We are not liable for any errors or omissions. Interest rates, lender policies, and government grants are subject to change without notice.</p>
 
-                        <div>
-                            <h2 class="text-2xl font-bold text-brand-900 mb-3">4. Limitation of Liability</h2>
-                            <p class="leading-relaxed">To the maximum extent permitted by law, Nest Capital Finance excludes all liability for any loss or damage of any kind (including special, indirect, or consequential loss or loss of profit) arising from or in connection with the use of this website or the content on this website.</p>
-                        </div>
+                        <h3 class="font-serif text-xl text-brand-900 mt-10 mb-4">4. Limitation of Liability</h3>
+                        <p class="mb-4">To the maximum extent permitted by law, Nest Capital Finance excludes all liability for any loss or damage of any kind (including special, indirect, or consequential loss or loss of profit) arising from or in connection with the use of this website or the content on this website.</p>
 
-                        <div>
-                            <h2 class="text-2xl font-bold text-brand-900 mb-3">5. Third-Party Links</h2>
-                            <p class="leading-relaxed">This website may contain links to third-party websites. These links are provided for convenience only and do not indicate an endorsement. We are not responsible for the content or privacy practices of third-party sites.</p>
-                        </div>
+                        <h3 class="font-serif text-xl text-brand-900 mt-10 mb-4">5. Third-Party Links</h3>
+                        <p class="mb-4">This website may contain links to third-party websites. These links are provided for convenience only and do not indicate an endorsement. We are not responsible for the content or privacy practices of third-party sites.</p>
 
-                        <div>
-                            <h2 class="text-2xl font-bold text-brand-900 mb-3">6. Intellectual Property</h2>
-                            <p class="leading-relaxed">All content on this website, including text, graphics, logos, and images, is the property of Nest Capital Finance Pty Ltd or its content suppliers and is protected by Australian copyright laws.</p>
-                        </div>
+                        <h3 class="font-serif text-xl text-brand-900 mt-10 mb-4">6. Intellectual Property</h3>
+                        <p class="mb-4">All content on this website, including text, graphics, logos, and images, is the property of Nest Capital Finance Pty Ltd or its content suppliers and is protected by Australian copyright laws.</p>
 
-                        <div>
-                            <h2 class="text-2xl font-bold text-brand-900 mb-3">7. Governing Law</h2>
-                            <p class="leading-relaxed">These Terms and Conditions are governed by and construed in accordance with the laws of Victoria, Australia. You irrevocably submit to the exclusive jurisdiction of the courts in that State.</p>
-                        </div>
+                        <h3 class="font-serif text-xl text-brand-900 mt-10 mb-4">7. Governing Law</h3>
+                        <p class="mb-4">These Terms and Conditions are governed by and construed in accordance with the laws of Victoria, Australia. You irrevocably submit to the exclusive jurisdiction of the courts in that State.</p>
                     </div>
-
                 </div>
             </div>
         </section>
-
     </main>
 
     <footer class="bg-brand-900 text-white pt-16 pb-8 border-t border-white/10 text-sm">
@@ -224,7 +127,9 @@
             <div class="grid md:grid-cols-4 gap-12 mb-12">
                 <div class="col-span-1">
                     <img src="https://shaggyyyz.github.io/nest-capital-finance/logo.png" alt="Nest Capital Finance" class="h-14 w-auto mb-6 brightness-0 invert opacity-90">
-                    <p class="text-gray-300 mb-6 leading-relaxed">Providing clarity and confidence for your property journey. Your trusted partner in finance.</p>
+                    <p class="text-gray-300 mb-6 leading-relaxed">
+                        Providing clarity and confidence for your property journey. Your trusted partner in finance.
+                    </p>
                     <div class="flex gap-4">
                         <a href="#" class="bg-white/10 p-2 rounded-full hover:bg-accent-500 transition"><i data-lucide="facebook" class="w-5 h-5"></i></a>
                         <a href="https://www.linkedin.com/company/nest-capital-finance" class="bg-white/10 p-2 rounded-full hover:bg-accent-500 transition"><i data-lucide="linkedin" class="w-5 h-5"></i></a>
@@ -259,64 +164,41 @@
                     <ul class="space-y-3">
                         <li class="flex items-start">
                             <i data-lucide="phone" class="w-5 h-5 text-accent-400 mr-3 mt-0.5"></i>
-                            <a href="tel:1300385222" class="text-base font-medium text-white/70 hover:text-accent-400 transition-colors duration-300">1300 385 222</a>
+                            <a href="tel:1300385222" class="text-base font-medium text-white/70 hover:text-accent-400 transition-colors duration-300">
+                                1300 385 222
+                            </a>
                         </li>
                         <li class="flex items-start">
                             <i data-lucide="mail" class="w-5 h-5 text-accent-400 mr-3 mt-0.5"></i>
-                            <a href="mailto:info@nestcapitalfinance.com.au" class="text-base font-medium text-white/70 hover:text-accent-400 transition-colors duration-300">info@nestcapitalfinance.com.au</a>
+                            <a href="mailto:info@nestcapitalfinance.com.au" class="text-base font-medium text-white/70 hover:text-accent-400 transition-colors duration-300">
+                                info@nestcapitalfinance.com.au
+                            </a>
                         </li>
                         <li class="flex items-start">
                             <i data-lucide="map-pin" class="w-5 h-5 text-accent-400 mr-3 mt-0.5"></i>
-                            <span class="text-base font-medium text-white/70">Melbourne, VIC<br>Servicing CBD, Inner North & Eastern Suburbs</span>
+                            <span class="text-base font-medium text-white/70">
+                                Melbourne, VIC<br>Servicing CBD, Inner North &amp; Eastern Suburbs
+                            </span>
                         </li>
                     </ul>
                 </div>
             </div>
 
-            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center">
-                <p class="text-gray-400 text-sm mb-4 md:mb-0">&copy; 2026 Nest Capital Finance Pty Ltd. All rights reserved.</p>
-                <div class="flex gap-6 text-sm">
-                    <a href="privacy-policy.html" class="text-gray-400 hover:text-accent-400 transition">Privacy Policy</a>
-                    <a href="feedback-complaints.html" class="text-gray-400 hover:text-accent-400 transition">Feedback & Complaints</a>
-                    <a href="terms-conditions.html" class="text-gray-400 hover:text-accent-400 transition">Terms & Conditions</a>
+            <div class="border-t border-white/20 pt-8 flex flex-col items-start gap-2">
+                <p class="text-white/50 text-xs">&copy; 2026 Nest Capital Finance Pty Ltd. ACN 691 621 191 | ABN 20 691 621 191 | Credit Representative 574020 is authorised under Australian Credit Licence 389328. | AFCA Member 118936</p>
+                <div class="flex gap-4 text-xs mt-1">
+                    <a href="privacy-policy.html" class="text-white/50 hover:text-accent-400 transition">Privacy Policy</a>
+                    <span class="text-white/50">|</span>
+                    <a href="feedback-complaints.html" class="text-white/50 hover:text-accent-400 transition">Feedback & Complaints</a>
+                    <span class="text-white/50">|</span>
+                    <a href="terms-conditions.html" class="text-white/50 hover:text-accent-400 transition">Terms &amp; Conditions</a>
                 </div>
+                <p class="text-white/40 text-xs mt-3 max-w-4xl">Disclaimer: This page provides general information only and has been prepared without taking into account your objectives, financial situation or needs. We recommend that you consider whether it is appropriate for your circumstances. Your full financial situation will need to be reviewed prior to acceptance of any offer or product. Subject to lender's terms and conditions, fees and charges and eligibility criteria apply.</p>
             </div>
         </div>
     </footer>
 
-    <script>
-        // Initialize Lucide icons
-        lucide.createIcons();
-
-        // Mobile menu toggle
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const mobileMenuClose = document.getElementById('mobile-menu-close');
-
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.add('active');
-        });
-
-        mobileMenuClose.addEventListener('click', () => {
-            mobileMenu.classList.remove('active');
-        });
-
-        // Fade in animation on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-    </script>
+    <script src="js/main.js"></script>
 
 </body>
 </html>
