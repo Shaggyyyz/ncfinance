@@ -142,17 +142,4 @@ h1, h2, h3, h4, h5, h6 {
     box-shadow: 0 4px 20px rgba(0,0,0,0.3); transition: transform 0.3s ease;
 }
 .floating-cta:hover { transform: translateY(-2px); }
-/* Initial state: curtain is down (off-screen) */
-#page-transition {
-    pointer-events: none;
-}
 
-/* State when active: curtain covers the screen */
-#page-transition.active {
-    transform: translateY(0);
-}
-
-/* State when exiting: curtain moves up and away */
-#page-transition.exit {
-    transform: translateY(-100%);
-}
