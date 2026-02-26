@@ -1,13 +1,13 @@
 window.onload = function() {
-    // Initialize icons
+    // 1. Initialize Icons
     if (typeof lucide !== 'undefined') {
         lucide.createIcons();
     }
     
-    // Add loaded class for Hero text animation
+    // 2. Add loaded class for Hero text animation
     document.body.classList.add('loaded'); 
     
-    // --- HERO SLIDESHOW LOGIC ---
+    // 3. Hero Slideshow Logic
     let currentSlide = 0;
     const slides = document.querySelectorAll('.hero-bg-slide');
     
@@ -16,18 +16,33 @@ window.onload = function() {
             slides[currentSlide].classList.remove('active');
             currentSlide = (currentSlide + 1) % slides.length;
             slides[currentSlide].classList.add('active');
-        }, 6000); // Changes image every 6 seconds
+        }, 8000); 
     }
     
-    // --- NAVBAR SCROLL EFFECT ---
+    // 4. Navbar Scroll Effect
     const navbar = document.getElementById('navbar');
     if (navbar) {
         window.addEventListener('scroll', () => {
-            navbar.classList.toggle('scrolled', window.scrollY > 50);
+            navbar.classList.toggle('scrolled', window.scrollY > 40);
         });
     }
 
-    // --- SCROLL REVEAL ANIMATIONS ---
+    // 5. Mobile Menu Toggle Logic
+    const mobileBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const closeBtn = document.getElementById('close-menu-btn');
+    
+    function toggleMenu() {
+        if (mobileMenu) {
+            mobileMenu.classList.toggle('translate-x-full');
+            document.body.classList.toggle('overflow-hidden'); // Stops background scrolling when menu is open
+        }
+    }
+    
+    if (mobileBtn) mobileBtn.addEventListener('click', toggleMenu);
+    if (closeBtn) closeBtn.addEventListener('click', toggleMenu);
+
+    // 6. Scroll Reveal Animations
     const revealElements = document.querySelectorAll('.reveal');
     if (revealElements.length > 0) {
         const revealObserver = new IntersectionObserver((entries) => {
@@ -37,7 +52,7 @@ window.onload = function() {
                     entry.target.classList.add('active');
                 }
             });
-        }, { threshold: 0.1 });
+        }, { threshold: 0.15 });
         
         revealElements.forEach(el => {
             if(!el.classList.contains('active')) el.classList.add('reveal-hidden');
