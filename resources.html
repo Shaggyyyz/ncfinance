@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Google Analytics 4 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-N01W5P5YVR"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -18,253 +17,158 @@
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://ncfinance.com.au/resources.html">
 
-    <!-- Tailwind CSS -->
+    <meta property="og:title" content="Resources & Tools | Nest Capital Finance">
+    <meta property="og:description" content="Empowering your property journey with expert knowledge, market insights, and powerful calculators.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ncfinance.com.au/resources.html">
+    <meta property="og:image" content="https://shaggyyyz.github.io/nest-capital-finance/Logolink.jpg">
+
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['FuturaPT', 'Futura', 'Jost', 'sans-serif'],
-                        serif: ['FuturaPT', 'Futura', 'Jost', 'sans-serif'], 
-                    },
-                    colors: {
-                        brand: {
-                            900: '#686965',  // dark olive/grey (header/footer)
-                            800: '#686965',
-                            700: '#686965',
-                            600: '#337566',  // teal (accents)
-                            300: '#d1d5db',
-                            200: '#e5e7eb',
-                            100: '#eff5f4',
-                            50:  '#f7f9f9',  // very light background
-                                },
-                        accent: {
-                            400: '#c5a028',  // gold
-                            500: '#b08d1e',  // darker gold
-                        }
-                    },
-                    animation: {
-                        'float': 'float 6s ease-in-out infinite',
-                        'fadeIn': 'fadeIn 0.5s ease-out forwards',
-                    },
-                    keyframes: {
-                        float: {
-                            '0%, 100%': { transform: 'translateY(0)' },
-                            '50%': { transform: 'translateY(-10px)' },
-                        },
-                        fadeIn: {
-                            '0%': { opacity: '0', transform: 'translateY(10px)' },
-                            '100%': { opacity: '1', transform: 'translateY(0)' },
-                        }
-                    }
-                }
-            }
-        }
-    </script>
+    
+    <script src="js/tailwind-config.js"></script>
 
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-    <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
 
-    <style>
-        * { font-family: 'Jost', sans-serif; }
-        html { scroll-behavior: smooth; }
-
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: white;
-            transition: width 0.3s ease;
-        }
-        .nav-link:hover::after { width: 100%; }
-
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .mobile-menu {
-            transform: translateX(100%);
-            transition: transform 0.3s ease-in-out;
-        }
-        .mobile-menu.active {
-            transform: translateX(0);
-        }
-
-        .card-hover {
-            transition: all 0.3s ease;
-        }
-        .card-hover:hover {
-            box-shadow: 0 20px 40px rgba(0,0,0,0.12);
-            transform: translateY(-6px);
-        }
-    </style>
+    <link rel="stylesheet" href="css/style.css">
 </head>
-<body class="bg-gray-50">
+<body class="bg-brand-50 text-gray-800 antialiased overflow-x-hidden">
 
-    <!-- Header -->
-    <header class="fixed top-0 left-0 w-full bg-brand-900 shadow-lg z-50">
-        <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-            <a href="index.html">
-                <img src="https://shaggyyyz.github.io/nest-capital-finance/logo.png"
-                     alt="Nest Capital Finance"
-                     class="h-12 w-auto brightness-0 invert">
-            </a>
+    <a href="contact.html" class="floating-cta bg-accent-500 text-white px-6 py-4 rounded-full font-bold uppercase tracking-widest text-xs flex items-center gap-2 hover:bg-accent-400">
+        <i data-lucide="calendar" class="w-4 h-4"></i>
+        <span class="hidden md:inline">Book CONSULTATION</span>
+        <span class="md:hidden">Book Now</span>
+    </a>
 
-            <!-- Desktop nav -->
-            <nav class="hidden md:flex space-x-10 items-center">
-                <a href="index.html" class="nav-link text-white font-medium text-sm uppercase tracking-widest relative">Home</a>
-                <a href="services.html" class="nav-link text-white font-medium text-sm uppercase tracking-widest relative">Services</a>
-                <a href="resources.html" class="nav-link text-white font-medium text-sm uppercase tracking-widest relative">Resources</a>
-                <a href="about.html" class="nav-link text-white font-medium text-sm uppercase tracking-widest relative">About</a>
-                <a href="contact.html" class="nav-link text-white font-medium text-sm uppercase tracking-widest relative">Contact</a>
-                <a href="contact.html" class="bg-white text-brand-900 px-8 py-3 rounded-sm font-medium text-xs uppercase tracking-widest hover:bg-gray-100 transition-colors duration-300 shadow-lg">Book Consultation</a>
-            </nav>
+    <header id="navbar" class="fixed w-full top-0 z-50 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-24">
+                <a href="index.html" class="flex items-center gap-3 group" aria-label="Nest Capital Finance Home">
+                    <img src="https://shaggyyyz.github.io/nest-capital-finance/logo.png" alt="Nest Capital Finance Logo" class="h-16 w-auto transition-transform duration-500 group-hover:scale-105 brightness-0 invert">
+                </a>
 
-            <!-- Mobile button -->
-            <button id="mobile-menu-btn" class="md:hidden text-white focus:outline-none">
-                <i data-lucide="menu" class="w-6 h-6"></i>
+                <nav class="hidden md:flex space-x-10 items-center">
+                    <a href="index.html" class="nav-link text-white font-medium text-sm uppercase tracking-widest relative">Home</a>
+                    <a href="services.html" class="nav-link text-white font-medium text-sm uppercase tracking-widest relative">Services</a>
+                    <a href="resources.html" class="nav-link text-white font-medium text-sm uppercase tracking-widest relative">Resources</a>
+                    <a href="about.html" class="nav-link text-white font-medium text-sm uppercase tracking-widest relative">About</a>
+                    <a href="contact.html" class="nav-link text-white font-medium text-sm uppercase tracking-widest relative">Contact</a>
+                    <a href="contact.html" class="bg-white text-brand-900 px-8 py-3 rounded-sm font-medium text-xs uppercase tracking-widest hover:bg-gray-100 transition-colors duration-300 shadow-lg">
+                        Book Consultation
+                    </a>
+                </nav>
+
+                <button id="mobile-menu-btn" class="md:hidden text-white focus:outline-none" aria-label="Open Menu">
+                    <i data-lucide="menu" class="w-8 h-8"></i>
+                </button>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="fixed inset-0 bg-brand-900 z-50 transform translate-x-full transition-transform duration-300 flex flex-col justify-center items-center space-y-8">
+            <button id="close-menu-btn" class="absolute top-8 right-8 text-white" aria-label="Close Menu">
+                <i data-lucide="x" class="w-8 h-8"></i>
             </button>
+            <a href="index.html" class="text-3xl font-serif text-white hover:text-accent-400 transition">Home</a>
+            <a href="services.html" class="text-3xl font-serif text-white hover:text-accent-400 transition">Services</a>
+            <a href="resources.html" class="text-3xl font-serif text-white hover:text-accent-400 transition">Resources</a>
+            <a href="lenders.html" class="text-3xl font-serif text-white hover:text-accent-400 transition">Lenders</a>
+            <a href="about.html" class="text-3xl font-serif text-white hover:text-accent-400 transition">About</a>
+            <a href="contact.html" class="text-3xl font-serif text-white hover:text-accent-400 transition">Contact</a>
         </div>
     </header>
 
-    <!-- Mobile menu -->
-    <div id="mobile-menu" class="mobile-menu fixed top-0 right-0 h-full w-64 bg-brand-900 shadow-2xl z-50">
-        <div class="p-6">
-            <button id="mobile-menu-close" class="text-white mb-8">
-                <i data-lucide="x" class="w-6 h-6"></i>
-            </button>
-            <nav class="flex flex-col space-y-6">
-                <a href="index.html" class="text-white font-medium text-sm uppercase tracking-widest hover:text-accent-400 transition">Home</a>
-                <a href="services.html" class="text-white font-medium text-sm uppercase tracking-widest hover:text-accent-400 transition">Services</a>
-                <a href="resources.html" class="text-white font-medium text-sm uppercase tracking-widest hover:text-accent-400 transition">Resources</a>
-                <a href="about.html" class="text-white font-medium text-sm uppercase tracking-widest hover:text-accent-400 transition">About</a>
-                <a href="contact.html" class="text-white font-medium text-sm uppercase tracking-widest hover:text-accent-400 transition">Contact</a>
-            </nav>
-        </div>
-    </div>
+    <main id="content-wrapper">
 
-    <!-- Main -->
-    <main class="pt-24">
+        <section class="pt-40 pb-20 bg-brand-50">
+            <div class="max-w-7xl mx-auto px-4 text-center">
+                <h1 class="font-serif text-5xl md:text-6xl text-brand-900 mb-6 reveal">Resources &amp; Tools</h1>
+                <p class="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto mb-8 reveal stagger-delay-1">
+                    Empowering your property journey with expert knowledge, market insights, and powerful calculators.
+                </p>
+            </div>
+        </section>
 
-        <!-- Resources & Tools (your section) -->
-        <section class="pt-32 pb-24 bg-white">
+        <section class="py-24 bg-white">
             <div class="max-w-7xl mx-auto px-4">
-                <div class="text-center mb-16 fade-in">
-                    <h2 class="font-serif text-5xl md:text-6xl text-brand-900 mb-6">Resources &amp; Tools</h2>
-                    <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-                        Empowering your property journey with expert knowledge, market insights, and powerful calculators.
-                    </p>
-                </div>
-
-                <div class="grid md:grid-cols-3 gap-8 mb-20">
-                    <!-- Articles & Guides -->
-                    <div class="bg-white border border-gray-200 p-8 rounded-sm card-hover fade-in">
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
+                    
+                    <div class="bg-white border border-gray-200 p-8 rounded-sm reveal transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl">
                         <i data-lucide="book-open" class="text-brand-600 w-10 h-10 mb-4"></i>
                         <h3 class="font-serif text-2xl text-brand-900 mb-3">Articles &amp; Guides</h3>
                         <p class="text-gray-600 mb-6">
                             Expert insights, market analysis, and comprehensive guides to help you navigate your property journey.
                         </p>
-                        <a href="articles.html"
-                           class="text-brand-600 font-semibold uppercase tracking-wider text-xs hover:text-accent-500 transition">
-                            Read Articles →
+                        <a href="articles.html" class="inline-block w-full text-center bg-brand-900 text-white px-6 py-3 rounded-sm font-bold uppercase tracking-widest text-xs hover:bg-accent-500 transition-colors duration-300">
+                            Read Articles
                         </a>
                     </div>
 
-                    <!-- Financial Calculators -->
-                    <div class="bg-white border border-gray-200 p-8 rounded-sm card-hover fade-in">
+                    <div class="bg-white border border-gray-200 p-8 rounded-sm reveal stagger-delay-1 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl">
                         <i data-lucide="calculator" class="text-brand-600 w-10 h-10 mb-4"></i>
                         <h3 class="font-serif text-2xl text-brand-900 mb-3">Financial Calculators</h3>
                         <p class="text-gray-600 mb-6">
                             Estimate repayments, borrowing capacity, stamp duty, and offset savings.
                         </p>
-                        <a href="calculators.html"
-                           class="text-brand-600 font-semibold uppercase tracking-wider text-xs hover:text-accent-500 transition">
-                            Use Calculators →
+                        <a href="calculators.html" class="inline-block w-full text-center bg-brand-900 text-white px-6 py-3 rounded-sm font-bold uppercase tracking-widest text-xs hover:bg-accent-500 transition-colors duration-300">
+                            Use Calculators
                         </a>
                     </div>
 
-                    <!-- Lender Panel -->
-                    <div class="bg-white border border-gray-200 p-8 rounded-sm card-hover fade-in">
+                    <div class="bg-white border border-gray-200 p-8 rounded-sm reveal stagger-delay-2 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl">
                         <i data-lucide="landmark" class="text-brand-600 w-10 h-10 mb-4"></i>
                         <h3 class="font-serif text-2xl text-brand-900 mb-3">Lender Panel</h3>
                         <p class="text-gray-600 mb-6">
                             Partnering with Australia’s top lenders, we provide a wide range of competitive home loan solutions.
                         </p>
-                        <a href="lenders.html"
-                           class="text-brand-600 font-semibold uppercase tracking-wider text-xs hover:text-accent-500 transition">
-                            view all lenders here →
+                        <a href="lenders.html" class="inline-block w-full text-center bg-brand-900 text-white px-6 py-3 rounded-sm font-bold uppercase tracking-widest text-xs hover:bg-accent-500 transition-colors duration-300">
+                            View Lenders
                         </a>
                     </div>
 
-                    <!-- FAQs -->
-                    <div class="bg-white border border-gray-200 p-8 rounded-sm card-hover fade-in">
+                    <div class="bg-white border border-gray-200 p-8 rounded-sm reveal stagger-delay-3 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl">
                         <i data-lucide="help-circle" class="text-brand-600 w-10 h-10 mb-4"></i>
                         <h3 class="font-serif text-2xl text-brand-900 mb-3">FAQs</h3>
                         <p class="text-gray-600 mb-6">
                             Find answers to frequently asked questions about mortgages and finance.
                         </p>
-                        <a href="faq.html"
-                           class="text-brand-600 font-semibold uppercase tracking-wider text-xs hover:text-accent-500 transition">
-                            View FAQs →
+                        <a href="faq.html" class="inline-block w-full text-center bg-brand-900 text-white px-6 py-3 rounded-sm font-bold uppercase tracking-widest text-xs hover:bg-accent-500 transition-colors duration-300">
+                            View FAQs
                         </a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Optional CTA -->
-        <section class="bg-gradient-to-br from-brand-900 to-brand-800 text-white py-16">
+        <section class="bg-brand-900 text-white py-24 reveal">
             <div class="max-w-4xl mx-auto px-4 text-center">
-                <h2 class="text-3xl md:text-4xl font-bold mb-6">Need Help With Your Scenario?</h2>
-                <p class="text-xl text-gray-200 mb-8">
+                <h2 class="font-serif text-4xl md:text-5xl mb-6">Need Help With Your Scenario?</h2>
+                <p class="text-lg text-gray-200 mb-10 max-w-2xl mx-auto">
                     Book a free 15-minute strategy call to get answers specific to your life.
                 </p>
-                <a href="contact.html"
-                   class="inline-block bg-white text-brand-900 px-10 py-4 rounded-sm font-bold text-sm uppercase tracking-widest hover:bg-gray-100 transition-colors duration-300 shadow-lg">
-                    Book Consultation
-                </a>
+                <div class="flex flex-col sm:flex-row gap-6 justify-center">
+                    <a href="contact.html" class="bg-white text-brand-900 px-10 py-4 rounded-sm font-bold uppercase tracking-widest text-xs hover:bg-accent-500 hover:text-white transition shadow-xl">Book CONSULTATION</a>
+                    <a href="tel:1300385222" class="border border-white/30 text-white px-10 py-4 rounded-sm font-bold uppercase tracking-widest text-xs hover:bg-white/10 transition backdrop-blur-sm flex items-center justify-center gap-2">
+                        <i data-lucide="phone" class="w-4 h-4"></i> 1300 385 222
+                    </a>
+                </div>
             </div>
         </section>
+
     </main>
 
-    <!-- Footer -->
     <footer class="bg-brand-900 text-white pt-16 pb-8 border-t border-white/10 text-sm">
         <div class="max-w-7xl mx-auto px-4">
             <div class="grid md:grid-cols-4 gap-12 mb-12">
                 <div class="col-span-1">
-                    <img src="https://shaggyyyz.github.io/nest-capital-finance/logo.png"
-                         alt="Nest Capital Finance"
-                         class="h-14 w-auto mb-6 brightness-0 invert opacity-90">
+                    <img src="https://shaggyyyz.github.io/nest-capital-finance/logo.png" alt="Nest Capital Finance" class="h-14 w-auto mb-6 brightness-0 invert opacity-90">
                     <p class="text-gray-300 mb-6 leading-relaxed">
                         Providing clarity and confidence for your property journey. Your trusted partner in finance.
                     </p>
                     <div class="flex gap-4">
-                        <a href="#" class="bg-white/10 p-2 rounded-full hover:bg-accent-500 transition">
-                            <i data-lucide="facebook" class="w-5 h-5"></i>
-                        </a>
-                        <a href="https://www.linkedin.com/company/nest-capital-finance"
-                           class="bg-white/10 p-2 rounded-full hover:bg-accent-500 transition">
-                            <i data-lucide="linkedin" class="w-5 h-5"></i>
-                        </a>
-                        <a href="https://www.instagram.com/nestcapitalfinance"
-                           class="bg-white/10 p-2 rounded-full hover:bg-accent-500 transition">
-                            <i data-lucide="instagram" class="w-5 h-5"></i>
-                        </a>
+                        <a href="#" class="bg-white/10 p-2 rounded-full hover:bg-accent-500 transition"><i data-lucide="facebook" class="w-5 h-5"></i></a>
+                        <a href="https://www.linkedin.com/company/nest-capital-finance" class="bg-white/10 p-2 rounded-full hover:bg-accent-500 transition"><i data-lucide="linkedin" class="w-5 h-5"></i></a>
+                        <a href="https://www.instagram.com/nestcapitalfinance" class="bg-white/10 p-2 rounded-full hover:bg-accent-500 transition"><i data-lucide="instagram" class="w-5 h-5"></i></a>
                     </div>
                 </div>
 
@@ -295,11 +199,15 @@
                     <ul class="space-y-3">
                         <li class="flex items-start">
                             <i data-lucide="phone" class="w-5 h-5 text-accent-400 mr-3 mt-0.5"></i>
-                            <a href="tel:1300385222" class="text-base font-medium text-white/70 hover:text-accent-400 transition-colors duration-300">1300 385 222</a>
+                            <a href="tel:1300385222" class="text-base font-medium text-white/70 hover:text-accent-400 transition-colors duration-300">
+                                1300 385 222
+                            </a>
                         </li>
                         <li class="flex items-start">
                             <i data-lucide="mail" class="w-5 h-5 text-accent-400 mr-3 mt-0.5"></i>
-                            <a href="mailto:info@nestcapitalfinance.com.au" class="text-base font-medium text-white/70 hover:text-accent-400 transition-colors duration-300">info@nestcapitalfinance.com.au</a>
+                            <a href="mailto:info@nestcapitalfinance.com.au" class="text-base font-medium text-white/70 hover:text-accent-400 transition-colors duration-300">
+                                info@nestcapitalfinance.com.au
+                            </a>
                         </li>
                         <li class="flex items-start">
                             <i data-lucide="map-pin" class="w-5 h-5 text-accent-400 mr-3 mt-0.5"></i>
@@ -311,45 +219,20 @@
                 </div>
             </div>
 
-            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center">
-                <p class="text-gray-400 text-sm mb-4 md:mb-0">&copy; 2026 Nest Capital Finance Pty Ltd. All rights reserved.</p>
-                <div class="flex gap-6 text-sm">
-                    <a href="privacy-policy.html" class="text-gray-400 hover:text-accent-400 transition">Privacy Policy</a>
-                    <a href="feedback-complaints.html" class="text-gray-400 hover:text-accent-400 transition">Feedback & Complaints</a>
-                    <a href="terms-conditions.html" class="text-gray-400 hover:text-accent-400 transition">Terms &amp; Conditions</a>
+            <div class="border-t border-white/20 pt-8 flex flex-col items-start gap-2">
+                <p class="text-white/50 text-xs">&copy; 2026 Nest Capital Finance Pty Ltd. ACN 691 621 191 | ABN 20 691 621 191 | Credit Representative 574020 is authorised under Australian Credit Licence 389328. | AFCA Member 118936</p>
+                <div class="flex gap-4 text-xs mt-1">
+                    <a href="privacy-policy.html" class="text-white/50 hover:text-accent-400 transition">Privacy Policy</a>
+                    <span class="text-white/50">|</span>
+                    <a href="feedback-complaints.html" class="text-white/50 hover:text-accent-400 transition">Feedback & Complaints</a>
+                    <span class="text-white/50">|</span>
+                    <a href="terms-conditions.html" class="text-white/50 hover:text-accent-400 transition">Terms &amp; Conditions</a>
                 </div>
+                <p class="text-white/40 text-xs mt-3 max-w-4xl">Disclaimer: This page provides general information only and has been prepared without taking into account your objectives, financial situation or needs. We recommend that you consider whether it is appropriate for your circumstances. Your full financial situation will need to be reviewed prior to acceptance of any offer or product. Subject to lender's terms and conditions, fees and charges and eligibility criteria apply.</p>
             </div>
         </div>
     </footer>
 
-    <script>
-        // Icons
-        lucide.createIcons();
-
-        // Mobile menu
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const mobileMenuClose = document.getElementById('mobile-menu-close');
-
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.add('active');
-        });
-
-        mobileMenuClose.addEventListener('click', () => {
-            mobileMenu.classList.remove('active');
-        });
-
-        // Fade-in on scroll
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-
-        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-    </script>
-
+    <script src="js/main.js"></script>
 </body>
 </html>
