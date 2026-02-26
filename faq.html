@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Google Analytics 4 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-N01W5P5YVR"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -13,228 +12,106 @@
       gtag('config', 'G-N01W5P5YVR');
     </script>
 
-    <title>FAQs | Nest Capital Finance</title>
-    <meta name="description" content="Answers to common questions about home loans, refinancing, first home buyers, investment lending, commercial finance and SMSF loans.">
+    <title>Frequently Asked Questions | Nest Capital Finance Melbourne</title>
+    <meta name="description" content="Comprehensive answers to common questions about home loans, refinancing, first home buyer grants, investment lending, commercial finance, and SMSF loans in Australia.">
+    <meta name="keywords" content="Mortgage Broker FAQs, Home Loan Questions, How much deposit do I need, LMI explained, Refinance Cashback, SMSF Property Rules, Commercial Loans Melbourne">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://ncfinance.com.au/faq.html">
 
-    <!-- Tailwind CSS -->
+    <meta property="og:title" content="Home Loan & Finance FAQs | Nest Capital Finance">
+    <meta property="og:description" content="Expert answers to your most pressing property finance questions. From first home buyers to SMSF investors.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ncfinance.com.au/faq.html">
+    <meta property="og:image" content="https://shaggyyyz.github.io/nest-capital-finance/Logolink.jpg">
+
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['FuturaPT', 'Futura', 'Jost', 'sans-serif'],
-                        serif: ['FuturaPT', 'Futura', 'Jost', 'sans-serif'], 
-                    },
-                    colors: {
-                        brand: {
-                            900: '#686965',  // dark olive/grey (header/footer)
-                            800: '#686965',
-                            700: '#686965',
-                            600: '#337566',  // teal (accents)
-                            300: '#d1d5db',
-                            200: '#e5e7eb',
-                            100: '#eff5f4',
-                            50:  '#f7f9f9',  // very light background
-                                },
-                        accent: {
-                            400: '#c5a028',  // gold
-                            500: '#b08d1e',  // darker gold
-                        }
-                    },
-                    animation: {
-                        'float': 'float 6s ease-in-out infinite',
-                        'fadeIn': 'fadeIn 0.5s ease-out forwards',
-                    },
-                    keyframes: {
-                        float: {
-                            '0%, 100%': { transform: 'translateY(0)' },
-                            '50%': { transform: 'translateY(-10px)' },
-                        },
-                        fadeIn: {
-                            '0%': { opacity: '0', transform: 'translateY(10px)' },
-                            '100%': { opacity: '1', transform: 'translateY(0)' },
-                        }
-                    }
-                }
-            }
-        }
-    </script>
+    
+    <script src="js/tailwind-config.js"></script>
 
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-    <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
 
-    <style>
-        * { font-family: 'Jost', sans-serif; }
-        html { scroll-behavior: smooth; }
-
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: white;
-            transition: width 0.3s ease;
-        }
-        .nav-link:hover::after { width: 100%; }
-
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .mobile-menu {
-            transform: translateX(100%);
-            transition: transform 0.3s ease-in-out;
-        }
-        .mobile-menu.active {
-            transform: translateX(0);
-        }
-
-        .accordion-content {
-            transition: max-height 0.3s ease, opacity 0.3s ease, padding 0.3s ease;
-            max-height: 0;
-            opacity: 0;
-            overflow: hidden;
-        }
-        .accordion-item.active .accordion-content {
-            max-height: 1000px;
-            opacity: 1;
-        }
-        .accordion-icon {
-            transition: transform 0.3s ease;
-        }
-        .accordion-item.active .accordion-icon {
-            transform: rotate(180deg);
-        }
-
-        #faq-search {
-            transition: border-color 0.2s ease, box-shadow 0.2s ease;
-        }
-        #faq-search:focus {
-            border-color: #f59e0b;
-            box-shadow: 0 0 0 1px rgba(245,158,11,0.2);
-        }
-    </style>
+    <link rel="stylesheet" href="css/style.css">
 </head>
-<body class="bg-brand-50 text-gray-800 antialiased">
+<body class="bg-brand-50 text-gray-800 antialiased overflow-x-hidden">
 
-    <!-- Header -->
-    <header class="fixed top-0 left-0 w-full bg-brand-900 shadow-lg z-50">
-        <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-            <a href="index.html">
-                <img src="https://shaggyyyz.github.io/nest-capital-finance/logo.png"
-                     alt="Nest Capital Finance"
-                     class="h-12 w-auto brightness-0 invert">
-            </a>
+    <a href="contact.html" class="floating-cta bg-accent-500 text-white px-6 py-4 rounded-full font-bold uppercase tracking-widest text-xs flex items-center gap-2 hover:bg-accent-400">
+        <i data-lucide="calendar" class="w-4 h-4"></i>
+        <span class="hidden md:inline">Book CONSULTATION</span>
+        <span class="md:hidden">Book Now</span>
+    </a>
 
-            <!-- Desktop nav -->
-            <nav class="hidden md:flex space-x-10 items-center">
-                <a href="index.html" class="nav-link text-white font-medium text-sm uppercase tracking-widest relative">Home</a>
-                <a href="services.html" class="nav-link text-white font-medium text-sm uppercase tracking-widest relative">Services</a>
-                <a href="resources.html" class="nav-link text-white font-medium text-sm uppercase tracking-widest relative">Resources</a>
-                <a href="about.html" class="nav-link text-white font-medium text-sm uppercase tracking-widest relative">About</a>
-                <a href="contact.html" class="nav-link text-white font-medium text-sm uppercase tracking-widest relative">Contact</a>
-                <a href="contact.html" class="bg-white text-brand-900 px-8 py-3 rounded-sm font-medium text-xs uppercase tracking-widest hover:bg-gray-100 transition-colors duration-300 shadow-lg">Book Consultation</a>
-            </nav>
+    <header id="navbar" class="fixed w-full top-0 z-50 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-24">
+                <a href="index.html" class="flex items-center gap-3 group" aria-label="Nest Capital Finance Home">
+                    <img src="https://shaggyyyz.github.io/nest-capital-finance/logo.png" alt="Nest Capital Finance Logo" class="h-16 w-auto transition-transform duration-500 group-hover:scale-105 brightness-0 invert">
+                </a>
 
-            <!-- Mobile button -->
-            <button id="mobile-menu-btn" class="md:hidden text-white focus:outline-none" aria-label="Open Menu">
-                <i data-lucide="menu" class="w-6 h-6"></i>
+                <nav class="hidden md:flex space-x-10 items-center">
+                    <a href="index.html" class="nav-link text-white font-medium text-sm uppercase tracking-widest relative">Home</a>
+                    <a href="services.html" class="nav-link text-white font-medium text-sm uppercase tracking-widest relative">Services</a>
+                    <a href="resources.html" class="nav-link text-white font-medium text-sm uppercase tracking-widest relative">Resources</a>
+                    <a href="about.html" class="nav-link text-white font-medium text-sm uppercase tracking-widest relative">About</a>
+                    <a href="contact.html" class="nav-link text-white font-medium text-sm uppercase tracking-widest relative">Contact</a>
+                    <a href="contact.html" class="bg-white text-brand-900 px-8 py-3 rounded-sm font-medium text-xs uppercase tracking-widest hover:bg-gray-100 transition-colors duration-300 shadow-lg">
+                        Book Consultation
+                    </a>
+                </nav>
+
+                <button id="mobile-menu-btn" class="md:hidden text-white focus:outline-none" aria-label="Open Menu">
+                    <i data-lucide="menu" class="w-8 h-8"></i>
+                </button>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="fixed inset-0 bg-brand-900 z-50 transform translate-x-full transition-transform duration-300 flex flex-col justify-center items-center space-y-8">
+            <button id="close-menu-btn" class="absolute top-8 right-8 text-white" aria-label="Close Menu">
+                <i data-lucide="x" class="w-8 h-8"></i>
             </button>
+            <a href="index.html" class="text-3xl font-serif text-white hover:text-accent-400 transition">Home</a>
+            <a href="services.html" class="text-3xl font-serif text-white hover:text-accent-400 transition">Services</a>
+            <a href="resources.html" class="text-3xl font-serif text-white hover:text-accent-400 transition">Resources</a>
+            <a href="lenders.html" class="text-3xl font-serif text-white hover:text-accent-400 transition">Lenders</a>
+            <a href="about.html" class="text-3xl font-serif text-white hover:text-accent-400 transition">About</a>
+            <a href="contact.html" class="text-3xl font-serif text-white hover:text-accent-400 transition">Contact</a>
         </div>
     </header>
 
-    <!-- Mobile menu -->
-    <div id="mobile-menu" class="mobile-menu fixed top-0 right-0 h-full w-64 bg-brand-900 shadow-2xl z-50">
-        <div class="p-6">
-            <button id="mobile-menu-close" class="text-white mb-8" aria-label="Close Menu">
-                <i data-lucide="x" class="w-6 h-6"></i>
-            </button>
-            <nav class="flex flex-col space-y-6">
-                <a href="index.html" class="text-white font-medium text-sm uppercase tracking-widest hover:text-accent-400 transition">Home</a>
-                <a href="services.html" class="text-white font-medium text-sm uppercase tracking-widest hover:text-accent-400 transition">Services</a>
-                <a href="resources.html" class="text-white font-medium text-sm uppercase tracking-widest hover:text-accent-400 transition">Resources</a>
-                <a href="about.html" class="text-white font-medium text-sm uppercase tracking-widest hover:text-accent-400 transition">About</a>
-                <a href="contact.html" class="text-white font-medium text-sm uppercase tracking-widest hover:text-accent-400 transition">Contact</a>
-            </nav>
-        </div>
-    </div>
+    <main id="content-wrapper">
 
-    <!-- Main -->
-    <main class="pt-24">
-
-        <!-- Top intro + back -->
-        <div class="bg-brand-50 pt-32 pb-4">
+        <section class="bg-brand-50 pt-40 pb-10">
             <div class="max-w-4xl mx-auto px-4">
-                <a href="resources.html"
-                   class="mb-8 inline-flex text-sm uppercase tracking-widest text-brand-600 hover:text-accent-500 transition items-center gap-2">
+                <a href="resources.html" class="mb-8 inline-flex text-sm uppercase tracking-widest text-brand-600 hover:text-accent-500 transition items-center gap-2 reveal">
                     <i data-lucide="arrow-left" class="w-4 h-4"></i>
                     Back to Resources
                 </a>
-                <div class="text-center fade-in">
+                <div class="text-center reveal stagger-delay-1">
                     <span class="text-accent-400 font-bold uppercase tracking-widest text-xs mb-4 block">
                         Expert Knowledge Base
                     </span>
                     <h1 class="font-serif text-5xl md:text-6xl text-brand-900 mb-6">Common Questions</h1>
+                    <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                        Clear, detailed answers to the most common queries we receive about navigating the Australian lending market.
+                    </p>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <!-- Search -->
-        <section class="px-4 mb-16 fade-in">
+        <section class="px-4 mb-16 reveal stagger-delay-2">
             <div class="max-w-2xl mx-auto relative">
                 <input type="text"
                        id="faq-search"
-                       placeholder="Search questions (e.g., 'refinance', 'deposit', 'LMI')..."
-                       class="w-full py-4 pl-12 pr-4 bg-white border border-gray-200 rounded-sm focus:outline-none shadow-sm text-brand-900">
+                       placeholder="Search questions (e.g., 'refinance', 'deposit', 'LMI', 'SMSF')..."
+                       class="w-full py-4 pl-12 pr-4 bg-white border border-gray-200 rounded-sm focus:outline-none focus:border-brand-900 focus:ring-1 focus:ring-brand-900 shadow-sm text-brand-900 transition-all">
                 <i data-lucide="search" class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 w-5 h-5"></i>
             </div>
         </section>
 
-        <!-- FAQ groups -->
         <section class="pb-24 px-4 bg-brand-50">
             <div class="max-w-4xl mx-auto space-y-16">
 
-                <!-- Eligibility & Preparation (single Q from your snippet) -->
-                <div class="fade-in">
-                    <h2 class="font-serif text-3xl text-brand-900 mb-8 border-b border-gray-200 pb-4 flex items-center gap-3">
-                        <i data-lucide="clipboard-check" class="w-6 h-6 text-accent-400"></i>
-                        Eligibility & Preparation
-                    </h2>
-                    <div class="space-y-4">
-                        <div class="bg-white border border-gray-200 rounded-sm overflow-hidden accordion-item group" data-faq-item>
-                            <button class="w-full flex justify-between items-center p-6 text-left focus:outline-none" onclick="toggleAccordion(this)">
-                                <span class="font-serif text-xl text-brand-900 group-hover:text-brand-600 transition faq-question">
-                                    What is mortgage pre-approval and why is it important?
-                                </span>
-                                <i data-lucide="chevron-down" class="w-5 h-5 text-accent-400 accordion-icon"></i>
-                            </button>
-                            <div class="accordion-content bg-gray-50">
-                                <div class="p-6 pt-0 text-black leading-relaxed faq-answer">
-                                    <p>Mortgage pre-approval is a formal process where a lender reviews your financial information (income, credit, assets) and tentatively commits to lending you a specific amount. It's crucial because it clearly defines your budget, allows you to make a competitive offer when you find a home, and shows sellers you are a serious, qualified buyer.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- General & Broker Services -->
-                <div class="fade-in">
+                <div class="reveal">
                     <h2 class="font-serif text-3xl text-brand-900 mb-8 border-b border-gray-200 pb-4 flex items-center gap-3">
                         <i data-lucide="info" class="w-6 h-6 text-accent-400"></i>
                         General & Broker Services
@@ -244,13 +121,13 @@
                         <div class="bg-white border border-gray-200 rounded-sm overflow-hidden accordion-item group" data-faq-item>
                             <button class="w-full flex justify-between items-center p-6 text-left focus:outline-none" onclick="toggleAccordion(this)">
                                 <span class="font-serif text-xl text-brand-900 group-hover:text-brand-600 transition faq-question">
-                                    Why use a mortgage broker instead of a bank?
+                                    Why use a mortgage broker instead of going direct to my bank?
                                 </span>
                                 <i data-lucide="chevron-down" class="w-5 h-5 text-accent-400 accordion-icon"></i>
                             </button>
                             <div class="accordion-content bg-gray-50">
-                                <div class="p-6 pt-0 text-black leading-relaxed faq-answer">
-                                    <p>A bank can only offer you their own specific products. As mortgage brokers, Nest Capital Finance acts as an intermediary, providing access to over 60 lenders, including major banks, second-tier lenders, and specialist funds. We compare rates, fees, and policies to find the solution tailored to your specific needs, potentially saving you thousands. Furthermore, our service is typically free to you as the lender pays us.</p>
+                                <div class="p-6 pt-0 text-gray-700 leading-relaxed faq-answer">
+                                    <p>A bank can only offer you their own specific loan products. If their policy doesn't suit you, or their rates are uncompetitive, they won't tell you to go to their competitor. As mortgage brokers, Nest Capital Finance acts as an intermediary, providing access to over 60 lenders, including major banks, second-tier lenders, and specialist funds. We compare rates, fees, and policies to find the solution tailored to your specific needs, manage all the paperwork, and advocate on your behalf.</p>
                                 </div>
                             </div>
                         </div>
@@ -258,13 +135,27 @@
                         <div class="bg-white border border-gray-200 rounded-sm overflow-hidden accordion-item group" data-faq-item>
                             <button class="w-full flex justify-between items-center p-6 text-left focus:outline-none" onclick="toggleAccordion(this)">
                                 <span class="font-serif text-xl text-brand-900 group-hover:text-brand-600 transition faq-question">
-                                    Does using a broker cost me extra money?
+                                    How does a mortgage broker get paid? Do you charge a fee?
                                 </span>
                                 <i data-lucide="chevron-down" class="w-5 h-5 text-accent-400 accordion-icon"></i>
                             </button>
                             <div class="accordion-content bg-gray-50">
-                                <div class="p-6 pt-0 text-black leading-relaxed faq-answer">
-                                    <p>In most residential lending cases, our service is completely free to you. We are paid a commission by the lender upon settlement of your loan. This commission is disclosed fully in our credit proposal. Importantly, the interest rate you receive is often the same or better than if you went direct, as brokers have access to wholesale channels and special negotiated rates.</p>
+                                <div class="p-6 pt-0 text-gray-700 leading-relaxed faq-answer">
+                                    <p>In most residential lending scenarios, our service is completely free to you. We are paid an upfront commission and a small trailing commission by the lender upon settlement of your loan. This commission is disclosed fully in our credit proposal document. Importantly, the interest rate you receive is the same (or often heavily discounted) as if you went direct, as lenders do not charge you extra for using a broker.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-white border border-gray-200 rounded-sm overflow-hidden accordion-item group" data-faq-item>
+                            <button class="w-full flex justify-between items-center p-6 text-left focus:outline-none" onclick="toggleAccordion(this)">
+                                <span class="font-serif text-xl text-brand-900 group-hover:text-brand-600 transition faq-question">
+                                    What is "Best Interests Duty" (BID)?
+                                </span>
+                                <i data-lucide="chevron-down" class="w-5 h-5 text-accent-400 accordion-icon"></i>
+                            </button>
+                            <div class="accordion-content bg-gray-50">
+                                <div class="p-6 pt-0 text-gray-700 leading-relaxed faq-answer">
+                                    <p>Best Interests Duty (BID) is a legal requirement in Australia that applies to mortgage brokers (but crucially, not to bank branch staff). It mandates that brokers must act in the best interests of the consumer when providing credit assistance. If there is a conflict of interest, we must prioritize your interests above our own. This provides you with unmatched protection and transparency.</p>
                                 </div>
                             </div>
                         </div>
@@ -277,61 +168,31 @@
                                 <i data-lucide="chevron-down" class="w-5 h-5 text-accent-400 accordion-icon"></i>
                             </button>
                             <div class="accordion-content bg-gray-50">
-                                <div class="p-6 pt-0 text-black leading-relaxed faq-answer">
-                                    <p>No. When we perform a preliminary assessment or 'pre-qualification' to calculate your borrowing power, it does not leave a footprint on your credit file. A credit inquiry is only recorded on your file once a formal application is submitted to a lender.</p>
+                                <div class="p-6 pt-0 text-gray-700 leading-relaxed faq-answer">
+                                    <p>No. When we perform a preliminary assessment or 'pre-qualification' to calculate your borrowing power and scenario test with various lenders, it does not leave a footprint on your credit file. A formal credit inquiry is only recorded on your file once you have signed a privacy consent and we submit a formal application to a specific lender.</p>
                                 </div>
                             </div>
                         </div>
-
-                        <div class="bg-white border border-gray-200 rounded-sm overflow-hidden accordion-item group" data-faq-item>
-                            <button class="w-full flex justify-between items-center p-6 text-left focus:outline-none" onclick="toggleAccordion(this)">
-                                <span class="font-serif text-xl text-brand-900 group-hover:text-brand-600 transition faq-question">
-                                    How long does the loan approval process take?
-                                </span>
-                                <i data-lucide="chevron-down" class="w-5 h-5 text-accent-400 accordion-icon"></i>
-                            </button>
-                            <div class="accordion-content bg-gray-50">
-                                <div class="p-6 pt-0 text-black leading-relaxed faq-answer">
-                                    <p>Timelines vary by lender and complexity. Typically, pre-approval takes 2-5 business days. Once a property is found and a full application is submitted, unconditional approval usually takes 3-10 business days. Settlement then occurs 30-90 days later, depending on the contract of sale.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="bg-white border border-gray-200 rounded-sm overflow-hidden accordion-item group" data-faq-item>
-                            <button class="w-full flex justify-between items-center p-6 text-left focus:outline-none" onclick="toggleAccordion(this)">
-                                <span class="font-serif text-xl text-brand-900 group-hover:text-brand-600 transition faq-question">
-                                    What documents do I need to apply?
-                                </span>
-                                <i data-lucide="chevron-down" class="w-5 h-5 text-accent-400 accordion-icon"></i>
-                            </button>
-                            <div class="accordion-content bg-gray-50">
-                                <div class="p-6 pt-0 text-black leading-relaxed faq-answer">
-                                    <p>Standard requirements include identification (Passport/Driver's License), 2 recent payslips, 3 months of bank statements, and details of any existing debts (credit cards/loans). If you are self-employed, we will need your last 2 years of tax returns and NOAs.</p>
-                                </div>
-                            </div>
-                        </div>
-
                     </div>
                 </div>
 
-                <!-- First Home Buyers -->
-                <div class="fade-in">
+                <div class="reveal">
                     <h2 class="font-serif text-3xl text-brand-900 mb-8 border-b border-gray-200 pb-4 flex items-center gap-3">
                         <i data-lucide="home" class="w-6 h-6 text-accent-400"></i>
-                        First Home Buyers
+                        First Home Buyers & Preparation
                     </h2>
                     <div class="space-y-4">
 
                         <div class="bg-white border border-gray-200 rounded-sm overflow-hidden accordion-item group" data-faq-item>
                             <button class="w-full flex justify-between items-center p-6 text-left focus:outline-none" onclick="toggleAccordion(this)">
                                 <span class="font-serif text-xl text-brand-900 group-hover:text-brand-600 transition faq-question">
-                                    How much deposit do I need?
+                                    How much deposit do I actually need to buy a home?
                                 </span>
                                 <i data-lucide="chevron-down" class="w-5 h-5 text-accent-400 accordion-icon"></i>
                             </button>
                             <div class="accordion-content bg-gray-50">
-                                <div class="p-6 pt-0 text-black leading-relaxed faq-answer">
-                                    <p>Generally, lenders prefer a deposit of 20% of the property's value (plus costs like stamp duty). However, most lenders allow you to borrow with as little as 5% deposit if you pay Lenders Mortgage Insurance (LMI). There are also government schemes available that allow purchasing with 5% deposit and NO LMI.</p>
+                                <div class="p-6 pt-0 text-gray-700 leading-relaxed faq-answer">
+                                    <p>Ideally, a 20% deposit avoids Lenders Mortgage Insurance (LMI) and gives you immediate equity. However, most lenders will allow you to buy with a 5% to 10% deposit (plus purchasing costs) if you pay LMI. Alternatively, if you qualify for the Federal Government's Home Guarantee Scheme, you can purchase with a 5% deposit and pay $0 in LMI. If your parents are willing to act as Guarantors, you can borrow 100% of the property value with no cash deposit at all.</p>
                                 </div>
                             </div>
                         </div>
@@ -344,8 +205,8 @@
                                 <i data-lucide="chevron-down" class="w-5 h-5 text-accent-400 accordion-icon"></i>
                             </button>
                             <div class="accordion-content bg-gray-50">
-                                <div class="p-6 pt-0 text-black leading-relaxed faq-answer">
-                                    <p>LMI is a one-off insurance premium that protects the lender (not you) in the event that you default on your loan and the property is sold for less than the debt. It is usually applicable if your Loan-to-Value Ratio (LVR) is above 80%. The cost can be thousands of dollars, but it can often be added to the loan amount (capitalised).</p>
+                                <div class="p-6 pt-0 text-gray-700 leading-relaxed faq-answer">
+                                    <p>LMI is a one-off insurance premium paid by the borrower, but it exists to protect the <em>lender</em> in the event you default on your loan and the property is sold at a loss. It is generally required if your Loan-to-Value Ratio (LVR) exceeds 80%. While it adds to your loan cost, it allows buyers to enter the property market years earlier than if they had to save a full 20% deposit.</p>
                                 </div>
                             </div>
                         </div>
@@ -353,13 +214,13 @@
                         <div class="bg-white border border-gray-200 rounded-sm overflow-hidden accordion-item group" data-faq-item>
                             <button class="w-full flex justify-between items-center p-6 text-left focus:outline-none" onclick="toggleAccordion(this)">
                                 <span class="font-serif text-xl text-brand-900 group-hover:text-brand-600 transition faq-question">
-                                    Are there grants for First Home Buyers in Victoria?
+                                    What is a Guarantor Loan (Family Pledge)?
                                 </span>
                                 <i data-lucide="chevron-down" class="w-5 h-5 text-accent-400 accordion-icon"></i>
                             </button>
                             <div class="accordion-content bg-gray-50">
-                                <div class="p-6 pt-0 text-black leading-relaxed faq-answer">
-                                    <p>Yes. As of 2025, eligible first home buyers purchasing a new home may receive the First Home Owner Grant ($10,000). Furthermore, stamp duty concessions or exemptions apply for properties valued up to $750,000. We can check your eligibility for the First Home Guarantee (FHBG), which allows purchase with a 5% deposit and no LMI.</p>
+                                <div class="p-6 pt-0 text-gray-700 leading-relaxed faq-answer">
+                                    <p>A family guarantee allows a family member (usually parents) to use the equity in their own home as additional security for your loan. This means you can borrow up to 100% of the purchase price plus costs (like stamp duty) without paying LMI. Once the new property increases in value or you pay down the debt to an 80% LVR, the guarantor can be released from the loan.</p>
                                 </div>
                             </div>
                         </div>
@@ -367,52 +228,36 @@
                         <div class="bg-white border border-gray-200 rounded-sm overflow-hidden accordion-item group" data-faq-item>
                             <button class="w-full flex justify-between items-center p-6 text-left focus:outline-none" onclick="toggleAccordion(this)">
                                 <span class="font-serif text-xl text-brand-900 group-hover:text-brand-600 transition faq-question">
-                                    What is a Guarantor Loan?
+                                    What is Pre-approval and how long does it last?
                                 </span>
                                 <i data-lucide="chevron-down" class="w-5 h-5 text-accent-400 accordion-icon"></i>
                             </button>
                             <div class="accordion-content bg-gray-50">
-                                <div class="p-6 pt-0 text-black leading-relaxed faq-answer">
-                                    <p>A guarantor loan (or family pledge) allows a family member to use the equity in their own home as security for your loan. This can allow you to borrow up to 100% of the purchase price plus costs, avoiding LMI entirely and getting you into the market sooner with a smaller deposit.</p>
+                                <div class="p-6 pt-0 text-gray-700 leading-relaxed faq-answer">
+                                    <p>Pre-approval is a formal indication from a lender that they are willing to lend you a specific amount, subject to you finding a suitable property and a satisfactory valuation. It is essential before attending auctions. Most pre-approvals are valid for 90 days, though some lenders extend this to 180 days. We can usually "refresh" it easily by providing your latest payslips.</p>
                                 </div>
                             </div>
                         </div>
-
-                        <div class="bg-white border border-gray-200 rounded-sm overflow-hidden accordion-item group" data-faq-item>
-                            <button class="w-full flex justify-between items-center p-6 text-left focus:outline-none" onclick="toggleAccordion(this)">
-                                <span class="font-serif text-xl text-brand-900 group-hover:text-brand-600 transition faq-question">
-                                    How long does pre-approval last?
-                                </span>
-                                <i data-lucide="chevron-down" class="w-5 h-5 text-accent-400 accordion-icon"></i>
-                            </button>
-                            <div class="accordion-content bg-gray-50">
-                                <div class="p-6 pt-0 text-black leading-relaxed faq-answer">
-                                    <p>A pre-approval typically lasts for 3 to 6 months (90-180 days), depending on the lender. If you haven't bought a property in that time, we can usually refresh the approval by updating your payslips, provided your financial situation hasn't worsened.</p>
-                                </div>
-                            </div>
-                        </div>
-
                     </div>
                 </div>
 
-                <!-- Refinancing & Debt -->
-                <div class="fade-in">
+                <div class="reveal">
                     <h2 class="font-serif text-3xl text-brand-900 mb-8 border-b border-gray-200 pb-4 flex items-center gap-3">
                         <i data-lucide="refresh-cw" class="w-6 h-6 text-accent-400"></i>
-                        Refinancing & Debt
+                        Refinancing, Debt & Features
                     </h2>
                     <div class="space-y-4">
 
                         <div class="bg-white border border-gray-200 rounded-sm overflow-hidden accordion-item group" data-faq-item>
                             <button class="w-full flex justify-between items-center p-6 text-left focus:outline-none" onclick="toggleAccordion(this)">
                                 <span class="font-serif text-xl text-brand-900 group-hover:text-brand-600 transition faq-question">
-                                    When is the right time to refinance?
+                                    When is the right time to consider refinancing?
                                 </span>
                                 <i data-lucide="chevron-down" class="w-5 h-5 text-accent-400 accordion-icon"></i>
                             </button>
                             <div class="accordion-content bg-gray-50">
-                                <div class="p-6 pt-0 text-black leading-relaxed faq-answer">
-                                    <p>You should consider refinancing if: 1) Your interest rate is higher than the current market average, 2) Your fixed-rate period is ending, 3) You want to access equity for renovations or investment, or 4) You want to consolidate high-interest debts (like credit cards) into your lower-interest home loan.</p>
+                                <div class="p-6 pt-0 text-gray-700 leading-relaxed faq-answer">
+                                    <p>We recommend a home loan review every 12 to 18 months. You should actively look to refinance if: 1) Your interest rate starts with a higher number than what banks are advertising to new customers, 2) Your fixed-rate period is expiring (avoid the "loyalty tax" revert rate), 3) Your property has grown in value and you want to extract equity to invest or renovate, or 4) You need to consolidate personal debts.</p>
                                 </div>
                             </div>
                         </div>
@@ -420,13 +265,13 @@
                         <div class="bg-white border border-gray-200 rounded-sm overflow-hidden accordion-item group" data-faq-item>
                             <button class="w-full flex justify-between items-center p-6 text-left focus:outline-none" onclick="toggleAccordion(this)">
                                 <span class="font-serif text-xl text-brand-900 group-hover:text-brand-600 transition faq-question">
-                                    Can I consolidate credit card debt into my mortgage?
+                                    What is the difference between an Offset Account and a Redraw Facility?
                                 </span>
                                 <i data-lucide="chevron-down" class="w-5 h-5 text-accent-400 accordion-icon"></i>
                             </button>
                             <div class="accordion-content bg-gray-50">
-                                <div class="p-6 pt-0 text-black leading-relaxed faq-answer">
-                                    <p>Yes. Debt consolidation involves refinancing your mortgage to pay out high-interest personal loans or credit cards. This puts all your debt into one payment at a much lower interest rate (e.g., 6% vs 20%), significantly improving your monthly cash flow.</p>
+                                <div class="p-6 pt-0 text-gray-700 leading-relaxed faq-answer">
+                                    <p>An <strong>Offset Account</strong> is a separate, everyday transaction account linked to your loan. Every dollar inside it "offsets" your loan balance for interest calculations. A <strong>Redraw Facility</strong> is a feature of the loan itself that allows you to withdraw extra repayments you have already made. For tax purposes (especially if you plan to turn your home into an investment property later), an offset account is far superior because withdrawing from an offset does not constitute a "new borrowing" in the eyes of the ATO, preserving the tax deductibility of the original loan.</p>
                                 </div>
                             </div>
                         </div>
@@ -434,13 +279,13 @@
                         <div class="bg-white border border-gray-200 rounded-sm overflow-hidden accordion-item group" data-faq-item>
                             <button class="w-full flex justify-between items-center p-6 text-left focus:outline-none" onclick="toggleAccordion(this)">
                                 <span class="font-serif text-xl text-brand-900 group-hover:text-brand-600 transition faq-question">
-                                    Fixed vs Variable rates: Which is better?
+                                    Are refinance "Cashback" offers actually worth it?
                                 </span>
                                 <i data-lucide="chevron-down" class="w-5 h-5 text-accent-400 accordion-icon"></i>
                             </button>
                             <div class="accordion-content bg-gray-50">
-                                <div class="p-6 pt-0 text-black leading-relaxed faq-answer">
-                                    <p>It depends on your goals. <strong>Fixed rates</strong> give you certainty of repayments for a set period (1-5 years), protecting you from rate rises. <strong>Variable rates</strong> offer more flexibility (extra repayments, offset accounts) but can rise or fall with the RBA cash rate. Many clients choose a "split loan" to get the benefits of both.</p>
+                                <div class="p-6 pt-0 text-gray-700 leading-relaxed faq-answer">
+                                    <p>Sometimes yes, sometimes no. Banks frequently offer $2,000 to $4,000 to win your business. However, if the new interest rate is higher than alternatives on the market, the extra interest you pay over 3 to 4 years will wipe out the upfront cash. We run a "Net Benefit Calculation" for you that factors in discharge fees, new setup fees, the cashback amount, and the interest rate to show you exactly which loan leaves you wealthier over a 3 to 5 year horizon.</p>
                                 </div>
                             </div>
                         </div>
@@ -448,52 +293,36 @@
                         <div class="bg-white border border-gray-200 rounded-sm overflow-hidden accordion-item group" data-faq-item>
                             <button class="w-full flex justify-between items-center p-6 text-left focus:outline-none" onclick="toggleAccordion(this)">
                                 <span class="font-serif text-xl text-brand-900 group-hover:text-brand-600 transition faq-question">
-                                    What is an Offset Account?
+                                    Should I consolidate my credit cards and car loan into my mortgage?
                                 </span>
                                 <i data-lucide="chevron-down" class="w-5 h-5 text-accent-400 accordion-icon"></i>
                             </button>
                             <div class="accordion-content bg-gray-50">
-                                <div class="p-6 pt-0 text-black leading-relaxed faq-answer">
-                                    <p>An offset account is a transaction account linked to your loan. The money sitting in this account "offsets" the loan balance. For example, if you have a $500k loan and $50k in your offset, you only pay interest on $450k. It’s a powerful way to reduce interest while keeping your cash accessible.</p>
+                                <div class="p-6 pt-0 text-gray-700 leading-relaxed faq-answer">
+                                    <p>Debt consolidation significantly improves your monthly cash flow because you move high-interest debt (e.g., a 15% car loan) to a much lower home loan rate (e.g., 6%). However, the danger is stretching a 5-year car loan over a 30-year mortgage term, which costs more in long-term interest. We recommend isolating the consolidated debt into a separate "loan split" and continuing to pay it off aggressively.</p>
                                 </div>
                             </div>
                         </div>
-
-                        <div class="bg-white border border-gray-200 rounded-sm overflow-hidden accordion-item group" data-faq-item>
-                            <button class="w-full flex justify-between items-center p-6 text-left focus:outline-none" onclick="toggleAccordion(this)">
-                                <span class="font-serif text-xl text-brand-900 group-hover:text-brand-600 transition faq-question">
-                                    Does it cost money to switch lenders?
-                                </span>
-                                <i data-lucide="chevron-down" class="w-5 h-5 text-accent-400 accordion-icon"></i>
-                            </button>
-                            <div class="accordion-content bg-gray-50">
-                                <div class="p-6 pt-0 text-black leading-relaxed faq-answer">
-                                    <p>There are usually discharge fees ($300-$400) from your old lender and registration fees from the government. However, the interest savings usually outweigh these costs quickly. Additionally, many lenders offer "cashback" incentives (often $2,000 - $4,000) to refinance, which covers these costs and puts cash in your pocket.</p>
-                                </div>
-                            </div>
-                        </div>
-
                     </div>
                 </div>
 
-                <!-- Investment Property -->
-                <div class="fade-in">
+                <div class="reveal">
                     <h2 class="font-serif text-3xl text-brand-900 mb-8 border-b border-gray-200 pb-4 flex items-center gap-3">
                         <i data-lucide="trending-up" class="w-6 h-6 text-accent-400"></i>
-                        Investment Property
+                        Investment & Structuring
                     </h2>
                     <div class="space-y-4">
 
                         <div class="bg-white border border-gray-200 rounded-sm overflow-hidden accordion-item group" data-faq-item>
                             <button class="w-full flex justify-between items-center p-6 text-left focus:outline-none" onclick="toggleAccordion(this)">
                                 <span class="font-serif text-xl text-brand-900 group-hover:text-brand-600 transition faq-question">
-                                    How can I use equity to buy an investment property?
+                                    How much equity do I need to buy an investment property?
                                 </span>
                                 <i data-lucide="chevron-down" class="w-5 h-5 text-accent-400 accordion-icon"></i>
                             </button>
                             <div class="accordion-content bg-gray-50">
-                                <div class="p-6 pt-0 text-black leading-relaxed faq-answer">
-                                    <p>If your home has increased in value, you likely have "usable equity." We can refinance your home to release this equity as cash, which serves as the deposit and costs for your investment property. This often means you don't need to save a new cash deposit from scratch.</p>
+                                <div class="p-6 pt-0 text-gray-700 leading-relaxed faq-answer">
+                                    <p>A simple rule of thumb to calculate "Usable Equity" without paying LMI is: (Current Property Value x 0.80) minus Your Current Loan Balance. For example, if your home is worth $1,000,000 and you owe $600,000, your calculation is ($800,000 - $600,000) = $200,000 in usable equity. This $200k can be pulled out as a separate loan split to use as the 20% deposit and stamp duty for an investment purchase.</p>
                                 </div>
                             </div>
                         </div>
@@ -501,13 +330,13 @@
                         <div class="bg-white border border-gray-200 rounded-sm overflow-hidden accordion-item group" data-faq-item>
                             <button class="w-full flex justify-between items-center p-6 text-left focus:outline-none" onclick="toggleAccordion(this)">
                                 <span class="font-serif text-xl text-brand-900 group-hover:text-brand-600 transition faq-question">
-                                    Should I choose Interest Only or Principal & Interest?
+                                    What is Cross-Collateralisation and why should I avoid it?
                                 </span>
                                 <i data-lucide="chevron-down" class="w-5 h-5 text-accent-400 accordion-icon"></i>
                             </button>
                             <div class="accordion-content bg-gray-50">
-                                <div class="p-6 pt-0 text-black leading-relaxed faq-answer">
-                                    <p>Investors often choose <strong>Interest Only</strong> to minimize monthly repayments and maximise tax-deductible debt, improving cash flow. Owner-occupiers usually choose <strong>Principal & Interest</strong> to pay down their home debt faster.</p>
+                                <div class="p-6 pt-0 text-gray-700 leading-relaxed faq-answer">
+                                    <p>Cross-collateralisation occurs when a bank ties two or more properties together as security for one or multiple loans. It makes the bank very secure, but restricts you. If you want to sell one property or refinance, the bank controls the proceeds and may force you to pay down the remaining debt to meet their LVR requirements. We prefer to structure your loans as "standalone" facilities, giving you full control of your portfolio.</p>
                                 </div>
                             </div>
                         </div>
@@ -515,52 +344,36 @@
                         <div class="bg-white border border-gray-200 rounded-sm overflow-hidden accordion-item group" data-faq-item>
                             <button class="w-full flex justify-between items-center p-6 text-left focus:outline-none" onclick="toggleAccordion(this)">
                                 <span class="font-serif text-xl text-brand-900 group-hover:text-brand-600 transition faq-question">
-                                    What is 'Rentvesting'?
+                                    Should my investment loan be Interest-Only or Principal & Interest?
                                 </span>
                                 <i data-lucide="chevron-down" class="w-5 h-5 text-accent-400 accordion-icon"></i>
                             </button>
                             <div class="accordion-content bg-gray-50">
-                                <div class="p-6 pt-0 text-black leading-relaxed faq-answer">
-                                    <p>Rentvesting is a strategy where you rent where you <em>want</em> to live (lifestyle) but buy property where you can <em>afford</em> (investment). This gets you into the market sooner and offers tax benefits, without forcing you to live in a suburb you don't enjoy.</p>
+                                <div class="p-6 pt-0 text-gray-700 leading-relaxed faq-answer">
+                                    <p>This depends on your accounting advice and cash-flow goals. Investors frequently use Interest-Only (IO) periods (usually 1-5 years) on investment properties to keep repayments low. They then direct all their spare cash to pay down their Principal Residence (non-tax-deductible debt) faster. Once the owner-occupied debt is cleared, they switch focus to the investment debt.</p>
                                 </div>
                             </div>
                         </div>
-
-                        <div class="bg-white border border-gray-200 rounded-sm overflow-hidden accordion-item group" data-faq-item>
-                            <button class="w-full flex justify-between items-center p-6 text-left focus:outline-none" onclick="toggleAccordion(this)">
-                                <span class="font-serif text-xl text-brand-900 group-hover:text-brand-600 transition faq-question">
-                                    What is cross-collateralisation?
-                                </span>
-                                <i data-lucide="chevron-down" class="w-5 h-5 text-accent-400 accordion-icon"></i>
-                            </button>
-                            <div class="accordion-content bg-gray-50">
-                                <div class="p-6 pt-0 text-black leading-relaxed faq-answer">
-                                    <p>Cross-collateralisation occurs when one lender uses multiple properties as security for a loan. While convenient, it can restrict your flexibility to sell one property without the lender's control. We generally advise structuring loans as "standalone" securities to give you maximum control and asset protection.</p>
-                                </div>
-                            </div>
-                        </div>
-
                     </div>
                 </div>
 
-                <!-- Commercial & SMSF -->
-                <div class="fade-in">
+                <div class="reveal">
                     <h2 class="font-serif text-3xl text-brand-900 mb-8 border-b border-gray-200 pb-4 flex items-center gap-3">
                         <i data-lucide="briefcase" class="w-6 h-6 text-accent-400"></i>
-                        Commercial & SMSF
+                        Self-Employed & Commercial Finance
                     </h2>
                     <div class="space-y-4">
 
                         <div class="bg-white border border-gray-200 rounded-sm overflow-hidden accordion-item group" data-faq-item>
                             <button class="w-full flex justify-between items-center p-6 text-left focus:outline-none" onclick="toggleAccordion(this)">
                                 <span class="font-serif text-xl text-brand-900 group-hover:text-brand-600 transition faq-question">
-                                    How is a commercial loan different from a home loan?
+                                    Is it harder to get a mortgage if I am self-employed?
                                 </span>
                                 <i data-lucide="chevron-down" class="w-5 h-5 text-accent-400 accordion-icon"></i>
                             </button>
                             <div class="accordion-content bg-gray-50">
-                                <div class="p-6 pt-0 text-black leading-relaxed faq-answer">
-                                    <p>Commercial loans typically require a larger deposit (30-35%, so max 65-70% LVR), though some lenders go higher. Interest rates are slightly higher than residential, and loan terms are shorter (often 15-25 years). The approval relies heavily on the strength of the lease (for investment) or business profitability (for owner-occupied).</p>
+                                <div class="p-6 pt-0 text-gray-700 leading-relaxed faq-answer">
+                                    <p>It is not necessarily harder, but it requires more documentation. Major banks usually require 2 years of Company Tax Returns and NOAs, and they will often average the two years. However, if your business has seen a massive jump in profit this year, we have specialist lenders who will accept just 1 Year of financials, or even "Low-Doc" policies relying on BAS statements or Accountant declarations.</p>
                                 </div>
                             </div>
                         </div>
@@ -568,13 +381,13 @@
                         <div class="bg-white border border-gray-200 rounded-sm overflow-hidden accordion-item group" data-faq-item>
                             <button class="w-full flex justify-between items-center p-6 text-left focus:outline-none" onclick="toggleAccordion(this)">
                                 <span class="font-serif text-xl text-brand-900 group-hover:text-brand-600 transition faq-question">
-                                    Can I use my Super Fund to buy property (SMSF)?
+                                    How is a commercial property loan different from a residential loan?
                                 </span>
                                 <i data-lucide="chevron-down" class="w-5 h-5 text-accent-400 accordion-icon"></i>
                             </button>
                             <div class="accordion-content bg-gray-50">
-                                <div class="p-6 pt-0 text-black leading-relaxed faq-answer">
-                                    <p>Yes. You can establish a Self Managed Super Fund (SMSF) to purchase residential investment property or commercial property (such as your own business premises). You cannot live in the residential property. SMSF lending is highly regulated and requires a specialized structure (Bare Trust). We work with your accountant to facilitate this.</p>
+                                <div class="p-6 pt-0 text-gray-700 leading-relaxed faq-answer">
+                                    <p>Commercial loans differ significantly. The maximum LVR is usually lower (often 65% to 75%, requiring a 25-35% deposit). The loan term is shorter (typically 15 to 25 years, not 30). Interest rates are generally higher, and lenders place massive weight on the strength of the lease, the yield, and the specific location/zoning of the asset (retail vs industrial warehouse vs office).</p>
                                 </div>
                             </div>
                         </div>
@@ -582,13 +395,36 @@
                         <div class="bg-white border border-gray-200 rounded-sm overflow-hidden accordion-item group" data-faq-item>
                             <button class="w-full flex justify-between items-center p-6 text-left focus:outline-none" onclick="toggleAccordion(this)">
                                 <span class="font-serif text-xl text-brand-900 group-hover:text-brand-600 transition faq-question">
-                                    I am self-employed and my tax returns aren't up to date. Can I get a loan?
+                                    Can I buy a commercial property and lease it to my own business?
                                 </span>
                                 <i data-lucide="chevron-down" class="w-5 h-5 text-accent-400 accordion-icon"></i>
                             </button>
                             <div class="accordion-content bg-gray-50">
-                                <div class="p-6 pt-0 text-black leading-relaxed faq-answer">
-                                    <p>Yes. We have access to "Low Doc" (Low Documentation) or "Alt Doc" loans. These lenders assess your income using alternative methods, such as Business Activity Statements (BAS), business bank statements, or an accountant's declaration, rather than just tax returns.</p>
+                                <div class="p-6 pt-0 text-gray-700 leading-relaxed faq-answer">
+                                    <p>Yes. This is a very common and highly effective wealth-building strategy. Often, business owners set up a holding entity (like a Trust or an SMSF) to purchase the premises, and their trading company signs a commercial lease to pay rent to that entity. This provides excellent asset protection and turns a business expense (rent) into an asset-building mechanism.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="reveal">
+                    <h2 class="font-serif text-3xl text-brand-900 mb-8 border-b border-gray-200 pb-4 flex items-center gap-3">
+                        <i data-lucide="shield-check" class="w-6 h-6 text-accent-400"></i>
+                        SMSF Lending (Self-Managed Super Funds)
+                    </h2>
+                    <div class="space-y-4">
+
+                        <div class="bg-white border border-gray-200 rounded-sm overflow-hidden accordion-item group" data-faq-item>
+                            <button class="w-full flex justify-between items-center p-6 text-left focus:outline-none" onclick="toggleAccordion(this)">
+                                <span class="font-serif text-xl text-brand-900 group-hover:text-brand-600 transition faq-question">
+                                    Can I use my Super Fund to buy a residential property?
+                                </span>
+                                <i data-lucide="chevron-down" class="w-5 h-5 text-accent-400 accordion-icon"></i>
+                            </button>
+                            <div class="accordion-content bg-gray-50">
+                                <div class="p-6 pt-0 text-gray-700 leading-relaxed faq-answer">
+                                    <p>Yes, your Self-Managed Super Fund (SMSF) can purchase residential property, but strict rules apply. The property must pass the "Sole Purpose Test" (providing retirement benefits). Crucially, you, your relatives, or related parties cannot live in the property, nor can you rent it from the fund. It must be an arm's-length investment.</p>
                                 </div>
                             </div>
                         </div>
@@ -596,13 +432,13 @@
                         <div class="bg-white border border-gray-200 rounded-sm overflow-hidden accordion-item group" data-faq-item>
                             <button class="w-full flex justify-between items-center p-6 text-left focus:outline-none" onclick="toggleAccordion(this)">
                                 <span class="font-serif text-xl text-brand-900 group-hover:text-brand-600 transition faq-question">
-                                    Can you help with Asset Finance (Cars/Equipment)?
+                                    What is an LRBA (Limited Recourse Borrowing Arrangement)?
                                 </span>
                                 <i data-lucide="chevron-down" class="w-5 h-5 text-accent-400 accordion-icon"></i>
                             </button>
                             <div class="accordion-content bg-gray-50">
-                                <div class="p-6 pt-0 text-black leading-relaxed faq-answer">
-                                    <p>Absolutely. We finance cars, trucks, excavators, medical equipment, and office fit-outs. For businesses, we can often secure "Low Doc" asset finance without needing financials if you are a property owner or have good credit.</p>
+                                <div class="p-6 pt-0 text-gray-700 leading-relaxed faq-answer">
+                                    <p>An LRBA is the legally required structure for a super fund to borrow money. Because superannuation assets must be protected, the loan is "Limited Recourse." This means if the SMSF defaults on the property loan, the bank can only repossess the specific property held in the Bare Trust; they cannot touch the other cash, shares, or assets held inside the wider super fund.</p>
                                 </div>
                             </div>
                         </div>
@@ -610,13 +446,13 @@
                         <div class="bg-white border border-gray-200 rounded-sm overflow-hidden accordion-item group" data-faq-item>
                             <button class="w-full flex justify-between items-center p-6 text-left focus:outline-none" onclick="toggleAccordion(this)">
                                 <span class="font-serif text-xl text-brand-900 group-hover:text-brand-600 transition faq-question">
-                                    Do you help clients with bad credit?
+                                    Can I renovate a property owned by my SMSF?
                                 </span>
                                 <i data-lucide="chevron-down" class="w-5 h-5 text-accent-400 accordion-icon"></i>
                             </button>
                             <div class="accordion-content bg-gray-50">
-                                <div class="p-6 pt-0 text-black leading-relaxed faq-answer">
-                                    <p>Yes. We work with specialist lenders who look beyond a credit score. If you have defaults, judgments, or discharged bankruptcy, we can often still secure a loan. The rates may be higher initially, but we can strategize to "rehabilitate" your credit and refinance you to a prime lender later.</p>
+                                <div class="p-6 pt-0 text-gray-700 leading-relaxed faq-answer">
+                                    <p>If the property was purchased using borrowed money (an LRBA), you are allowed to repair and maintain the property, but you cannot fundamentally change the character of the asset (e.g., you cannot knock down a house and build a duplex, or turn a residential home into a commercial clinic) until the loan is fully paid off.</p>
                                 </div>
                             </div>
                         </div>
@@ -626,16 +462,28 @@
 
             </div>
         </section>
+
+        <section class="bg-brand-900 text-white py-24 reveal">
+            <div class="max-w-4xl mx-auto px-4 text-center">
+                <h2 class="font-serif text-4xl md:text-5xl mb-6">Didn't find what you're looking for?</h2>
+                <p class="text-lg text-gray-200 mb-10 max-w-2xl mx-auto">
+                    Finance is complex, and everyone's scenario is different. Book a free 15-minute discovery call to get an answer specific to your situation.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-6 justify-center">
+                    <a href="contact.html" class="bg-white text-brand-900 px-10 py-4 rounded-sm font-bold uppercase tracking-widest text-xs hover:bg-accent-500 hover:text-white transition shadow-xl transform hover:-translate-y-1">Book CONSULTATION</a>
+                    <a href="tel:1300385222" class="border border-white/30 text-white px-10 py-4 rounded-sm font-bold uppercase tracking-widest text-xs hover:bg-white/10 transition backdrop-blur-sm flex items-center justify-center gap-2 transform hover:-translate-y-1">
+                        <i data-lucide="phone" class="w-4 h-4"></i> 1300 385 222
+                    </a>
+                </div>
+            </div>
+        </section>
     </main>
 
-    <!-- Footer (same as others) -->
     <footer class="bg-brand-900 text-white pt-16 pb-8 border-t border-white/10 text-sm">
         <div class="max-w-7xl mx-auto px-4">
             <div class="grid md:grid-cols-4 gap-12 mb-12">
                 <div class="col-span-1">
-                    <img src="https://shaggyyyz.github.io/nest-capital-finance/logo.png"
-                         alt="Nest Capital Finance"
-                         class="h-14 w-auto mb-6 brightness-0 invert opacity-90">
+                    <img src="https://shaggyyyz.github.io/nest-capital-finance/logo.png" alt="Nest Capital Finance" class="h-14 w-auto mb-6 brightness-0 invert opacity-90">
                     <p class="text-gray-300 mb-6 leading-relaxed">
                         Providing clarity and confidence for your property journey. Your trusted partner in finance.
                     </p>
@@ -673,11 +521,15 @@
                     <ul class="space-y-3">
                         <li class="flex items-start">
                             <i data-lucide="phone" class="w-5 h-5 text-accent-400 mr-3 mt-0.5"></i>
-                            <a href="tel:1300385222" class="text-base font-medium text-white/70 hover:text-accent-400 transition-colors duration-300">1300 385 222</a>
+                            <a href="tel:1300385222" class="text-base font-medium text-white/70 hover:text-accent-400 transition-colors duration-300">
+                                1300 385 222
+                            </a>
                         </li>
                         <li class="flex items-start">
                             <i data-lucide="mail" class="w-5 h-5 text-accent-400 mr-3 mt-0.5"></i>
-                            <a href="mailto:info@nestcapitalfinance.com.au" class="text-base font-medium text-white/70 hover:text-accent-400 transition-colors duration-300">info@nestcapitalfinance.com.au</a>
+                            <a href="mailto:info@nestcapitalfinance.com.au" class="text-base font-medium text-white/70 hover:text-accent-400 transition-colors duration-300">
+                                info@nestcapitalfinance.com.au
+                            </a>
                         </li>
                         <li class="flex items-start">
                             <i data-lucide="map-pin" class="w-5 h-5 text-accent-400 mr-3 mt-0.5"></i>
@@ -689,57 +541,61 @@
                 </div>
             </div>
 
-            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center">
-                <p class="text-gray-400 text-sm mb-4 md:mb-0">&copy; 2026 Nest Capital Finance Pty Ltd. All rights reserved.</p>
-                <div class="flex gap-6 text-sm">
-                    <a href="privacy-policy.html" class="text-gray-400 hover:text-accent-400 transition">Privacy Policy</a>
-                    <a href="feedback-complaints.html" class="text-gray-400 hover:text-accent-400 transition">Feedback & Complaints</a>
-                    <a href="terms-conditions.html" class="text-gray-400 hover:text-accent-400 transition">Terms &amp; Conditions</a>
+            <div class="border-t border-white/20 pt-8 flex flex-col items-start gap-2">
+                <p class="text-white/50 text-xs">&copy; 2026 Nest Capital Finance Pty Ltd. ACN 691 621 191 | ABN 20 691 621 191 | Credit Representative 574020 is authorised under Australian Credit Licence 389328. | AFCA Member 118936</p>
+                <div class="flex gap-4 text-xs mt-1">
+                    <a href="privacy-policy.html" class="text-white/50 hover:text-accent-400 transition">Privacy Policy</a>
+                    <span class="text-white/50">|</span>
+                    <a href="feedback-complaints.html" class="text-white/50 hover:text-accent-400 transition">Feedback & Complaints</a>
+                    <span class="text-white/50">|</span>
+                    <a href="terms-conditions.html" class="text-white/50 hover:text-accent-400 transition">Terms &amp; Conditions</a>
                 </div>
+                <p class="text-white/40 text-xs mt-3 max-w-4xl">Disclaimer: This page provides general information only and has been prepared without taking into account your objectives, financial situation or needs. We recommend that you consider whether it is appropriate for your circumstances. Your full financial situation will need to be reviewed prior to acceptance of any offer or product. Subject to lender's terms and conditions, fees and charges and eligibility criteria apply.</p>
             </div>
         </div>
     </footer>
 
+    <script src="js/main.js"></script>
+
     <script>
-        // Icons
-        lucide.createIcons();
-
-        // Mobile menu
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const mobileMenuClose = document.getElementById('mobile-menu-close');
-
-        mobileMenuBtn.addEventListener('click', () => mobileMenu.classList.add('active'));
-        mobileMenuClose.addEventListener('click', () => mobileMenu.classList.remove('active'));
-
-        // Fade-in on scroll
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) entry.target.classList.add('visible');
-            });
-        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-
         // Accordion toggle
         function toggleAccordion(button) {
             const item = button.closest('.accordion-item');
             const isActive = item.classList.contains('active');
-            // Close others
+            
+            // Close all others
             document.querySelectorAll('.accordion-item').forEach(i => i.classList.remove('active'));
+            
+            // If it wasn't active, open it
             if (!isActive) item.classList.add('active');
         }
 
-        // FAQ search (simple text filter)
+        // FAQ search filter
         const faqSearch = document.getElementById('faq-search');
-        faqSearch.addEventListener('input', function () {
-            const term = this.value.toLowerCase();
-            document.querySelectorAll('[data-faq-item]').forEach(item => {
-                const q = item.querySelector('.faq-question').textContent.toLowerCase();
-                const a = item.querySelector('.faq-answer').textContent.toLowerCase();
-                const match = q.includes(term) || a.includes(term);
-                item.style.display = match ? '' : 'none';
+        if (faqSearch) {
+            faqSearch.addEventListener('input', function () {
+                const term = this.value.toLowerCase();
+                
+                // Show/hide items based on match
+                document.querySelectorAll('[data-faq-item]').forEach(item => {
+                    const q = item.querySelector('.faq-question').textContent.toLowerCase();
+                    const a = item.querySelector('.faq-answer').textContent.toLowerCase();
+                    const match = q.includes(term) || a.includes(term);
+                    item.style.display = match ? '' : 'none';
+                });
+
+                // Handle category visibility (hide category if all items inside are hidden)
+                document.querySelectorAll('.space-y-4').forEach(container => {
+                    const items = Array.from(container.querySelectorAll('[data-faq-item]'));
+                    const hasVisible = items.some(item => item.style.display !== 'none');
+                    // Find the parent div wrapping the category header and container
+                    const parentCategory = container.parentElement;
+                    if (parentCategory) {
+                        parentCategory.style.display = hasVisible ? '' : 'none';
+                    }
+                });
             });
-        });
+        }
     </script>
 </body>
 </html>
