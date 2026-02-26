@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Google Analytics 4 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-N01W5P5YVR"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -18,459 +17,222 @@
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://ncfinance.com.au/articles.html">
 
-    <!-- Tailwind CSS -->
+    <meta property="og:title" content="Articles & Guides | Nest Capital Finance">
+    <meta property="og:description" content="Finance articles and step‑by‑step guides for home buyers, investors and business owners.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ncfinance.com.au/articles.html">
+    <meta property="og:image" content="https://shaggyyyz.github.io/nest-capital-finance/Logolink.jpg">
+
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['FuturaPT', 'Futura', 'Jost', 'sans-serif'],
-                        serif: ['FuturaPT', 'Futura', 'Jost', 'sans-serif'], 
-                    },
-                    colors: {
-                        brand: {
-                            900: '#686965',  // dark olive/grey (header/footer)
-                            800: '#686965',
-                            700: '#686965',
-                            600: '#337566',  // teal (accents)
-                            300: '#d1d5db',
-                            200: '#e5e7eb',
-                            100: '#eff5f4',
-                            50:  '#f7f9f9',  // very light background
-                                },
-                        accent: {
-                            400: '#c5a028',  // gold
-                            500: '#b08d1e',  // darker gold
-                        }
-                    },
-                    animation: {
-                        'float': 'float 6s ease-in-out infinite',
-                        'fadeIn': 'fadeIn 0.5s ease-out forwards',
-                    },
-                    keyframes: {
-                        float: {
-                            '0%, 100%': { transform: 'translateY(0)' },
-                            '50%': { transform: 'translateY(-10px)' },
-                        },
-                        fadeIn: {
-                            '0%': { opacity: '0', transform: 'translateY(10px)' },
-                            '100%': { opacity: '1', transform: 'translateY(0)' },
-                        }
-                    }
-                }
-            }
-        }
-    </script>
+    
+    <script src="js/tailwind-config.js"></script>
 
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-    <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
 
-    <style>
-        * { font-family: 'Jost', sans-serif; }
-        html { scroll-behavior: smooth; }
-
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: white;
-            transition: width 0.3s ease;
-        }
-        .nav-link:hover::after { width: 100%; }
-
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .mobile-menu {
-            transform: translateX(100%);
-            transition: transform 0.3s ease-in-out;
-        }
-        .mobile-menu.active {
-            transform: translateX(0);
-        }
-
-        .card-hover {
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-        .card-hover:hover {
-            box-shadow: 0 20px 40px rgba(0,0,0,0.12);
-            transform: translateY(-6px);
-        }
-
-        .tag-pill, .badge {
-            border-radius: 999px;
-        }
-
-        .article-badge {
-            font-size: 11px;
-            letter-spacing: 0.14em;
-        }
-
-        .modal-overlay {
-            background: rgba(15,23,42,0.7);
-        }
-
-        .modal-content {
-            max-height: 90vh;
-        }
-
-        .article-body p + p {
-            margin-top: 0.75rem;
-        }
-    </style>
+    <link rel="stylesheet" href="css/style.css">
 </head>
-<body class="bg-gray-50">
+<body class="bg-brand-50 text-gray-800 antialiased overflow-x-hidden">
 
-    <!-- Header -->
-    <header class="fixed top-0 left-0 w-full bg-brand-900 shadow-lg z-50">
-        <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-            <a href="index.html">
-                <img src="https://shaggyyyz.github.io/nest-capital-finance/logo.png"
-                     alt="Nest Capital Finance"
-                     class="h-12 w-auto brightness-0 invert">
-            </a>
+    <a href="contact.html" class="floating-cta bg-accent-500 text-white px-6 py-4 rounded-full font-bold uppercase tracking-widest text-xs flex items-center gap-2 hover:bg-accent-400">
+        <i data-lucide="calendar" class="w-4 h-4"></i>
+        <span class="hidden md:inline">Book CONSULTATION</span>
+        <span class="md:hidden">Book Now</span>
+    </a>
 
-            <!-- Desktop nav -->
-            <nav class="hidden md:flex space-x-10 items-center">
-                <a href="index.html" class="nav-link text-white font-medium text-sm uppercase tracking-widest relative">Home</a>
-                <a href="services.html" class="nav-link text-white font-medium text-sm uppercase tracking-widest relative">Services</a>
-                <a href="resources.html" class="nav-link text-white font-medium text-sm uppercase tracking-widest relative">Resources</a>
-                <a href="about.html" class="nav-link text-white font-medium text-sm uppercase tracking-widest relative">About</a>
-                <a href="contact.html" class="nav-link text-white font-medium text-sm uppercase tracking-widest relative">Contact</a>
-                <a href="contact.html" class="bg-white text-brand-900 px-8 py-3 rounded-sm font-medium text-xs uppercase tracking-widest hover:bg-gray-100 transition-colors duration-300 shadow-lg">Book Consultation</a>
-            </nav>
+    <header id="navbar" class="fixed w-full top-0 z-50 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-24">
+                <a href="index.html" class="flex items-center gap-3 group" aria-label="Nest Capital Finance Home">
+                    <img src="https://shaggyyyz.github.io/nest-capital-finance/logo.png" alt="Nest Capital Finance Logo" class="h-16 w-auto transition-transform duration-500 group-hover:scale-105 brightness-0 invert">
+                </a>
 
-            <!-- Mobile button -->
-            <button id="mobile-menu-btn" class="md:hidden text-white focus:outline-none">
-                <i data-lucide="menu" class="w-6 h-6"></i>
+                <nav class="hidden md:flex space-x-10 items-center">
+                    <a href="index.html" class="nav-link text-white font-medium text-sm uppercase tracking-widest relative">Home</a>
+                    <a href="services.html" class="nav-link text-white font-medium text-sm uppercase tracking-widest relative">Services</a>
+                    <a href="resources.html" class="nav-link text-white font-medium text-sm uppercase tracking-widest relative">Resources</a>
+                    <a href="about.html" class="nav-link text-white font-medium text-sm uppercase tracking-widest relative">About</a>
+                    <a href="contact.html" class="nav-link text-white font-medium text-sm uppercase tracking-widest relative">Contact</a>
+                    <a href="contact.html" class="bg-white text-brand-900 px-8 py-3 rounded-sm font-medium text-xs uppercase tracking-widest hover:bg-gray-100 transition-colors duration-300 shadow-lg">
+                        Book Consultation
+                    </a>
+                </nav>
+
+                <button id="mobile-menu-btn" class="md:hidden text-white focus:outline-none" aria-label="Open Menu">
+                    <i data-lucide="menu" class="w-8 h-8"></i>
+                </button>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="fixed inset-0 bg-brand-900 z-50 transform translate-x-full transition-transform duration-300 flex flex-col justify-center items-center space-y-8">
+            <button id="close-menu-btn" class="absolute top-8 right-8 text-white" aria-label="Close Menu">
+                <i data-lucide="x" class="w-8 h-8"></i>
             </button>
+            <a href="index.html" class="text-3xl font-serif text-white hover:text-accent-400 transition">Home</a>
+            <a href="services.html" class="text-3xl font-serif text-white hover:text-accent-400 transition">Services</a>
+            <a href="resources.html" class="text-3xl font-serif text-white hover:text-accent-400 transition">Resources</a>
+            <a href="lenders.html" class="text-3xl font-serif text-white hover:text-accent-400 transition">Lenders</a>
+            <a href="about.html" class="text-3xl font-serif text-white hover:text-accent-400 transition">About</a>
+            <a href="contact.html" class="text-3xl font-serif text-white hover:text-accent-400 transition">Contact</a>
         </div>
     </header>
 
-    <!-- Mobile menu -->
-    <div id="mobile-menu" class="mobile-menu fixed top-0 right-0 h-full w-64 bg-brand-900 shadow-2xl z-50">
-        <div class="p-6">
-            <button id="mobile-menu-close" class="text-white mb-8">
-                <i data-lucide="x" class="w-6 h-6"></i>
-            </button>
-            <nav class="flex flex-col space-y-6">
-                <a href="index.html" class="text-white font-medium text-sm uppercase tracking-widest hover:text-accent-400 transition">Home</a>
-                <a href="services.html" class="text-white font-medium text-sm uppercase tracking-widest hover:text-accent-400 transition">Services</a>
-                <a href="resources.html" class="text-white font-medium text-sm uppercase tracking-widest hover:text-accent-400 transition">Resources</a>
-                <a href="about.html" class="text-white font-medium text-sm uppercase tracking-widest hover:text-accent-400 transition">About</a>
-                <a href="contact.html" class="text-white font-medium text-sm uppercase tracking-widest hover:text-accent-400 transition">Contact</a>
-            </nav>
-        </div>
-    </div>
+    <main id="content-wrapper">
 
-    <!-- Main -->
-    <main class="pt-24">
-
-        <!-- Hero -->
-        <section class="bg-white pt-24 pb-16 border-b border-gray-100">
-            <div class="max-w-7xl mx-auto px-4 grid lg:grid-cols-2 gap-12 items-center">
-                <div class="fade-in">
-                    <a href="resources.html"
-                       class="inline-flex items-center text-xs uppercase tracking-widest text-brand-600 mb-4 hover:text-accent-500 transition">
+        <section class="bg-brand-50 pt-40 pb-20 border-b border-gray-100">
+            <div class="max-w-7xl mx-auto px-4 text-center">
+                <div class="reveal">
+                    <a href="resources.html" class="inline-flex items-center text-xs uppercase tracking-widest text-brand-600 mb-6 hover:text-accent-500 transition">
                         <i data-lucide="arrow-left" class="w-4 h-4 mr-2"></i>
                         Back to Resources
                     </a>
-                    <span class="text-accent-400 font-bold uppercase tracking-widest text-xs mb-4 block">
-                        Articles & Guides
-                    </span>
-                    <h1 class="font-serif text-4xl md:text-5xl text-brand-900 mb-6">
-                        Clear, practical finance education for real‑world decisions.
+                    <h1 class="font-serif text-4xl md:text-6xl text-brand-900 mb-6">
+                        Articles &amp; Guides
                     </h1>
-                    <p class="text-lg text-gray-600 mb-6">
-                        Deep‑dive articles and step‑by‑step guides to help you understand lending, structure and strategy across home loans, investment, business and SMSF.
+                    <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-10">
+                        Clear, practical insights to help you navigate deposits, restructuring, commercial lending and everything in between.
                     </p>
-                    <div class="flex flex-wrap gap-3 mb-8">
-                        <span class="tag-pill px-3 py-1 bg-brand-50 text-brand-700 text-xs uppercase tracking-widest">Home Buyers</span>
-                        <span class="tag-pill px-3 py-1 bg-brand-50 text-brand-700 text-xs uppercase tracking-widest">Investors</span>
-                        <span class="tag-pill px-3 py-1 bg-brand-50 text-brand-700 text-xs uppercase tracking-widest">Business Owners</span>
-                    </div>
-                    <div class="flex flex-col sm:flex-row gap-4">
-                        <a href="#latest-articles"
-                           class="inline-flex items-center justify-center bg-brand-900 text-white px-8 py-3 rounded-sm font-bold text-xs uppercase tracking-widest hover:bg-accent-500 transition shadow-lg">
-                            Browse latest guides
-                        </a>
-                        <a href="contact.html"
-                           class="inline-flex items-center justify-center border border-brand-300 text-brand-900 px-8 py-3 rounded-sm font-bold text-xs uppercase tracking-widest hover:bg-brand-50 transition">
-                            Ask a question
-                        </a>
-                    </div>
                 </div>
-
-                <div class="fade-in">
-                    <div class="bg-brand-900 text-white rounded-sm p-8 md:p-10 shadow-xl relative overflow-hidden">
-                        <div class="absolute -right-20 -top-16 w-56 h-56 rounded-full bg-accent-500/10"></div>
-                        <div class="absolute -left-10 -bottom-10 w-40 h-40 rounded-full bg-white/5"></div>
-                        <div class="relative">
-                            <h2 class="font-serif text-2xl mb-4">Designed to cut through the noise</h2>
-                            <ul class="space-y-3 text-sm text-brand-50">
-                                <li class="flex items-start gap-3">
-                                    <i data-lucide="check-circle" class="w-4 h-4 text-accent-400 mt-0.5"></i>
-                                    <span>No fluff, just the concepts and numbers you actually need to make decisions.</span>
-                                </li>
-                                <li class="flex items-start gap-3">
-                                    <i data-lucide="check-circle" class="w-4 h-4 text-accent-400 mt-0.5"></i>
-                                    <span>Explains how lenders think, not just generic tips you can find anywhere.</span>
-                                </li>
-                                <li class="flex items-start gap-3">
-                                    <i data-lucide="check-circle" class="w-4 h-4 text-accent-400 mt-0.5"></i>
-                                    <span>Articles grouped by goal: buying, refinancing, investing, commercial and SMSF.</span>
-                                </li>
-                                <li class="flex items-start gap-3">
-                                    <i data-lucide="check-circle" class="w-4 h-4 text-accent-400 mt-0.5"></i>
-                                    <span>Written for Australian borrowers navigating a changing interest‑rate environment.</span>
-                                </li>
-                            </ul>
-                            <p class="mt-6 text-xs text-brand-200">
-                                General information only. It does not consider your objectives, financial situation or needs.
-                            </p>
-                        </div>
-                    </div>
+                
+                <div class="flex flex-wrap justify-center gap-3 reveal stagger-delay-1">
+                    <button class="filter-btn active rounded-full px-5 py-2 text-sm font-medium transition-colors bg-brand-900 text-white" data-filter="all">All Articles</button>
+                    <button class="filter-btn rounded-full px-5 py-2 text-sm font-medium transition-colors bg-white border border-gray-300 text-gray-600 hover:border-brand-900 hover:text-brand-900" data-filter="residential">Residential</button>
+                    <button class="filter-btn rounded-full px-5 py-2 text-sm font-medium transition-colors bg-white border border-gray-300 text-gray-600 hover:border-brand-900 hover:text-brand-900" data-filter="investment">Investment</button>
+                    <button class="filter-btn rounded-full px-5 py-2 text-sm font-medium transition-colors bg-white border border-gray-300 text-gray-600 hover:border-brand-900 hover:text-brand-900" data-filter="commercial">Commercial & Asset</button>
+                    <button class="filter-btn rounded-full px-5 py-2 text-sm font-medium transition-colors bg-white border border-gray-300 text-gray-600 hover:border-brand-900 hover:text-brand-900" data-filter="smsf">SMSF</button>
                 </div>
             </div>
         </section>
 
-        <!-- Search & filters -->
-        <section class="py-8 bg-brand-50 border-b border-gray-100">
-            <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-3 gap-6 items-center">
-                <div class="md:col-span-2 fade-in">
-                    <div class="relative">
-                        <input
-                            type="text"
-                            id="article-search"
-                            placeholder="Search articles (e.g. 'LMI', 'rentvesting', 'refinance')..."
-                            class="w-full py-3 pl-10 pr-4 bg-white border border-gray-200 rounded-sm focus:outline-none text-sm text-brand-900 shadow-sm">
-                        <i data-lucide="search" class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 w-4 h-4"></i>
-                    </div>
-                </div>
-                <div class="flex gap-2 justify-start md:justify-end fade-in">
-                    <button data-article-filter="all"
-                            class="badge px-4 py-2 bg-brand-900 text-white text-[11px] uppercase tracking-widest border border-brand-900">
-                        All
-                    </button>
-                    <button data-article-filter="home"
-                            class="badge px-4 py-2 bg-white text-brand-900 text-[11px] uppercase tracking-widest border border-brand-200">
-                        Home & Refi
-                    </button>
-                    <button data-article-filter="invest"
-                            class="badge px-4 py-2 bg-white text-brand-900 text-[11px] uppercase tracking-widest border border-brand-200">
-                        Investing
-                    </button>
-                    <button data-article-filter="business"
-                            class="badge px-4 py-2 bg-white text-brand-900 text-[11px] uppercase tracking-widest border border-brand-200">
-                        Business & SMSF
-                    </button>
-                </div>
-            </div>
-        </section>
-
-        <!-- Latest articles -->
-        <section id="latest-articles" class="py-20 bg-white border-b border-gray-100">
+        <section class="py-20 bg-white">
             <div class="max-w-7xl mx-auto px-4">
-                <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10 fade-in">
-                    <div>
-                        <span class="text-accent-400 font-bold uppercase tracking-widest text-xs mb-3 block">
-                            Featured reading
-                        </span>
-                        <h2 class="font-serif text-3xl text-brand-900 mb-2">
-                            Latest articles & deep dives.
-                        </h2>
-                        <p class="text-sm text-gray-600">
-                            Treat this page like a library – come back whenever you want a clear explanation before making a move.
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="articles-grid">
+                    
+                    <div class="article-card bg-white border border-gray-200 rounded-sm p-6 cursor-pointer flex flex-col h-full reveal transition-all duration-500 hover:-translate-y-2 hover:shadow-xl hover:border-accent-400" data-category="residential">
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="text-xs font-bold uppercase tracking-widest text-accent-500">Residential</span>
+                            <span class="text-xs text-gray-400">4 min read</span>
+                        </div>
+                        <h3 class="font-serif text-xl text-brand-900 mb-3 line-clamp-2">How Much Deposit Do You Actually Need for Your First Home?</h3>
+                        <p class="text-sm text-gray-600 mb-6 flex-grow line-clamp-3">
+                            The 20% deposit myth is holding many buyers back. Discover how LMI, government guarantees and guarantor loans can get you into the market sooner.
                         </p>
+                        <button class="inline-flex items-center text-xs font-bold uppercase tracking-widest text-brand-900 hover:text-accent-500 transition mt-auto group" data-open-article="fhb-deposit">
+                            Read Article <i data-lucide="arrow-right" class="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1"></i>
+                        </button>
                     </div>
-                    <div class="text-xs text-gray-500">
-                        Updated regularly with new content as the lending environment changes.
+
+                    <div class="article-card bg-white border border-gray-200 rounded-sm p-6 cursor-pointer flex flex-col h-full reveal stagger-delay-1 transition-all duration-500 hover:-translate-y-2 hover:shadow-xl hover:border-accent-400" data-category="smsf">
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="text-xs font-bold uppercase tracking-widest text-accent-500">SMSF Lending</span>
+                            <span class="text-xs text-gray-400">5 min read</span>
+                        </div>
+                        <h3 class="font-serif text-xl text-brand-900 mb-3 line-clamp-2">The Basics of Using Your SMSF to Buy Property</h3>
+                        <p class="text-sm text-gray-600 mb-6 flex-grow line-clamp-3">
+                            An overview of Limited Recourse Borrowing Arrangements (LRBAs), bare trusts, and what lenders look for when approving loans to self‑managed super funds.
+                        </p>
+                        <button class="inline-flex items-center text-xs font-bold uppercase tracking-widest text-brand-900 hover:text-accent-500 transition mt-auto group" data-open-article="smsf-basics">
+                            Read Article <i data-lucide="arrow-right" class="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1"></i>
+                        </button>
                     </div>
-                </div>
 
-                <div class="grid md:grid-cols-3 gap-8">
-
-                    <!-- Article card 1 -->
-                    <article
-                        class="bg-brand-50 border border-brand-100 rounded-sm p-6 card-hover fade-in"
-                        data-article-id="first-home-roadmap"
-                        data-article-category="home"
-                        data-article-keywords="first home buyer deposit lmi pre-approval roadmap step-by-step">
-                        <div class="flex items-center justify-between mb-3">
-                            <span class="article-badge text-accent-400 uppercase">Home buyers</span>
-                            <span class="text-[11px] text-brand-500 flex items-center gap-1">
-                                <i data-lucide="clock" class="w-3 h-3"></i> 7 min read
-                            </span>
+                    <div class="article-card bg-white border border-gray-200 rounded-sm p-6 cursor-pointer flex flex-col h-full reveal stagger-delay-2 transition-all duration-500 hover:-translate-y-2 hover:shadow-xl hover:border-accent-400" data-category="commercial">
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="text-xs font-bold uppercase tracking-widest text-accent-500">Commercial</span>
+                            <span class="text-xs text-gray-400">4 min read</span>
                         </div>
-                        <h3 class="font-serif text-xl text-brand-900 mb-3">
-                            The real first‑home buyer roadmap (from “thinking about it” to settlement)
-                        </h3>
-                        <p class="text-sm text-gray-600 mb-4">
-                            A step‑by‑step walkthrough of how deposits, pre‑approval, contracts and settlement actually work in practice – plus what to do (and avoid) at each stage.
+                        <h3 class="font-serif text-xl text-brand-900 mb-3 line-clamp-2">Leasing vs Buying Your Commercial Premises</h3>
+                        <p class="text-sm text-gray-600 mb-6 flex-grow line-clamp-3">
+                            Is it time to stop paying rent to a landlord and start paying your own asset? We break down the cash‑flow impacts, tax considerations and lending requirements.
                         </p>
-                        <ul class="text-[11px] text-gray-500 space-y-1 mb-5">
-                            <li>• How much deposit you really need vs “ideal”.</li>
-                            <li>• When to engage a broker, conveyancer and buyer’s agent.</li>
-                            <li>• What banks look for when they issue pre‑approval.</li>
-                        </ul>
-                        <button
-                            class="inline-flex items-center text-xs uppercase tracking-widest text-brand-900 hover:text-accent-500"
-                            data-open-article="first-home-roadmap">
-                            Read article
-                            <i data-lucide="arrow-right" class="w-4 h-4 ml-1"></i>
+                        <button class="inline-flex items-center text-xs font-bold uppercase tracking-widest text-brand-900 hover:text-accent-500 transition mt-auto group" data-open-article="commercial-lease-buy">
+                            Read Article <i data-lucide="arrow-right" class="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1"></i>
                         </button>
-                    </article>
+                    </div>
 
-                    <!-- Article card 2 -->
-                    <article
-                        class="bg-brand-50 border border-brand-100 rounded-sm p-6 card-hover fade-in"
-                        data-article-id="refinance-framework"
-                        data-article-category="home"
-                        data-article-keywords="refinance cashback fixed variable offset comparison loyalty tax">
-                        <div class="flex items-center justify-between mb-3">
-                            <span class="article-badge text-accent-400 uppercase">Refinancing</span>
-                            <span class="text-[11px] text-brand-500 flex items-center gap-1">
-                                <i data-lucide="clock" class="w-3 h-3"></i> 6 min read
-                            </span>
+                    <div class="article-card bg-white border border-gray-200 rounded-sm p-6 cursor-pointer flex flex-col h-full reveal transition-all duration-500 hover:-translate-y-2 hover:shadow-xl hover:border-accent-400" data-category="residential">
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="text-xs font-bold uppercase tracking-widest text-accent-500">Refinancing</span>
+                            <span class="text-xs text-gray-400">3 min read</span>
                         </div>
-                        <h3 class="font-serif text-xl text-brand-900 mb-3">
-                            When does refinancing actually make sense? A simple decision framework.
-                        </h3>
-                        <p class="text-sm text-gray-600 mb-4">
-                            Use this checklist to decide if you should refinance now, renegotiate with your current lender – or simply stay put and review again later.
+                        <h3 class="font-serif text-xl text-brand-900 mb-3 line-clamp-2">Are Refinance Cashbacks Actually Worth It?</h3>
+                        <p class="text-sm text-gray-600 mb-6 flex-grow line-clamp-3">
+                            Banks offer thousands of dollars to switch, but are you paying for it with a higher rate? Learn how to calculate the true net benefit of a cashback offer.
                         </p>
-                        <ul class="text-[11px] text-gray-500 space-y-1 mb-5">
-                            <li>• How to compare true savings after fees and cashbacks.</li>
-                            <li>• Signals that you might be paying a “loyalty tax”.</li>
-                            <li>• Key questions to ask before signing anything.</li>
-                        </ul>
-                        <button
-                            class="inline-flex items-center text-xs uppercase tracking-widest text-brand-900 hover:text-accent-500"
-                            data-open-article="refinance-framework">
-                            Read article
-                            <i data-lucide="arrow-right" class="w-4 h-4 ml-1"></i>
+                        <button class="inline-flex items-center text-xs font-bold uppercase tracking-widest text-brand-900 hover:text-accent-500 transition mt-auto group" data-open-article="refinance-cashback">
+                            Read Article <i data-lucide="arrow-right" class="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1"></i>
                         </button>
-                    </article>
+                    </div>
 
-                    <!-- Article card 3 -->
-                    <article
-                        class="bg-brand-50 border border-brand-100 rounded-sm p-6 card-hover fade-in"
-                        data-article-id="rentvesting-vs-upgrade"
-                        data-article-category="invest"
-                        data-article-keywords="rentvesting upgrading staying put equity investment property strategy">
-                        <div class="flex items-center justify-between mb-3">
-                            <span class="article-badge text-accent-400 uppercase">Investing</span>
-                            <span class="text-[11px] text-brand-500 flex items-center gap-1">
-                                <i data-lucide="clock" class="w-3 h-3"></i> 8 min read
-                            </span>
+                    <div class="article-card bg-white border border-gray-200 rounded-sm p-6 cursor-pointer flex flex-col h-full reveal stagger-delay-1 transition-all duration-500 hover:-translate-y-2 hover:shadow-xl hover:border-accent-400" data-category="residential">
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="text-xs font-bold uppercase tracking-widest text-accent-500">Refinancing</span>
+                            <span class="text-xs text-gray-400">4 min read</span>
                         </div>
-                        <h3 class="font-serif text-xl text-brand-900 mb-3">
-                            Rentvesting, upgrading or staying put? How to choose your next move.
-                        </h3>
-                        <p class="text-sm text-gray-600 mb-4">
-                            A practical comparison of three common paths – stay in your current home, upgrade, or rentvest – including how each affects borrowing power and future options.
+                        <h3 class="font-serif text-xl text-brand-900 mb-3 line-clamp-2">The Right (and Wrong) Way to Consolidate Debt</h3>
+                        <p class="text-sm text-gray-600 mb-6 flex-grow line-clamp-3">
+                            Rolling credit cards and personal loans into your mortgage will drop your monthly repayments, but doing it without a strategy could cost you thousands in the long run.
                         </p>
-                        <ul class="text-[11px] text-gray-500 space-y-1 mb-5">
-                            <li>• Pros and cons of each path beyond just the numbers.</li>
-                            <li>• How banks treat rent and existing loans when you change strategy.</li>
-                            <li>• Example timelines for building a portfolio over 5–10 years.</li>
-                        </ul>
-                        <button
-                            class="inline-flex items-center text-xs uppercase tracking-widest text-brand-900 hover:text-accent-500"
-                            data-open-article="rentvesting-vs-upgrade">
-                            Read article
-                            <i data-lucide="arrow-right" class="w-4 h-4 ml-1"></i>
+                        <button class="inline-flex items-center text-xs font-bold uppercase tracking-widest text-brand-900 hover:text-accent-500 transition mt-auto group" data-open-article="debt-consolidation">
+                            Read Article <i data-lucide="arrow-right" class="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1"></i>
                         </button>
-                    </article>
+                    </div>
+
+                    <div class="article-card bg-white border border-gray-200 rounded-sm p-6 cursor-pointer flex flex-col h-full reveal stagger-delay-2 transition-all duration-500 hover:-translate-y-2 hover:shadow-xl hover:border-accent-400" data-category="commercial">
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="text-xs font-bold uppercase tracking-widest text-accent-500">Asset Finance</span>
+                            <span class="text-xs text-gray-400">3 min read</span>
+                        </div>
+                        <h3 class="font-serif text-xl text-brand-900 mb-3 line-clamp-2">Asset Finance: When to use Low-Doc options</h3>
+                        <p class="text-sm text-gray-600 mb-6 flex-grow line-clamp-3">
+                            If you are self-employed, providing full tax returns for a vehicle purchase isn't always necessary. We explore how low-doc asset finance works.
+                        </p>
+                        <button class="inline-flex items-center text-xs font-bold uppercase tracking-widest text-brand-900 hover:text-accent-500 transition mt-auto group" data-open-article="asset-low-doc">
+                            Read Article <i data-lucide="arrow-right" class="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1"></i>
+                        </button>
+                    </div>
 
                 </div>
             </div>
         </section>
 
-        <!-- CTA -->
-        <section class="bg-gradient-to-br from-brand-900 to-brand-800 text-white py-16">
+        <section class="bg-brand-900 text-white py-24 reveal">
             <div class="max-w-4xl mx-auto px-4 text-center">
-                <h2 class="text-3xl md:text-4xl font-bold mb-6">Want an article on a specific topic?</h2>
-                <p class="text-lg text-gray-200 mb-8">
-                    If you cannot find the answer you are looking for, tell us what you are trying to figure out and we can step you through it one‑to‑one.
-                </p>
-                <a href="contact.html"
-                   class="inline-block bg-white text-brand-900 px-10 py-4 rounded-sm font-bold text-sm uppercase tracking-widest hover:bg-gray-100 transition-colors duration-300 shadow-lg">
-                    Ask a question
-                </a>
+                <h2 class="font-serif text-4xl md:text-5xl mb-6">Need help applying this to your situation?</h2>
+                <p class="text-lg text-gray-200 mb-10 max-w-2xl mx-auto">Articles are great for general knowledge, but your scenario is unique. Book a quick call to get advice tailored to your goals.</p>
+                <div class="flex flex-col sm:flex-row gap-6 justify-center">
+                    <a href="contact.html" class="bg-white text-brand-900 px-10 py-4 rounded-sm font-bold uppercase tracking-widest text-xs hover:bg-accent-500 hover:text-white transition shadow-xl">Book CONSULTATION</a>
+                    <a href="tel:1300385222" class="border border-white/30 text-white px-10 py-4 rounded-sm font-bold uppercase tracking-widest text-xs hover:bg-white/10 transition backdrop-blur-sm flex items-center justify-center gap-2">
+                        <i data-lucide="phone" class="w-4 h-4"></i> 1300 385 222
+                    </a>
+                </div>
             </div>
         </section>
     </main>
 
-    <!-- Modal (single, reused for all articles) -->
-    <div id="article-modal" class="fixed inset-0 hidden items-center justify-center modal-overlay z-50 px-4">
-        <div class="bg-white rounded-sm shadow-2xl max-w-3xl w-full modal-content overflow-y-auto relative">
-            <button id="article-modal-close"
-                    class="absolute top-4 right-4 text-gray-400 hover:text-brand-900">
-                <i data-lucide="x" class="w-5 h-5"></i>
+    <div id="article-modal" class="fixed inset-0 bg-brand-900/90 z-[60] hidden justify-center items-start pt-10 md:pt-20 px-4 pb-10 overflow-y-auto backdrop-blur-sm">
+        <div class="bg-white w-full max-w-4xl rounded-sm shadow-2xl relative mb-10" id="article-modal-content">
+            <button id="modal-close" class="absolute top-4 right-4 text-gray-400 hover:text-brand-900 bg-gray-100 hover:bg-gray-200 p-2 rounded-full transition-colors z-10">
+                <i data-lucide="x" class="w-6 h-6"></i>
             </button>
-            <div class="p-6 md:p-8">
-                <div class="flex items-center gap-3 mb-3">
-                    <span id="modal-article-badge"
-                          class="article-badge uppercase text-accent-400"></span>
-                    <span id="modal-article-meta"
-                          class="text-[11px] text-brand-500 flex items-center gap-1">
-                        <i data-lucide="clock" class="w-3 h-3"></i>
-                        <span id="modal-article-length"></span>
-                    </span>
-                </div>
-                <h2 id="modal-article-title"
-                    class="font-serif text-2xl md:text-3xl text-brand-900 mb-4"></h2>
-                <p id="modal-article-intro"
-                   class="text-sm md:text-base text-gray-700 mb-6"></p>
-                <div id="modal-article-body" class="article-body text-sm md:text-base text-gray-700 space-y-4"></div>
-                <p class="mt-8 text-[11px] text-gray-500">
-                    General information only. This content does not constitute personal advice and does not take into account your objectives, financial situation or needs.
-                </p>
-            </div>
+            
+            <div id="modal-body" class="p-8 md:p-14"></div>
         </div>
     </div>
 
-    <!-- Footer -->
     <footer class="bg-brand-900 text-white pt-16 pb-8 border-t border-white/10 text-sm">
         <div class="max-w-7xl mx-auto px-4">
             <div class="grid md:grid-cols-4 gap-12 mb-12">
                 <div class="col-span-1">
-                    <img src="https://shaggyyyz.github.io/nest-capital-finance/logo.png"
-                         alt="Nest Capital Finance"
-                         class="h-14 w-auto mb-6 brightness-0 invert opacity-90">
+                    <img src="https://shaggyyyz.github.io/nest-capital-finance/logo.png" alt="Nest Capital Finance" class="h-14 w-auto mb-6 brightness-0 invert opacity-90">
                     <p class="text-gray-300 mb-6 leading-relaxed">
                         Providing clarity and confidence for your property journey. Your trusted partner in finance.
                     </p>
                     <div class="flex gap-4">
-                        <a href="#" class="bg-white/10 p-2 rounded-full hover:bg-accent-500 transition">
-                            <i data-lucide="facebook" class="w-5 h-5"></i>
-                        </a>
-                        <a href="https://www.linkedin.com/company/nest-capital-finance"
-                           class="bg-white/10 p-2 rounded-full hover:bg-accent-500 transition">
-                            <i data-lucide="linkedin" class="w-5 h-5"></i>
-                        </a>
-                        <a href="https://www.instagram.com/nestcapitalfinance"
-                           class="bg-white/10 p-2 rounded-full hover:bg-accent-500 transition">
-                            <i data-lucide="instagram" class="w-5 h-5"></i>
-                        </a>
+                        <a href="#" class="bg-white/10 p-2 rounded-full hover:bg-accent-500 transition"><i data-lucide="facebook" class="w-5 h-5"></i></a>
+                        <a href="https://www.linkedin.com/company/nest-capital-finance" class="bg-white/10 p-2 rounded-full hover:bg-accent-500 transition"><i data-lucide="linkedin" class="w-5 h-5"></i></a>
+                        <a href="https://www.instagram.com/nestcapitalfinance" class="bg-white/10 p-2 rounded-full hover:bg-accent-500 transition"><i data-lucide="instagram" class="w-5 h-5"></i></a>
                     </div>
                 </div>
 
@@ -521,276 +283,178 @@
                 </div>
             </div>
 
-            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center">
-                <p class="text-gray-400 text-sm mb-4 md:mb-0">&copy; 2026 Nest Capital Finance Pty Ltd. All rights reserved.</p>
-                <div class="flex gap-6 text-sm">
-                    <a href="privacy-policy.html" class="text-gray-400 hover:text-accent-400 transition">Privacy Policy</a>
-                    <a href="feedback-complaints.html" class="text-gray-400 hover:text-accent-400 transition">Feedback & Complaints</a>
-                    <a href="terms-conditions.html" class="text-gray-400 hover:text-accent-400 transition">Terms &amp; Conditions</a>
+            <div class="border-t border-white/20 pt-8 flex flex-col items-start gap-2">
+                <p class="text-white/50 text-xs">&copy; 2026 Nest Capital Finance Pty Ltd. ACN 691 621 191 | ABN 20 691 621 191 | Credit Representative 574020 is authorised under Australian Credit Licence 389328. | AFCA Member 118936</p>
+                <div class="flex gap-4 text-xs mt-1">
+                    <a href="privacy-policy.html" class="text-white/50 hover:text-accent-400 transition">Privacy Policy</a>
+                    <span class="text-white/50">|</span>
+                    <a href="feedback-complaints.html" class="text-white/50 hover:text-accent-400 transition">Feedback & Complaints</a>
+                    <span class="text-white/50">|</span>
+                    <a href="terms-conditions.html" class="text-white/50 hover:text-accent-400 transition">Terms &amp; Conditions</a>
                 </div>
+                <p class="text-white/40 text-xs mt-3 max-w-4xl">Disclaimer: This page provides general information only and has been prepared without taking into account your objectives, financial situation or needs. We recommend that you consider whether it is appropriate for your circumstances. Your full financial situation will need to be reviewed prior to acceptance of any offer or product. Subject to lender's terms and conditions, fees and charges and eligibility criteria apply.</p>
             </div>
         </div>
     </footer>
 
+    <script src="js/main.js"></script>
+
     <script>
-        lucide.createIcons();
+        // Category Filtering
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const articleCards = document.querySelectorAll('.article-card');
 
-        // Mobile nav
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const mobileMenuClose = document.getElementById('mobile-menu-close');
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Update active button state
+                filterBtns.forEach(b => {
+                    b.classList.remove('bg-brand-900', 'text-white');
+                    b.classList.add('bg-white', 'text-gray-600');
+                });
+                btn.classList.remove('bg-white', 'text-gray-600');
+                btn.classList.add('bg-brand-900', 'text-white');
 
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.add('active');
-        });
-
-        mobileMenuClose.addEventListener('click', () => {
-            mobileMenu.classList.remove('active');
-        });
-
-        // Fade-in animations
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) entry.target.classList.add('visible');
+                // Filter cards
+                const targetCat = btn.getAttribute('data-filter');
+                articleCards.forEach(card => {
+                    if (targetCat === 'all' || card.getAttribute('data-category') === targetCat) {
+                        card.style.display = 'flex';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
             });
-        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+        });
 
-        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-
-        // Article content map (all inline so no extra pages are needed)
-        const articleContent = {
-            'first-home-roadmap': {
-                badge: 'Home buyers',
-                length: '7 min read',
-                title: 'The real first‑home buyer roadmap (from “thinking about it” to settlement)',
-                intro: 'Buying your first home can feel overwhelming because there are so many moving parts. This roadmap breaks the journey into clear stages so you always know what comes next.',
-                body: [
-                    {
-                        heading: 'Stage 1 – Get clarity on your numbers',
-                        paragraphs: [
-                            'Before you scroll real estate listings, you need guardrails. That means understanding roughly what you can borrow, what a sensible purchase price range looks like, and how much cash you will need to complete a purchase.',
-                            'This usually involves a quick review of your income, existing debts, living expenses and savings. From there you can reverse‑engineer target suburbs and property types that actually fit.'
-                        ]
-                    },
-                    {
-                        heading: 'Stage 2 – Build a realistic deposit plan',
-                        paragraphs: [
-                            'Work out your current savings, expected savings over the next 6–12 months and any help from family. Factor in stamp duty, legal costs and a small buffer for surprises.',
-                            'In some cases, lender’s mortgage insurance or a government scheme can reduce the upfront deposit required, but it is important to understand the trade‑offs before relying on them.'
-                        ]
-                    },
-                    {
-                        heading: 'Stage 3 – Move from “enquiry” to genuine pre‑approval',
-                        paragraphs: [
-                            'A proper pre‑approval means a lender has actually assessed your documents against their credit policy. Online calculators or generic “you could borrow up to X” numbers are not the same thing.',
-                            'Pre‑approval gives you a price ceiling, but it is still conditional. Employment changes, extra debts or very unusual properties can all impact the final outcome.'
-                        ]
-                    },
-                    {
-                        heading: 'Stage 4 – Shortlist properties and complete due diligence',
-                        paragraphs: [
-                            'Once you know your numbers, you can focus on properties that fit, instead of wasting time on homes that were never realistic. At this point, the quality of the building, the location and the contract terms matter just as much as the price.',
-                            'Engaging a conveyancer or property lawyer early helps you understand contract risks, cooling‑off periods and how to structure any special conditions around finance approval.'
-                        ]
-                    },
-                    {
-                        heading: 'Stage 5 – Offer, contract and valuation',
-                        paragraphs: [
-                            'When an offer is accepted and you sign a contract, your lender will usually order a valuation. If it comes back low relative to the purchase price, that can affect both your approval and your required contribution.',
-                            'Good communication between your broker, conveyancer and the selling agent keeps everyone aligned on timeframes and conditions while this happens.'
-                        ]
-                    },
-                    {
-                        heading: 'Stage 6 – Final approval, loan documents and settlement',
-                        paragraphs: [
-                            'Once your loan is formally approved, you will receive loan documents to sign. It is important to check details like product type, rate, repayment amount, offset settings and any package fees.',
-                            'Settlement is when ownership and funds move. Your conveyancer or solicitor coordinates with the lender so this happens smoothly, and you get the keys without last‑minute surprises.'
-                        ]
-                    }
-                ]
+        // Article Data (Content for modals)
+        const articles = {
+            'fhb-deposit': {
+                tag: 'Residential',
+                title: 'How Much Deposit Do You Actually Need for Your First Home?',
+                content: `
+                    <p class="text-gray-700 leading-relaxed mb-4">The traditional advice has always been to save a 20% deposit. While this avoids Lenders Mortgage Insurance (LMI) and gives you immediate equity, the reality of modern property prices makes this a steep hurdle for many first home buyers.</p>
+                    <h4 class="font-serif text-xl text-brand-900 mt-6 mb-3">The 20% Myth</h4>
+                    <p class="text-gray-700 leading-relaxed mb-4">Saving 20% on a $700,000 property means putting away $140,000—plus stamp duty and conveyancing costs. In a rising market, the time it takes to save that extra 10% can sometimes mean you pay more for the property itself than you would have paid in LMI.</p>
+                    <h4 class="font-serif text-xl text-brand-900 mt-6 mb-3">Options to buy sooner</h4>
+                    <ul class="list-disc pl-5 space-y-3 text-gray-700 mb-6">
+                        <li><strong>Paying LMI (5-10% deposit):</strong> You can buy with as little as 5% genuine savings. The bank charges a one-off insurance fee (LMI) which is typically added to your loan balance.</li>
+                        <li><strong>Government Guarantee Schemes:</strong> The Home Guarantee Scheme allows eligible buyers to purchase with a 5% deposit without paying LMI. The government guarantees the remaining 15%. Places are limited and price caps apply.</li>
+                        <li><strong>Family Guarantee:</strong> If your parents own property, they can use a portion of their equity as security for your loan. This allows you to borrow 100% of the purchase price (plus costs) and avoid LMI completely.</li>
+                    </ul>
+                    <p class="text-gray-700 leading-relaxed mb-4">There is no single "right" answer. The best approach depends on your income, how fast the market is moving, and your personal savings discipline. Speak to a broker to run the numbers on paying LMI vs waiting.</p>
+                `
             },
-            'refinance-framework': {
-                badge: 'Refinancing',
-                length: '6 min read',
-                title: 'When does refinancing actually make sense? A simple decision framework.',
-                intro: 'Refinancing can save money or improve flexibility – but it can also create unnecessary churn. This framework helps you decide whether to move lenders, negotiate, or hold for now.',
-                body: [
-                    {
-                        heading: 'Step 1 – Diagnose the problem you are trying to solve',
-                        paragraphs: [
-                            'Are you mainly chasing a lower rate, wanting better features (like a true offset), or needing to access equity for another goal? Being clear on the primary objective makes it easier to compare options.',
-                            'If your main issue is short‑term cash‑flow, restructuring existing loans or adjusting repayments might help without changing lender.'
-                        ]
-                    },
-                    {
-                        heading: 'Step 2 – Compare true savings, not just headline rates',
-                        paragraphs: [
-                            'Look at the full picture over a reasonable horizon, including application fees, discharge fees, potential break costs, annual package fees and any cashback offers.',
-                            'Sometimes a slightly higher rate with lower ongoing fees can be better value than the sharpest headline rate once everything is added up.'
-                        ]
-                    },
-                    {
-                        heading: 'Step 3 – Check your borrowing profile today',
-                        paragraphs: [
-                            'Lender policies, your income and your expenses change over time. Even if you were easily approved a few years ago, today’s assessment may be tighter – especially if you now have more dependants, more debt, or lower income.',
-                            'A quick health check on your current borrowing profile can save you from investing time in an application that is unlikely to succeed.'
-                        ]
-                    },
-                    {
-                        heading: 'Step 4 – Consider the non‑rate benefits',
-                        paragraphs: [
-                            'A better internet banking experience, easier offset account setup, clearer redraw rules or the ability to split loans more flexibly can all be valid reasons to consider a move.',
-                            'On the flip side, if your current lender is responsive and policy‑flexible, that relationship can be worth something too – especially for investors planning multiple future transactions.'
-                        ]
-                    },
-                    {
-                        heading: 'Step 5 – Decide: switch, negotiate, or pause',
-                        paragraphs: [
-                            'If the numbers stack up and the new structure aligns with your goals, switching can be sensible. If the savings are marginal, it may be better to negotiate with your current lender and review again later.',
-                            'If your circumstances are temporarily complex (like a recent job change), it might be worth stabilising first and revisiting refinancing when you are in a stronger position.'
-                        ]
-                    }
-                ]
+            'smsf-basics': {
+                tag: 'SMSF Lending',
+                title: 'The Basics of Using Your SMSF to Buy Property',
+                content: `
+                    <p class="text-gray-700 leading-relaxed mb-4">Buying property inside a Self-Managed Super Fund (SMSF) is a powerful wealth creation strategy, but it operates under strict rules. You cannot simply use your super to buy a holiday home or a property you intend to live in.</p>
+                    <h4 class="font-serif text-xl text-brand-900 mt-6 mb-3">The Sole Purpose Test</h4>
+                    <p class="text-gray-700 leading-relaxed mb-4">Any investment made by your SMSF must be strictly for the purpose of providing retirement benefits for its members. You cannot live in a residential property owned by your SMSF, and neither can your relatives.</p>
+                    <h4 class="font-serif text-xl text-brand-900 mt-6 mb-3">Commercial exception</h4>
+                    <p class="text-gray-700 leading-relaxed mb-4">The major exception to the "related party" rule is commercial property. Your SMSF can purchase a commercial premises (like a warehouse, clinic, or office) and lease it back to your own trading business. The business must pay commercial market rent to the SMSF, essentially turning your rent expense into a super contribution.</p>
+                    <h4 class="font-serif text-xl text-brand-900 mt-6 mb-3">How the borrowing works (LRBA)</h4>
+                    <p class="text-gray-700 leading-relaxed mb-4">SMSF loans are structured as Limited Recourse Borrowing Arrangements (LRBA). This means if the SMSF defaults on the loan, the lender can only repossess the specific property tied to the loan; they cannot touch the other assets (like shares or cash) held in the super fund.</p>
+                    <p class="text-gray-700 leading-relaxed mb-4">Because of this protection, lenders require a special "Bare Trust" to hold the property until the loan is paid off, and they usually require larger deposits (often 20% to 30%).</p>
+                `
             },
-            'rentvesting-vs-upgrade': {
-                badge: 'Investing',
-                length: '8 min read',
-                title: 'Rentvesting, upgrading or staying put? How to choose your next move.',
-                intro: 'There is no single “right” path for everyone. This guide contrasts staying in your current home, upgrading, and rentvesting so you can see which approach better fits your goals and risk appetite.',
-                body: [
-                    {
-                        heading: 'Option 1 – Stay put and optimise',
-                        paragraphs: [
-                            'Staying where you are and focusing on debt reduction can quietly improve your position. Lower debt means more flexibility later, especially in a higher‑rate environment.',
-                            'If you like where you live and your property suits your needs for the next few years, it can be worth maximising extra repayments and building buffers before considering the next move.'
-                        ]
-                    },
-                    {
-                        heading: 'Option 2 – Upgrade your home',
-                        paragraphs: [
-                            'Upgrading often increases your non‑deductible (home) debt, which can impact how quickly you can invest elsewhere. On the other hand, it may better match your lifestyle priorities, schools or commute.',
-                            'Banks will look at the higher loan amount, your income and your ongoing living costs. It is important to model how higher repayments would feel under different interest rate scenarios.'
-                        ]
-                    },
-                    {
-                        heading: 'Option 3 – Rentvest (rent where you want, buy where numbers work)',
-                        paragraphs: [
-                            'Rentvesting separates where you live from where you invest. You might rent in a lifestyle location while buying an investment in a more affordable, yield‑friendly area.',
-                            'This can improve your ability to build a portfolio but comes with trade‑offs around stability, landlord decisions and how comfortable you are not owning the home you live in.'
-                        ]
-                    },
-                    {
-                        heading: 'How lenders view each path',
-                        paragraphs: [
-                            'For upgrades, lenders focus on your new repayment size and whether your income comfortably covers it. For rentvesting, they also factor in expected rent on any investment property and how reliable that income is.',
-                            'Some strategies might look similar on a spreadsheet but feel very different in day‑to‑day life, so it helps to consider both the numbers and how each option would actually feel.'
-                        ]
-                    },
-                    {
-                        heading: 'Pulling it together',
-                        paragraphs: [
-                            'Rather than trying to time the market perfectly, focus on choosing a path that you can sustain for the next few years without undue stress.',
-                            'Once you are clear on your priorities, you can structure lending around that plan – rather than letting lending constraints dictate your entire strategy.'
-                        ]
-                    }
-                ]
+            'commercial-lease-buy': {
+                tag: 'Commercial',
+                title: 'Leasing vs Buying Your Commercial Premises',
+                content: `
+                    <p class="text-gray-700 leading-relaxed mb-4">One of the biggest financial decisions a business owner will make is whether to continue leasing their premises or to purchase their own. Both have distinct advantages depending on your stage of business.</p>
+                    <h4 class="font-serif text-xl text-brand-900 mt-6 mb-3">The case for buying</h4>
+                    <ul class="list-disc pl-5 space-y-3 text-gray-700 mb-6">
+                        <li><strong>Capital Growth:</strong> Instead of paying off a landlord's asset, your rent goes toward building equity in an asset you control.</li>
+                        <li><strong>Certainty:</strong> You are not at the mercy of lease expirations, sudden rent hikes, or being forced to relocate and fit out a new premises.</li>
+                        <li><strong>Tax Strategy:</strong> Purchasing the property in a separate entity (like a Trust or SMSF) and leasing it back to your trading business can offer significant tax and asset protection benefits.</li>
+                    </ul>
+                    <h4 class="font-serif text-xl text-brand-900 mt-6 mb-3">The case for leasing</h4>
+                    <ul class="list-disc pl-5 space-y-3 text-gray-700 mb-6">
+                        <li><strong>Working Capital:</strong> Buying requires a deposit (often 20-30%). If your business is growing rapidly, that capital might generate a higher return if invested into stock, staff, or marketing rather than bricks and mortar.</li>
+                        <li><strong>Flexibility:</strong> If your business scales quickly (or downsizes), it is much easier to break a lease or move at the end of a term than it is to sell a commercial property.</li>
+                    </ul>
+                    <p class="text-gray-700 leading-relaxed mb-4">If you have stable cash flow and intend to stay in the same location for 5-10 years, buying is highly compelling. The key is ensuring the debt is structured correctly so it doesn't strangle your daily operations.</p>
+                `
+            },
+            'refinance-cashback': {
+                tag: 'Refinancing',
+                title: 'Are Refinance Cashbacks Actually Worth It?',
+                content: `
+                    <p class="text-gray-700 leading-relaxed mb-4">Banks frequently dangle $2,000 to $4,000 cashback offers to entice you to switch your mortgage to them. While receiving a lump sum of cash sounds great, it is critical to look past the marketing to the actual math.</p>
+                    <h4 class="font-serif text-xl text-brand-900 mt-6 mb-3">The Math behind the offer</h4>
+                    <p class="text-gray-700 leading-relaxed mb-4">Lenders know that most people will keep a mortgage for an average of 4 to 5 years before refinancing again. They build the cost of that cashback into the interest rate or the ongoing fees of the product.</p>
+                    <p class="text-gray-700 leading-relaxed mb-4">For example, if Bank A offers a rate of 6.00% with no cashback, and Bank B offers 6.15% with a $3,000 cashback. If your loan is $800,000, that 0.15% difference costs you an extra $1,200 a year in interest. By year three, Bank B is actually costing you more money than Bank A, completely wiping out the benefit of the upfront cash.</p>
+                    <h4 class="font-serif text-xl text-brand-900 mt-6 mb-3">When are they worth it?</h4>
+                    <p class="text-gray-700 leading-relaxed mb-4">Cashbacks are highly effective when you can secure a rate that is equal to or better than your current rate <strong>and</strong> the fees to switch (discharge fees, government registration fees) are lower than the cashback amount. In this scenario, you secure a lower repayment and get paid to make the switch.</p>
+                    <p class="text-gray-700 leading-relaxed mb-4">As brokers, we run a "net benefit calculation" over 3 to 5 years to show you exactly whether a cashback offer leaves you better or worse off over time.</p>
+                `
+            },
+            'debt-consolidation': {
+                tag: 'Refinancing',
+                title: 'The Right (and Wrong) Way to Consolidate Debt',
+                content: `
+                    <p class="text-gray-700 leading-relaxed mb-4">Rolling high-interest debts like credit cards, car loans, and personal loans into your home loan is one of the fastest ways to improve your monthly cash flow. Home loan rates are significantly lower than personal debt rates, often cutting repayments by hundreds or thousands of dollars a month.</p>
+                    <h4 class="font-serif text-xl text-brand-900 mt-6 mb-3">The Trap: Stretching short-term debt over 30 years</h4>
+                    <p class="text-gray-700 leading-relaxed mb-4">The danger of consolidation is the term of the loan. A $30,000 car loan at 9% paid off over 5 years costs you about $7,300 in interest. If you roll that $30,000 into a home loan at 6% and pay it off over 30 years, it will cost you over $34,000 in interest.</p>
+                    <p class="text-gray-700 leading-relaxed mb-4">You have turned a 5-year debt into a 30-year debt, paying for the car long after it has gone to the scrapyard.</p>
+                    <h4 class="font-serif text-xl text-brand-900 mt-6 mb-3">The Right Strategy</h4>
+                    <p class="text-gray-700 leading-relaxed mb-4">To consolidate debt correctly, you must isolate the consolidated amount. We typically set up a "split" in your home loan specifically for the $30,000 debt.</p>
+                    <p class="text-gray-700 leading-relaxed mb-4">Because your total monthly repayments have dropped significantly by consolidating, you take the "saved" money and voluntarily over-pay into that specific split. This ensures the car/personal debt is still cleared in 3 to 5 years, but at the much cheaper home loan interest rate.</p>
+                `
+            },
+            'asset-low-doc': {
+                tag: 'Asset Finance',
+                title: 'Asset Finance: When to use Low-Doc options',
+                content: `
+                    <p class="text-gray-700 leading-relaxed mb-4">For self-employed tradies, professionals, and business owners, gathering up-to-date tax returns and financials to buy a vehicle or piece of equipment can be a frustrating delay. Often, your financials from the previous year are still with the accountant.</p>
+                    <h4 class="font-serif text-xl text-brand-900 mt-6 mb-3">What is Low-Doc Asset Finance?</h4>
+                    <p class="text-gray-700 leading-relaxed mb-4">Many lenders offer "Low-Doc" (Low Documentation) or "No-Financials" policies for vehicles and equipment. Instead of asking for two years of company tax returns, the lender assesses the risk based on other factors.</p>
+                    <h4 class="font-serif text-xl text-brand-900 mt-6 mb-3">Common requirements for Low-Doc:</h4>
+                    <ul class="list-disc pl-5 space-y-3 text-gray-700 mb-6">
+                        <li><strong>ABN Age:</strong> Your ABN must generally be GST registered and active for a minimum period (often 12 to 24 months).</li>
+                        <li><strong>Property Ownership:</strong> Lenders are much more comfortable if the business owner or director is a property owner (even with a mortgage).</li>
+                        <li><strong>Clean Credit:</strong> A clean credit file with no defaults or late payments is essential.</li>
+                        <li><strong>Asset Type:</strong> The asset being purchased must be considered a standard, primary asset (like a dual-cab ute, a prime mover, or a standard excavator) rather than highly specialised, hard-to-sell machinery.</li>
+                    </ul>
+                    <p class="text-gray-700 leading-relaxed mb-4">Low-Doc loans allow you to secure approvals in 24 to 48 hours, letting you buy the asset and get it working in your business immediately. While rates can occasionally be marginally higher than fully-documented loans, the speed and convenience often outweigh the difference.</p>
+                `
             }
         };
 
-        // Search + filter
-        const searchInput = document.getElementById('article-search');
-        const articleCards = document.querySelectorAll('article[data-article-category]');
-        const filterButtons = document.querySelectorAll('[data-article-filter]');
-
-        function applyFilters() {
-            const term = (searchInput.value || '').toLowerCase();
-            const activeFilter = document.querySelector('[data-article-filter].active')?.getAttribute('data-article-filter') || 'all';
-
-            articleCards.forEach(card => {
-                const category = card.getAttribute('data-article-category');
-                const keywords = (card.getAttribute('data-article-keywords') || '').toLowerCase();
-                const text = (card.textContent || '').toLowerCase();
-
-                const matchesCategory =
-                    activeFilter === 'all' ||
-                    (activeFilter === 'home' && category === 'home') ||
-                    (activeFilter === 'invest' && category === 'invest') ||
-                    (activeFilter === 'business' && category === 'business');
-
-                const matchesSearch = !term || text.includes(term) || keywords.includes(term);
-
-                card.style.display = matchesCategory && matchesSearch ? '' : 'none';
-            });
-        }
-
-        searchInput?.addEventListener('input', applyFilters);
-
-        filterButtons.forEach(btn => {
-            btn.addEventListener('click', () => {
-                filterButtons.forEach(b => b.classList.remove('active', 'bg-brand-900', 'text-white', 'border-brand-900'));
-                filterButtons.forEach(b => b.classList.add('bg-white', 'text-brand-900', 'border-brand-200'));
-
-                btn.classList.add('active');
-                btn.classList.remove('bg-white', 'text-brand-900', 'border-brand-200');
-                btn.classList.add('bg-brand-900', 'text-white', 'border-brand-900');
-
-                applyFilters();
-            });
-        });
-
-        const defaultFilter = document.querySelector('[data-article-filter="all"]');
-        if (defaultFilter) {
-            defaultFilter.classList.add('active');
-        }
-
-        // Modal logic
+        // Modal Logic
         const modal = document.getElementById('article-modal');
-        const modalClose = document.getElementById('article-modal-close');
-        const modalBadge = document.getElementById('modal-article-badge');
-        const modalLength = document.getElementById('modal-article-length');
-        const modalTitle = document.getElementById('modal-article-title');
-        const modalIntro = document.getElementById('modal-article-intro');
-        const modalBody = document.getElementById('modal-article-body');
+        const modalBody = document.getElementById('modal-body');
+        const modalClose = document.getElementById('modal-close');
 
         function openArticle(id) {
-            const article = articleContent[id];
+            const article = articles[id];
             if (!article) return;
 
-            modalBadge.textContent = article.badge;
-            modalLength.textContent = article.length;
-            modalTitle.textContent = article.title;
-            modalIntro.textContent = article.intro;
-
-            modalBody.innerHTML = '';
-            article.body.forEach(section => {
-                const sectionEl = document.createElement('section');
-                sectionEl.className = 'mb-4';
-
-                if (section.heading) {
-                    const h = document.createElement('h3');
-                    h.className = 'font-semibold text-brand-900 mb-2';
-                    h.textContent = section.heading;
-                    sectionEl.appendChild(h);
-                }
-
-                section.paragraphs.forEach(pText => {
-                    const p = document.createElement('p');
-                    p.textContent = pText;
-                    sectionEl.appendChild(p);
-                });
-
-                modalBody.appendChild(sectionEl);
-            });
-
+            modalBody.innerHTML = `
+                <span class="text-accent-500 font-bold uppercase tracking-widest text-xs mb-4 block">${article.tag}</span>
+                <h2 class="font-serif text-3xl md:text-4xl text-brand-900 mb-8 border-b border-gray-100 pb-6">${article.title}</h2>
+                <div class="prose prose-gray max-w-none text-sm md:text-base">
+                    ${article.content}
+                </div>
+                <div class="mt-12 pt-8 border-t border-gray-100 text-center">
+                    <p class="text-brand-900 font-serif text-xl mb-4">Want to discuss how this applies to you?</p>
+                    <a href="contact.html" class="inline-block bg-brand-900 text-white px-8 py-3 rounded-sm font-bold text-xs uppercase tracking-widest hover:bg-accent-500 transition shadow-lg">Book a free chat</a>
+                </div>
+            `;
+            
             modal.classList.remove('hidden');
             modal.classList.add('flex');
+            document.body.classList.add('overflow-hidden'); // Stop background scrolling
         }
 
         function closeModal() {
             modal.classList.add('hidden');
             modal.classList.remove('flex');
+            document.body.classList.remove('overflow-hidden');
         }
 
+        // Attach click events to buttons inside cards
         document.querySelectorAll('[data-open-article]').forEach(btn => {
             btn.addEventListener('click', (e) => {
                 e.stopPropagation();
@@ -804,8 +468,8 @@
             card.addEventListener('click', (e) => {
                 const button = card.querySelector('[data-open-article]');
                 if (!button) return;
-                if ((e.target.closest('button') && e.target.closest('button').hasAttribute('data-open-article')) ||
-                    e.target.closest('a')) {
+                // Prevent double firing if they actually clicked the button
+                if ((e.target.closest('button') && e.target.closest('button').hasAttribute('data-open-article')) || e.target.closest('a')) {
                     return;
                 }
                 const id = button.getAttribute('data-open-article');
@@ -813,6 +477,7 @@
             });
         });
 
+        // Close modal events
         modalClose.addEventListener('click', closeModal);
         modal.addEventListener('click', (e) => {
             if (e.target === modal) closeModal();
