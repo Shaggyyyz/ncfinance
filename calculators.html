@@ -111,7 +111,7 @@
             <div id="calculator-wrapper" class="max-w-6xl mx-auto bg-white rounded-sm shadow-xl overflow-hidden border border-gray-200 reveal stagger-delay-2">
 
                 <div id="pdf-header" class="hidden p-8 border-b border-gray-200 flex justify-between items-center bg-white">
-                    <img src="https://shaggyyyz.github.io/nest-capital-finance/logo.png" alt="Nest Capital Finance" class="h-16 w-auto filter invert">
+                    <img src="https://shaggyyyz.github.io/nest-capital-finance/logo.png" alt="Nest Capital Finance" class="h-16 w-auto" crossorigin="anonymous">
                     <div class="text-right">
                         <p class="font-serif text-xl font-bold text-brand-900">Nest Capital Finance</p>
                         <p class="text-sm text-gray-600">Melbourne, VIC | 1300 385 222</p>
@@ -119,7 +119,7 @@
                     </div>
                 </div>
 
-                <div class="flex flex-wrap border-b border-gray-200 bg-gray-50">
+                <div id="calc-tabs-container" class="flex flex-wrap border-b border-gray-200 bg-gray-50">
                     <button onclick="switchCalcTab('repayment')" class="calc-tab active flex-1 py-6 px-2 text-xs md:text-sm font-bold uppercase tracking-widest text-brand-900 hover:bg-brand-50 focus:outline-none text-center" id="tab-repayment">Repayments</button>
                     <button onclick="switchCalcTab('borrowing')" class="calc-tab flex-1 py-6 px-2 text-xs md:text-sm font-bold uppercase tracking-widest text-brand-900 hover:bg-brand-50 focus:outline-none text-center" id="tab-borrowing">Borrowing Power</button>
                     <button onclick="switchCalcTab('stampduty')" class="calc-tab flex-1 py-6 px-2 text-xs md:text-sm font-bold uppercase tracking-widest text-brand-900 hover:bg-brand-50 focus:outline-none text-center" id="tab-stampduty">Stamp Duty</button>
@@ -646,34 +646,56 @@
     <script src="js/main.js"></script>
 
     <script>
-        // --- ADDED: PDF GENERATION LOGIC ---
+        // --- UPDATED PDF GENERATION LOGIC ---
         function downloadPDF() {
-            // Set today's date in the PDF header
             const dateStr = new Date().toLocaleDateString('en-AU', { year: 'numeric', month: 'long', day: 'numeric' });
             document.getElementById('pdf-date').innerText = "Estimate generated on: " + dateStr;
 
-            const element = document.getElementById('calculator-wrapper');
+            const wrapper = document.getElementById('calculator-wrapper');
             const pdfHeader = document.getElementById('pdf-header');
-            
-            // 1. Temporarily show the PDF header and hide interactive elements
+            const tabContainer = document.getElementById('calc-tabs-container');
+            const noPdfElements = wrapper.querySelectorAll('.no-pdf');
+            const calcContents = wrapper.querySelectorAll('.calc-content');
+
+            // 1. Show the PDF branding header
             pdfHeader.classList.remove('hidden');
-            const hideElements = document.querySelectorAll('.no-pdf');
-            hideElements.forEach(el => el.style.display = 'none');
+            
+            // 2. Hide the tab navigation buttons and any clean-up/link buttons
+            if (tabContainer) tabContainer.style.display = 'none';
+            noPdfElements.forEach(el => el.style.display = 'none');
 
-            // 2. Configure html2pdf settings
-            const opt = {
-              margin:       [0.5, 0.5, 0.5, 0.5], // top, left, bottom, right in inches
-              filename:     'Nest_Capital_Finance_Estimate.pdf',
-              image:        { type: 'jpeg', quality: 0.98 },
-              html2canvas:  { scale: 2, useCORS: true }, // scale: 2 improves chart rendering quality
-              jsPDF:        { unit: 'in', format: 'a4', orientation: 'landscape' } // Landscape fits the 2-column layout best
-            };
-
-            // 3. Generate PDF and then revert the UI changes
-            html2pdf().set(opt).from(element).save().then(() => {
-                pdfHeader.classList.add('hidden');
-                hideElements.forEach(el => el.style.display = '');
+            // 3. Forcefully hide all inactive calculators so they don't appear in the PDF
+            calcContents.forEach(content => {
+                if (!content.classList.contains('active')) {
+                    content.style.display = 'none';
+                }
             });
+
+            // 4. Delay the capture for a split second to ensure everything is rendered
+            setTimeout(() => {
+                const opt = {
+                    margin:       0.5,
+                    filename:     'Nest_Capital_Finance_Estimate.pdf',
+                    image:        { type: 'jpeg', quality: 0.98 },
+                    html2canvas:  { scale: 2, useCORS: true }, 
+                    jsPDF:        { unit: 'in', format: 'a4', orientation: 'landscape' }
+                };
+
+                html2pdf().set(opt).from(wrapper).save().then(() => {
+                    // 5. Revert all UI changes back to normal after successful download
+                    pdfHeader.classList.add('hidden');
+                    if (tabContainer) tabContainer.style.display = '';
+                    noPdfElements.forEach(el => el.style.display = '');
+                    calcContents.forEach(content => content.style.display = ''); // Gives control back to CSS
+                }).catch(err => {
+                    console.error("PDF Generation Error: ", err);
+                    // Revert UI changes if an error happens so the site doesn't stay broken
+                    pdfHeader.classList.add('hidden');
+                    if (tabContainer) tabContainer.style.display = '';
+                    noPdfElements.forEach(el => el.style.display = '');
+                    calcContents.forEach(content => content.style.display = '');
+                });
+            }, 150);
         }
 
         // --- GLOBAL STATE LINKS ---
