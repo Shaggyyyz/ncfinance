@@ -33,7 +33,7 @@
 
     <link rel="stylesheet" href="css/style.css">
     
-    <style>
+   <style>
     @media print {
         /* 1. Ensure background colors render in the PDF */
         * {
@@ -41,7 +41,7 @@
             print-color-adjust: exact !important;
         }
 
-        /* 2. FIX BLANK PAGES: Completely remove non-calculator sections from document flow */
+        /* 2. Completely remove non-calculator sections from document flow */
         header, footer, .floating-cta, 
         section:not(.pb-24), 
         .no-pdf, #calc-tabs-container { 
@@ -59,6 +59,7 @@
             padding: 0 !important;
             border: none !important;
             box-shadow: none !important;
+            /* Removed position:absolute so the browser can create a 2nd page naturally */
         }
 
         /* 4. Force the 2-column layout (prevents mobile stacking on print) */
@@ -76,9 +77,12 @@
             border-bottom: 1px solid #e5e7eb !important;
         }
 
-        /* 6. Show the static Disclaimers & Contact footer at the bottom */
+        /* 6. FORCE FOOTER TO PAGE 2 */
         #pdf-footer {
             display: block !important;
+            page-break-before: always !important; /* Classic page break */
+            break-before: page !important;        /* Modern page break */
+            padding-top: 1rem !important;         /* Gives breathing room at the top of page 2 */
         }
 
         /* 7. Setup A4 Landscape layout with proper margins */
