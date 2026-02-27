@@ -649,12 +649,12 @@
         // --- ADDED: Validation Tracking State ---
         let isCalculated = true; // True on load because functions calculate automatically
 
-        // --- UPDATED PDF GENERATION LOGIC ---
+        // --- UPDATED PDF GENERATION LOGIC (MOBILE PRESET) ---
         function downloadPDF() {
-            // 1. Validation check
+            // 1. Validation check - Warns user if they changed inputs but didn't calculate
             if (!isCalculated) {
                 alert("Please click the 'Calculate' button to update your results before downloading the PDF.");
-                return;
+                return; // Stops the PDF from generating
             }
 
             // 2. Visual feedback
@@ -674,44 +674,44 @@
 
             // 3. Prepare the DOM
             pdfHeader.classList.remove('hidden');
-            wrapper.classList.remove('shadow-xl'); // Clean up borders for the print
+            wrapper.classList.remove('shadow-xl', 'border', 'border-gray-200'); // Remove outer borders for clean page
             
-            // CRITICAL FIX: Force desktop grid width so Tailwind 'lg:grid-cols-2' is triggered
-            // preventing the elements from stacking and splitting across multiple pages.
+            // FORCE MOBILE PRESET: Constrain width so Tailwind naturally stacks into 1 column
             const originalWidth = wrapper.style.width;
             const originalMaxWidth = wrapper.style.maxWidth;
-            wrapper.style.width = '1152px';
-            wrapper.style.maxWidth = 'none';
+            wrapper.style.width = '600px'; 
+            wrapper.style.maxWidth = '600px';
 
             if (tabContainer) tabContainer.style.display = 'none';
             noPdfElements.forEach(el => el.style.display = 'none');
 
-            // Only show the active tab
+            // Only show the active tab, ensure it behaves as a block element
             calcContents.forEach(content => {
                 if (!content.classList.contains('active')) {
                     content.style.display = 'none';
+                } else {
+                    content.style.display = 'block'; 
                 }
             });
 
-            // Wait 800ms for browser to render changes, then generate PDF
+            // 4. Wait a split second for layout to adjust, then capture
             setTimeout(() => {
                 const opt = {
-                    margin:       [0.15, 0.4, 0.4, 0.4], // [top, left, bottom, right] - Reduced top padding significantly
+                    margin:       [0.3, 0.4, 0.4, 0.4], // [top, left, bottom, right] - Reduced top padding
                     filename:     'Nest_Capital_Finance_Estimate.pdf',
-                    image:        { type: 'jpeg', quality: 0.98 },
+                    image:        { type: 'jpeg', quality: 1.0 },
                     html2canvas:  { 
                         scale: 2, 
-                        useCORS: true, 
-                        allowTaint: true,
-                        windowWidth: 1152 // Tricks Tailwind media queries into rendering the desktop view
+                        useCORS: true, // REMOVED allowTaint:true to fix the crash
+                        windowWidth: 600 // Force canvas to see the mobile width
                     }, 
-                    jsPDF:        { unit: 'in', format: 'a4', orientation: 'landscape' }
+                    jsPDF:        { unit: 'in', format: 'a4', orientation: 'portrait' } // Changed to Portrait
                 };
 
                 html2pdf().set(opt).from(wrapper).save().then(() => {
                     // Restore UI after success
                     pdfHeader.classList.add('hidden');
-                    wrapper.classList.add('shadow-xl');
+                    wrapper.classList.add('shadow-xl', 'border', 'border-gray-200');
                     wrapper.style.width = originalWidth;
                     wrapper.style.maxWidth = originalMaxWidth;
                     
@@ -723,9 +723,9 @@
                     downloadBtn.disabled = false;
                 }).catch(err => {
                     console.error("PDF Generation Error: ", err);
-                    // Restore UI even if there is an error
+                    // Restore UI if an error happens
                     pdfHeader.classList.add('hidden');
-                    wrapper.classList.add('shadow-xl');
+                    wrapper.classList.add('shadow-xl', 'border', 'border-gray-200');
                     wrapper.style.width = originalWidth;
                     wrapper.style.maxWidth = originalMaxWidth;
                     
@@ -737,7 +737,7 @@
                     downloadBtn.disabled = false;
                     alert("There was an issue generating your PDF. Please try again.");
                 });
-            }, 800);
+            }, 600); // 600ms delay
         }
 
         // --- GLOBAL STATE LINKS ---
@@ -1309,11 +1309,20 @@
             updateGovLink(); 
             calcExtraRepayment();
             calcOffset();
+            isCalculated = true; // Mark as clean on initial load
 
-            // Track any input changes to enforce validation
+            // TRACK INPUTS: If user types a new number or changes a dropdown, flag it as dirty
             document.querySelectorAll('.calc-content input, .calc-content select').forEach(input => {
                 input.addEventListener('input', () => {
                     isCalculated = false;
+                });
+            });
+            
+            // TRACK BUTTONS: If user clicks Calculate, flag it as clean again
+            document.querySelectorAll('.calc-content button:not(.no-pdf)').forEach(button => {
+                button.addEventListener('click', () => {
+                    // Small timeout ensures the calc function finishes running first
+                    setTimeout(() => { isCalculated = true; }, 100);
                 });
             });
         });
