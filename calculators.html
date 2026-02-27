@@ -110,12 +110,12 @@
 
             <div id="calculator-wrapper" class="max-w-6xl mx-auto bg-white rounded-sm shadow-xl border border-gray-200 reveal stagger-delay-2">
 
-                <div id="pdf-header" class="hidden p-8 border-b border-gray-200 flex justify-between items-center bg-white">
-                    <img src="https://shaggyyyz.github.io/nest-capital-finance/logo.png" alt="Nest Capital Finance" class="h-16 w-auto">
+                <div id="pdf-header" class="hidden px-8 py-6 border-b border-gray-200 flex justify-between items-center bg-white w-full">
+                    <img src="https://shaggyyyz.github.io/nest-capital-finance/logo.png?v=pdf" alt="Nest Capital Finance" style="height: 60px; width: auto;" crossorigin="anonymous">
                     <div class="text-right">
-                        <p class="font-serif text-xl font-bold text-brand-900">Nest Capital Finance</p>
-                        <p class="text-sm text-gray-600">Melbourne, VIC | 1300 385 222</p>
-                        <p class="text-sm text-gray-400 mt-1" id="pdf-date"></p>
+                        <p class="font-serif text-2xl font-bold text-brand-900">Nest Capital Finance</p>
+                        <p class="text-sm text-gray-600 mt-1">Melbourne, VIC | 1300 385 222</p>
+                        <p class="text-xs text-gray-400 mt-1" id="pdf-date"></p>
                     </div>
                 </div>
 
@@ -128,7 +128,7 @@
                 </div>
 
                 <div id="calc-repayment" class="calc-content active p-8 md:p-12">
-                    <div class="grid md:grid-cols-2 gap-12">
+                    <div class="grid lg:grid-cols-2 gap-12">
                         <div class="space-y-6">
                             <div class="flex justify-between items-center">
                                 <h2 class="font-serif text-2xl text-brand-900">Loan Details</h2>
@@ -193,7 +193,7 @@
                 </div>
 
                 <div id="calc-borrowing" class="calc-content p-8 md:p-12">
-                    <div class="grid md:grid-cols-2 gap-12">
+                    <div class="grid lg:grid-cols-2 gap-12">
                         <div class="space-y-6">
                             <div class="flex justify-between items-center">
                                 <h2 class="font-serif text-2xl text-brand-900">Your Financials</h2>
@@ -253,7 +253,7 @@
                 </div>
 
                 <div id="calc-stampduty" class="calc-content p-8 md:p-12">
-                    <div class="grid md:grid-cols-2 gap-12">
+                    <div class="grid lg:grid-cols-2 gap-12">
                         <div class="space-y-6">
                             <div class="flex justify-between items-center">
                                 <h2 class="font-serif text-2xl text-brand-900">Property Details</h2>
@@ -646,9 +646,18 @@
     <script src="js/main.js"></script>
 
     <script>
-        // --- COMPLETELY REWRITTEN PDF GENERATION LOGIC ---
+        // --- ADDED: Validation Tracking State ---
+        let isCalculated = true; // True on load because functions calculate automatically
+
+        // --- UPDATED PDF GENERATION LOGIC ---
         function downloadPDF() {
-            // 1. Give visual feedback immediately so the user knows it's working
+            // 1. Validation check
+            if (!isCalculated) {
+                alert("Please click the 'Calculate' button to update your results before downloading the PDF.");
+                return;
+            }
+
+            // 2. Visual feedback
             const downloadBtn = document.getElementById('main-download-btn');
             const originalBtnHTML = downloadBtn.innerHTML;
             downloadBtn.innerHTML = '<span class="animate-pulse">Generating PDF... Please wait</span>';
@@ -663,10 +672,17 @@
             const noPdfElements = wrapper.querySelectorAll('.no-pdf');
             const calcContents = wrapper.querySelectorAll('.calc-content');
 
-            // 2. Prepare the DOM
+            // 3. Prepare the DOM
             pdfHeader.classList.remove('hidden');
             wrapper.classList.remove('shadow-xl'); // Clean up borders for the print
             
+            // CRITICAL FIX: Force desktop grid width so Tailwind 'lg:grid-cols-2' is triggered
+            // preventing the elements from stacking and splitting across multiple pages.
+            const originalWidth = wrapper.style.width;
+            const originalMaxWidth = wrapper.style.maxWidth;
+            wrapper.style.width = '1152px';
+            wrapper.style.maxWidth = 'none';
+
             if (tabContainer) tabContainer.style.display = 'none';
             noPdfElements.forEach(el => el.style.display = 'none');
 
@@ -677,32 +693,41 @@
                 }
             });
 
-            // 3. Wait 800ms for browser to render changes, then generate PDF
+            // Wait 800ms for browser to render changes, then generate PDF
             setTimeout(() => {
                 const opt = {
-                    margin:       0.5,
+                    margin:       [0.15, 0.4, 0.4, 0.4], // [top, left, bottom, right] - Reduced top padding significantly
                     filename:     'Nest_Capital_Finance_Estimate.pdf',
                     image:        { type: 'jpeg', quality: 0.98 },
-                    html2canvas:  { scale: 2, useCORS: true }, 
+                    html2canvas:  { 
+                        scale: 2, 
+                        useCORS: true, 
+                        allowTaint: true,
+                        windowWidth: 1152 // Tricks Tailwind media queries into rendering the desktop view
+                    }, 
                     jsPDF:        { unit: 'in', format: 'a4', orientation: 'landscape' }
                 };
 
                 html2pdf().set(opt).from(wrapper).save().then(() => {
-                    // 4a. Restore UI after success
+                    // Restore UI after success
                     pdfHeader.classList.add('hidden');
                     wrapper.classList.add('shadow-xl');
+                    wrapper.style.width = originalWidth;
+                    wrapper.style.maxWidth = originalMaxWidth;
                     
                     if (tabContainer) tabContainer.style.display = '';
                     noPdfElements.forEach(el => el.style.display = '');
-                    calcContents.forEach(content => content.style.display = '');
+                    calcContents.forEach(content => content.style.display = ''); 
                     
                     downloadBtn.innerHTML = originalBtnHTML;
                     downloadBtn.disabled = false;
                 }).catch(err => {
                     console.error("PDF Generation Error: ", err);
-                    // 4b. Restore UI even if there is an error
+                    // Restore UI even if there is an error
                     pdfHeader.classList.add('hidden');
                     wrapper.classList.add('shadow-xl');
+                    wrapper.style.width = originalWidth;
+                    wrapper.style.maxWidth = originalMaxWidth;
                     
                     if (tabContainer) tabContainer.style.display = '';
                     noPdfElements.forEach(el => el.style.display = '');
@@ -712,7 +737,7 @@
                     downloadBtn.disabled = false;
                     alert("There was an issue generating your PDF. Please try again.");
                 });
-            }, 800); // 800 millisecond delay
+            }, 800);
         }
 
         // --- GLOBAL STATE LINKS ---
@@ -822,6 +847,7 @@
             if(containerId === 'calc-extra') document.getElementById('e-chart-toggle').checked = false;
             if(containerId === 'calc-offset') document.getElementById('o-chart-toggle').checked = false;
             
+            // Recalculating sets the flag back to true automatically
             if(containerId === 'calc-repayment') calcRepaymentDetail();
             if(containerId === 'calc-borrowing') calcBorrowingPower();
             if(containerId === 'calc-stampduty') {
@@ -865,6 +891,7 @@
                  document.getElementById('r-total-interest').innerText = '$0';
                  document.getElementById('r-total-cost').innerText = '$0';
             }
+            isCalculated = true; // Flag as safe for download
         }
 
         function calcBorrowingPower() {
@@ -887,6 +914,7 @@
             } else {
                 document.getElementById('b-result').innerText = '$0';
             }
+            isCalculated = true; // Flag as safe for download
         }
 
         function calcStampDuty() {
@@ -1056,9 +1084,10 @@
             document.getElementById('s-duty').innerText = '$' + Math.round(duty).toLocaleString('en-AU');
             document.getElementById('s-transfer').innerText = '$' + Math.round(transfer).toLocaleString('en-AU');
             document.getElementById('s-total').innerText = '$' + Math.round(duty + transfer).toLocaleString('en-AU');
+            
+            isCalculated = true; // Flag as safe for download
         }
 
-        // --- EXTRA REPAYMENT CALCULATOR (WITH CHART) ---
         function calcExtraRepayment() {
             const balance = parseFloat(document.getElementById('e-balance').value) || 0;
             const rate = parseFloat(document.getElementById('e-rate').value) || 0;
@@ -1070,6 +1099,7 @@
                  document.getElementById('e-saved').innerText = '$0';
                  document.getElementById('e-time').innerText = '0 Years';
                  if (charts['chart-extra']) charts['chart-extra'].destroy();
+                 isCalculated = true;
                  return;
             }
 
@@ -1161,9 +1191,9 @@
                     }
                 });
             }
+            isCalculated = true; // Flag as safe for download
         }
 
-        // --- OFFSET CALCULATOR (WITH CHART) ---
         function calcOffset() {
             const loan = parseFloat(document.getElementById('o-loan').value) || 0;
             const offset = parseFloat(document.getElementById('o-balance').value) || 0;
@@ -1267,9 +1297,11 @@
                  document.getElementById('o-time-saved').innerText = '0 Yrs 0 Mo';
                  if (charts['chart-offset']) charts['chart-offset'].destroy();
             }
+            
+            isCalculated = true; // Flag as safe for download
         }
 
-        // Initial default calculations
+        // Initial default calculations and Input Tracking Setup
         window.addEventListener('load', () => {
             calcRepaymentDetail();
             calcBorrowingPower();
@@ -1277,6 +1309,13 @@
             updateGovLink(); 
             calcExtraRepayment();
             calcOffset();
+
+            // Track any input changes to enforce validation
+            document.querySelectorAll('.calc-content input, .calc-content select').forEach(input => {
+                input.addEventListener('input', () => {
+                    isCalculated = false;
+                });
+            });
         });
     </script>
 </body>
