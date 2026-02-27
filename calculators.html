@@ -233,7 +233,7 @@
                             </div>
                             <div class="input-group">
                                 <label class="block text-xs uppercase font-bold text-gray-500 mb-2">State / Territory</label>
-                                <select id="s-state" class="w-full border border-gray-300 py-3 px-4 rounded-sm focus:outline-none bg-white">
+                                <select id="s-state" class="w-full border border-gray-300 py-3 px-4 rounded-sm focus:outline-none bg-white" onchange="updateGovLink()">
                                     <option value="VIC">Victoria (VIC)</option>
                                     <option value="NSW">New South Wales (NSW)</option>
                                     <option value="QLD">Queensland (QLD)</option>
@@ -291,7 +291,8 @@
                                             Go to VIC website for accurate calculation
                                         </a>
                                     </div>
-                                    </div>
+                                    
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -605,6 +606,28 @@
     <script src="js/main.js"></script>
 
     <script>
+        // --- ADDED: GLOBAL STATE LINKS ---
+        const stateUrls = {
+            'VIC': 'https://www.sro.vic.gov.au/buying-property/land-transfer-stamp-duty/land-transfer-stamp-duty-calculator',
+            'NSW': 'https://www.service.nsw.gov.au/transaction/calculate-the-stamp-duty-on-the-sale-of-land-or-businesses-in-nsw',
+            'QLD': 'https://qro.qld.gov.au/duties/transfer-duty/calculate/',
+            'WA': 'https://apps.osr.wa.gov.au/portal/0/calculators/transferduty',
+            'SA': 'https://www.revenuesa.sa.gov.au/stamp-duty/rate-of-stamp-duty',
+            'ACT': 'https://www.revenue.act.gov.au/self-assessment-tools-and-forms/calculators/conveyance-duty-calculator',
+            'TAS': 'https://www.tro.tas.gov.au/Calculator/Duty',
+            'NT': 'https://nt.gov.au/property/buying-and-selling-a-home/settle-the-sale/stamp-duty-buying-or-selling-a-home/conveyance-calculator'
+        };
+
+        // --- ADDED: FUNCTION TO UPDATE LINK ON DROPDOWN CHANGE ---
+        function updateGovLink() {
+            const state = document.getElementById('s-state').value;
+            const govLinkBtn = document.getElementById('s-gov-link');
+            if (govLinkBtn) {
+                govLinkBtn.href = stateUrls[state] || '#';
+                govLinkBtn.innerText = `GO TO ${state} WEBSITE FOR ACCURATE CALCULATION`;
+            }
+        }
+
         // --- CHART HELPER FUNCTIONS ---
         let charts = {};
 
@@ -694,7 +717,10 @@
             
             if(containerId === 'calc-repayment') calcRepaymentDetail();
             if(containerId === 'calc-borrowing') calcBorrowingPower();
-            if(containerId === 'calc-stampduty') calcStampDuty();
+            if(containerId === 'calc-stampduty') {
+                calcStampDuty();
+                updateGovLink(); // Ensure link updates on clear
+            }
             if(containerId === 'calc-extra') calcExtraRepayment();
             if(containerId === 'calc-offset') calcOffset();
         }
@@ -920,28 +946,9 @@
                     transfer = 1500;
             }
 
-            // ADDED DICTIONARY OF OFFICIAL STATE GOVERNMENT LINKS
-            const stateUrls = {
-                'VIC': 'https://www.sro.vic.gov.au/buying-property/land-transfer-stamp-duty/land-transfer-stamp-duty-calculator',
-                'NSW': 'https://www.service.nsw.gov.au/transaction/calculate-the-stamp-duty-on-the-sale-of-land-or-businesses-in-nsw',
-                'QLD': 'https://qro.qld.gov.au/duties/transfer-duty/calculate/',
-                'WA': 'https://apps.osr.wa.gov.au/portal/0/calculators/transferduty',
-                'SA': 'https://www.revenuesa.sa.gov.au/stamp-duty/rate-of-stamp-duty',
-                'ACT': 'https://www.revenue.act.gov.au/self-assessment-tools-and-forms/calculators/conveyance-duty-calculator',
-                'TAS': 'https://www.tro.tas.gov.au/Calculator/Duty',
-                'NT': 'https://nt.gov.au/property/buying-and-selling-a-home/settle-the-sale/stamp-duty-buying-or-selling-a-home/conveyance-calculator'
-            };
-
             document.getElementById('s-duty').innerText = '$' + Math.round(duty).toLocaleString('en-AU');
             document.getElementById('s-transfer').innerText = '$' + Math.round(transfer).toLocaleString('en-AU');
             document.getElementById('s-total').innerText = '$' + Math.round(duty + transfer).toLocaleString('en-AU');
-            
-            // LOGIC TO UPDATE DYNAMIC BUTTON TEXT AND URL
-            const govLinkBtn = document.getElementById('s-gov-link');
-            if (govLinkBtn) {
-                govLinkBtn.href = stateUrls[state] || '#';
-                govLinkBtn.innerText = `GO TO ${state} WEBSITE FOR ACCURATE CALCULATION`;
-            }
         }
 
         // --- EXTRA REPAYMENT CALCULATOR (WITH CHART) ---
@@ -1161,6 +1168,7 @@
             calcRepaymentDetail();
             calcBorrowingPower();
             calcStampDuty();
+            updateGovLink(); // Ensure link sets properly on initial page load
             calcExtraRepayment();
             calcOffset();
         });
