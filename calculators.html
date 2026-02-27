@@ -25,7 +25,6 @@
     <meta property="og:image" content="https://shaggyyyz.github.io/nest-capital-finance/Logolink.jpg">
 
     <script src="https://cdn.tailwindcss.com"></script>
-    
     <script src="js/tailwind-config.js"></script>
 
     <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -33,13 +32,22 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <link rel="stylesheet" href="css/style.css">
+    
     <style>
     @media print {
-        /* 1. Hide everything except the calculator results */
+        /* 1. Ensure background colors render in the PDF */
+        * {
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+        }
+
+        /* 2. Hide everything on the page by default */
         body * { visibility: hidden; }
+        
+        /* 3. Make ONLY the calculator wrapper and its contents visible */
         #calculator-wrapper, #calculator-wrapper * { visibility: visible; }
         
-        /* 2. Position the content at the absolute top left of the A4 page */
+        /* 4. Position the calculator exactly at the top-left of the physical paper */
         #calculator-wrapper {
             position: absolute;
             left: 0;
@@ -48,27 +56,36 @@
             margin: 0 !important;
             padding: 0 !important;
             border: none !important;
+            box-shadow: none !important;
         }
 
-        /* 3. Force the side-by-side Desktop layout even on mobile devices */
+        /* 5. Force the 2-column layout (prevents mobile stacking on print) */
         #calculator-wrapper .grid { 
             display: grid !important; 
             grid-template-columns: 1fr 1fr !important; 
-            gap: 20px !important; 
+            gap: 2rem !important; 
         }
 
-        /* 4. Hide all interactive UI elements in the PDF */
-        .no-pdf, #calc-tabs-container, #download-btn-container, .floating-cta, header, footer { 
+        /* 6. Hide buttons, tabs, and interactive UI inside the calculator */
+        .no-pdf, #calc-tabs-container { 
             display: none !important; 
         }
 
-        /* 5. Show the branding header */
-        #pdf-header { display: flex !important; margin-bottom: 15px; }
+        /* 7. Show the Nest Capital branding header at the top */
+        #pdf-header { 
+            display: flex !important; 
+            margin-bottom: 2rem !important; 
+            padding-bottom: 1rem !important;
+            border-bottom: 1px solid #e5e7eb !important;
+        }
 
-        /* 6. Set A4 Page margins */
-        @page { margin: 0.3in; size: A4 landscape; }
+        /* 8. Setup A4 Landscape layout with proper margins */
+        @page { 
+            margin: 0.4in; 
+            size: A4 landscape; 
+        }
     }
-</style>
+    </style>
 </head>
 <body class="bg-brand-50 text-gray-800 antialiased overflow-x-hidden">
 
@@ -136,9 +153,25 @@
         </section>
 
         <section class="pb-24 px-4">
-            <div class="max-w-6xl mx-auto bg-white rounded-sm shadow-xl overflow-hidden border border-gray-200 reveal stagger-delay-2">
+            
+            <div class="max-w-6xl mx-auto flex justify-end mb-4 reveal stagger-delay-2 no-pdf">
+                <button onclick="downloadPDF()" class="flex items-center gap-2 px-5 py-2.5 bg-brand-900 text-white rounded-sm font-bold uppercase tracking-widest text-xs hover:bg-accent-500 transition shadow-md">
+                    <i data-lucide="download" class="w-4 h-4"></i> <span>Download Estimate as PDF</span>
+                </button>
+            </div>
 
-                <div class="flex flex-wrap border-b border-gray-200 bg-gray-50">
+            <div id="calculator-wrapper" class="max-w-6xl mx-auto bg-white rounded-sm shadow-xl overflow-hidden border border-gray-200 reveal stagger-delay-2 relative">
+
+                <div id="pdf-header" class="hidden justify-between items-center bg-white px-8 pt-8">
+                    <img src="https://shaggyyyz.github.io/nest-capital-finance/logo.png" alt="Nest Capital Finance" style="height: 50px; width: auto; filter: invert(1);">
+                    <div class="text-right">
+                        <p class="font-serif text-xl font-bold text-brand-900" style="color: #1a202c;">Nest Capital Finance</p>
+                        <p class="text-sm text-gray-600">Melbourne, VIC | 1300 385 222</p>
+                        <p class="text-xs text-gray-400 mt-1" id="pdf-date"></p>
+                    </div>
+                </div>
+
+                <div id="calc-tabs-container" class="flex flex-wrap border-b border-gray-200 bg-gray-50">
                     <button onclick="switchCalcTab('repayment')" class="calc-tab active flex-1 py-6 px-2 text-xs md:text-sm font-bold uppercase tracking-widest text-brand-900 hover:bg-brand-50 focus:outline-none text-center" id="tab-repayment">Repayments</button>
                     <button onclick="switchCalcTab('borrowing')" class="calc-tab flex-1 py-6 px-2 text-xs md:text-sm font-bold uppercase tracking-widest text-brand-900 hover:bg-brand-50 focus:outline-none text-center" id="tab-borrowing">Borrowing Power</button>
                     <button onclick="switchCalcTab('stampduty')" class="calc-tab flex-1 py-6 px-2 text-xs md:text-sm font-bold uppercase tracking-widest text-brand-900 hover:bg-brand-50 focus:outline-none text-center" id="tab-stampduty">Stamp Duty</button>
@@ -151,7 +184,7 @@
                         <div class="space-y-6">
                             <div class="flex justify-between items-center">
                                 <h2 class="font-serif text-2xl text-brand-900">Loan Details</h2>
-                                <button onclick="clearInputs('calc-repayment')" class="text-xs uppercase tracking-widest text-gray-400 hover:text-brand-900 transition border border-gray-200 px-3 py-1 rounded-sm">Clear Form</button>
+                                <button onclick="clearInputs('calc-repayment')" class="no-pdf text-xs uppercase tracking-widest text-gray-400 hover:text-brand-900 transition border border-gray-200 px-3 py-1 rounded-sm">Clear Form</button>
                             </div>
                             <div class="input-group">
                                 <label class="block text-xs uppercase font-bold text-gray-500 mb-2">Loan Amount</label>
@@ -184,7 +217,7 @@
                                     <option value="52">Weekly</option>
                                 </select>
                             </div>
-                            <button onclick="calcRepaymentDetail()" class="w-full bg-brand-900 text-white py-4 font-bold uppercase tracking-widest text-xs hover:bg-accent-500 transition shadow-lg">Calculate</button>
+                            <button onclick="calcRepaymentDetail()" class="no-pdf w-full bg-brand-900 text-white py-4 font-bold uppercase tracking-widest text-xs hover:bg-accent-500 transition shadow-lg">Calculate</button>
                         </div>
                         
                         <div class="bg-brand-50 p-8 rounded-sm flex flex-col justify-center items-center text-center border border-brand-100">
@@ -200,7 +233,7 @@
                                     <span class="text-gray-500">Total Cost of Loan:</span>
                                     <span class="font-bold text-brand-900" id="r-total-cost">$1,328,692</span>
                                 </div>
-                                <div class="mt-8">
+                                <div class="mt-8 no-pdf">
                                     <a href="contact.html" class="inline-block w-full border border-brand-200 bg-white text-brand-900 px-4 py-3 rounded-sm font-bold uppercase tracking-widest text-xs hover:bg-brand-50 hover:border-brand-300 transition shadow-sm">
                                         Check Your Eligibility
                                     </a>
@@ -215,7 +248,7 @@
                         <div class="space-y-6">
                             <div class="flex justify-between items-center">
                                 <h2 class="font-serif text-2xl text-brand-900">Your Financials</h2>
-                                <button onclick="clearInputs('calc-borrowing')" class="text-xs uppercase tracking-widest text-gray-400 hover:text-brand-900 transition border border-gray-200 px-3 py-1 rounded-sm">Clear Form</button>
+                                <button onclick="clearInputs('calc-borrowing')" class="no-pdf text-xs uppercase tracking-widest text-gray-400 hover:text-brand-900 transition border border-gray-200 px-3 py-1 rounded-sm">Clear Form</button>
                             </div>
                             <div class="input-group">
                                 <label class="block text-xs uppercase font-bold text-gray-500 mb-2">Annual Income (Pre-Tax)</label>
@@ -251,7 +284,7 @@
                                     <input type="number" id="b-liabilities" value="0" class="w-full border border-gray-300 py-3 pl-8 pr-4 rounded-sm focus:outline-none">
                                 </div>
                             </div>
-                            <button onclick="calcBorrowingPower()" class="w-full bg-brand-900 text-white py-4 font-bold uppercase tracking-widest text-xs hover:bg-accent-500 transition shadow-lg">Estimate Borrowing Power</button>
+                            <button onclick="calcBorrowingPower()" class="no-pdf w-full bg-brand-900 text-white py-4 font-bold uppercase tracking-widest text-xs hover:bg-accent-500 transition shadow-lg">Estimate Borrowing Power</button>
                         </div>
                         
                         <div class="bg-brand-50 p-8 rounded-sm flex flex-col justify-center items-center text-center border border-brand-100">
@@ -260,7 +293,7 @@
                             <p class="text-gray-500 text-sm leading-relaxed px-4 mb-6">
                                 *This is an estimate only based on standard bank assessment rates. Actual borrowing power varies significantly between lenders.
                             </p>
-                            <div class="w-full">
+                            <div class="w-full no-pdf">
                                 <a href="contact.html" class="inline-block w-full border border-brand-200 bg-white text-brand-900 px-4 py-3 rounded-sm font-bold uppercase tracking-widest text-xs hover:bg-brand-50 hover:border-brand-300 transition shadow-sm">
                                     Get an Accurate Assessment
                                 </a>
@@ -274,7 +307,7 @@
                         <div class="space-y-6">
                             <div class="flex justify-between items-center">
                                 <h2 class="font-serif text-2xl text-brand-900">Property Details</h2>
-                                <button onclick="clearInputs('calc-stampduty')" class="text-xs uppercase tracking-widest text-gray-400 hover:text-brand-900 transition border border-gray-200 px-3 py-1 rounded-sm">Clear Form</button>
+                                <button onclick="clearInputs('calc-stampduty')" class="no-pdf text-xs uppercase tracking-widest text-gray-400 hover:text-brand-900 transition border border-gray-200 px-3 py-1 rounded-sm">Clear Form</button>
                             </div>
                             <div class="input-group">
                                 <label class="block text-xs uppercase font-bold text-gray-500 mb-2">State / Territory</label>
@@ -313,7 +346,7 @@
                                 <input type="checkbox" id="s-ppor" class="w-5 h-5 text-brand-900 border-gray-300 rounded focus:ring-accent-400" checked>
                                 <label for="s-ppor" class="text-gray-700">I will live in this property (PPR)</label>
                             </div>
-                            <button onclick="calcStampDuty()" class="w-full bg-brand-900 text-white py-4 font-bold uppercase tracking-widest text-xs hover:bg-accent-500 transition shadow-lg">Calculate Fees</button>
+                            <button onclick="calcStampDuty()" class="no-pdf w-full bg-brand-900 text-white py-4 font-bold uppercase tracking-widest text-xs hover:bg-accent-500 transition shadow-lg">Calculate Fees</button>
                         </div>
                         
                         <div class="bg-brand-50 p-8 rounded-sm flex flex-col justify-center border border-brand-100">
@@ -331,12 +364,11 @@
                                     <div class="text-4xl font-serif text-brand-900 font-medium text-center" id="s-total">$32,700</div>
                                     <p class="text-xs text-gray-400 text-center mt-2">*Estimates only. Rates subject to state legislation changes.</p>
                                     
-                                    <div class="mt-8 text-center">
+                                    <div class="mt-8 text-center no-pdf">
                                         <a id="s-gov-link" href="#" target="_blank" class="inline-block w-full border border-brand-200 bg-white text-brand-900 px-4 py-3 rounded-sm font-bold uppercase tracking-widest text-xs hover:bg-brand-50 hover:border-brand-300 transition shadow-sm">
                                             Go to VIC website for accurate calculation
                                         </a>
                                     </div>
-                                    
                                 </div>
                             </div>
                         </div>
@@ -348,7 +380,7 @@
                         <div class="space-y-6">
                             <div class="flex justify-between items-center">
                                 <h2 class="font-serif text-2xl text-brand-900">Extra Contribution</h2>
-                                <button onclick="clearInputs('calc-extra')" class="text-xs uppercase tracking-widest text-gray-400 hover:text-brand-900 transition border border-gray-200 px-3 py-1 rounded-sm">Clear Form</button>
+                                <button onclick="clearInputs('calc-extra')" class="no-pdf text-xs uppercase tracking-widest text-gray-400 hover:text-brand-900 transition border border-gray-200 px-3 py-1 rounded-sm">Clear Form</button>
                             </div>
                             <div class="input-group">
                                 <label class="block text-xs uppercase font-bold text-gray-500 mb-2">Loan Balance</label>
@@ -380,7 +412,7 @@
                                     <input type="number" id="e-extra" value="200" class="w-full border-2 border-brand-200 py-3 pl-10 pr-4 rounded-sm focus:outline-none focus:border-accent-400 bg-brand-50">
                                 </div>
                             </div>
-                            <button onclick="calcExtraRepayment()" class="w-full bg-brand-900 text-white py-4 font-bold uppercase tracking-widest text-xs hover:bg-accent-500 transition shadow-lg">Calculate Savings</button>
+                            <button onclick="calcExtraRepayment()" class="no-pdf w-full bg-brand-900 text-white py-4 font-bold uppercase tracking-widest text-xs hover:bg-accent-500 transition shadow-lg">Calculate Savings</button>
                         </div>
                         
                         <div class="flex flex-col gap-6">
@@ -396,7 +428,7 @@
                             </div>
 
                             <div class="bg-white p-4 border border-gray-100 rounded-sm relative shadow-sm">
-                                <div class="flex justify-end mb-2">
+                                <div class="flex justify-end mb-2 no-pdf">
                                     <label class="inline-flex items-center cursor-pointer">
                                         <span class="mr-3 text-xs uppercase font-bold text-gray-500">Show 30 Year View</span>
                                         <div class="relative">
@@ -409,7 +441,7 @@
                                     <canvas id="chart-extra"></canvas>
                                 </div>
                             </div>
-                            <div class="text-center">
+                            <div class="text-center no-pdf">
                                 <a href="contact.html" class="inline-block w-full border border-brand-200 bg-white text-brand-900 px-4 py-3 rounded-sm font-bold uppercase tracking-widest text-xs hover:bg-brand-50 hover:border-brand-300 transition shadow-sm">
                                     Discuss Your Repayment Strategy
                                 </a>
@@ -423,7 +455,7 @@
                         <div class="space-y-6">
                             <div class="flex justify-between items-center">
                                 <h2 class="font-serif text-2xl text-brand-900">Offset Savings</h2>
-                                <button onclick="clearInputs('calc-offset')" class="text-xs uppercase tracking-widest text-gray-400 hover:text-brand-900 transition border border-gray-200 px-3 py-1 rounded-sm">Clear Form</button>
+                                <button onclick="clearInputs('calc-offset')" class="no-pdf text-xs uppercase tracking-widest text-gray-400 hover:text-brand-900 transition border border-gray-200 px-3 py-1 rounded-sm">Clear Form</button>
                             </div>
                             <p class="text-sm text-gray-600">Money in your offset account reduces the interest calculated on your loan daily.</p>
                             
@@ -459,7 +491,7 @@
                                 </div>
                             </div>
 
-                            <button onclick="calcOffset()" class="w-full bg-brand-900 text-white py-4 font-bold uppercase tracking-widest text-xs hover:bg-accent-500 transition shadow-lg">Calculate Benefit</button>
+                            <button onclick="calcOffset()" class="no-pdf w-full bg-brand-900 text-white py-4 font-bold uppercase tracking-widest text-xs hover:bg-accent-500 transition shadow-lg">Calculate Benefit</button>
                         </div>
                         
                         <div class="flex flex-col gap-6">
@@ -475,7 +507,7 @@
                             </div>
 
                              <div class="bg-white p-4 border border-gray-100 rounded-sm relative shadow-sm">
-                                <div class="flex justify-end mb-2">
+                                <div class="flex justify-end mb-2 no-pdf">
                                     <label class="inline-flex items-center cursor-pointer">
                                         <span class="mr-3 text-xs uppercase font-bold text-gray-500">Show 30 Year View</span>
                                         <div class="relative">
@@ -488,7 +520,7 @@
                                     <canvas id="chart-offset"></canvas>
                                 </div>
                             </div>
-                            <div class="text-center">
+                            <div class="text-center no-pdf">
                                 <a href="contact.html" class="inline-block w-full border border-brand-200 bg-white text-brand-900 px-4 py-3 rounded-sm font-bold uppercase tracking-widest text-xs hover:bg-brand-50 hover:border-brand-300 transition shadow-sm">
                                     Find the Best Offset Loan
                                 </a>
@@ -499,6 +531,73 @@
 
             </div>
         </section>
+
+        <section class="py-24 bg-white border-t border-gray-100">
+            <div class="max-w-7xl mx-auto px-4">
+                <div class="text-center mb-16 reveal">
+                    <span class="text-accent-400 font-bold uppercase tracking-widest text-xs mb-4 block">
+                        Making Sense of the Numbers
+                    </span>
+                    <h2 class="font-serif text-3xl md:text-4xl text-brand-900 mb-4">
+                        Understanding Your Home Loan Options
+                    </h2>
+                    <p class="text-gray-600 max-w-3xl mx-auto">
+                        Whether you are a first home buyer or a seasoned property investor, knowing your numbers is the first step to securing the right finance. Use our guides below to understand how lenders assess your profile.
+                    </p>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-12">
+                    <div class="reveal transition-all duration-500 hover:-translate-y-1">
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="w-10 h-10 bg-brand-50 rounded-full flex items-center justify-center border border-brand-100">
+                                <i data-lucide="calculator" class="w-5 h-5 text-brand-900"></i>
+                            </div>
+                            <h3 class="font-serif text-xl text-brand-900">Mortgage Repayments & Rates</h3>
+                        </div>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                            Your monthly repayment is determined by your loan amount, the interest rate, and the loan term (typically 30 years). Choosing to pay fortnightly or weekly can often help you pay off your loan faster by sneaking in extra payments each year. Always compare rates, but remember that the lowest rate doesn't always equal the best loan structure.
+                        </p>
+                    </div>
+
+                    <div class="reveal stagger-delay-1 transition-all duration-500 hover:-translate-y-1">
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="w-10 h-10 bg-brand-50 rounded-full flex items-center justify-center border border-brand-100">
+                                <i data-lucide="scale" class="w-5 h-5 text-brand-900"></i>
+                            </div>
+                            <h3 class="font-serif text-xl text-brand-900">Borrowing Power in Melbourne</h3>
+                        </div>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                            Lenders calculate your borrowing capacity by assessing your income against your expenses and existing debts. They also apply a "buffer" rate (usually 3% above the actual interest rate) to ensure you can still afford repayments if rates rise. Reducing credit card limits and unnecessary expenses can significantly increase how much you can borrow.
+                        </p>
+                    </div>
+
+                    <div class="reveal transition-all duration-500 hover:-translate-y-1">
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="w-10 h-10 bg-brand-50 rounded-full flex items-center justify-center border border-brand-100">
+                                <i data-lucide="landmark" class="w-5 h-5 text-brand-900"></i>
+                            </div>
+                            <h3 class="font-serif text-xl text-brand-900">Stamp Duty & Government Fees</h3>
+                        </div>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                            Stamp duty is a state government tax calculated on the purchase price of your property. If you are a first home buyer purchasing an established or new home, you may be eligible for significant stamp duty concessions or full exemptions, depending on the property value and your state's current legislation.
+                        </p>
+                    </div>
+
+                    <div class="reveal stagger-delay-1 transition-all duration-500 hover:-translate-y-1">
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="w-10 h-10 bg-brand-50 rounded-full flex items-center justify-center border border-brand-100">
+                                <i data-lucide="piggy-bank" class="w-5 h-5 text-brand-900"></i>
+                            </div>
+                            <h3 class="font-serif text-xl text-brand-900">The Power of an Offset Account</h3>
+                        </div>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                            An offset account is a transaction account linked directly to your home loan. The balance in this account is offset daily against your loan balance when calculating interest. For example, if you have a $500,000 loan and $50,000 in your offset account, you only pay interest on $450,000. This feature can save you tens of thousands of dollars over the life of your mortgage.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <section class="bg-brand-900 text-white py-24 reveal">
             <div class="max-w-4xl mx-auto px-4 text-center">
                 <h2 class="font-serif text-4xl md:text-5xl mb-6">Need an accurate assessment?</h2>
@@ -506,7 +605,7 @@
                     Online calculators are a useful reference point, but every lender has different policies. Book a free consultation and we'll run your exact numbers across our panel of over 60 lenders.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-6 justify-center">
-                    <a href="contact.html" class="bg-white text-brand-900 px-10 py-4 rounded-sm font-bold uppercase tracking-widest text-xs hover:bg-accent-500 hover:text-white transition shadow-xl">Book CONSULTATION</a>
+                    <a href="contact.html" class="bg-white text-brand-900 px-10 py-4 rounded-sm font-bold uppercase tracking-widest text-xs hover:bg-accent-50 hover:text-brand-900 transition shadow-xl">Book CONSULTATION</a>
                     <a href="tel:1300385222" class="border border-white/30 text-white px-10 py-4 rounded-sm font-bold uppercase tracking-widest text-xs hover:bg-white/10 transition backdrop-blur-sm flex items-center justify-center gap-2">
                         <i data-lucide="phone" class="w-4 h-4"></i> 1300 385 222
                     </a>
@@ -594,53 +693,6 @@
     <script src="js/main.js"></script>
 
     <script>
-
-        // TRACKER: Ensures user clicks "Calculate" before downloading
-    let isCalculated = true; 
-
-    function downloadPDF() {
-        // 1. Validation Check: If they changed inputs but didn't hit calculate
-        if (!isCalculated) {
-            alert("Please click the 'Calculate' button to update your results before trying to download the PDF report.");
-            return;
-        }
-
-        // 2. Set today's date in the PDF header
-        const dateStr = new Date().toLocaleDateString('en-AU', { year: 'numeric', month: 'long', day: 'numeric' });
-        const dateElement = document.getElementById('pdf-date');
-        if(dateElement) dateElement.innerText = "Estimate generated on: " + dateStr;
-
-        // 3. Trigger Native Print-to-PDF
-        window.print();
-    }
-
-    // --- INTEGRATION & EVENT LISTENERS ---
-    window.addEventListener('load', () => {
-        // Initial setup for all calculators
-        if(typeof calcRepaymentDetail === 'function') calcRepaymentDetail();
-        if(typeof calcBorrowingPower === 'function') calcBorrowingPower();
-        if(typeof calcStampDuty === 'function') calcStampDuty();
-        if(typeof updateGovLink === 'function') updateGovLink(); 
-        if(typeof calcExtraRepayment === 'function') calcExtraRepayment();
-        if(typeof calcOffset === 'function') calcOffset();
-
-        // VALIDATION SENSOR: If user types or changes a dropdown, mark as "uncalculated"
-        const inputs = document.querySelectorAll('.calc-content input, .calc-content select');
-        inputs.forEach(input => {
-            input.addEventListener('change', () => { isCalculated = false; });
-            input.addEventListener('keyup', () => { isCalculated = false; });
-        });
-
-        // RE-VALIDATION SENSOR: When any Calculate button is clicked, mark as "ready"
-        const calcButtons = document.querySelectorAll('.calc-content button:not(.no-pdf)');
-        calcButtons.forEach(btn => {
-            btn.addEventListener('click', () => {
-                // Short delay ensures the math functions finish before we re-enable the PDF
-                setTimeout(() => { isCalculated = true; }, 150);
-            });
-        });
-    });
-        
         // --- ADDED: GLOBAL STATE LINKS ---
         const stateUrls = {
             'VIC': 'https://www.sro.vic.gov.au/buying-property/land-transfer-stamp-duty/land-transfer-stamp-duty-calculator',
@@ -661,6 +713,25 @@
                 govLinkBtn.href = stateUrls[state] || '#';
                 govLinkBtn.innerText = `GO TO ${state} WEBSITE FOR ACCURATE CALCULATION`;
             }
+        }
+
+        // --- NATIVE PRINT LOGIC & VALIDATION ---
+        let isCalculated = true; // Tracks if the current view matches the inputs
+
+        function downloadPDF() {
+            // 1. Validation Check: Stop user from printing outdated numbers
+            if (!isCalculated) {
+                alert("Please click the 'Calculate' button to update your results before downloading the PDF.");
+                return;
+            }
+
+            // 2. Set today's date in the hidden PDF header
+            const dateStr = new Date().toLocaleDateString('en-AU', { year: 'numeric', month: 'long', day: 'numeric' });
+            const dateElement = document.getElementById('pdf-date');
+            if (dateElement) dateElement.innerText = "Estimate generated on: " + dateStr;
+
+            // 3. Trigger Native Print-to-PDF (Customer selects "Save as PDF")
+            window.print();
         }
 
         // --- CHART HELPER FUNCTIONS ---
@@ -793,6 +864,8 @@
                  document.getElementById('r-total-interest').innerText = '$0';
                  document.getElementById('r-total-cost').innerText = '$0';
             }
+            
+            isCalculated = true; // Mark safe for PDF download
         }
 
         function calcBorrowingPower() {
@@ -815,6 +888,8 @@
             } else {
                 document.getElementById('b-result').innerText = '$0';
             }
+            
+            isCalculated = true; // Mark safe for PDF download
         }
 
         function calcStampDuty() {
@@ -984,9 +1059,10 @@
             document.getElementById('s-duty').innerText = '$' + Math.round(duty).toLocaleString('en-AU');
             document.getElementById('s-transfer').innerText = '$' + Math.round(transfer).toLocaleString('en-AU');
             document.getElementById('s-total').innerText = '$' + Math.round(duty + transfer).toLocaleString('en-AU');
+            
+            isCalculated = true; // Mark safe for PDF download
         }
 
-        // --- EXTRA REPAYMENT CALCULATOR (WITH CHART) ---
         function calcExtraRepayment() {
             const balance = parseFloat(document.getElementById('e-balance').value) || 0;
             const rate = parseFloat(document.getElementById('e-rate').value) || 0;
@@ -998,6 +1074,7 @@
                  document.getElementById('e-saved').innerText = '$0';
                  document.getElementById('e-time').innerText = '0 Years';
                  if (charts['chart-extra']) charts['chart-extra'].destroy();
+                 isCalculated = true;
                  return;
             }
 
@@ -1089,9 +1166,10 @@
                     }
                 });
             }
+            
+            isCalculated = true; // Mark safe for PDF download
         }
 
-        // --- OFFSET CALCULATOR (WITH CHART) ---
         function calcOffset() {
             const loan = parseFloat(document.getElementById('o-loan').value) || 0;
             const offset = parseFloat(document.getElementById('o-balance').value) || 0;
@@ -1146,7 +1224,6 @@
                 const timeDiff = Math.max(0, yearsSaved);
                 document.getElementById('o-time-saved').innerText = `${Math.floor(timeDiff)} Yrs, ${Math.round((timeDiff % 1) * 12)} Mo`;
 
-
                 if (show30Year) {
                     renderChart('chart-offset', 'line', labels, [
                          {
@@ -1196,16 +1273,35 @@
                  document.getElementById('o-time-saved').innerText = '0 Yrs 0 Mo';
                  if (charts['chart-offset']) charts['chart-offset'].destroy();
             }
+            
+            isCalculated = true; // Mark safe for PDF download
         }
 
-        // Initial default calculations
+        // --- ON PAGE LOAD: SENSOR AND INITIALIZATION ---
         window.addEventListener('load', () => {
+            // Initial calculations
             calcRepaymentDetail();
             calcBorrowingPower();
             calcStampDuty();
-            updateGovLink(); // Ensure link sets properly on initial page load
+            updateGovLink(); 
             calcExtraRepayment();
             calcOffset();
+
+            // SENSOR: Watch all inputs. If the user types or clicks a dropdown, block the PDF
+            const inputs = document.querySelectorAll('.calc-content input, .calc-content select');
+            inputs.forEach(input => {
+                input.addEventListener('input', () => { 
+                    isCalculated = false; 
+                });
+            });
+
+            // SENSOR: Watch all 'Calculate' buttons. If clicked, allow the PDF
+            const calcButtons = document.querySelectorAll('.calc-content button:not(.no-pdf)');
+            calcButtons.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    setTimeout(() => { isCalculated = true; }, 100);
+                });
+            });
         });
     </script>
 </body>
