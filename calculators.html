@@ -25,12 +25,13 @@
     <meta property="og:image" content="https://shaggyyyz.github.io/nest-capital-finance/Logolink.jpg">
 
     <script src="https://cdn.tailwindcss.com"></script>
-    
     <script src="js/tailwind-config.js"></script>
 
     <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -100,7 +101,23 @@
         </section>
 
         <section class="pb-24 px-4">
-            <div class="max-w-6xl mx-auto bg-white rounded-sm shadow-xl overflow-hidden border border-gray-200 reveal stagger-delay-2">
+            
+            <div id="download-btn-container" class="max-w-6xl mx-auto flex justify-end mb-4 reveal stagger-delay-2">
+                <button onclick="downloadPDF()" class="flex items-center gap-2 px-5 py-2.5 bg-brand-900 text-white rounded-sm font-bold uppercase tracking-widest text-xs hover:bg-accent-500 transition shadow-md">
+                    <i data-lucide="download" class="w-4 h-4"></i> Download Estimate as PDF
+                </button>
+            </div>
+
+            <div id="calculator-wrapper" class="max-w-6xl mx-auto bg-white rounded-sm shadow-xl overflow-hidden border border-gray-200 reveal stagger-delay-2">
+
+                <div id="pdf-header" class="hidden p-8 border-b border-gray-200 flex justify-between items-center bg-white">
+                    <img src="https://shaggyyyz.github.io/nest-capital-finance/logo.png" alt="Nest Capital Finance" class="h-16 w-auto filter invert">
+                    <div class="text-right">
+                        <p class="font-serif text-xl font-bold text-brand-900">Nest Capital Finance</p>
+                        <p class="text-sm text-gray-600">Melbourne, VIC | 1300 385 222</p>
+                        <p class="text-sm text-gray-400 mt-1" id="pdf-date"></p>
+                    </div>
+                </div>
 
                 <div class="flex flex-wrap border-b border-gray-200 bg-gray-50">
                     <button onclick="switchCalcTab('repayment')" class="calc-tab active flex-1 py-6 px-2 text-xs md:text-sm font-bold uppercase tracking-widest text-brand-900 hover:bg-brand-50 focus:outline-none text-center" id="tab-repayment">Repayments</button>
@@ -115,7 +132,7 @@
                         <div class="space-y-6">
                             <div class="flex justify-between items-center">
                                 <h2 class="font-serif text-2xl text-brand-900">Loan Details</h2>
-                                <button onclick="clearInputs('calc-repayment')" class="text-xs uppercase tracking-widest text-gray-400 hover:text-brand-900 transition border border-gray-200 px-3 py-1 rounded-sm">Clear Form</button>
+                                <button onclick="clearInputs('calc-repayment')" class="no-pdf text-xs uppercase tracking-widest text-gray-400 hover:text-brand-900 transition border border-gray-200 px-3 py-1 rounded-sm">Clear Form</button>
                             </div>
                             <div class="input-group">
                                 <label class="block text-xs uppercase font-bold text-gray-500 mb-2">Loan Amount</label>
@@ -148,7 +165,7 @@
                                     <option value="52">Weekly</option>
                                 </select>
                             </div>
-                            <button onclick="calcRepaymentDetail()" class="w-full bg-brand-900 text-white py-4 font-bold uppercase tracking-widest text-xs hover:bg-accent-500 transition shadow-lg">Calculate</button>
+                            <button onclick="calcRepaymentDetail()" class="no-pdf w-full bg-brand-900 text-white py-4 font-bold uppercase tracking-widest text-xs hover:bg-accent-500 transition shadow-lg">Calculate</button>
                         </div>
                         
                         <div class="bg-brand-50 p-8 rounded-sm flex flex-col justify-center items-center text-center border border-brand-100">
@@ -164,6 +181,12 @@
                                     <span class="text-gray-500">Total Cost of Loan:</span>
                                     <span class="font-bold text-brand-900" id="r-total-cost">$1,328,692</span>
                                 </div>
+                                
+                                <div class="mt-8 no-pdf">
+                                    <a href="contact.html" class="inline-block w-full border border-brand-200 bg-white text-brand-900 px-4 py-3 rounded-sm font-bold uppercase tracking-widest text-xs hover:bg-brand-50 hover:border-brand-300 transition shadow-sm">
+                                        Check Your Eligibility
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div> 
@@ -174,7 +197,7 @@
                         <div class="space-y-6">
                             <div class="flex justify-between items-center">
                                 <h2 class="font-serif text-2xl text-brand-900">Your Financials</h2>
-                                <button onclick="clearInputs('calc-borrowing')" class="text-xs uppercase tracking-widest text-gray-400 hover:text-brand-900 transition border border-gray-200 px-3 py-1 rounded-sm">Clear Form</button>
+                                <button onclick="clearInputs('calc-borrowing')" class="no-pdf text-xs uppercase tracking-widest text-gray-400 hover:text-brand-900 transition border border-gray-200 px-3 py-1 rounded-sm">Clear Form</button>
                             </div>
                             <div class="input-group">
                                 <label class="block text-xs uppercase font-bold text-gray-500 mb-2">Annual Income (Pre-Tax)</label>
@@ -210,16 +233,21 @@
                                     <input type="number" id="b-liabilities" value="0" class="w-full border border-gray-300 py-3 pl-8 pr-4 rounded-sm focus:outline-none">
                                 </div>
                             </div>
-                            <button onclick="calcBorrowingPower()" class="w-full bg-brand-900 text-white py-4 font-bold uppercase tracking-widest text-xs hover:bg-accent-500 transition shadow-lg">Estimate Borrowing Power</button>
+                            <button onclick="calcBorrowingPower()" class="no-pdf w-full bg-brand-900 text-white py-4 font-bold uppercase tracking-widest text-xs hover:bg-accent-500 transition shadow-lg">Estimate Borrowing Power</button>
                         </div>
                         
                         <div class="bg-brand-50 p-8 rounded-sm flex flex-col justify-center items-center text-center border border-brand-100">
                             <p class="text-sm uppercase tracking-widest text-gray-500 mb-2">Estimated Borrowing Capacity</p>
                             <div class="text-5xl font-serif text-brand-900 mb-4 font-medium" id="b-result">$540,000</div>
-                            <p class="text-gray-500 text-sm leading-relaxed px-4">
+                            <p class="text-gray-500 text-sm leading-relaxed px-4 mb-6">
                                 *This is an estimate only based on standard bank assessment rates. Actual borrowing power varies significantly between lenders.
                             </p>
-                            <a href="contact.html" class="mt-6 text-brand-600 font-bold text-xs uppercase tracking-widest hover:text-accent-500 underline transition">Get an Accurate Assessment</a>
+                            
+                            <div class="w-full no-pdf">
+                                <a href="contact.html" class="inline-block w-full border border-brand-200 bg-white text-brand-900 px-4 py-3 rounded-sm font-bold uppercase tracking-widest text-xs hover:bg-brand-50 hover:border-brand-300 transition shadow-sm">
+                                    Get an Accurate Assessment
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -229,7 +257,7 @@
                         <div class="space-y-6">
                             <div class="flex justify-between items-center">
                                 <h2 class="font-serif text-2xl text-brand-900">Property Details</h2>
-                                <button onclick="clearInputs('calc-stampduty')" class="text-xs uppercase tracking-widest text-gray-400 hover:text-brand-900 transition border border-gray-200 px-3 py-1 rounded-sm">Clear Form</button>
+                                <button onclick="clearInputs('calc-stampduty')" class="no-pdf text-xs uppercase tracking-widest text-gray-400 hover:text-brand-900 transition border border-gray-200 px-3 py-1 rounded-sm">Clear Form</button>
                             </div>
                             <div class="input-group">
                                 <label class="block text-xs uppercase font-bold text-gray-500 mb-2">State / Territory</label>
@@ -268,7 +296,7 @@
                                 <input type="checkbox" id="s-ppor" class="w-5 h-5 text-brand-900 border-gray-300 rounded focus:ring-accent-400" checked>
                                 <label for="s-ppor" class="text-gray-700">I will live in this property (PPR)</label>
                             </div>
-                            <button onclick="calcStampDuty()" class="w-full bg-brand-900 text-white py-4 font-bold uppercase tracking-widest text-xs hover:bg-accent-500 transition shadow-lg">Calculate Fees</button>
+                            <button onclick="calcStampDuty()" class="no-pdf w-full bg-brand-900 text-white py-4 font-bold uppercase tracking-widest text-xs hover:bg-accent-500 transition shadow-lg">Calculate Fees</button>
                         </div>
                         
                         <div class="bg-brand-50 p-8 rounded-sm flex flex-col justify-center border border-brand-100">
@@ -286,7 +314,7 @@
                                     <div class="text-4xl font-serif text-brand-900 font-medium text-center" id="s-total">$32,700</div>
                                     <p class="text-xs text-gray-400 text-center mt-2">*Estimates only. Rates subject to state legislation changes.</p>
                                     
-                                    <div class="mt-8 text-center">
+                                    <div class="mt-8 text-center no-pdf">
                                         <a id="s-gov-link" href="#" target="_blank" class="inline-block w-full border border-brand-200 bg-white text-brand-900 px-4 py-3 rounded-sm font-bold uppercase tracking-widest text-xs hover:bg-brand-50 hover:border-brand-300 transition shadow-sm">
                                             Go to VIC website for accurate calculation
                                         </a>
@@ -303,7 +331,7 @@
                         <div class="space-y-6">
                             <div class="flex justify-between items-center">
                                 <h2 class="font-serif text-2xl text-brand-900">Extra Contribution</h2>
-                                <button onclick="clearInputs('calc-extra')" class="text-xs uppercase tracking-widest text-gray-400 hover:text-brand-900 transition border border-gray-200 px-3 py-1 rounded-sm">Clear Form</button>
+                                <button onclick="clearInputs('calc-extra')" class="no-pdf text-xs uppercase tracking-widest text-gray-400 hover:text-brand-900 transition border border-gray-200 px-3 py-1 rounded-sm">Clear Form</button>
                             </div>
                             <div class="input-group">
                                 <label class="block text-xs uppercase font-bold text-gray-500 mb-2">Loan Balance</label>
@@ -335,7 +363,7 @@
                                     <input type="number" id="e-extra" value="200" class="w-full border-2 border-brand-200 py-3 pl-10 pr-4 rounded-sm focus:outline-none focus:border-accent-400 bg-brand-50">
                                 </div>
                             </div>
-                            <button onclick="calcExtraRepayment()" class="w-full bg-brand-900 text-white py-4 font-bold uppercase tracking-widest text-xs hover:bg-accent-500 transition shadow-lg">Calculate Savings</button>
+                            <button onclick="calcExtraRepayment()" class="no-pdf w-full bg-brand-900 text-white py-4 font-bold uppercase tracking-widest text-xs hover:bg-accent-500 transition shadow-lg">Calculate Savings</button>
                         </div>
                         
                         <div class="flex flex-col gap-6">
@@ -351,7 +379,7 @@
                             </div>
 
                             <div class="bg-white p-4 border border-gray-100 rounded-sm relative shadow-sm">
-                                <div class="flex justify-end mb-2">
+                                <div class="flex justify-end mb-2 no-pdf">
                                     <label class="inline-flex items-center cursor-pointer">
                                         <span class="mr-3 text-xs uppercase font-bold text-gray-500">Show 30 Year View</span>
                                         <div class="relative">
@@ -364,6 +392,12 @@
                                     <canvas id="chart-extra"></canvas>
                                 </div>
                             </div>
+                            
+                            <div class="text-center no-pdf">
+                                <a href="contact.html" class="inline-block w-full border border-brand-200 bg-white text-brand-900 px-4 py-3 rounded-sm font-bold uppercase tracking-widest text-xs hover:bg-brand-50 hover:border-brand-300 transition shadow-sm">
+                                    Discuss Your Repayment Strategy
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -373,7 +407,7 @@
                         <div class="space-y-6">
                             <div class="flex justify-between items-center">
                                 <h2 class="font-serif text-2xl text-brand-900">Offset Savings</h2>
-                                <button onclick="clearInputs('calc-offset')" class="text-xs uppercase tracking-widest text-gray-400 hover:text-brand-900 transition border border-gray-200 px-3 py-1 rounded-sm">Clear Form</button>
+                                <button onclick="clearInputs('calc-offset')" class="no-pdf text-xs uppercase tracking-widest text-gray-400 hover:text-brand-900 transition border border-gray-200 px-3 py-1 rounded-sm">Clear Form</button>
                             </div>
                             <p class="text-sm text-gray-600">Money in your offset account reduces the interest calculated on your loan daily.</p>
                             
@@ -409,7 +443,7 @@
                                 </div>
                             </div>
 
-                            <button onclick="calcOffset()" class="w-full bg-brand-900 text-white py-4 font-bold uppercase tracking-widest text-xs hover:bg-accent-500 transition shadow-lg">Calculate Benefit</button>
+                            <button onclick="calcOffset()" class="no-pdf w-full bg-brand-900 text-white py-4 font-bold uppercase tracking-widest text-xs hover:bg-accent-500 transition shadow-lg">Calculate Benefit</button>
                         </div>
                         
                         <div class="flex flex-col gap-6">
@@ -425,7 +459,7 @@
                             </div>
 
                              <div class="bg-white p-4 border border-gray-100 rounded-sm relative shadow-sm">
-                                <div class="flex justify-end mb-2">
+                                <div class="flex justify-end mb-2 no-pdf">
                                     <label class="inline-flex items-center cursor-pointer">
                                         <span class="mr-3 text-xs uppercase font-bold text-gray-500">Show 30 Year View</span>
                                         <div class="relative">
@@ -437,6 +471,12 @@
                                 <div class="relative h-64 w-full">
                                     <canvas id="chart-offset"></canvas>
                                 </div>
+                            </div>
+                            
+                            <div class="text-center no-pdf">
+                                <a href="contact.html" class="inline-block w-full border border-brand-200 bg-white text-brand-900 px-4 py-3 rounded-sm font-bold uppercase tracking-widest text-xs hover:bg-brand-50 hover:border-brand-300 transition shadow-sm">
+                                    Find the Best Offset Loan
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -606,7 +646,37 @@
     <script src="js/main.js"></script>
 
     <script>
-        // --- ADDED: GLOBAL STATE LINKS ---
+        // --- ADDED: PDF GENERATION LOGIC ---
+        function downloadPDF() {
+            // Set today's date in the PDF header
+            const dateStr = new Date().toLocaleDateString('en-AU', { year: 'numeric', month: 'long', day: 'numeric' });
+            document.getElementById('pdf-date').innerText = "Estimate generated on: " + dateStr;
+
+            const element = document.getElementById('calculator-wrapper');
+            const pdfHeader = document.getElementById('pdf-header');
+            
+            // 1. Temporarily show the PDF header and hide interactive elements
+            pdfHeader.classList.remove('hidden');
+            const hideElements = document.querySelectorAll('.no-pdf');
+            hideElements.forEach(el => el.style.display = 'none');
+
+            // 2. Configure html2pdf settings
+            const opt = {
+              margin:       [0.5, 0.5, 0.5, 0.5], // top, left, bottom, right in inches
+              filename:     'Nest_Capital_Finance_Estimate.pdf',
+              image:        { type: 'jpeg', quality: 0.98 },
+              html2canvas:  { scale: 2, useCORS: true }, // scale: 2 improves chart rendering quality
+              jsPDF:        { unit: 'in', format: 'a4', orientation: 'landscape' } // Landscape fits the 2-column layout best
+            };
+
+            // 3. Generate PDF and then revert the UI changes
+            html2pdf().set(opt).from(element).save().then(() => {
+                pdfHeader.classList.add('hidden');
+                hideElements.forEach(el => el.style.display = '');
+            });
+        }
+
+        // --- GLOBAL STATE LINKS ---
         const stateUrls = {
             'VIC': 'https://www.sro.vic.gov.au/buying-property/land-transfer-stamp-duty/land-transfer-stamp-duty-calculator',
             'NSW': 'https://www.service.nsw.gov.au/transaction/calculate-the-stamp-duty-on-the-sale-of-land-or-businesses-in-nsw',
@@ -618,7 +688,6 @@
             'NT': 'https://nt.gov.au/property/buying-and-selling-a-home/settle-the-sale/stamp-duty-buying-or-selling-a-home/conveyance-calculator'
         };
 
-        // --- ADDED: FUNCTION TO UPDATE LINK ON DROPDOWN CHANGE ---
         function updateGovLink() {
             const state = document.getElementById('s-state').value;
             const govLinkBtn = document.getElementById('s-gov-link');
@@ -634,7 +703,6 @@
         function renderChart(canvasId, type, labels, datasets, options = {}) {
             const ctx = document.getElementById(canvasId).getContext('2d');
             
-            // Destroy existing chart if it exists to avoid overlay
             if (charts[canvasId]) {
                 charts[canvasId].destroy();
             }
@@ -719,7 +787,7 @@
             if(containerId === 'calc-borrowing') calcBorrowingPower();
             if(containerId === 'calc-stampduty') {
                 calcStampDuty();
-                updateGovLink(); // Ensure link updates on clear
+                updateGovLink();
             }
             if(containerId === 'calc-extra') calcExtraRepayment();
             if(containerId === 'calc-offset') calcOffset();
@@ -1111,7 +1179,6 @@
                 const timeDiff = Math.max(0, yearsSaved);
                 document.getElementById('o-time-saved').innerText = `${Math.floor(timeDiff)} Yrs, ${Math.round((timeDiff % 1) * 12)} Mo`;
 
-
                 if (show30Year) {
                     renderChart('chart-offset', 'line', labels, [
                          {
@@ -1168,7 +1235,7 @@
             calcRepaymentDetail();
             calcBorrowingPower();
             calcStampDuty();
-            updateGovLink(); // Ensure link sets properly on initial page load
+            updateGovLink(); 
             calcExtraRepayment();
             calcOffset();
         });
