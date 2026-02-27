@@ -102,16 +102,16 @@
 
         <section class="pb-24 px-4">
             
-            <div id="download-btn-container" class="max-w-6xl mx-auto flex justify-end mb-4 reveal stagger-delay-2">
-                <button onclick="downloadPDF()" class="flex items-center gap-2 px-5 py-2.5 bg-brand-900 text-white rounded-sm font-bold uppercase tracking-widest text-xs hover:bg-accent-500 transition shadow-md">
-                    <i data-lucide="download" class="w-4 h-4"></i> Download Estimate as PDF
+            <div class="max-w-6xl mx-auto flex justify-end mb-4 reveal stagger-delay-2">
+                <button id="main-download-btn" onclick="downloadPDF()" class="flex items-center gap-2 px-5 py-2.5 bg-brand-900 text-white rounded-sm font-bold uppercase tracking-widest text-xs hover:bg-accent-500 transition shadow-md">
+                    <i data-lucide="download" class="w-4 h-4"></i> <span>Download Estimate as PDF</span>
                 </button>
             </div>
 
-            <div id="calculator-wrapper" class="max-w-6xl mx-auto bg-white rounded-sm shadow-xl overflow-hidden border border-gray-200 reveal stagger-delay-2">
+            <div id="calculator-wrapper" class="max-w-6xl mx-auto bg-white rounded-sm shadow-xl border border-gray-200 reveal stagger-delay-2">
 
                 <div id="pdf-header" class="hidden p-8 border-b border-gray-200 flex justify-between items-center bg-white">
-                    <img src="https://shaggyyyz.github.io/nest-capital-finance/logo.png" alt="Nest Capital Finance" class="h-16 w-auto" crossorigin="anonymous">
+                    <img src="https://shaggyyyz.github.io/nest-capital-finance/logo.png" alt="Nest Capital Finance" class="h-16 w-auto">
                     <div class="text-right">
                         <p class="font-serif text-xl font-bold text-brand-900">Nest Capital Finance</p>
                         <p class="text-sm text-gray-600">Melbourne, VIC | 1300 385 222</p>
@@ -646,8 +646,14 @@
     <script src="js/main.js"></script>
 
     <script>
-        // --- UPDATED PDF GENERATION LOGIC ---
+        // --- COMPLETELY REWRITTEN PDF GENERATION LOGIC ---
         function downloadPDF() {
+            // 1. Give visual feedback immediately so the user knows it's working
+            const downloadBtn = document.getElementById('main-download-btn');
+            const originalBtnHTML = downloadBtn.innerHTML;
+            downloadBtn.innerHTML = '<span class="animate-pulse">Generating PDF... Please wait</span>';
+            downloadBtn.disabled = true;
+
             const dateStr = new Date().toLocaleDateString('en-AU', { year: 'numeric', month: 'long', day: 'numeric' });
             document.getElementById('pdf-date').innerText = "Estimate generated on: " + dateStr;
 
@@ -657,21 +663,21 @@
             const noPdfElements = wrapper.querySelectorAll('.no-pdf');
             const calcContents = wrapper.querySelectorAll('.calc-content');
 
-            // 1. Show the PDF branding header
+            // 2. Prepare the DOM
             pdfHeader.classList.remove('hidden');
+            wrapper.classList.remove('shadow-xl'); // Clean up borders for the print
             
-            // 2. Hide the tab navigation buttons and any clean-up/link buttons
             if (tabContainer) tabContainer.style.display = 'none';
             noPdfElements.forEach(el => el.style.display = 'none');
 
-            // 3. Forcefully hide all inactive calculators so they don't appear in the PDF
+            // Only show the active tab
             calcContents.forEach(content => {
                 if (!content.classList.contains('active')) {
                     content.style.display = 'none';
                 }
             });
 
-            // 4. Delay the capture for a split second to ensure everything is rendered
+            // 3. Wait 800ms for browser to render changes, then generate PDF
             setTimeout(() => {
                 const opt = {
                     margin:       0.5,
@@ -682,20 +688,31 @@
                 };
 
                 html2pdf().set(opt).from(wrapper).save().then(() => {
-                    // 5. Revert all UI changes back to normal after successful download
+                    // 4a. Restore UI after success
                     pdfHeader.classList.add('hidden');
-                    if (tabContainer) tabContainer.style.display = '';
-                    noPdfElements.forEach(el => el.style.display = '');
-                    calcContents.forEach(content => content.style.display = ''); // Gives control back to CSS
-                }).catch(err => {
-                    console.error("PDF Generation Error: ", err);
-                    // Revert UI changes if an error happens so the site doesn't stay broken
-                    pdfHeader.classList.add('hidden');
+                    wrapper.classList.add('shadow-xl');
+                    
                     if (tabContainer) tabContainer.style.display = '';
                     noPdfElements.forEach(el => el.style.display = '');
                     calcContents.forEach(content => content.style.display = '');
+                    
+                    downloadBtn.innerHTML = originalBtnHTML;
+                    downloadBtn.disabled = false;
+                }).catch(err => {
+                    console.error("PDF Generation Error: ", err);
+                    // 4b. Restore UI even if there is an error
+                    pdfHeader.classList.add('hidden');
+                    wrapper.classList.add('shadow-xl');
+                    
+                    if (tabContainer) tabContainer.style.display = '';
+                    noPdfElements.forEach(el => el.style.display = '');
+                    calcContents.forEach(content => content.style.display = '');
+                    
+                    downloadBtn.innerHTML = originalBtnHTML;
+                    downloadBtn.disabled = false;
+                    alert("There was an issue generating your PDF. Please try again.");
                 });
-            }, 150);
+            }, 800); // 800 millisecond delay
         }
 
         // --- GLOBAL STATE LINKS ---
