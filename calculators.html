@@ -33,6 +33,42 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <link rel="stylesheet" href="css/style.css">
+    <style>
+    @media print {
+        /* 1. Hide everything except the calculator results */
+        body * { visibility: hidden; }
+        #calculator-wrapper, #calculator-wrapper * { visibility: visible; }
+        
+        /* 2. Position the content at the absolute top left of the A4 page */
+        #calculator-wrapper {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100% !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            border: none !important;
+        }
+
+        /* 3. Force the side-by-side Desktop layout even on mobile devices */
+        #calculator-wrapper .grid { 
+            display: grid !important; 
+            grid-template-columns: 1fr 1fr !important; 
+            gap: 20px !important; 
+        }
+
+        /* 4. Hide all interactive UI elements in the PDF */
+        .no-pdf, #calc-tabs-container, #download-btn-container, .floating-cta, header, footer { 
+            display: none !important; 
+        }
+
+        /* 5. Show the branding header */
+        #pdf-header { display: flex !important; margin-bottom: 15px; }
+
+        /* 6. Set A4 Page margins */
+        @page { margin: 0.3in; size: A4 landscape; }
+    }
+</style>
 </head>
 <body class="bg-brand-50 text-gray-800 antialiased overflow-x-hidden">
 
@@ -558,6 +594,53 @@
     <script src="js/main.js"></script>
 
     <script>
+
+        // TRACKER: Ensures user clicks "Calculate" before downloading
+    let isCalculated = true; 
+
+    function downloadPDF() {
+        // 1. Validation Check: If they changed inputs but didn't hit calculate
+        if (!isCalculated) {
+            alert("Please click the 'Calculate' button to update your results before trying to download the PDF report.");
+            return;
+        }
+
+        // 2. Set today's date in the PDF header
+        const dateStr = new Date().toLocaleDateString('en-AU', { year: 'numeric', month: 'long', day: 'numeric' });
+        const dateElement = document.getElementById('pdf-date');
+        if(dateElement) dateElement.innerText = "Estimate generated on: " + dateStr;
+
+        // 3. Trigger Native Print-to-PDF
+        window.print();
+    }
+
+    // --- INTEGRATION & EVENT LISTENERS ---
+    window.addEventListener('load', () => {
+        // Initial setup for all calculators
+        if(typeof calcRepaymentDetail === 'function') calcRepaymentDetail();
+        if(typeof calcBorrowingPower === 'function') calcBorrowingPower();
+        if(typeof calcStampDuty === 'function') calcStampDuty();
+        if(typeof updateGovLink === 'function') updateGovLink(); 
+        if(typeof calcExtraRepayment === 'function') calcExtraRepayment();
+        if(typeof calcOffset === 'function') calcOffset();
+
+        // VALIDATION SENSOR: If user types or changes a dropdown, mark as "uncalculated"
+        const inputs = document.querySelectorAll('.calc-content input, .calc-content select');
+        inputs.forEach(input => {
+            input.addEventListener('change', () => { isCalculated = false; });
+            input.addEventListener('keyup', () => { isCalculated = false; });
+        });
+
+        // RE-VALIDATION SENSOR: When any Calculate button is clicked, mark as "ready"
+        const calcButtons = document.querySelectorAll('.calc-content button:not(.no-pdf)');
+        calcButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Short delay ensures the math functions finish before we re-enable the PDF
+                setTimeout(() => { isCalculated = true; }, 150);
+            });
+        });
+    });
+        
         // --- ADDED: GLOBAL STATE LINKS ---
         const stateUrls = {
             'VIC': 'https://www.sro.vic.gov.au/buying-property/land-transfer-stamp-duty/land-transfer-stamp-duty-calculator',
