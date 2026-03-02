@@ -1,247 +1,402 @@
-<html>
+<!DOCTYPE html>
+<html lang="en-AU">
 <head>
-    <!-- Styles from articles.html -->
-    <style>
-        .article-card {
-            background-color: white;
-            border: 1px solid #e0e0e0;
-            border-radius: 8px;
-            padding: 6px;
-            cursor: pointer;
-            transition: transform 0.2s ease-in-out;
-        }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        .article-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-N01W5P5YVR"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-N01W5P5YVR');
+    </script>
 
-        .list-disc pl-5 {
-            list-style-type: disc;
-            padding-left: 1.25rem;
-        }
+    <title>Articles & Guides | Nest Capital Finance</title>
+    <meta name="description" content="Mortgage broker guides for Melbourne home buyers: first home deposit, SMSF property, refinancing cashbacks, debt consolidation">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://ncfinance.com.au/articles">
 
-        .font-serif {
-            font-family: 'serif', serif;
-        }
+    <meta property="og:title" content="Articles & Guides | Nest Capital Finance">
+    <meta property="og:description" content="Finance articles and step‑by‑step guides for home buyers, investors and business owners.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ncfinance.com.au/articles">
+    <meta property="og:image" content="img/Logolink.jpg">
 
-        .text-gray-700 {
-            color: #807D7B;
-        }
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script src="js/tailwind-config.js"></script>
 
-        .text-lg {
-            font-size: 1.125rem;
-        }
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
 
-        .text-white {
-            color: white;
-        }
-
-        .border-accent-400 {
-            border-color: #DEBB44;
-        }
-
-        .reveal stagger-delay-2 {
-            animation: reveal 0.5s ease-in-out;
-        }
-
-        @keyframes reveal {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .transition-all duration-500 {
-            transition: all 0.5s ease-in-out;
-        }
-
-        .hidden {
-            display: none;
-        }
-
-        .flex {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .text-center {
-            text-align: center;
-        }
-
-        .py-24 {
-            padding: 6rem 0;
-        }
-
-        .max-w-4xl {
-            max-width: 48rem;
-        }
-
-        .px-4 {
-            padding: 1rem;
-        }
-
-        .text-xl {
-            font-size: 1.5rem;
-        }
-
-        .text-4xl {
-            font-size: 2.5rem;
-        }
-
-        .text-white {
-            color: white;
-        }
-
-        .bg-brand-900 {
-            background-color: #0E6626;
-        }
-
-        .hover:bg-accent-500 {
-            background-color: #DEBB44;
-        }
-
-        .transition-shadow-xl {
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        .text-xs {
-            font-size: 0.875rem;
-        }
-
-        .uppercase {
-            text-transform: uppercase;
-        }
-
-        .font-bold {
-            font-weight: bold;
-        }
-
-        .tracking-widest {
-            letter-spacing: 0.25em;
-        }
-
-        .text-brand-900 {
-            color: #0E6626;
-        }
-
-        .text-accent-500 {
-            color: #DEBB44;
-        }
-
-        .border-white/30 {
-            border-color: rgba(255, 255, 255, 0.3);
-        }
-
-        .backdrop-blur-sm {
-            backdrop-filter: blur(4px);
-        }
-
-        .pb-10 {
-            padding-bottom: 2rem;
-        }
-
-        .pt-10 {
-            padding-top: 2rem;
-        }
-    </style>
+    <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body class="bg-brand-50 text-gray-800 antialiased overflow-x-hidden">
 
-<article>
-    <header>
-        <h1 class="font-serif text-4xl md:text-5xl mb-6">Top 5 Deposit Myths for First-Time Homebuyers</h1>
+    <a href="/contact" class="floating-cta bg-accent-500 text-white px-6 py-4 rounded-full font-bold uppercase tracking-widest text-xs flex items-center gap-2 hover:bg-accent-400">
+        <i data-lucide="calendar" class="w-4 h-4"></i>
+        <span class="hidden md:inline">Book CONSULTATION</span>
+        <span class="md:hidden">Book Now</span>
+    </a>
+
+    <header id="navbar" class="fixed w-full top-0 z-50 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-24">
+                <a href="index.html" class="flex items-center gap-3 group" aria-label="Nest Capital Finance Home">
+                    <img src="img/logo.png" alt="Nest Capital Finance Logo" class="h-16 w-auto transition-transform duration-500 group-hover:scale-105 brightness-0 invert">
+                </a>
+
+                <nav class="hidden md:flex space-x-10 items-center">
+                    <a href="index.html" class="nav-link text-white font-medium text-sm uppercase tracking-widest relative">Home</a>
+                    <a href="/services" class="nav-link text-white font-medium text-sm uppercase tracking-widest relative">Services</a>
+                    <a href="/resources" class="nav-link text-white font-medium text-sm uppercase tracking-widest relative">Resources</a>
+                    <a href="/about" class="nav-link text-white font-medium text-sm uppercase tracking-widest relative">About</a>
+                    <a href="/contact" class="nav-link text-white font-medium text-sm uppercase tracking-widest relative">Contact</a>
+                    <a href="/contact" class="bg-white text-brand-900 px-8 py-3 rounded-sm font-medium text-xs uppercase tracking-widest hover:bg-gray-100 transition-colors duration-300 shadow-lg">
+                        Book Consultation
+                    </a>
+                </nav>
+
+                <button id="mobile-menu-btn" class="md:hidden text-white focus:outline-none" aria-label="Open Menu">
+                    <i data-lucide="menu" class="w-8 h-8"></i>
+                </button>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="fixed inset-0 bg-brand-900 z-50 transform translate-x-full transition-transform duration-300 flex flex-col justify-center items-center space-y-8">
+            <button id="close-menu-btn" class="absolute top-8 right-8 text-white" aria-label="Close Menu">
+                <i data-lucide="x" class="w-8 h-8"></i>
+            </button>
+            <a href="index.html" class="text-3xl font-serif text-white hover:text-accent-400 transition">Home</a>
+            <a href="/services" class="text-3xl font-serif text-white hover:text-accent-400 transition">Services</a>
+            <a href="/resources" class="text-3xl font-serif text-white hover:text-accent-400 transition">Resources</a>
+            <a href="/lenders" class="text-3xl font-serif text-white hover:text-accent-400 transition">Lenders</a>
+            <a href="/about" class="text-3xl font-serif text-white hover:text-accent-400 transition">About</a>
+            <a href="/contact" class="text-3xl font-serif text-white hover:text-accent-400 transition">Contact</a>
+        </div>
     </header>
 
-    <section>
-        <div class=\"article-card bg-white border border-gray-200 rounded-sm p-6 cursor-pointer flex flex-col h-full reveal stagger-delay-2 transition-all duration-500 hover:-translate-y-2 hover:shadow-xl hover:border-accent-400\" data-category=\"residential\">
-            <div class=\"flex justify-between items-start mb-4\">
-                <span class=\"text-xs font-bold uppercase tracking-widest text-accent-500\">Residential</span>
-                <span class=\"text-xs text-gray-400\">4 min read</span>
-            </div>
-            <h3 class=\"font-serif text-xl text-brand-900 mb-3 line-clamp-2\">How Much Deposit Do You Actually Need for Your First Home?</h3>
-            <p class=\"text-sm text-gray-600 mb-6 flex-grow line-clamp-3\">
-                The 20% deposit myth is holding many buyers back. Discover how LMI, government guarantees and guarantor loans can get you into the market sooner.
-            </p>
-            <button class=\"inline-flex items-center text-xs font-bold uppercase tracking-widest text-brand-900 hover:text-accent-500 transition mt-auto group\" data-open-article=\"fhb-deposit\">
-                Read Article <i data-lucide=\"arrow-right\" class=\"w-4 h-4 ml-2 transition-transform group-hover:translate-x-1\"></i>
-            </button>
-        </div>
-    </section>
+    <main id="content-wrapper">
 
-    <section>
-        <h2>The 20% Deposit Myth</h2>
-        <p>The traditional advice has always been to save a 20% deposit. While this avoids Lenders Mortgage Insurance (LMI) and gives you immediate equity, the reality of modern property prices makes this a steep hurdle for many first home buyers.</p>
-
-        <ul class=\"list-disc pl-5 space-y-3 text-gray-700 mb-6">
-            <li><strong>Paying LMI (5-10% deposit):</strong> You can buy with as little as 5% genuine savings. The bank charges a one-off insurance fee (LMI) which is typically added to your loan balance.</li>
-            <li><strong>Government Guarantee Schemes:</strong> The Home Guarantee Scheme allows eligible buyers to purchase with a 5% deposit without paying LMI. The government guarantees the remaining 15%. Places are limited and price caps apply.</li>
-            <li><strong>Family Guarantee:</strong> If your parents own property, they can use a portion of their equity as security for your loan. This allows you to borrow 100% of the purchase price (plus costs) and avoid LMI completely.</li>
-        </ul>
-    </section>
-
-    <section>
-        <h2>Myth #2: Only 20% Down Payment is Required</h2>
-        <p>Saving 20% on a $700,000 property means putting away $140,000—plus stamp duty and conveyancing costs. In a rising market, the time it takes to save that extra 10% can sometimes mean you pay more for the property itself than you would have paid in LMI.</p>
-
-        <ul class=\"list-disc pl-5 space-y-3 text-gray-700 mb-6">
-            <li>Traditional 20% deposit requires significant savings and avoids LMI, but it's not the only option.</li>
-            <li>Alternative options like government-backed schemes and family guarantees can make home ownership more affordable.</li>
-        </ul>
-    </section>
-
-    <section>
-        <h2>Myth #3: Government Schemes Are Limited</h2>
-        <p>The Home Guarantee Scheme allows eligible buyers to purchase with a 5% deposit without paying LMI. The government guarantees the remaining 15%. Places are limited and price caps apply.</p>
-
-        <ul class=\"list-disc pl-5 space-y-3 text-gray-700 mb-6 text-center\">
-            <li>Government-backed schemes like the Home Guarantee Scheme provide alternative options for buyers with limited deposits.</li>
-            <li>These schemes are designed to make home ownership more accessible and reduce financial barriers for first-time buyers.</li>
-        </ul>
-    </section>
-
-    <section>
-        <h2>Myth #4: You Must Own a Property to Use Family Guarantee</h2>
-        <p>If your parents own property, they can use a portion of their equity as security for your loan. This allows you to borrow 100% of the purchase price (plus costs) and avoid LMI completely.</p>
-
-        <ul class=\"list-disc pl-5 space-y-3 text-gray-700 mb-6 text-center\">
-            <li>Family guarantee requires parental equity, but it's a viable option for buyers without significant savings.</li>
-            <li>This strategy allows first-time buyers to enter the market without paying LMI or a large deposit.</li>
-        </ul>
-    </section>
-
-    <section>
-        <h2>Myth #5: You Can't Use Any Other Strategies</h2>
-        <p>There are multiple strategies available for first-time buyers, including government-backed schemes and leveraging family equity. These options provide flexibility and can help buyers achieve their goals without overpaying.</p>
-
-        <ul class=\"list-disc pl-5 space-y-3 text-gray-700 mb-6 text-center\">
-            <li>Explore all available strategies to find the one that best fits your financial situation and goals.</li>
-            <li>Consult with a mortgage broker to understand the options available and make informed decisions.</li>
-        </ul>
-    </section>
-
-    <section>
-        <h2>Conclusion</h2>
-        <p>Dispelling deposit myths is crucial for first-time buyers navigating Melbourne's housing market. By understanding alternative options like LMI, government schemes, and family guarantees, buyers can make informed decisions and achieve their home ownership goals.</p>
-
-        <p>Whether you're considering a 5% deposit with LMI or leveraging family equity, there are multiple pathways to entering the market. Stay informed, explore your options, and work with experts to find the best solution for your needs.</p>
-    </section>
-
-    <div class=\"modal\" id=\"article-modal\" style=\"display: none; position: fixed; top: 10%; left: 10%;\" aria-live=\"polite\">
-        <div class=\"modal-content bg-white p-6 rounded-lg shadow-lg w-96\" id=\"modal-body\"></div>
-    </div>
-
-    <section class=\"FAQ\" itemprop=\"Question\" itemtype=\"FAQItem\">
-        <div itemscope=\"item\" itemtype=\"Question\" itemid=\"Q1\">
-            <div itemprop=\"mainEntity\" itemid=\"M1\">
-                <h2>What are the best neighborhoods in Melbourne for first-time buyers?</h2>
-                <div itemprop=\"answer\" itemid=\"A1\">
-                    <p>Outer suburbs like Werribee, Cranbourne, and Geelong are popular choices for first-time buyers due to their affordability and growth potential. Inner-city areas like Fitzroy and Brunswick offer a mix of urban convenience and suburban charm.</p>
+        <section class="bg-brand-50 pt-40 pb-20 border-b border-gray-100">
+            <div class="max-w-7xl mx-auto px-4">
+                <a href="/resources" class="mb-8 inline-flex text-sm uppercase tracking-widest text-brand-600 hover:text-accent-500 transition items-center gap-2 reveal">
+                    <i data-lucide="arrow-left" class="w-4 h-4"></i>
+                    Back to Resources
+                </a>
+                <div class="text-center reveal stagger-delay-1">
+                    <h1 class="font-serif text-4xl md:text-6xl text-brand-900 mb-6">
+                        Articles &amp; Guides
+                    </h1>
+                    <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-10">
+                        Clear, practical insights to help you navigate deposits, restructuring, commercial lending and everything in between.
+                    </p>
+                </div>
+                
+                <div class="flex flex-wrap justify-center gap-3 reveal stagger-delay-1">
+                    <button class="filter-btn active rounded-full px-5 py-2 text-sm font-medium transition-colors bg-brand-900 text-white" data-filter="all">All Articles</button>
+                    <button class="filter-btn rounded-full px-5 py-2 text-sm font-medium transition-colors bg-white border border-gray-300 text-gray-600 hover:border-brand-900 hover:text-brand-900" data-filter="residential">Residential</button>
+                    <button class="filter-btn rounded-full px-5 py-2 text-sm font-medium transition-colors bg-white border border-gray-300 text-gray-600 hover:border-brand-900 hover:text-brand-900" data-filter="investment">Investment</button>
+                    <button class="filter-btn rounded-full px-5 py-2 text-sm font-medium transition-colors bg-white border border-gray-300 text-gray-600 hover:border-brand-900 hover:text-brand-900" data-filter="commercial">Commercial & Asset</button>
+                    <button class="filter-btn rounded-full px-5 py-2 text-sm font-medium transition-colors bg-white border border-gray-300 text-gray-600 hover:border-brand-900 hover:text-brand-900" data-filter="smsf">SMSF</button>
                 </div>
             </div>
+        </section>
+
+        <section class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4">
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="articles-grid">
+                    
+                    <div class="article-card bg-white border border-gray-200 rounded-sm p-6 cursor-pointer flex flex-col h-full reveal transition-all duration-500 hover:-translate-y-2 hover:shadow-xl hover:border-accent-400" data-category="residential">
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="text-xs font-bold uppercase tracking-widest text-accent-500">Residential</span>
+                            <span class="text-xs text-gray-400">4 min read</span>
+                        </div>
+                        <h3 class="font-serif text-xl text-brand-900 mb-3 line-clamp-2">How Much Deposit Do You Actually Need for Your First Home?</h3>
+                        <p class="text-sm text-gray-600 mb-6 flex-grow line-clamp-3">
+                            The 20% deposit myth is holding many buyers back. Discover how LMI, government guarantees and guarantor loans can get you into the market sooner.
+                        </p>
+                        <button class="inline-flex items-center text-xs font-bold uppercase tracking-widest text-brand-900 hover:text-accent-500 transition mt-auto group" data-open-article="fhb-deposit">
+                            Read Article <i data-lucide="arrow-right" class="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1"></i>
+                        </button>
+                    </div>
+
+                    <div class="article-card bg-white border border-gray-200 rounded-sm p-6 cursor-pointer flex flex-col h-full reveal stagger-delay-1 transition-all duration-500 hover:-translate-y-2 hover:shadow-xl hover:border-accent-400" data-category="smsf">
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="text-xs font-bold uppercase tracking-widest text-accent-500">SMSF Lending</span>
+                            <span class="text-xs text-gray-400">5 min read</span>
+                        </div>
+                        <h3 class="font-serif text-xl text-brand-900 mb-3 line-clamp-2">The Basics of Using Your SMSF to Buy Property</h3>
+                        <p class="text-sm text-gray-600 mb-6 flex-grow line-clamp-3">
+                            An overview of Limited Recourse Borrowing Arrangements (LRBAs), bare trusts, and what lenders look for when approving loans to self‑managed super funds.
+                        </p>
+                        <button class="inline-flex items-center text-xs font-bold uppercase tracking-widest text-brand-900 hover:text-accent-500 transition mt-auto group" data-open-article="smsf-basics">
+                            Read Article <i data-lucide="arrow-right" class="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1"></i>
+                        </button>
+                    </div>
+
+                    <div class="article-card bg-white border border-gray-200 rounded-sm p-6 cursor-pointer flex flex-col h-full reveal stagger-delay-2 transition-all duration-500 hover:-translate-y-2 hover:shadow-xl hover:border-accent-400" data-category="commercial">
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="text-xs font-bold uppercase tracking-widest text-accent-500">Commercial</span>
+                            <span class="text-xs text-gray-400">4 min read</span>
+                        </div>
+                        <h3 class="font-serif text-xl text-brand-900 mb-3 line-clamp-2">Leasing vs Buying Your Commercial Premises</h3>
+                        <p class="text-sm text-gray-600 mb-6 flex-grow line-clamp-3">
+                            Is it time to stop paying rent to a landlord and start paying your own asset? We break down the cash‑flow impacts, tax considerations and lending requirements.
+                        </p>
+                        <button class="inline-flex items-center text-xs font-bold uppercase tracking-widest text-brand-900 hover:text-accent-500 transition mt-auto group" data-open-article="commercial-lease-buy">
+                            Read Article <i data-lucide="arrow-right" class="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1"></i>
+                        </button>
+                    </div>
+
+                    <div class="article-card bg-white border border-gray-200 rounded-sm p-6 cursor-pointer flex flex-col h-full reveal transition-all duration-500 hover:-translate-y-2 hover:shadow-xl hover:border-accent-400" data-category="residential">
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="text-xs font-bold uppercase tracking-widest text-accent-500">Refinancing</span>
+                            <span class="text-xs text-gray-400">3 min read</span>
+                        </div>
+                        <h3 class="font-serif text-xl text-brand-900 mb-3 line-clamp-2">Are Refinance Cashbacks Actually Worth It?</h3>
+                        <p class="text-sm text-gray-600 mb-6 flex-grow line-clamp-3">
+                            Banks offer thousands of dollars to switch, but are you paying for it with a higher rate? Learn how to calculate the true net benefit of a cashback offer.
+                        </p>
+                        <button class="inline-flex items-center text-xs font-bold uppercase tracking-widest text-brand-900 hover:text-accent-500 transition mt-auto group" data-open-article="refinance-cashback">
+                            Read Article <i data-lucide="arrow-right" class="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1"></i>
+                        </button>
+                    </div>
+
+                    <div class="article-card bg-white border border-gray-200 rounded-sm p-6 cursor-pointer flex flex-col h-full reveal stagger-delay-1 transition-all duration-500 hover:-translate-y-2 hover:shadow-xl hover:border-accent-400" data-category="residential">
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="text-xs font-bold uppercase tracking-widest text-accent-500">Refinancing</span>
+                            <span class="text-xs text-gray-400">4 min read</span>
+                        </div>
+                        <h3 class="font-serif text-xl text-brand-900 mb-3 line-clamp-2">The Right (and Wrong) Way to Consolidate Debt</h3>
+                        <p class="text-sm text-gray-600 mb-6 flex-grow line-clamp-3">
+                            Rolling credit cards and personal loans into your mortgage will drop your monthly repayments, but doing it without a strategy could cost you thousands in the long run.
+                        </p>
+                        <button class="inline-flex items-center text-xs font-bold uppercase tracking-widest text-brand-900 hover:text-accent-500 transition mt-auto group" data-open-article="debt-consolidation">
+                            Read Article <i data-lucide="arrow-right" class="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1"></i>
+                        </button>
+                    </div>
+                 <div class=\"article-card bg-white border border-gray-200 rounded-sm p-6 cursor-pointer flex flex-col h-full reveal stagger-delay-2 transition-all duration-500 hover:-translate-y-2 hover:shadow-xl hover:border-accent-400\" data-category=\"residential\">
+                        <div class=\"flex justify-between items-start mb-4\">
+                             <span class=\"text-xs font-bold uppercase tracking-widest text-accent-500\">Residential</span>
+                            <span class=\"text-xs text-gray-400\">4 min read</span>
+                        </div>
+                        <h3 class=\"font-serif text-xl text-brand-900 mb-3 line-clamp-2\">How Much Deposit Do You Actually Need for Your First Home?</h3>
+                        <p class=\"text-sm text-gray-600 mb-6 flex-grow line-clamp-3\">
+                            The 20% deposit myth is holding many buyers back. Discover how LMI, government guarantees and guarantor loans can get you into the market sooner.
+                        </p>
+                        <button class=\"inline-flex items-center text-xs font-bold uppercase tracking-widest text-brand-900 hover:text-accent-500 transition mt-auto group\" data-open-article=\"fhb-deposit\">
+                            Read Article <i data-lucide=\"arrow-right\" class=\"w-4 h-4 ml-2 transition-transform group-hover:translate-x-1\"></i>
+                        </button>
+                </div>
+                    <div class="article-card bg-white border border-gray-200 rounded-sm p-6 cursor-pointer flex flex-col h-full reveal stagger-delay-2 transition-all duration-500 hover:-translate-y-2 hover:shadow-xl hover:border-accent-400" data-category="commercial">
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="text-xs font-bold uppercase tracking-widest text-accent-500">Asset Finance</span>
+                            <span class="text-xs text-gray-400">3 min read</span>
+                        </div>
+                        <h3 class="font-serif text-xl text-brand-900 mb-3 line-clamp-2">Asset Finance: When to use Low-Doc options</h3>
+                        <p class="text-sm text-gray-600 mb-6 flex-grow line-clamp-3">
+                            If you are self-employed, providing full tax returns for a vehicle purchase isn't always necessary. We explore how low-doc asset finance works.
+                        </p>
+                        <button class="inline-flex items-center text-xs font-bold uppercase tracking-widest text-brand-900 hover:text-accent-500 transition mt-auto group" data-open-article="asset-low-doc">
+                            Read Article <i data-lucide="arrow-right" class="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1"></i>
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+<section>
+    <h2>The 20% Deposit Myth</h2>
+    <p>The traditional advice has always been to save a 20% deposit. While this avoids Lenders Mortgage Insurance (LMI) and gives you immediate equity, the reality of modern property prices makes this a steep hurdle for many first home buyers.</p>
+
+    <ul class=\"list-disc pl-5 space-y-3 text-gray-700 mb-6">
+        <li><strong>Paying LMI (5-10% deposit):</strong> You can buy with as little as 5% genuine savings. The bank charges a one-off insurance fee (LMI) which is typically added to your loan balance.</li>
+        <li><strong>Government Guarantee Schemes:</strong> The Home Guarantee Scheme allows eligible buyers to purchase with a 5% deposit without paying LMI. The government guarantees the remaining 15%. Places are limited and price caps apply.</li>
+        <li><strong>Family Guarantee:</strong> If your parents own property, they can use a portion of their equity as security for your loan. This allows you to borrow 100% of the purchase price (plus costs) and avoid LMI completely.</li>
+    </ul>
+</section>
+
+<section>
+    <h2>Myth #2: Only 20% Down Payment is Required</h2>
+    <p>Saving 20% on a $700,000 property means putting away $140,000—plus stamp duty and conveyancing costs. In a rising market, the time it takes to save that extra 10% can sometimes mean you pay more for the property itself than you would have paid in LMI.</p>
+
+    <ul class=\"list-disc pl-5 space-y-3 text-gray-700 mb-6">
+        <li>Traditional 20% deposit requires significant savings and avoids LMI, but it's not the only option.</li>
+        <li>Alternative options like government-backed schemes and family guarantees can make home ownership more affordable.</li>
+    </ul>
+</section>
+
+<section>
+    <h2>Myth #3: Government Schemes Are Limited</h2>
+    <p>The Home Guarantee Scheme allows eligible buyers to purchase with a 5% deposit without paying LMI. The government guarantees the remaining 15%. Places are limited and price caps apply.</p>
+
+    <ul class=\"list-disc pl-5 space-y-3 text-gray-700 mb-6 text-center\">
+        <li>Government-backed schemes like the Home Guarantee Scheme provide alternative options for buyers with limited deposits.</li>
+        <li>These schemes are designed to make home ownership more accessible and reduce financial barriers for first-time buyers.</li>
+    </ul>
+</section>
+
+<section>
+    <h2>Myth #4: You Must Own a Property to Use Family Guarantee</h2>
+    <p>If your parents own property, they can use a portion of their equity as security for your loan. This allows you to borrow 100% of the purchase price (plus costs) and avoid LMI completely.</p>
+
+    <ul class=\"list-disc pl-5 space-y-3 text-gray-700 mb-6 text-center\">
+        <li>Family guarantee requires parental equity, but it's a viable option for buyers without significant savings.</li>
+        <li>This strategy allows first-time buyers to enter the market without paying LMI or a large deposit.</li>
+    </ul>
+</section>
+
+<section>
+    <h2>Myth #5: You Can't Use Any Other Strategies</h2>
+    <p>There are multiple strategies available for first-time buyers, including government-backed schemes and leveraging family equity. These options provide flexibility and can help buyers achieve their goals without overpaying.</p>
+
+    <ul class=\"list-disc pl-5 space-y-3 text-gray-700 mb-6 text-center\">
+        <li>Explore all available strategies to find the one that best fits your financial situation and goals.</li>
+        <li>Consult with a mortgage broker to understand the options available and make informed decisions.</li>
+    </ul>
+</section>
+
+<section>
+    <h2>Conclusion</h2>
+    <p>Dispelling deposit myths is crucial for first-time buyers navigating Melbourne's housing market. By understanding alternative options like LMI, government schemes, and family guarantees, buyers can make informed decisions and achieve their home ownership goals.</p>
+
+    <p>Whether you're considering a 5% deposit with LMI or leveraging family equity, there are multiple pathways to entering the market. Stay informed, explore your options, and work with experts to find the best solution for your needs.</p>
+</section>
+        
+        <section class="bg-brand-900 text-white py-24 reveal">
+            <div class="max-w-4xl mx-auto px-4 text-center">
+                <h2 class="font-serif text-4xl md:text-5xl mb-6">Need help applying this to your situation?</h2>
+                <p class="text-lg text-gray-200 mb-10 max-w-2xl mx-auto">Articles are great for general knowledge, but your scenario is unique. Book a quick call to get advice tailored to your goals.</p>
+                <div class="flex flex-col sm:flex-row gap-6 justify-center">
+                    <a href="/contact" class="bg-white text-brand-900 px-10 py-4 rounded-sm font-bold uppercase tracking-widest text-xs hover:bg-accent-500 hover:text-white transition shadow-xl">Book CONSULTATION</a>
+                    <a href="tel:1300385222" class="border border-white/30 text-white px-10 py-4 rounded-sm font-bold uppercase tracking-widest text-xs hover:bg-white/10 transition backdrop-blur-sm flex items-center justify-center gap-2">
+                        <i data-lucide="phone" class="w-4 h-4"></i> 1300 385 222
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="article-modal" class="fixed inset-0 bg-brand-900/90 z-[60] hidden justify-center items-start pt-10 md:pt-20 px-4 pb-10 overflow-y-auto backdrop-blur-sm">
+        <div class="bg-white w-full max-w-4xl rounded-sm shadow-2xl relative mb-10" id="article-modal-content">
+            <button id="modal-close" class="absolute top-4 right-4 text-gray-400 hover:text-brand-900 bg-gray-100 hover:bg-gray-200 p-2 rounded-full transition-colors z-10">
+                <i data-lucide="x" class="w-6 h-6"></i>
+            </button>
+            
+            <div id="modal-body" class="p-8 md:p-14"></div>
         </div>
-    </section>
+    </div>
+
+    <footer class="bg-brand-900 text-white pt-16 pb-8 border-t border-white/10 text-sm">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-12 mb-12">
+                <div class="col-span-1">
+                    <img src="img/logo.png" alt="Nest Capital Finance" class="h-14 w-auto mb-6 brightness-0 invert opacity-90">
+                    <p class="text-gray-300 mb-6 leading-relaxed">
+                        Providing clarity and confidence for your property journey. Your trusted partner in finance.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="#" class="bg-white/10 p-2 rounded-full hover:bg-accent-500 transition"><i data-lucide="facebook" class="w-5 h-5"></i></a>
+                        <a href="https://www.linkedin.com/company/nest-capital-finance" class="bg-white/10 p-2 rounded-full hover:bg-accent-500 transition"><i data-lucide="linkedin" class="w-5 h-5"></i></a>
+                        <a href="https://www.instagram.com/nestcapitalfinance" class="bg-white/10 p-2 rounded-full hover:bg-accent-500 transition"><i data-lucide="instagram" class="w-5 h-5"></i></a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-lg mb-6 text-white border-b border-white/20 pb-2 inline-block">Services</h4>
+                    <ul class="space-y-3">
+                        <li><a href="/residential-lending" class="text-base font-medium text-white/70 hover:text-accent-400 transition-colors duration-300">Home Loans</a></li>
+                        <li><a href="/investment-property" class="text-base font-medium text-white/70 hover:text-accent-400 transition-colors duration-300">Investment Loans</a></li>
+                        <li><a href="/commercial-finance" class="text-base font-medium text-white/70 hover:text-accent-400 transition-colors duration-300">Commercial Finance</a></li>
+                        <li><a href="/smsf-lending" class="text-base font-medium text-white/70 hover:text-accent-400 transition-colors duration-300">SMSF Lending</a></li>
+                        <li><a href="/refinancing" class="text-base font-medium text-white/70 hover:text-accent-400 transition-colors duration-300">Refinancing</a></li>
+                        <li><a href="/asset-finance" class="text-base font-medium text-white/70 hover:text-accent-400 transition-colors duration-300">Asset Finance</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-lg mb-6 text-white border-b border-white/20 pb-2 inline-block">Company</h4>
+                    <ul class="space-y-3">
+                        <li><a href="/about" class="text-base font-medium text-white/70 hover:text-accent-400 transition-colors duration-300">About Us</a></li>
+                        <li><a href="/resources" class="text-base font-medium text-white/70 hover:text-accent-400 transition-colors duration-300">Resources</a></li>
+                        <li><a href="/faq" class="text-base font-medium text-white/70 hover:text-accent-400 transition-colors duration-300">FAQs</a></li>
+                        <li><a href="/contact" class="text-base font-medium text-white/70 hover:text-accent-400 transition-colors duration-300">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-lg mb-6 text-white border-b border-white/20 pb-2 inline-block">Contact</h4>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i data-lucide="phone" class="w-5 h-5 text-accent-400 mr-3 mt-0.5"></i>
+                            <a href="tel:1300385222" class="text-base font-medium text-white/70 hover:text-accent-400 transition-colors duration-300">
+                                1300 385 222
+                            </a>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-lucide="mail" class="w-5 h-5 text-accent-400 mr-3 mt-0.5"></i>
+                            <a href="mailto:info@ncfinance.com.au" class="text-base font-medium text-white/70 hover:text-accent-400 transition-colors duration-300">
+                                info@ncfinance.com.au
+                            </a>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-lucide="map-pin" class="w-5 h-5 text-accent-400 mr-3 mt-0.5"></i>
+                            <span class="text-base font-medium text-white/70">
+                                Melbourne, VIC<br>Servicing CBD, Inner North &amp; Eastern Suburbs
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-white/20 pt-8 flex flex-col items-start gap-2">
+                <p class="text-white/50 text-xs">&copy; 2026 Nest Capital Finance Pty Ltd. ACN 691 621 191 | ABN 20 691 621 191 | Credit Representative 574020 is authorised under Australian Credit Licence 389328. | AFCA Member 118936</p>
+                <div class="flex gap-4 text-xs mt-1">
+                    <a href="/privacy-policy" class="text-white/50 hover:text-accent-400 transition">Privacy Policy</a>
+                    <span class="text-white/50">|</span>
+                    <a href="/feedback-complaints" class="text-white/50 hover:text-accent-400 transition">Feedback & Complaints</a>
+                    <span class="text-white/50">|</span>
+                    <a href="/terms-conditions" class="text-white/50 hover:text-accent-400 transition">Terms &amp; Conditions</a>
+                </div>
+                <p class="text-white/40 text-xs mt-3 max-w-4xl">Disclaimer: This page provides general information only and has been prepared without taking into account your objectives, financial situation or needs. We recommend that you consider whether it is appropriate for your circumstances. Your full financial situation will need to be reviewed prior to acceptance of any offer or product. Subject to lender's terms and conditions, fees and charges and eligibility criteria apply.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
 
     <script>
+        // Category Filtering
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const articleCards = document.querySelectorAll('.article-card');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Update active button state
+                filterBtns.forEach(b => {
+                    b.classList.remove('bg-brand-900', 'text-white');
+                    b.classList.add('bg-white', 'text-gray-600');
+                });
+                btn.classList.remove('bg-white', 'text-gray-600');
+                btn.classList.add('bg-brand-900', 'text-white');
+
+                // Filter cards
+                const targetCat = btn.getAttribute('data-filter');
+                articleCards.forEach(card => {
+                    if (targetCat === 'all' || card.getAttribute('data-category') === targetCat) {
+                        card.style.display = 'flex';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Article Data (Content for modals)
         const articles = {
             'fhb-deposit': {
                 tag: 'Residential',
@@ -256,44 +411,168 @@
                         <li><strong>Government Guarantee Schemes:</strong> The Home Guarantee Scheme allows eligible buyers to purchase with a 5% deposit without paying LMI. The government guarantees the remaining 15%. Places are limited and price caps apply.</li>
                         <li><strong>Family Guarantee:</strong> If your parents own property, they can use a portion of their equity as security for your loan. This allows you to borrow 100% of the purchase price (plus costs) and avoid LMI completely.</li>
                     </ul>
-                </content
+                    <p class="text-gray-700 leading-relaxed mb-4">There is no single "right" answer. The best approach depends on your income, how fast the market is moving, and your personal savings discipline. Speak to a broker to run the numbers on paying LMI vs waiting.</p>
+                `
+            },
+            'smsf-basics': {
+                tag: 'SMSF Lending',
+                title: 'The Basics of Using Your SMSF to Buy Property',
+                content: `
+                    <p class="text-gray-700 leading-relaxed mb-4">Buying property inside a Self-Managed Super Fund (SMSF) is a powerful wealth creation strategy, but it operates under strict rules. You cannot simply use your super to buy a holiday home or a property you intend to live in.</p>
+                    <h4 class="font-serif text-xl text-brand-900 mt-6 mb-3">The Sole Purpose Test</h4>
+                    <p class="text-gray-700 leading-relaxed mb-4">Any investment made by your SMSF must be strictly for the purpose of providing retirement benefits for its members. You cannot live in a residential property owned by your SMSF, and neither can your relatives.</p>
+                    <h4 class="font-serif text-xl text-brand-900 mt-6 mb-3">Commercial exception</h4>
+                    <p class="text-gray-700 leading-relaxed mb-4">The major exception to the "related party" rule is commercial property. Your SMSF can purchase a commercial premises (like a warehouse, clinic, or office) and lease it back to your own trading business. The business must pay commercial market rent to the SMSF, essentially turning your rent expense into a super contribution.</p>
+                    <h4 class="font-serif text-xl text-brand-900 mt-6 mb-3">How the borrowing works (LRBA)</h4>
+                    <p class="text-gray-700 leading-relaxed mb-4">SMSF loans are structured as Limited Recourse Borrowing Arrangements (LRBA). This means if the SMSF defaults on the loan, the lender can only repossess the specific property tied to the loan; they cannot touch the other assets (like shares or cash) held in the super fund.</p>
+                    <p class="text-gray-700 leading-relaxed mb-4">Because of this protection, lenders require a special "Bare Trust" to hold the property until the loan is paid off, and they usually require larger deposits (often 20% to 30%).</p>
+                `
+            },
+            'commercial-lease-buy': {
+                tag: 'Commercial',
+                title: 'Leasing vs Buying Your Commercial Premises',
+                content: `
+                    <p class="text-gray-700 leading-relaxed mb-4">One of the biggest financial decisions a business owner will make is whether to continue leasing their premises or to purchase their own. Both have distinct advantages depending on your stage of business.</p>
+                    <h4 class="font-serif text-xl text-brand-900 mt-6 mb-3">The case for buying</h4>
+                    <ul class="list-disc pl-5 space-y-3 text-gray-700 mb-6">
+                        <li><strong>Capital Growth:</strong> Instead of paying off a landlord's asset, your rent goes toward building equity in an asset you control.</li>
+                        <li><strong>Certainty:</strong> You are not at the mercy of lease expirations, sudden rent hikes, or being forced to relocate and fit out a new premises.</li>
+                        <li><strong>Tax Strategy:</strong> Purchasing the property in a separate entity (like a Trust or SMSF) and leasing it back to your trading business can offer significant tax and asset protection benefits.</li>
+                    </ul>
+                    <h4 class="font-serif text-xl text-brand-900 mt-6 mb-3">The case for leasing</h4>
+                    <ul class="list-disc pl-5 space-y-3 text-gray-700 mb-6">
+                        <li><strong>Working Capital:</strong> Buying requires a deposit (often 20-30%). If your business is growing rapidly, that capital might generate a higher return if invested into stock, staff, or marketing rather than bricks and mortar.</li>
+                        <li><strong>Flexibility:</strong> If your business scales quickly (or downsizes), it is much easier to break a lease or move at the end of a term than it is to sell a commercial property.</li>
+                    </ul>
+                    <p class="text-gray-700 leading-relaxed mb-4">If you have stable cash flow and intend to stay in the same location for 5-10 years, buying is highly compelling. The key is ensuring the debt is structured correctly so it doesn't strangle your daily operations.</p>
+                `
+            },
+            'refinance-cashback': {
+                tag: 'Refinancing',
+                title: 'Are Refinance Cashbacks Actually Worth It?',
+                content: `
+                    <p class="text-gray-700 leading-relaxed mb-4">Banks frequently dangle $2,000 to $4,000 cashback offers to entice you to switch your mortgage to them. While receiving a lump sum of cash sounds great, it is critical to look past the marketing to the actual math.</p>
+                    <h4 class="font-serif text-xl text-brand-900 mt-6 mb-3">The Math behind the offer</h4>
+                    <p class="text-gray-700 leading-relaxed mb-4">Lenders know that most people will keep a mortgage for an average of 4 to 5 years before refinancing again. They build the cost of that cashback into the interest rate or the ongoing fees of the product.</p>
+                    <p class="text-gray-700 leading-relaxed mb-4">For example, if Bank A offers a rate of 6.00% with no cashback, and Bank B offers 6.15% with a $3,000 cashback. If your loan is $800,000, that 0.15% difference costs you an extra $1,200 a year in interest. By year three, Bank B is actually costing you more money than Bank A, completely wiping out the benefit of the upfront cash.</p>
+                    <h4 class="font-serif text-xl text-brand-900 mt-6 mb-3">When are they worth it?</h4>
+                    <p class="text-gray-700 leading-relaxed mb-4">Cashbacks are highly effective when you can secure a rate that is equal to or better than your current rate <strong>and</strong> the fees to switch (discharge fees, government registration fees) are lower than the cashback amount. In this scenario, you secure a lower repayment and get paid to make the switch.</p>
+                    <p class="text-gray-700 leading-relaxed mb-4">As brokers, we run a "net benefit calculation" over 3 to 5 years to show you exactly whether a cashback offer leaves you better or worse off over time.</p>
+                `
+            },
+            'debt-consolidation': {
+                tag: 'Refinancing',
+                title: 'The Right (and Wrong) Way to Consolidate Debt',
+                content: `
+                    <p class="text-gray-700 leading-relaxed mb-4">Rolling high-interest debts like credit cards, car loans, and personal loans into your home loan is one of the fastest ways to improve your monthly cash flow. Home loan rates are significantly lower than personal debt rates, often cutting repayments by hundreds or thousands of dollars a month.</p>
+                    <h4 class="font-serif text-xl text-brand-900 mt-6 mb-3">The Trap: Stretching short-term debt over 30 years</h4>
+                    <p class="text-gray-700 leading-relaxed mb-4">The danger of consolidation is the term of the loan. A $30,000 car loan at 9% paid off over 5 years costs you about $7,300 in interest. If you roll that $30,000 into a home loan at 6% and pay it off over 30 years, it will cost you over $34,000 in interest.</p>
+                    <p class="text-gray-700 leading-relaxed mb-4">You have turned a 5-year debt into a 30-year debt, paying for the car long after it has gone to the scrapyard.</p>
+                    <h4 class="font-serif text-xl text-brand-900 mt-6 mb-3">The Right Strategy</h4>
+                    <p class="text-gray-700 leading-relaxed mb-4">To consolidate debt correctly, you must isolate the consolidated amount. We typically set up a "split" in your home loan specifically for the $30,000 debt.</p>
+                    <p class="text-gray-700 leading-relaxed mb-4">Because your total monthly repayments have dropped significantly by consolidating, you take the "saved" money and voluntarily over-pay into that specific split. This ensures the car/personal debt is still cleared in 3 to 5 years, but at the much cheaper home loan interest rate.</p>
+                `
+            },
+            'asset-low-doc': {
+                tag: 'Asset Finance',
+                title: 'Asset Finance: When to use Low-Doc options',
+                content: `
+                    <p class="text-gray-700 leading-relaxed mb-4">For self-employed tradies, professionals, and business owners, gathering up-to-date tax returns and financials to buy a vehicle or piece of equipment can be a frustrating delay. Often, your financials from the previous year are still with the accountant.</p>
+                    <h4 class="font-serif text-xl text-brand-900 mt-6 mb-3">What is Low-Doc Asset Finance?</h4>
+                    <p class="text-gray-700 leading-relaxed mb-4">Many lenders offer "Low-Doc" (Low Documentation) or "No-Financials" policies for vehicles and equipment. Instead of asking for two years of company tax returns, the lender assesses the risk based on other factors.</p>
+                    <h4 class="font-serif text-xl text-brand-900 mt-6 mb-3">Common requirements for Low-Doc:</h4>
+                    <ul class="list-disc pl-5 space-y-3 text-gray-700 mb-6">
+                        <li><strong>ABN Age:</strong> Your ABN must generally be GST registered and active for a minimum period (often 12 to 24 months).</li>
+                        <li><strong>Property Ownership:</strong> Lenders are much more comfortable if the business owner or director is a property owner (even with a mortgage).</li>
+                        <li><strong>Clean Credit:</strong> A clean credit file with no defaults or late payments is essential.</li>
+                        <li><strong>Asset Type:</strong> The asset being purchased must be considered a standard, primary asset (like a dual-cab ute, a prime mover, or a standard excavator) rather than highly specialised, hard-to-sell machinery.</li>
+                    </ul>
+                    <p class="text-gray-700 leading-relaxed mb-4">Low-Doc loans allow you to secure approvals in 24 to 48 hours, letting you buy the asset and get it working in your business immediately. While rates can occasionally be marginally higher than fully-documented loans, the speed and convenience often outweigh the difference.</p>
+                `
             }
         };
+            'fhb-deposit': {
+            tag: 'Residential',
+            title: 'How Much Deposit Do You Actually Need for Your First Home?',
+            content: `
+                <p class="text-gray-700 leading-relaxed mb-4">The traditional advice has always been to save a 20% deposit. While this avoids Lenders Mortgage Insurance (LMI) and gives you immediate equity, the reality of modern property prices makes this a steep hurdle for many first home buyers.</p>
+                <h4 class="font-serif text-xl text-brand-900 mt-6 mb-3">The 20% Myth</h4>
+                <p class="text-gray-700 leading-relaxed mb-4">Saving 20% on a $700,000 property means putting away $140,000—plus stamp duty and conveyancing costs. In a rising market, the time it takes to save that extra 10% can sometimes mean you pay more for the property itself than you would have paid in LMI.</p>
+                <h4 class="font-serif text-xl text-brand-900 mt-6 mb-3">Options to buy sooner</h4>
+                <ul class="list-disc pl-5 space-y-3 text-gray-700 mb-6">
+                    <li><strong>Paying LMI (5-10% deposit):</strong> You can buy with as little as 5% genuine savings. The bank charges a one-off insurance fee (LMI) which is typically added to your loan balance.</li>
+                    <li><strong>Government Guarantee Schemes:</strong> The Home Guarantee Scheme allows eligible buyers to purchase with a 5% deposit without paying LMI. The government guarantees the remaining 15%. Places are limited and price caps apply.</li>
+                    <li><strong>Family Guarantee:</strong> If your parents own property, they can use a portion of their equity as security for your loan. This allows you to borrow 100% of the purchase price (plus costs) and avoid LMI completely.</li>
+                </ul>
+            </content
+        }
+    };
+
+        // Modal Logic
+        const modal = document.getElementById('article-modal');
+        const modalBody = document.getElementById('modal-body');
+        const modalClose = document.getElementById('modal-close');
 
         function openArticle(id) {
             const article = articles[id];
             if (!article) return;
 
-            const modalBody = document.getElementById('modal-body');
             modalBody.innerHTML = `
                 <span class="text-accent-500 font-bold uppercase tracking-widest text-xs mb-4 block">${article.tag}</span>
-                <h2 class=\"font-serif text-3xl md:text-4xl text-brand-900 mb-8 border-b border-gray-100 pb-6\">${article.title}</h2>
-                <div class=\"prose prose-gray max-w-none text-sm md:text-base">
+                <h2 class="font-serif text-3xl md:text-4xl text-brand-900 mb-8 border-b border-gray-100 pb-6">${article.title}</h2>
+                <div class="prose prose-gray max-w-none text-sm md:text-base">
                     ${article.content}
                 </div>
-                <div class=\"mt-12 pt-8 border-t border-gray-100 text-center\">\
-                    <p class=\"text-brand-900 font-serif text-xl mb-4\">Want to discuss how this applies to you?</p>
-                    <a href="/contact" class=\"inline-block bg-brand-900 text-white px-8 py-3 rounded-sm font-bold text-xs uppercase tracking-widest hover:bg-accent-500 transition shadow-lg\">Book a no-obligation chat</a>
+                <div class="mt-12 pt-8 border-t border-gray-100 text-center">
+                    <p class="text-brand-900 font-serif text-xl mb-4">Want to discuss how this applies to you?</p>
+                    <a href="/contact" class="inline-block bg-brand-900 text-white px-8 py-3 rounded-sm font-bold text-xs uppercase tracking-widest hover:bg-accent-500 transition shadow-lg">Book a no-obligation chat</a>
                 </div>
             `;
+            
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            document.body.classList.add('overflow-hidden'); // Stop background scrolling
         }
-
-        document.querySelectorAll('[data-open-article]').forEach(button => {
-            button.addEventListener('click', (e) => {
-                e.preventDefault();
-                const articleId = e.target.getAttribute('data-open-article');
-                openArticle(articleId);
-                modal.classList.remove('hidden');
-                modal.classList.add('flex');
-                document.body.classList.add('overflow-hidden'); // Stop background scrolling
-            });
-        });
 
         function closeModal() {
             modal.classList.add('hidden');
             modal.classList.remove('flex');
             document.body.classList.remove('overflow-hidden');
         }
+
+        // Attach click events to buttons inside cards
+        document.querySelectorAll('[data-open-article]').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const id = btn.getAttribute('data-open-article');
+                openArticle(id);
+            });
+        });
+
+        // Also allow clicking anywhere on the card to open
+        articleCards.forEach(card => {
+            card.addEventListener('click', (e) => {
+                const button = card.querySelector('[data-open-article]');
+                if (!button) return;
+                // Prevent double firing if they actually clicked the button
+                if ((e.target.closest('button') && e.target.closest('button').hasAttribute('data-open-article')) || e.target.closest('a')) {
+                    return;
+                }
+                const id = button.getAttribute('data-open-article');
+                openArticle(id);
+            });
+        });
+
+        // Close modal events
+        modalClose.addEventListener('click', closeModal);
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) closeModal();
+        });
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+                closeModal();
+            }
+        });
     </script>
 </body>
 </html>
