@@ -155,7 +155,7 @@ function initializeLeadPopup() {
     });
 
     // Trigger the popup after 35 seconds (35000 milliseconds)
-    setTimeout(showPopup, 35000);
+    setTimeout(showPopup, 3500);
 
     // Form Submission Logic (Linked directly to your Google Sheet)
     const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwDPIgyaybs2I1dRd7LVoj720JOuTaR-nBD0O5qVNKajZXsFLko8838eXf_9E8ItkA4lA/exec';
