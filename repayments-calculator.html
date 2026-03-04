@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-N01W5P5YVR"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-N01W5P5YVR');
+    </script>
+    
+    <title>Home Loan Repayment Calculator | Nest Capital Finance Melbourne</title>
+    <meta name="description" content="Estimate your home loan repayments and total interest with Nest Capital Finance's Melbourne repayment calculator.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://ncfinance.com.au/repayments-calculator">
+    <link rel="icon" type="image/jpeg" href="/img/favicon.jpg">
+
+    <meta property="og:title" content="Home Loan Repayment Calculator | Nest Capital Finance">
+    <meta property="og:description" content="Work out your weekly, fortnightly or monthly home loan repayments and total interest.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ncfinance.com.au/repayments-calculator">
+    <meta property="og:image" content="img/Logolink.jpg">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="js/tailwind-config.js"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+    /* Ensure calculator content is visible on this single-calculator page */
+    .calc-content { display: block; }
+
+    @media print {
+        * {
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+        }
+
+        header, footer, .floating-cta, 
+        section:not(.pb-24), 
+        .no-pdf { 
+            display: none !important; 
+        }
+
+        body, html { margin: 0 !important; padding: 0 !important; background: white !important; }
+        .pb-24 { padding: 0 !important; margin: 0 !important; }
+
+        #calculator-wrapper {
+            width: 100% !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            border: none !important;
+            box-shadow: none !important;
+        }
+
+        #calculator-wrapper .grid { 
+            display: grid !important; 
+            grid-template-columns: 1fr 1fr !important; 
+            gap: 2rem !important; 
+        }
+
+        #pdf-header { 
+            display: flex !important; 
+            margin-bottom: 2rem !important; 
+            padding-bottom: 1rem !important;
+            border-bottom: 1px solid #e5e7eb !important;
+        }
+
+        #pdf-footer {
+            display: block !important;
+            page-break-before: always !important;
+            break-before: page !important;
+            padding-top: 1rem !important;
+        }
+
+        @page {
+            margin: 0.4in;
+            size: A4 landscape;
+        }
+    }
+    </style>
+</head>
+<body class="bg-brand-50 text-gray-800 antialiased overflow-x-hidden">
+
+    <a href="/contact" class="floating-cta bg-accent-500 text-white px-6 py-4 rounded-full font-bold uppercase tracking-widest text-xs flex items-center gap-2 hover:bg-accent-400">
+        <i data-lucide="calendar" class="w-4 h-4"></i>
+        <span class="hidden md:inline">Book CONSULTATION</span>
+        <span class="md:hidden">Book Now</span>
+    </a>
+
+    <header id="navbar" class="fixed w-full top-0 z-50 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-24">
+                <a href="index.html" class="flex items-center gap-3 group" aria-label="Nest Capital Finance Home">
+                    <img src="img/logo.png" alt="Nest Capital Finance Logo" width="327" height="112" class="h-16 w-auto transition-transform duration-500 group-hover:scale-105">
+                </a>
+
+                <nav class="hidden md:flex space-x-10 items-center">
+                    <a href="index.html" class="nav-link text-white font-medium text-sm uppercase tracking-widest relative">Home</a>
+                    <a href="/services" class="nav-link text-white font-medium text-sm uppercase tracking-widest relative">Services</a>
+                    <a href="/resources" class="nav-link text-white font-medium text-sm uppercase tracking-widest relative">Resources</a>
+                    <a href="/about" class="nav-link text-white font-medium text-sm uppercase tracking-widest relative">About</a>
+                    <a href="/contact" class="nav-link text-white font-medium text-sm uppercase tracking-widest relative">Contact</a>
+                    <a href="/contact" class="bg-white text-brand-900 px-8 py-3 rounded-sm font-medium text-xs uppercase tracking-widest hover:bg-gray-100 transition-colors duration-300 shadow-lg">
+                        Book Consultation
+                    </a>
+                </nav>
+
+                <button id="mobile-menu-btn" class="md:hidden text-white focus:outline-none" aria-label="Open Menu">
+                    <i data-lucide="menu" class="w-8 h-8"></i>
+                </button>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="fixed inset-0 bg-brand-900 z-50 transform translate-x-full transition-transform duration-300 flex flex-col justify-center items-center space-y-8">
+            <button id="close-menu-btn" class="absolute top-8 right-8 text-white" aria-label="Close Menu">
+                <i data-lucide="x" class="w-8 h-8"></i>
+            </button>
+            <a href="index.html" class="text-3xl font-serif text-white hover:text-accent-400 transition">Home</a>
+            <a href="/services" class="text-3xl font-serif text-white hover:text-accent-400 transition">Services</a>
+            <a href="/resources" class="text-3xl font-serif text-white hover:text-accent-400 transition">Resources</a>
+            <a href="/lenders" class="text-3xl font-serif text-white hover:text-accent-400 transition">Lenders</a>
+            <a href="/about" class="text-3xl font-serif text-white hover:text-accent-400 transition">About</a>
+            <a href="/contact" class="text-3xl font-serif text-white hover:text-accent-400 transition">Contact</a>
+        </div>
+    </header>
+
+    <main id="content-wrapper">
+
+        <section class="bg-brand-50 pt-40 pb-16">
+            <div class="max-w-7xl mx-auto px-4">
+                <a href="/calculators" class="mb-8 inline-flex text-sm uppercase tracking-widest text-brand-600 hover:text-accent-500 transition items-center gap-2 reveal">
+                    <i data-lucide="arrow-left" class="w-4 h-4"></i>
+                    Back to Calculators
+                </a>
+                <div class="text-center reveal stagger-delay-1">
+                    <span class="text-accent-400 font-bold uppercase tracking-widest text-xs mb-4 block">
+                        Repayment Calculator
+                    </span>
+                    <h1 class="font-serif text-4xl md:text-5xl text-brand-900 mb-6">Estimate your home loan repayments.</h1>
+                    <p class="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
+                        Adjust the loan amount, term and interest rate to see how your repayments and total loan cost change over time.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="pb-24 px-4">
+            <div class="max-w-6xl mx-auto flex justify-end mb-4 reveal stagger-delay-2 no-pdf">
+                <button onclick="downloadPDF()" class="flex items-center gap-2 px-5 py-2.5 bg-brand-900 text-white rounded-sm font-bold uppercase tracking-widest text-xs hover:bg-accent-500 transition shadow-md">
+                    <i data-lucide="download" class="w-4 h-4"></i> <span>Download Estimate as PDF</span>
+                </button>
+            </div>
+
+            <div id="calculator-wrapper" class="max-w-6xl mx-auto bg-white rounded-sm shadow-xl overflow-hidden border border-gray-200 reveal stagger-delay-2 relative">
+
+                <div id="pdf-header" class="hidden justify-between items-center bg-white px-8 pt-8">
+                    <img src="img/logo.png" alt="Nest Capital Finance" style="height: 50px; width: auto; filter: invert(1);">
+                    <div class="text-right">
+                        <p class="font-serif text-xl font-bold text-brand-900" style="color: #1a202c;">Nest Capital Finance</p>
+                        <p class="text-sm text-gray-600">Melbourne, VIC | 1300 385 222</p>
+                        <p class="text-xs text-gray-400 mt-1" id="pdf-date"></p>
+                    </div>
+                </div>
+
+                <div class="p-8 md:p-12 calc-content">
+                    <div class="grid md:grid-cols-2 gap-12">
+                        <div class="space-y-6">
+                            <div class="flex justify-between items-center">
+                                <h2 class="font-serif text-2xl text-brand-900">Loan Details</h2>
+                                <button onclick="clearInputs()" class="no-pdf text-xs uppercase tracking-widest text-gray-400 hover:text-brand-900 transition border border-gray-200 px-3 py-1 rounded-sm">Clear Form</button>
+                            </div>
+                            <div class="input-group">
+                                <label class="block text-xs uppercase font-bold text-gray-500 mb-2">Loan Amount</label>
+                                <div class="relative">
+                                    <span class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500">$</span>
+                                    <input type="number" id="r-amount" value="600000" class="w-full border border-gray-300 py-3 pl-8 pr-4 rounded-sm focus:outline-none">
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-2 gap-4">
+                                <div class="input-group">
+                                    <label class="block text-xs uppercase font-bold text-gray-500 mb-2">Interest Rate</label>
+                                    <div class="relative">
+                                        <input type="number" id="r-rate" value="6.24" step="0.01" class="w-full border border-gray-300 py-3 px-4 rounded-sm focus:outline-none">
+                                        <span class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500">%</span>
+                                    </div>
+                                </div>
+                                <div class="input-group">
+                                    <label class="block text-xs uppercase font-bold text-gray-500 mb-2">Loan Term</label>
+                                    <div class="relative">
+                                        <input type="number" id="r-term" value="30" class="w-full border border-gray-300 py-3 px-4 rounded-sm focus:outline-none">
+                                        <span class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500">Yrs</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="input-group">
+                                <label class="block text-xs uppercase font-bold text-gray-500 mb-2">Repayment Frequency</label>
+                                <select id="r-freq" class="w-full border border-gray-300 py-3 px-4 rounded-sm focus:outline-none bg-white">
+                                    <option value="12">Monthly</option>
+                                    <option value="26">Fortnightly</option>
+                                    <option value="52">Weekly</option>
+                                </select>
+                            </div>
+                            <button onclick="openCalcLeadModal()" class="no-pdf w-full bg-brand-900 text-white py-4 font-bold uppercase tracking-widest text-xs hover:bg-accent-50 transition shadow-lg">Calculate</button>
+                        </div>
+                        
+                        <div class="bg-brand-50 p-8 rounded-sm flex flex-col justify-center items-center text-center border border-brand-100">
+                            <p class="text-sm uppercase tracking-widest text-gray-500 mb-2">Estimated Repayment</p>
+                            <div class="text-5xl font-serif text-brand-900 mb-2 font-medium" id="r-result">$3,691</div>
+                            <p class="text-gray-500 text-sm font-bold uppercase tracking-widest" id="r-result-label">Per Month</p>
+                            <div class="mt-8 w-full border-t border-gray-200 pt-6">
+                                <div class="flex justify-between mb-2 text-sm">
+                                    <span class="text-gray-500">Total Interest Payable:</span>
+                                    <span class="font-bold text-brand-900" id="r-total-interest">$728,692</span>
+                                </div>
+                                <div class="flex justify-between text-sm">
+                                    <span class="text-gray-500">Total Cost of Loan:</span>
+                                    <span class="font-bold text-brand-900" id="r-total-cost">$1,328,692</span>
+                                </div>
+                                <div class="mt-8 no-pdf">
+                                    <a href="/contact" class="inline-block w-full border border-brand-200 bg-white text-brand-900 px-4 py-3 rounded-sm font-bold uppercase tracking-widest text-xs hover:bg-brand-50 hover:border-brand-300 transition shadow-sm">
+                                        Check Your Eligibility
+                                    </a>
+                                </div>
+                                <div class="mt-6 bg-yellow-50 border border-yellow-200 text-gray-700 text-xs p-4 rounded-sm leading-relaxed text-center w-full">
+                                    <span class="font-bold text-gray-900">Disclaimer:</span> Results are estimates only. Do not constitute financial advice, loan offer or guarantee of approval. Actual rates and terms vary by lender and individual circumstances. Consult our licensed representatives.
+                                </div>
+                            </div>
+                        </div>
+                    </div> 
+                </div>
+
+                <div id="pdf-footer" class="hidden px-8 pb-8 pt-4">
+                    <div class="border-t border-gray-200 pt-6 flex justify-between items-start mb-4">
+                        <div>
+                            <h4 class="font-bold text-brand-900 mb-1">Nest Capital Finance</h4>
+                            <p class="text-xs text-gray-600 leading-relaxed">
+                                <span class="font-semibold">Phone:</span> 1300 385 222<br>
+                                <span class="font-semibold">Email:</span> info@ncfinance.com.au<br>
+                                <span class="font-semibold">Location:</span> Melbourne, VIC
+                            </p>
+                        </div>
+                        <div class="text-right">
+                            <p class="text-xs text-gray-600 leading-relaxed">
+                                <span class="font-semibold text-brand-900">Follow Us:</span><br>
+                                Instagram: @nestcapitalfinance<br>
+                                LinkedIn: Nest Capital Finance
+                            </p>
+                        </div>
+                    </div>
+                    <p class="text-[10px] text-gray-400 leading-relaxed text-justify">
+                        <strong>Disclaimer:</strong> This estimate provides general information only and has been prepared without taking into account your individual objectives, financial situation or needs. We recommend that you consider whether it is appropriate for your circumstances. Your full financial situation will need to be reviewed prior to acceptance of any offer or product. Subject to lender's terms and conditions, fees and charges and eligibility criteria apply. Nest Capital Finance Pty Ltd. ACN 691 621 191 | ABN 20 691 621 191 | Credit Representative 574020 is authorised under Australian Credit Licence 389328. | AFCA Member 118936.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="py-24 bg-white border-t border-gray-100">
+            <div class="max-w-7xl mx-auto px-4">
+                <div class="text-center mb-16 reveal">
+                    <span class="text-accent-400 font-bold uppercase tracking-widest text-xs mb-4 block">
+                        Making sense of your repayments
+                    </span>
+                    <h2 class="font-serif text-3xl md:text-4xl text-brand-900 mb-4">
+                        How to interpret your home loan repayment estimate
+                    </h2>
+                    <p class="text-gray-600 max-w-3xl mx-auto">
+                        The repayment estimate on this page is a general illustration only. It can help you understand how loan amount, interest rate and term interact, but it does not take into account your full financial situation, lender fees or policy differences.
+                    </p>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-12">
+                    <div class="reveal transition-all duration-500 hover:-translate-y-1">
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="w-10 h-10 bg-brand-50 rounded-full flex items-center justify-center border border-brand-100">
+                                <i data-lucide="calendar" class="w-5 h-5 text-brand-900"></i>
+                            </div>
+                            <h3 class="font-serif text-xl text-brand-900">Repayments over time</h3>
+                        </div>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                            Principal-and-interest repayments are typically calculated on a 25–30 year term. Early in the loan, a larger portion of each repayment goes towards interest rather than principal. As the loan balance reduces, the interest component falls and more of each repayment pays down the amount you owe.
+                        </p>
+                        <p class="text-[11px] text-gray-500">
+                            This calculator uses a standard amortisation approach and assumes the interest rate stays the same for the full term, which is unlikely in practice.
+                        </p>
+                    </div>
+
+                    <div class="reveal stagger-delay-1 transition-all duration-500 hover:-translate-y-1">
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="w-10 h-10 bg-brand-50 rounded-full flex items-center justify-center border border-brand-100">
+                                <i data-lucide="alert-triangle" class="w-5 h-5 text-brand-900"></i>
+                            </div>
+                            <h3 class="font-serif text-xl text-brand-900">Limits of online estimates</h3>
+                        </div>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                            The figures shown do not include lender fees, government charges, different repayment types (such as interest-only) or changes in interest rates. They also don’t confirm your ability to obtain credit, which is assessed under responsible lending and other regulatory obligations.
+                        </p>
+                        <p class="text-[11px] text-gray-500">
+                            This information is general in nature and is not financial product advice, tax advice or a recommendation to apply for any credit product. You should consider obtaining independent advice that is tailored to your circumstances.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-24 bg-white border-t border-gray-100">
+            <div class="max-w-7xl mx-auto px-4 text-center">
+                <h2 class="font-serif text-3xl md:text-4xl text-brand-900 mb-4">
+                    Want a clearer view of your options?
+                </h2>
+                <p class="text-gray-600 max-w-2xl mx-auto mb-8">
+                    An online repayment estimate is a great start, but the right structure and lender can make a big difference to your long‑term outcome.
+                </p>
+                <a href="/contact" class="inline-flex items-center justify-center bg-brand-900 text-white px-10 py-4 rounded-sm font-bold text-xs uppercase tracking-widest hover:bg-accent-500 transition shadow-lg">
+                    Book a repayment strategy chat
+                </a>
+            </div>
+        </section>
+
+        <section class="bg-brand-900 text-white py-24 reveal">
+            <div class="max-w-4xl mx-auto px-4 text-center">
+                <h2 class="font-serif text-4xl md:text-5xl mb-6">Need an accurate assessment?</h2>
+                <p class="text-lg text-gray-200 mb-10 max-w-2xl mx-auto">
+                    Online calculators are a useful reference point, but every lender has different policies. Book a free consultation and we'll run your exact numbers across our panel of over 60 lenders.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-6 justify-center">
+                    <a href="/contact" class="bg-white text-brand-900 px-10 py-4 rounded-sm font-bold uppercase tracking-widest text-xs hover:bg-accent-50 hover:text-brand-900 transition shadow-xl">Book CONSULTATION</a>
+                    <a href="tel:1300385222" class="border border-white/30 text-white px-10 py-4 rounded-sm font-bold uppercase tracking-widest text-xs hover:bg-white/10 transition backdrop-blur-sm flex items-center justify-center gap-2">
+                        <i data-lucide="phone" class="w-4 h-4"></i> 1300 385 222
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Lead capture modal for calculator -->
+    <div id="calc-lead-modal" class="fixed inset-0 bg-black/60 z-50 flex items-center justify-center px-4 hidden">
+        <div class="bg-white max-w-md w-full rounded-sm shadow-2xl p-6 relative">
+            <button type="button" onclick="closeCalcLeadModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-700">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+            <h2 class="font-serif text-2xl text-brand-900 mb-2">Get your repayment estimate</h2>
+            <p class="text-sm text-gray-600 mb-4">
+                Share a few details so we can better understand who is using this tool. We’ll only contact you if you ask us to.
+            </p>
+            <form id="calc-lead-form" class="space-y-4">
+                <div>
+                    <label class="block text-xs uppercase font-bold text-gray-700 mb-2 tracking-wider">Full Name *</label>
+                    <input type="text" name="name" required class="w-full border border-gray-300 py-2.5 px-3 rounded-sm focus:outline-none focus:border-brand-900 transition bg-white">
+                </div>
+                <div class="grid md:grid-cols-2 gap-3">
+                    <div>
+                        <label class="block text-xs uppercase font-bold text-gray-700 mb-2 tracking-wider">Email *</label>
+                        <input type="email" name="email" required class="w-full border border-gray-300 py-2.5 px-3 rounded-sm focus:outline-none focus:border-brand-900 transition bg-white">
+                    </div>
+                    <div>
+                        <label class="block text-xs uppercase font-bold text-gray-700 mb-2 tracking-wider">Phone *</label>
+                        <input type="tel" name="phone" required class="w-full border border-gray-300 py-2.5 px-3 rounded-sm focus:outline-none focus:border-brand-900 transition bg-white">
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-xs uppercase font-bold text-gray-700 mb-2 tracking-wider">I’m mainly interested in</label>
+                    <select name="interest" class="w-full border border-gray-300 py-2.5 px-3 rounded-sm focus:outline-none focus:border-brand-900 transition bg-white">
+                        <option value="repayment-calculator" selected>Home loan repayment estimate</option>
+                        <option value="first-home">Buying my first home</option>
+                        <option value="upgrade">Upgrading or downsizing</option>
+                        <option value="investment">Investment property</option>
+                        <option value="refinance">Refinancing</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="flex items-start gap-2">
+                    <input type="checkbox" id="calc-consent" name="consent" class="mt-1 border-gray-300" required>
+                    <label for="calc-consent" class="text-[11px] text-gray-600 leading-relaxed">
+                        I understand this calculator provides general information only and does not constitute credit approval, financial product advice or a personalised recommendation.
+                        I agree that my details may be used to contact me about my enquiry in line with the <a href="/privacy-policy" class="underline">Privacy Policy</a>.
+                    </label>
+                </div>
+                <div id="calc-lead-message" class="hidden text-xs mt-1"></div>
+                <button type="submit" class="w-full bg-brand-900 text-white py-3 rounded-sm font-bold text-xs uppercase tracking-widest hover:bg-accent-500 transition-colors duration-300 shadow-lg">
+                    Submit &amp; show estimate
+                </button>
+                <p class="text-[10px] text-gray-500 mt-2">
+                    We do not lodge any credit applications from this form. Any future application is subject to lender assessment, eligibility criteria and your full financial situation.
+                </p>
+            </form>
+        </div>
+    </div>
+
+    <footer class="bg-brand-900 text-white pt-16 pb-8 border-t border-white/10 text-sm">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-12 mb-12">
+                <div class="col-span-1">
+                    <img src="img/logo.png" alt="Nest Capital Finance" width="327" height="112" class="h-14 w-auto mb-6 brightness-0 invert opacity-90">
+                    <p class="text-gray-300 mb-6 leading-relaxed">
+                        Providing clarity and confidence for your property journey. Your trusted partner in finance.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="#" class="bg-white/10 p-2 rounded-full hover:bg-accent-500 transition"><i data-lucide="facebook" class="w-5 h-5"></i></a>
+                        <a href="https://www.linkedin.com/company/nest-capital-finance" class="bg-white/10 p-2 rounded-full hover:bg-accent-500 transition"><i data-lucide="linkedin" class="w-5 h-5"></i></a>
+                        <a href="https://www.instagram.com/nestcapitalfinance" class="bg-white/10 p-2 rounded-full hover:bg-accent-500 transition"><i data-lucide="instagram" class="w-5 h-5"></i></a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-lg mb-6 text-white border-b border-white/20 pb-2 inline-block">Services</h4>
+                    <ul class="space-y-3">
+                        <li><a href="/residential-lending" class="text-base font-medium text-white/70 hover:text-accent-400 transition-colors duration-300">Home Loans</a></li>
+                        <li><a href="/investment-property" class="text-base font-medium text-white/70 hover:text-accent-400 transition-colors duration-300">Investment Loans</a></li>
+                        <li><a href="/commercial-finance" class="text-base font-medium text-white/70 hover:text-accent-400 transition-colors duration-300">Commercial Finance</a></li>
+                        <li><a href="/smsf-lending" class="text-base font-medium text-white/70 hover:text-accent-400 transition-colors duration-300">SMSF Lending</a></li>
+                        <li><a href="/refinancing" class="text-base font-medium text-white/70 hover:text-accent-400 transition-colors duration-300">Refinancing</a></li>
+                        <li><a href="/asset-finance" class="text-base font-medium text-white/70 hover:text-accent-400 transition-colors duration-300">Asset Finance</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-lg mb-6 text-white border-b border-white/20 pb-2 inline-block">Company</h4>
+                    <ul class="space-y-3">
+                        <li><a href="/about" class="text-base font-medium text-white/70 hover:text-accent-400 transition-colors duration-300">About Us</a></li>
+                        <li><a href="/resources" class="text-base font-medium text-white/70 hover:text-accent-400 transition-colors duration-300">Resources</a></li>
+                        <li><a href="/faq" class="text-base font-medium text-white/70 hover:text-accent-400 transition-colors duration-300">FAQs</a></li>
+                        <li><a href="/contact" class="text-base font-medium text-white/70 hover:text-accent-400 transition-colors duration-300">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-lg mb-6 text-white border-b border-white/20 pb-2 inline-block">Contact</h4>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i data-lucide="phone" class="w-5 h-5 text-accent-400 mr-3 mt-0.5"></i>
+                            <a href="tel:1300385222" class="text-base font-medium text-white/70 hover:text-accent-400 transition-colors duration-300">
+                                1300 385 222
+                            </a>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-lucide="mail" class="w-5 h-5 text-accent-400 mr-3 mt-0.5"></i>
+                            <a href="mailto:info@ncfinance.com.au" class="text-base font-medium text-white/70 hover:text-accent-400 transition-colors duration-300">
+                                info@ncfinance.com.au
+                            </a>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-lucide="map-pin" class="w-5 h-5 text-accent-400 mr-3 mt-0.5"></i>
+                            <span class="text-base font-medium text-white/70">
+                                Melbourne, VIC<br>Servicing CBD, Inner North &amp; Eastern Suburbs
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-white/20 pt-8 flex flex-col items-start gap-2">
+                <p class="text-white/50 text-xs">&copy; 2026 Nest Capital Finance Pty Ltd. ACN 691 621 191 | ABN 20 691 621 191 | Credit Representative 574020 is authorised under Australian Credit Licence 389328. | AFCA Member 118936</p>
+                <div class="flex gap-4 text-xs mt-1">
+                    <a href="/privacy-policy" class="text-white/50 hover:text-accent-400 transition">Privacy Policy</a>
+                    <span class="text-white/50">|</span>
+                    <a href="/feedback-complaints" class="text-white/50 hover:text-accent-400 transition">Feedback & Complaints</a>
+                    <span class="text-white/50">|</span>
+                    <a href="/terms-conditions" class="text-white/50 hover:text-accent-400 transition">Terms &amp; Conditions</a>
+                </div>
+                <p class="text-white/40 text-xs mt-3 max-w-4xl">Disclaimer: This page provides general information only and has been prepared without taking into account your objectives, financial situation or needs. We recommend that you consider whether it is appropriate for your circumstances. Your full financial situation will need to be reviewed prior to acceptance of any offer or product. Subject to lender's terms and conditions, fees and charges and eligibility criteria apply.</p>
+                <p class="text-white/40 text-xs mt-3 max-w-4xl">Comparison Rate Warning: The comparison rate applies only to the example given and may not include all fees and charges. Different terms, amounts or repayment frequencies may result in a different comparison rate.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+
+    <script>
+        let isCalculated = true; 
+        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwDPIgyaybs2I1dRd7LVoj720JOuTaR-nBD0O5qVNKajZXsFLko8838eXf_9E8ItkA4lA/exec';
+
+        function downloadPDF() {
+            if (!isCalculated) {
+                alert("Please click the 'Calculate' button to update your results before trying to download the PDF report.");
+                return;
+            }
+
+            const dateStr = new Date().toLocaleDateString('en-AU', { year: 'numeric', month: 'long', day: 'numeric' });
+            const dateElement = document.getElementById('pdf-date');
+            if(dateElement) dateElement.innerText = "Estimate generated on: " + dateStr;
+
+            window.print();
+        }
+
+        function clearInputs() {
+            const container = document.querySelector('.calc-content');
+            if (!container) return;
+            const inputs = container.querySelectorAll('input, select');
+            inputs.forEach(input => {
+                if(input.type === 'checkbox') input.checked = false;
+                else if(input.type === 'number') input.value = '';
+                else input.value = input.options ? input.options[0].value : '';
+            });
+            calcRepaymentDetail();
+        }
+
+        function calcRepaymentDetail() {
+            const amountEl = document.getElementById('r-amount');
+            const rateEl = document.getElementById('r-rate');
+            const termEl = document.getElementById('r-term');
+            const freqEl = document.getElementById('r-freq');
+
+            if (!amountEl || !rateEl || !termEl || !freqEl) return;
+
+            const amount = parseFloat(amountEl.value) || 0;
+            const rate = parseFloat(rateEl.value) || 0;
+            const term = parseFloat(termEl.value) || 30;
+            const freq = parseInt(freqEl.value);
+
+            if (amount > 0 && rate > 0 && term > 0) {
+                const annualRate = rate / 100;
+                const numPayments = term * freq;
+                const ratePerPeriod = annualRate / freq;
+                const payment = amount * (ratePerPeriod * Math.pow(1 + ratePerPeriod, numPayments)) / (Math.pow(1 + ratePerPeriod, numPayments) - 1);
+                
+                document.getElementById('r-result').innerText = '$' + Math.round(payment).toLocaleString('en-AU');
+                document.getElementById('r-total-interest').innerText = '$' + Math.round((payment * numPayments) - amount).toLocaleString('en-AU');
+                document.getElementById('r-total-cost').innerText = '$' + Math.round(payment * numPayments).toLocaleString('en-AU');
+                
+                let label = "Per Month";
+                if(freq === 26) label = "Per Fortnight";
+                if(freq === 52) label = "Per Week";
+                document.getElementById('r-result-label').innerText = label;
+            } else {
+                document.getElementById('r-result').innerText = '$0';
+                document.getElementById('r-total-interest').innerText = '$0';
+                document.getElementById('r-total-cost').innerText = '$0';
+            }
+            isCalculated = true;
+        }
+
+        async function handleCalcLeadSubmit(e) {
+            e.preventDefault();
+
+            const form = e.target;
+            const submitBtn = form.querySelector('button[type="submit"]');
+            const messageDiv = document.getElementById('calc-lead-message');
+
+            const formData = {
+                name: form.name.value,
+                phone: form.phone.value,
+                email: form.email.value,
+                interest: form.interest.value || 'repayment-calculator',
+                message: 'Repayment calculator enquiry from website'
+            };
+
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Submitting...';
+            submitBtn.classList.add('opacity-50', 'cursor-not-allowed');
+            messageDiv.classList.remove('hidden');
+            messageDiv.textContent = '';
+
+            try {
+                await fetch(SCRIPT_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(formData)
+                });
+
+                if(typeof gtag === 'function') {
+                    gtag('event', 'generate_lead', { 'event_category': 'calculator', 'event_label': 'repayment-calculator' });
+                }
+
+                messageDiv.textContent = 'Thank you – your details have been received.';
+                messageDiv.classList.add('text-green-700');
+
+                // Close modal and show updated estimate
+                setTimeout(() => {
+                    closeCalcLeadModal();
+                    calcRepaymentDetail();
+                }, 300);
+            } catch (error) {
+                messageDiv.textContent = 'Something went wrong. Please try again or contact us directly.';
+                messageDiv.classList.add('text-red-700');
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Submit & show estimate';
+                submitBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+            }
+        }
+
+        function openCalcLeadModal() {
+            const modal = document.getElementById('calc-lead-modal');
+            if (!modal) {
+                // Fallback: if modal missing, just run the calculator
+                calcRepaymentDetail();
+                return;
+            }
+            modal.classList.remove('hidden');
+        }
+
+        function closeCalcLeadModal() {
+            const modal = document.getElementById('calc-lead-modal');
+            if (modal) modal.classList.add('hidden');
+        }
+
+        window.addEventListener('load', () => {
+            calcRepaymentDetail();
+
+            const inputs = document.querySelectorAll('.calc-content input, .calc-content select');
+            inputs.forEach(input => {
+                input.addEventListener('change', () => { isCalculated = false; });
+                input.addEventListener('keyup', () => { isCalculated = false; });
+            });
+
+            const calcLeadForm = document.getElementById('calc-lead-form');
+            if (calcLeadForm) {
+                calcLeadForm.addEventListener('submit', handleCalcLeadSubmit);
+            }
+
+            if(typeof lucide !== 'undefined') lucide.createIcons();
+        });
+    </script>
+</body>
+</html>
+
