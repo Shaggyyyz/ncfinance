@@ -753,20 +753,6 @@
             }
         }
 
-        function openCalcLeadModal() {
-            const modal = document.getElementById('calc-lead-modal');
-            if (!modal) {
-                calcStampDuty();
-                return;
-            }
-            modal.classList.remove('hidden');
-        }
-
-        function closeCalcLeadModal() {
-            const modal = document.getElementById('calc-lead-modal');
-            if (modal) modal.classList.add('hidden');
-        }
-
         window.addEventListener('load', () => {
             calcStampDuty();
             updateGovLink();
