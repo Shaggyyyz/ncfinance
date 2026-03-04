@@ -60,3 +60,47 @@ window.onload = function() {
         });
     }
 };
+
+// =====================================================
+// Lead Popup: Once-per-user logic + Blur Overlay
+// =====================================================
+
+/**
+ * Call this after every Calculate click.
+ * Shows the lead popup only the FIRST time across all calculators.
+ * After the user submits their details, localStorage is set and
+ * they will never see the popup again on any calculator on this domain.
+ */
+function openCalcLeadModal() {
+    const POPUP_KEY = 'nc_lead_popup_shown';
+    const modal = document.getElementById('calc-lead-modal');
+    if (!modal) return;
+
+    // Already submitted details — skip the popup entirely
+    if (localStorage.getItem(POPUP_KEY) === '1') return;
+
+    // Show overlay + popup
+    let overlay = document.getElementById('calc-lead-overlay');
+    if (!overlay) {
+        overlay = document.createElement('div');
+        overlay.id = 'calc-lead-overlay';
+        overlay.className = 'calc-lead-overlay';
+        document.body.appendChild(overlay);
+    }
+    overlay.style.display = 'block';
+    modal.classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeCalcLeadModal() {
+    const modal = document.getElementById('calc-lead-modal');
+    const overlay = document.getElementById('calc-lead-overlay');
+    if (modal) modal.classList.add('hidden');
+    if (overlay) overlay.style.display = 'none';
+    document.body.style.overflow = '';
+}
+
+// Mark popup as shown (called by each calculator's submit handler after success)
+function markLeadPopupShown() {
+    localStorage.setItem('nc_lead_popup_shown', '1');
+}
