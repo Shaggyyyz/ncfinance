@@ -355,8 +355,8 @@
     </main>
 
     <!-- Lead capture modal for calculator -->
-    <div id="calc-lead-modal" class="fixed inset-0 bg-black/60 z-50 flex items-center justify-center px-4 hidden">
-        <div class="bg-white max-w-md w-full rounded-sm shadow-2xl p-6 relative">
+    <div id="calc-lead-modal" class="hidden">
+        <div class="calc-lead-modal-inner">
             <button type="button" onclick="closeCalcLeadModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-700">
                 <i data-lucide="x" class="w-5 h-5"></i>
             </button>
@@ -730,7 +730,7 @@
                 }
 
                 messageDiv.textContent = 'Thank you – your details have been received.';
-                messageDiv.classList.add('text-green-700');
+                messageDiv.classList.add('text-green-700');                     markLeadPopupShown();
 
                 setTimeout(() => {
                     closeCalcLeadModal();
@@ -746,24 +746,6 @@
             }
         }
 
-        function openCalcLeadModal() {
-            const modal = document.getElementById('calc-lead-modal');
-            if (!modal) {
-                calcOffset();
-                return;
-            }
-            modal.classList.remove('hidden');
-        }
-
-        function closeCalcLeadModal() {
-            const modal = document.getElementById('calc-lead-modal');
-            if (modal) modal.classList.add('hidden');
-        }
-
-        window.addEventListener('load', () => {
-            calcOffset();
-
-            const inputs = document.querySelectorAll('.calc-content input, .calc-content select');
             inputs.forEach(input => {
                 input.addEventListener('change', () => { isCalculated = false; });
                 input.addEventListener('keyup', () => { isCalculated = false; });
